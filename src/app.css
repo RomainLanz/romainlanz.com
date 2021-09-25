@@ -1,0 +1,98 @@
+@font-face {
+	font-family: 'Quicksand';
+	src: url('./assets/fonts/Quicksand-Medium.woff2') format('woff2'),
+		url('./assets/fonts/Quicksand-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Quicksand';
+	src: url('./assets/fonts/Quicksand-Light.woff2') format('woff2'),
+		url('./assets/fonts/Quicksand-Light.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Quicksand';
+	src: url('./assets/fonts/Quicksand-Regular.woff2') format('woff2'),
+		url('./assets/fonts/Quicksand-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'MonoLisa';
+	src: url('./assets/fonts/MonoLisa-Medium.woff2') format('woff2'),
+		url('./assets/fonts/MonoLisa-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'MonoLisa';
+	src: url('./assets/fonts/MonoLisa-Regular.woff2') format('woff2'),
+		url('./assets/fonts/MonoLisa-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'MonoLisa';
+	src: url('./assets/fonts/MonoLisa-MediumItalic.woff2') format('woff2'),
+		url('./assets/fonts/MonoLisa-MediumItalic.woff') format('woff');
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'MonoLisa';
+	src: url('./assets/fonts/MonoLisa-RegularItalic.woff2') format('woff2'),
+		url('./assets/fonts/MonoLisa-RegularItalic.woff') format('woff');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+:root {
+	--font-weight-bold: 500;
+	--font-weight-medium: 400;
+	--font-weight-light: 300;
+
+	--font-family: 'Quicksand', -apple-system, 'Segoe UI', sans-serif;
+	--font-family-mono: 'MonoLisa', monospace;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	line-height: 1.45;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: auto;
+}
+
+#app {
+	isolation: isolate;
+}
+
+body,
+input,
+button,
+select,
+option {
+	font-family: var(--font-family);
+	font-weight: var(--font-weight-medium);
+}
+
+pre,
+code {
+	font-family: var(--font-family-mono);
+}
