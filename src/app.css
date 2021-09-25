@@ -1,7 +1,7 @@
 @font-face {
 	font-family: 'Quicksand';
-	src: url('./assets/fonts/Quicksand-Medium.woff2') format('woff2'),
-		url('./assets/fonts/Quicksand-Medium.woff') format('woff');
+	src: url('$lib/assets/fonts/Quicksand-Medium.woff2') format('woff2'),
+		url('$lib/assets/fonts/Quicksand-Medium.woff') format('woff');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
@@ -9,8 +9,8 @@
 
 @font-face {
 	font-family: 'Quicksand';
-	src: url('./assets/fonts/Quicksand-Light.woff2') format('woff2'),
-		url('./assets/fonts/Quicksand-Light.woff') format('woff');
+	src: url('$lib/assets/fonts/Quicksand-Light.woff2') format('woff2'),
+		url('$lib/assets/fonts/Quicksand-Light.woff') format('woff');
 	font-weight: 300;
 	font-style: normal;
 	font-display: swap;
@@ -18,8 +18,8 @@
 
 @font-face {
 	font-family: 'Quicksand';
-	src: url('./assets/fonts/Quicksand-Regular.woff2') format('woff2'),
-		url('./assets/fonts/Quicksand-Regular.woff') format('woff');
+	src: url('$lib/assets/fonts/Quicksand-Regular.woff2') format('woff2'),
+		url('$lib/assets/fonts/Quicksand-Regular.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -27,8 +27,8 @@
 
 @font-face {
 	font-family: 'MonoLisa';
-	src: url('./assets/fonts/MonoLisa-Medium.woff2') format('woff2'),
-		url('./assets/fonts/MonoLisa-Medium.woff') format('woff');
+	src: url('$lib/assets/fonts/MonoLisa-Medium.woff2') format('woff2'),
+		url('$lib/assets/fonts/MonoLisa-Medium.woff') format('woff');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
@@ -36,8 +36,8 @@
 
 @font-face {
 	font-family: 'MonoLisa';
-	src: url('./assets/fonts/MonoLisa-Regular.woff2') format('woff2'),
-		url('./assets/fonts/MonoLisa-Regular.woff') format('woff');
+	src: url('$lib/assets/fonts/MonoLisa-Regular.woff2') format('woff2'),
+		url('$lib/assets/fonts/MonoLisa-Regular.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -45,8 +45,8 @@
 
 @font-face {
 	font-family: 'MonoLisa';
-	src: url('./assets/fonts/MonoLisa-MediumItalic.woff2') format('woff2'),
-		url('./assets/fonts/MonoLisa-MediumItalic.woff') format('woff');
+	src: url('$lib/assets/fonts/MonoLisa-MediumItalic.woff2') format('woff2'),
+		url('$lib/assets/fonts/MonoLisa-MediumItalic.woff') format('woff');
 	font-weight: 500;
 	font-style: italic;
 	font-display: swap;
@@ -54,8 +54,8 @@
 
 @font-face {
 	font-family: 'MonoLisa';
-	src: url('./assets/fonts/MonoLisa-RegularItalic.woff2') format('woff2'),
-		url('./assets/fonts/MonoLisa-RegularItalic.woff') format('woff');
+	src: url('$lib/assets/fonts/MonoLisa-RegularItalic.woff2') format('woff2'),
+		url('$lib/assets/fonts/MonoLisa-RegularItalic.woff') format('woff');
 	font-weight: normal;
 	font-style: italic;
 	font-display: swap;
@@ -68,6 +68,23 @@
 
 	--font-family: 'Quicksand', -apple-system, 'Segoe UI', sans-serif;
 	--font-family-mono: 'MonoLisa', monospace;
+
+	--container-width: 1240px;
+
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 16px;
+	--space-4: 24px;
+	--space-5: 32px;
+	--space-6: 48px;
+	--space-7: 64px;
+	--space-8: 96px;
+	--space-9: 128px;
+
+	--color-black: hsl(213deg, 6%, 29%);
+	--color-green: hsl(123deg, 52%, 66%);
+	--color-blue: hsl(217deg, 91%, 66%);
+	--color-red: hsl(4deg, 99%, 66%);
 }
 
 *,
@@ -84,6 +101,20 @@
 }
 
 body,
+html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-attachment: scroll;
+	background-image: linear-gradient(hsl(210deg, 20%, 98%) hsl(210deg, 20%, 90%));
+	color: var(--color-black);
+	padding-inline: var(--space-5);
+}
+
+body,
 input,
 button,
 select,
@@ -95,4 +126,14 @@ option {
 pre,
 code {
 	font-family: var(--font-family-mono);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	text-rendering: optimizeLegibility;
 }
