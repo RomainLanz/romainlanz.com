@@ -2,17 +2,18 @@ lockfileVersion: 5.3
 
 specifiers:
   '@sveltejs/kit': next
-  '@typescript-eslint/eslint-plugin': ^4.31.1
-  '@typescript-eslint/parser': ^4.31.1
+  '@typescript-eslint/eslint-plugin': ^4.31.2
+  '@typescript-eslint/parser': ^4.31.2
   eslint: ^7.32.0
   eslint-config-prettier: ^8.3.0
   eslint-plugin-svelte3: ^3.2.1
   mdsvex: ^0.9.8
   prettier: ^2.4.1
   prettier-plugin-svelte: ^2.4.0
-  svelte: ^3.42.6
+  sass: ^1.42.1
+  svelte: ^3.43.0
   svelte-check: ^2.2.6
-  svelte-preprocess: ^4.9.4
+  svelte-preprocess: ^4.9.5
   tslib: ^2.3.1
   typescript: ^4.4.3
 
@@ -26,9 +27,10 @@ devDependencies:
   mdsvex: 0.9.8_svelte@3.43.0
   prettier: 2.4.1
   prettier-plugin-svelte: 2.4.0_prettier@2.4.1+svelte@3.43.0
+  sass: 1.42.1
   svelte: 3.43.0
-  svelte-check: 2.2.6_svelte@3.43.0
-  svelte-preprocess: 4.9.5_svelte@3.43.0+typescript@4.4.3
+  svelte-check: 2.2.6_sass@1.42.1+svelte@3.43.0
+  svelte-preprocess: 4.9.5_b973491b1d5980b69239029fef0eacb8
   tslib: 2.3.1
   typescript: 4.4.3
 
@@ -1209,6 +1211,14 @@ packages:
       rimraf: 2.7.1
     dev: true
 
+  /sass/1.42.1:
+    resolution: {integrity: sha512-/zvGoN8B7dspKc5mC6HlaygyCBRvnyzzgD5khiaCfglWztY99cYoiTUksVx11NlnemrcfH5CEaCpsUKoW0cQqg==}
+    engines: {node: '>=8.9.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.2
+    dev: true
+
   /semver/7.3.5:
     resolution: {integrity: sha512-PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ==}
     engines: {node: '>=10'}
@@ -1313,7 +1323,7 @@ packages:
       has-flag: 4.0.0
     dev: true
 
-  /svelte-check/2.2.6_svelte@3.43.0:
+  /svelte-check/2.2.6_sass@1.42.1+svelte@3.43.0:
     resolution: {integrity: sha512-oJux/afbmcZO+N+ADXB88h6XANLie8Y2rh2qBlhgfkpr2c3t/q/T0w2JWrHqagaDL8zeNwO8a8RVFBkrRox8gg==}
     hasBin: true
     peerDependencies:
@@ -1327,7 +1337,7 @@ packages:
       sade: 1.7.4
       source-map: 0.7.3
       svelte: 3.43.0
-      svelte-preprocess: 4.9.5_svelte@3.43.0+typescript@4.4.3
+      svelte-preprocess: 4.9.5_b973491b1d5980b69239029fef0eacb8
       typescript: 4.4.3
     transitivePeerDependencies:
       - '@babel/core'
@@ -1350,7 +1360,7 @@ packages:
       svelte: 3.43.0
     dev: true
 
-  /svelte-preprocess/4.9.5_svelte@3.43.0+typescript@4.4.3:
+  /svelte-preprocess/4.9.5_b973491b1d5980b69239029fef0eacb8:
     resolution: {integrity: sha512-RbJbtuwKbuZq9RyzlljZUmmFNaojrg/zUEyDrS8io7haTcuITQmE4NERx8qiqHreApo6cQst5Qtp4MxUwr58Ew==}
     engines: {node: '>= 9.11.2'}
     requiresBuild: true
@@ -1395,6 +1405,7 @@ packages:
       '@types/sass': 1.16.1
       detect-indent: 6.1.0
       magic-string: 0.25.7
+      sass: 1.42.1
       sorcery: 0.10.0
       strip-indent: 3.0.0
       svelte: 3.43.0
