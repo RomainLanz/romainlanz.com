@@ -1,15 +1,17 @@
 <div>
-	<picture>
-		<source srcset="/images/romainlanz.webp" type="image/webp" />
-		<source srcset="/images/romainlanz.jpeg" type="image/jpeg" />
-		<img src="/images/romainlanz.jpeg" alt="" />
-	</picture>
+	<a href="/">
+		<picture>
+			<source srcset="/images/romainlanz.webp" type="image/webp" />
+			<source srcset="/images/romainlanz.jpeg" type="image/jpeg" />
+			<img src="/images/romainlanz.jpeg" alt="" />
+		</picture>
 
-	<span>Romain Lanz</span>
+		<span>Romain Lanz</span>
+	</a>
 </div>
 
 <style>
-	div {
+	a {
 		display: flex;
 		align-items: center;
 		align-content: center;
