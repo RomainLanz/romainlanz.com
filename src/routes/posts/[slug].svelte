@@ -18,9 +18,13 @@
 </script>
 
 <script>
+	import MaxWidthWrapper from '$lib/components/MaxWidthWrapper.svelte';
+
 	export let post = {};
 </script>
 
-<h1>{post.data.fm.title}</h1>
+<MaxWidthWrapper>
+	<h1>{post.data.fm.title}</h1>
 
-{@html post.code}
+	{@html post.code}
+</MaxWidthWrapper>

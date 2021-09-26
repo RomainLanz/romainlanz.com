@@ -12,9 +12,11 @@
 
 <style>
 	a {
-		display: flex;
-		align-items: center;
 		align-content: center;
+		align-items: center;
+		display: flex;
+		color: inherit;
+		text-decoration: none;
 	}
 
 	img {

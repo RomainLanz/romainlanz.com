@@ -69,7 +69,8 @@
 	--font-family: 'Quicksand', -apple-system, 'Segoe UI', sans-serif;
 	--font-family-mono: 'MonoLisa', monospace;
 
-	--container-width: 1240px;
+	--container-width: 960px;
+	--border-radius: 7px;
 
 	--space-1: 4px;
 	--space-2: 8px;
@@ -81,10 +82,13 @@
 	--space-8: 96px;
 	--space-9: 128px;
 
+	--color-white: hsl(0deg, 100%, 100%);
+	--color-shaded-black: hsl(213deg, 6%, 45%);
 	--color-black: hsl(213deg, 6%, 29%);
 	--color-green: hsl(123deg, 52%, 66%);
 	--color-blue: hsl(217deg, 91%, 66%);
 	--color-red: hsl(4deg, 99%, 66%);
+	--color-pink: hsl(290deg, 50%, 66%);
 }
 
 *,
@@ -135,5 +139,6 @@ h4,
 h5,
 h6,
 p {
+	margin: 0;
 	text-rendering: optimizeLegibility;
 }

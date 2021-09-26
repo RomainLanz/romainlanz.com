@@ -8,3 +8,9 @@
 <main>
 	<slot />
 </main>
+
+<style>
+	main {
+		margin-top: var(--space-7);
+	}
+</style>
