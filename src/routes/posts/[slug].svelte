@@ -23,6 +23,10 @@
 	export let post = {};
 </script>
 
+<svelte:head>
+	<title>{post.data.fm.title} | Romain Lanz</title>
+</svelte:head>
+
 <MaxWidthWrapper>
 	<article class="generated-content">
 		<h1>{post.data.fm.title}</h1>

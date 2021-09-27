@@ -23,6 +23,10 @@
 	export let posts = [];
 </script>
 
+<svelte:head>
+	<title>All my posts | Romain Lanz</title>
+</svelte:head>
+
 <MaxWidthWrapper>
 	<h1>Posts</h1>
 
