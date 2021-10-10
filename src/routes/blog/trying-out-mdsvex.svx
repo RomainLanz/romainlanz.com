@@ -1,14 +1,19 @@
 ---
 title: How we work at FIVB
 date: 2021-09-26
-excerpt: Hello
-slug: how-we-work-at-fivb
-tags: productivity
+excerpt: One of the most straightforward optimization you can do to speed up your application is to use a cache to avoid hefty data computation, database queries or API calls.
+tags: productivity tech
 ---
+
+<script>
+	import Button from '$lib/components/Button.svelte'
+</script>
 
 One of the most straightforward optimization you can do to speed up your application is to use a cache to avoid hefty data computation, database queries or API calls.
 
-The term "cache" means "_a temporary storage space or memory that allows fast access to data_" ([dictionary.com](https://www.dictionary.com/browse/cache)). In the other hands, **think about it as simple key/value store**.
+<Button></Button>
+
+The term "cache" means _"a temporary storage space or memory that allows fast access to data"_ ([dictionary.com](https://www.dictionary.com/browse/cache)). In the other hands, **think about it as simple key/value store**.
 
 There's a bunch of different cache systems. One of the most known is [Redis](https://redis.io/). It's an excellent in-memory data structure store but it's sometimes overkill for a small to medium size application.
 
@@ -22,13 +27,13 @@ Since ES2015, JavaScript has the [Map](https://developer.mozilla.org/en-US/docs/
 
 As state in the introduction, a cache is a simple key/value store - like a `Map`.
 
-```js
+```javascript
 const cache = new Map();
 ```
 
 Our `Map` start empty, and we will fill it with data time after time.
 
-```js
+```javascript
 // Startup of our application...
 
 // We create the cache and fill the key "mykey"

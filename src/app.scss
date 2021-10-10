@@ -61,7 +61,7 @@
 	--font-family: 'Quicksand', -apple-system, 'Segoe UI', sans-serif;
 	--font-family-mono: 'MonoLisa', monospace;
 
-	--container-width: 960px;
+	--container-width: 80ch;
 	--border-radius: 7px;
 
 	--space-1: 4px;
@@ -74,13 +74,14 @@
 	--space-8: 96px;
 	--space-9: 128px;
 
+	--bg-color-body: linear-gradient(hsl(210deg, 20%, 98%), hsl(210deg, 20%, 95%));
 	--color-white: hsl(0deg, 100%, 100%);
-	--color-shaded-black: hsl(213deg, 6%, 45%);
+	--color-shaded-black: hsl(210deg, 5%, 20%);
 	--color-black: hsl(213deg, 6%, 29%);
 	--color-green: hsl(123deg, 52%, 66%);
-	--color-blue: hsl(217deg, 91%, 66%);
+	--color-blue: hsl(202deg, 92%, 50%);
 	--color-red: hsl(4deg, 99%, 66%);
-	--color-pink: hsl(290deg, 50%, 50%);
+	--color-pink: hsl(336deg, 80%, 60%);
 }
 
 *,
@@ -98,16 +99,23 @@
 
 body,
 html {
-	height: 100%;
+	min-height: 100%;
 	margin: 0;
 	padding: 0;
 }
 
 body {
-	background-attachment: scroll;
-	background-image: linear-gradient(hsl(210deg, 20%, 90%) hsl(210deg, 20%, 80%));
+	background: var(--bg-color-body);
 	color: var(--color-black);
 	padding-inline: var(--space-5);
+	overflow-y: scroll;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-black: hsl(0deg, 100%, 100%);
+		--bg-color-body: hsl(210deg, 5%, 10%);
+	}
 }
 
 body,
@@ -154,4 +162,77 @@ ul,
 li {
 	margin: 0;
 	padding: 0;
+}
+
+.generated-content {
+	& > * + * {
+		/* We do not want any other margin between contents to stay consistant */
+		margin-top: var(--space-3) !important;
+	}
+
+	h2 {
+		border-top: 1px dashed var(--color-shaded-black);
+		font-size: 2.5rem;
+		margin-top: var(--space-6);
+		padding-top: var(--space-6);
+	}
+
+	p {
+		letter-spacing: 0.02em;
+		font-size: 1.2rem;
+		font-weight: var(--font-weight-medium);
+	}
+
+	img {
+		display: block;
+		width: 100%;
+	}
+
+	p code {
+		font-size: 1.1rem;
+		color: var(--color-blue);
+
+		&::after,
+		&::before {
+			content: '\`';
+		}
+	}
+
+	pre {
+		border-radius: var(--border-radius);
+	}
+
+	a {
+		color: var(--color-pink);
+		font-weight: var(--font-weight-bold);
+		text-decoration: none;
+
+		&:visited {
+			color: var(--color-pink);
+		}
+
+		&:hover {
+			text-decoration: revert;
+		}
+	}
+
+	ul {
+		list-style: none;
+	}
+
+	* + ul {
+		margin-top: 0;
+	}
+
+	li {
+		font-size: 1.2rem;
+		font-weight: var(--font-weight-medium);
+		margin-left: var(--space-3);
+
+		&::before {
+			content: '—';
+			margin-right: var(--space-2);
+			opacity: 0.5;
+		}
+	}
 }

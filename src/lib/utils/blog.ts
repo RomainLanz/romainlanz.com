@@ -3,26 +3,23 @@ import { promises as fs } from 'fs';
 import { compile } from 'mdsvex';
 
 export function searchContentFiles() {
-	return fs.readdir(join(process.cwd(), 'src/content'));
+	return fs.readdir(join(process.cwd(), 'src/routes/blog'));
 }
 
 export async function loadContents() {
 	const files = await searchContentFiles();
 
-	const compilations = files.map(async (file) => {
-		const content = await fs.readFile(join(process.cwd(), 'src/content', file));
-		return compile(content.toString());
-	});
+	const contents = [];
 
-	return Promise.all(compilations);
-}
+	for await (const file of files) {
+		const content = await fs.readFile(join(process.cwd(), 'src/routes/blog', file));
+		const compiledContent = await compile(content.toString());
 
-export async function loadContent(fileName: string) {
-	const files = await searchContentFiles();
+		contents.push({
+			path: file.split('.')[0],
+			meta: compiledContent.data.fm
+		});
+	}
 
-	// TODO: Handle 404
-	const [file] = files.filter((file) => file === `${fileName}.md`);
-
-	const content = await fs.readFile(join(process.cwd(), 'src/content', file));
-	return compile(content.toString());
+	return contents;
 }

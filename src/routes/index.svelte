@@ -17,10 +17,15 @@
 	}
 </script>
 
-<script>
+<script lang="ts">
+	import { parseISO, format } from 'date-fns';
 	import MaxWidthWrapper from '$lib/components/MaxWidthWrapper.svelte';
 
 	export let posts = [];
+
+	function formatDate(date: string): string {
+		return format(parseISO(date), 'dd.MM.yyyy');
+	}
 </script>
 
 <svelte:head>
@@ -28,24 +33,23 @@
 </svelte:head>
 
 <MaxWidthWrapper>
-	<h1>Posts</h1>
-
 	{#each posts as post}
 		<article>
 			<header>
-				<time datetime={post.data.fm.date}>{post.data.fm.date}</time>
-				<h2>{post.data.fm.title}</h2>
-				{#each post.data.fm.tags.split(' ') as tag}
-					<span>{tag}</span>
-				{/each}
+				<h1>{post.meta.title}</h1>
+				<div>
+					<time datetime={post.meta.date}>{formatDate(post.meta.date)}</time>
+					&mdash;
+					{#each post.meta.tags.split(' ') as tag}
+						<span>{tag}</span>
+					{/each}
+				</div>
 			</header>
 
-			<p>{post.data.fm.excerpt}</p>
+			<p>{post.meta.excerpt}</p>
 
 			<footer>
-				<a href="/posts/{post.data.fm.slug}" aria-label="Read more about {post.data.fm.title}">
-					Read More
-				</a>
+				<a href="/blog/{post.path}" aria-label="Read more about {post.meta.title}"> Read More </a>
 			</footer>
 		</article>
 	{/each}
@@ -53,7 +57,8 @@
 
 <style lang="scss">
 	a {
-		color: var(--color-blue);
+		color: var(--color-pink);
+		font-weight: var(--font-weight-bold);
 		text-decoration: none;
 
 		&:hover,
@@ -63,28 +68,42 @@
 	}
 
 	time {
-		color: var(--color-shaded-black);
 		font-weight: var(--font-weight-bold);
 	}
 
-	h2 {
-		font-size: 2.5rem;
+	h1 {
+		line-height: 1.2;
+		font-size: 3rem;
 		text-transform: capitalize;
 	}
 
 	article {
 		margin-bottom: var(--space-8);
+		padding-block: var(--space-4);
+		border-bottom: 1px dashed var(--color-shaded-black);
+	}
+
+	header {
+		margin-bottom: var(--space-4);
+	}
+
+	footer {
+		margin-top: var(--space-4);
+		text-align: right;
 	}
 
 	p {
 		font-size: 1.3rem;
+		text-align: justify;
 	}
 
 	span {
-		background-color: var(--color-blue);
-		color: var(--color-white);
-		border-radius: var(--border-radius);
-		padding-inline: var(--space-2);
+		color: var(--color-blue);
+		font-weight: var(--font-weight-bold);
 		margin-right: var(--space-2);
+
+		&::before {
+			content: '#';
+		}
 	}
 </style>
