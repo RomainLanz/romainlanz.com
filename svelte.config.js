@@ -1,5 +1,6 @@
 import { mdsvex } from 'mdsvex';
 import preprocess from 'svelte-preprocess';
+import adapter from '@sveltejs/adapter-netlify';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -17,6 +18,7 @@ const config = {
 	],
 
 	kit: {
+		adapter: adapter(),
 		target: '#app'
 	}
 };
