@@ -7,6 +7,10 @@
 
 	onMount(() => {
 		theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+		if (theme === 'dark') {
+			document.body.classList.add('dark');
+		}
 	});
 
 	function swapTheme() {
@@ -23,9 +27,9 @@
 
 <button on:click={swapTheme}>
 	{#if theme === 'light'}
-		<SunIcon />
-	{:else}
 		<MoonIcon />
+	{:else}
+		<SunIcon />
 	{/if}
 </button>
 

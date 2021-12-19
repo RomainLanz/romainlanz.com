@@ -84,6 +84,10 @@
 	--color-pink: hsl(336deg, 80%, 60%);
 }
 
+* {
+	transition: var(--transition);
+}
+
 *,
 *::before,
 *::after {
@@ -111,11 +115,9 @@ body {
 	overflow-y: scroll;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--color-black: hsl(0deg, 100%, 100%);
-		--bg-color-body: hsl(210deg, 5%, 10%);
-	}
+body.dark {
+	--color-black: hsl(0deg, 100%, 100%);
+	--bg-color-body: hsl(210deg, 5%, 10%);
 }
 
 body,
