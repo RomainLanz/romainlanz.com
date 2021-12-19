@@ -2,8 +2,8 @@
 	<a href="/">
 		<picture>
 			<source srcset="/images/romainlanz.webp" type="image/webp" />
-			<source srcset="/images/romainlanz.jpeg" type="image/jpeg" />
-			<img src="/images/romainlanz.jpeg" alt="" />
+			<source srcset="/images/romainlanz.jpg" type="image/jpeg" />
+			<img src="/images/romainlanz.jpg" alt="" />
 		</picture>
 
 		<span>Romain Lanz</span>

@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@sveltejs/adapter-netlify': ^1.0.0-next.36
+  '@sveltejs/adapter-static': ^1.0.0-next.22
   '@sveltejs/kit': next
   '@typescript-eslint/eslint-plugin': ^5.7.0
   '@typescript-eslint/parser': ^5.7.0
@@ -23,7 +23,7 @@ dependencies:
   date-fns: 2.27.0
 
 devDependencies:
-  '@sveltejs/adapter-netlify': 1.0.0-next.36
+  '@sveltejs/adapter-static': 1.0.0-next.22
   '@sveltejs/kit': 1.0.0-next.202_sass@1.45.0+svelte@3.44.3
   '@typescript-eslint/eslint-plugin': 5.7.0_a6f6159640504abdd3de077f8bcadb33
   '@typescript-eslint/parser': 5.7.0_eslint@8.5.0+typescript@4.5.4
@@ -74,10 +74,6 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@iarna/toml/2.2.5:
-    resolution: {integrity: sha512-trnsAYxU3xnS1gPHPyU961coFyLkh4gAD/0zQ5mymY4yOZ+CYvsPqUbOFSw0aDM4y0tV7tiFxL/1XfXPNC6IPg==}
-    dev: true
-
   /@nodelib/fs.scandir/2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
     engines: {node: '>= 8'}
@@ -107,11 +103,8 @@ packages:
       picomatch: 2.3.0
     dev: true
 
-  /@sveltejs/adapter-netlify/1.0.0-next.36:
-    resolution: {integrity: sha512-LdrIXCTBnIubtt/lthcnyt5VljuHpZlVzUqpWXk9Eu6bpNKblqQLMHkTBQfIbPfanmNSDZXJQVsdcFLqF2/+Cw==}
-    dependencies:
-      '@iarna/toml': 2.2.5
-      esbuild: 0.13.15
+  /@sveltejs/adapter-static/1.0.0-next.22:
+    resolution: {integrity: sha512-Dc1V9Z72dA7caVwNxxzl9Jhcq4uN9N1udA2GKNTLMu3aWX3Cq+v6C2CddY9Aazr+F9h6J0vi9AienuH+ySRXzQ==}
     dev: true
 
   /@sveltejs/kit/1.0.0-next.202_sass@1.45.0+svelte@3.44.3:
