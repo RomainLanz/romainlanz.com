@@ -6,7 +6,11 @@
 	let theme = 'light';
 
 	onMount(() => {
-		theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		if (localStorage.getItem('preferred-theme')) {
+			theme = localStorage.getItem('preferred-theme')
+		} else {
+			theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		}
 
 		if (theme === 'dark') {
 			document.body.classList.add('dark');
@@ -15,6 +19,8 @@
 
 	function swapTheme() {
 		theme = theme === 'light' ? 'dark' : 'light';
+
+		localStorage.setItem('preferred-theme', theme)
 
 		if (theme === 'dark') {
 			document.body.classList.add('dark');
