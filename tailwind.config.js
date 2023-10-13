@@ -1,3 +1,5 @@
+import defaultConfig from 'tailwindcss/defaultConfig'
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./resources/views/**/*.edge'],
@@ -44,6 +46,10 @@ export default {
         base: '1rem',
         lg: '1.125rem',
         xl: '1.25rem',
+      },
+
+      fontFamily: {
+        sans: ['Atkinson-Hyperlegible', ...defaultConfig.theme.fontFamily.sans],
       },
 
       spacing: {
