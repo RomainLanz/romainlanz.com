@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "@adonisjs/core": "^6.1.5-26",
+    "@adonisjs/shield": "^8.0.0-5",
     "@adonisjs/vite": "^0.0.1-10",
     "edge.js": "^6.0.0-10",
     "reflect-metadata": "^0.1.13"
