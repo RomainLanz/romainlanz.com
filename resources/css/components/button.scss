@@ -1,0 +1,34 @@
+@import '../core/functions';
+
+.button {
+  background-color: transparent;
+  border-radius: var(--rounded);
+  border: 2px solid var(--gray-800);
+  box-shadow: var(--shadow-small);
+  cursor: pointer;
+  font-size: var(--text-base);
+  font-weight: bold;
+  padding: space(3) space(5);
+  transition: box-shadow 200ms ease-in-out;
+  will-change: box-shadow;
+
+  &:hover {
+    box-shadow: var(--shadow-medium);
+  }
+
+  &.large {
+    padding: space(6) space(7);
+  }
+
+  &.violet {
+    background-color: var(--violet-300);
+  }
+
+  &.cyan {
+    background-color: var(--cyan-300);
+  }
+
+  &.yellow {
+    background-color: var(--yellow-300);
+  }
+}

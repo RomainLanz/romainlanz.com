@@ -1,0 +1,20 @@
+@import '../core/functions';
+
+.header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: space(5);
+
+  &__title {
+    align-items: center;
+    display: flex;
+    gap: space(6);
+
+    span {
+      color: var(--gray-800);
+      font-size: var(--text-xl);
+      font-weight: bold;
+    }
+  }
+}

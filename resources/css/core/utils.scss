@@ -1,0 +1,72 @@
+@import '../core/functions';
+
+.max-width-wrapper {
+  margin-inline: auto;
+  max-width: 1230px;
+  padding-inline: space(2);
+}
+
+.visually-hidden {
+  border: none;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+@for $i from 0 through 12 {
+  .p-#{$i} {
+    padding: space($i);
+  }
+
+  .pt-#{$i} {
+    padding-top: space($i);
+  }
+
+  .pb-#{$i} {
+    padding-bottom: space($i);
+  }
+
+  .px-#{$i} {
+    padding-inline: space($i);
+  }
+
+  .py-#{$i} {
+    padding-block: space($i);
+  }
+
+  .my-#{$i} {
+    margin-block: space($i);
+  }
+
+  .m-#{$i} {
+    margin: space($i);
+  }
+
+  .mx-#{$i} {
+    margin-inline: space($i);
+  }
+
+  .mt-#{$i} {
+    margin-top: space($i);
+  }
+
+  .mb-#{$i} {
+    margin-bottom: space($i);
+  }
+
+  .mr-#{$i} {
+    margin-right: space($i);
+  }
+
+  .ml-#{$i} {
+    margin-left: space($i);
+  }
+}

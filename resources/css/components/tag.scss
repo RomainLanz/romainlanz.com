@@ -1,0 +1,38 @@
+@import '../core/functions';
+
+.tag {
+  --bg-color: var(--white);
+  background-color: var(--bg-color);
+  border-radius: var(--rounded-sm);
+  border: 1px solid var(--gray-800);
+  color: var(--gray-800);
+  cursor: pointer;
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  line-height: 1;
+  padding: space(2) space(3);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: box-shadow 200ms ease-in-out;
+  will-change: box-shadow;
+
+  &:hover {
+    box-shadow: var(--shadow-tiny);
+  }
+
+  &.cyan {
+    --bg-color: var(--cyan-300);
+  }
+
+  &.violet {
+    --bg-color: var(--violet-300);
+  }
+
+  &.yellow {
+    --bg-color: var(--yellow-300);
+  }
+
+  &.red {
+    --bg-color: var(--red-300);
+  }
+}

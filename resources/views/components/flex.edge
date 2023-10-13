@@ -1,0 +1,12 @@
+@let(
+  classes = cx(['flex', $props.get('class', '')])
+)
+
+<div class="{{ classes }}" style="
+  --gap: {{ $props.get('gap', '8') }}px;
+  --direction: {{ $props.get('direction', 'row') }};
+  --align: {{ $props.get('align', 'start') }};
+  --justify: {{ $props.get('justify', 'start') }};
+">
+  {{{ await $slots.main() }}}
+</div>

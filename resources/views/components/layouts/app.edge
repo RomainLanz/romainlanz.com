@@ -9,7 +9,9 @@
   {{-- Compiled Assets --}}
   @vite(['resources/js/app.js'])
 </head>
-<body class="font-sans">
+<body>
+  @include('partials/header')
+
   {{{ await $slots.main() }}}
 </body>
 </html>

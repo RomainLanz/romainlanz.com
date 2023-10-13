@@ -1,3 +1,32 @@
 @layouts.app()
-  <p class="text-blue-500">Hello World</p>
+  @include('partials/hero')
+
+  <main class="max-width-wrapper">
+      @flex({ class: 'mb-6', align: 'baseline', justify: 'space-between' })
+        <h3 class="section-title">Mes derniers articles</h3>
+        <a class="uppercase" href="/articles">Tous</a>
+      @end
+
+      @flex({ gap: 16 })
+        @article.card({
+          date: 'Feb 16th 2023',
+          title: 'Data URLs and Pool in your URL',
+          tags: [{ color: 'cyan', label: 'JavaScript' }],
+          timeToRead: 2
+        })
+          Sed lobortis urna in tempus condimentum. Vestibulum cursus porta elit in condimentum. Donec
+          bibendum lacus vel sem luctus bibendum.
+        @end
+
+        @article.card({
+          date: 'Feb 16th 2023',
+          title: 'JavaScript 101',
+          tags: [{ color: 'cyan', label: 'Database' }],
+          timeToRead: 5
+        })
+          Sed lobortis urna in tempus condimentum. Vestibulum cursus porta elit in condimentum. Donec
+          bibendum lacus vel sem luctus bibendum.
+        @end
+      @end
+  </main>
 @end

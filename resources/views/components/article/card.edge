@@ -1,0 +1,26 @@
+<a class="article_anchor">
+  <article class="card">
+    @flex({ gap: 16, direction: 'column' })
+      <header>
+        <time>{{ $props.get('date') }}</time>
+        <h2>{{ $props.get('title') }}</h2>
+      </header>
+
+      <p>
+        {{{ await $slots.main() }}}
+      </p>
+
+      @flex({ gap: 12, align: 'center' })
+        @if($props.has('tags'))
+          @each(tag in $props.get('tags'))
+            @!tag({ label: tag.label, color: tag.color })
+          @end
+        @end
+
+        @if($props.has('timeToRead'))
+          <span class="uppercase">{{ $props.get('timeToRead') }}mn de lecture</span>
+        @end
+      @end
+    @end
+  </article>
+</a>
