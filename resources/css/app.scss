@@ -12,6 +12,7 @@
  */
 @import 'layouts/common';
 @import 'layouts/header';
+@import 'layouts/footer';
 
 /**
  * Components.
@@ -19,5 +20,6 @@
 @import 'components/button';
 @import 'components/card';
 @import 'components/flex';
+@import 'components/grid';
 @import 'components/hero';
 @import 'components/tag';

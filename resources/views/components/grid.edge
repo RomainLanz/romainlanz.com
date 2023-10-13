@@ -1,0 +1,6 @@
+<div class="grid" style="
+  --gap: {{ $props.get('gap', '8') }}px;
+  --column: {{ $props.get('column', '1') }};
+">
+  {{{ await $slots.main() }}}
+</div>

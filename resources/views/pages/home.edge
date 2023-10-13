@@ -7,12 +7,30 @@
         <a class="uppercase" href="/articles">Tous</a>
       @end
 
-      @flex({ gap: 16 })
+      @grid({ column: 2, gap: 16 })
         @article.card({
+          class: 'grid-span-1',
           date: 'Feb 16th 2023',
           title: 'Data URLs and Pool in your URL',
           tags: [{ color: 'cyan', label: 'JavaScript' }],
-          timeToRead: 2
+        })
+          Sed lobortis urna in tempus condimentum. Vestibulum cursus porta elit in condimentum. Donec
+          bibendum lacus vel sem luctus bibendum.
+        @end
+
+        @article.card({
+          date: 'Feb 16th 2023',
+          title: 'JavaScript 101',
+          tags: [{ color: 'yellow', label: 'Database' }],
+        })
+          Sed lobortis urna in tempus condimentum. Vestibulum cursus porta elit in condimentum. Donec
+          bibendum lacus vel sem luctus bibendum.
+        @end
+
+        @article.card({
+          date: 'Feb 16th 2023',
+          title: 'JavaScript 101',
+          tags: [{ color: 'violet', label: 'Test' }, { color: 'red', label: 'AdonisJS' }],
         })
           Sed lobortis urna in tempus condimentum. Vestibulum cursus porta elit in condimentum. Donec
           bibendum lacus vel sem luctus bibendum.
@@ -22,7 +40,6 @@
           date: 'Feb 16th 2023',
           title: 'JavaScript 101',
           tags: [{ color: 'cyan', label: 'Database' }],
-          timeToRead: 5
         })
           Sed lobortis urna in tempus condimentum. Vestibulum cursus porta elit in condimentum. Donec
           bibendum lacus vel sem luctus bibendum.

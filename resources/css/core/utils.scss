@@ -21,6 +21,9 @@
   text-transform: uppercase;
 }
 
+/**
+ * Spacing.
+ */
 @for $i from 0 through 12 {
   .p-#{$i} {
     padding: space($i);
@@ -69,4 +72,8 @@
   .ml-#{$i} {
     margin-left: space($i);
   }
+}
+
+.w-full {
+  width: 100%;
 }

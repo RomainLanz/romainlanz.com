@@ -1,0 +1,21 @@
+@import '../core/functions';
+
+.footer {
+  background-color: var(--yellow-200);
+  border-top: 2px solid var(--gray-800);
+  height: 260px;
+  margin-top: space(38);
+  padding-block: space(5);
+
+  &__title {
+    align-items: center;
+    display: flex;
+    gap: space(6);
+
+    span {
+      color: var(--gray-800);
+      font-size: var(--text-xl);
+      font-weight: bold;
+    }
+  }
+}
