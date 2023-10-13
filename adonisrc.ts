@@ -30,7 +30,8 @@ export default defineConfig({
       environment: ['repl', 'test'],
     },
     () => import('./providers/app_provider.js'),
-    () => import('@adonisjs/core/providers/edge_provider')
+    () => import('@adonisjs/core/providers/edge_provider'),
+    () => import('@adonisjs/vite/vite_provider')
   ],
 
   /*
@@ -67,4 +68,8 @@ export default defineConfig({
     ],
     forceExit: false,
   },
+  metaFiles: [{
+    pattern: 'public/**',
+    reloadServer: false,
+  }]
 })

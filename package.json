@@ -39,10 +39,12 @@
     "pino-pretty": "^10.2.0",
     "prettier": "^3.0.3",
     "ts-node": "^10.9.1",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "vite": "^4.4.11"
   },
   "dependencies": {
     "@adonisjs/core": "^6.1.5-26",
+    "@adonisjs/vite": "^0.0.1-10",
     "edge.js": "^6.0.0-10",
     "reflect-metadata": "^0.1.13"
   },
