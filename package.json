@@ -16,7 +16,8 @@
   "imports": {
     "#core/*": "./app/core/*.js",
     "#start/*": "./start/*.js",
-    "#config/*": "./config/*.js"
+    "#config/*": "./config/*.js",
+    "#types/*": "./types/*.js"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^6.1.3-22",
@@ -43,6 +44,7 @@
     "@adonisjs/session": "^7.0.0-11",
     "@adonisjs/shield": "^8.0.0-5",
     "@adonisjs/vite": "^0.0.1-10",
+    "@poppinss/utils": "^6.5.0",
     "class-variance-authority": "^0.7.0",
     "edge.js": "^6.0.0-10",
     "luxon": "^3.4.3",

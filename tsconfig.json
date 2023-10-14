@@ -6,7 +6,8 @@
     "paths": {
       "#core/*": ["./app/core/*.js"],
       "#start/*": ["./start/*.js"],
-      "#config/*": ["./config/*.js"]
+      "#config/*": ["./config/*.js"],
+      "#types/*": ["./types/*.js"]
     }
   }
 }
