@@ -14,9 +14,11 @@
     </p>
 
     @flex({ class: 'w-full', gap: 12, align: 'center', justify: 'space-between' })
-      @if($props.has('tags'))
-        @each(tag in $props.get('tags'))
-          @!tag({ label: tag.label, color: tag.color })
+      @flex({ gap: 8 })
+        @if($props.has('tags'))
+          @each(tag in $props.get('tags'))
+            @!tag({ label: tag.label, color: tag.color })
+          @end
         @end
       @end
 
