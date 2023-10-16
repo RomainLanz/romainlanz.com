@@ -4,5 +4,18 @@
       <img src="{{ asset('resources/images/logo.svg') }}" alt="">
       <span>Romain Lanz</span>
     </a>
+
+    @if(user)
+      <div class="d-flex items-center">
+        <span class="mr-4">{{ user.email }}</span>
+
+        <form action="{{ route('auth.logout') }}?_method=DELETE" method="post">
+          {{ csrfField() }}
+          @button({ size: 'small', type: 'submit' })
+            Se déconnecter
+          @end
+         </form>
+      </div>
+     @end
   </header>
 @end

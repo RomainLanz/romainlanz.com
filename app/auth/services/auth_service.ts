@@ -2,7 +2,15 @@ import User from '#auth/models/user'
 import hash from '@adonisjs/core/services/hash'
 
 export default class AuthService {
-  async login(email: string, password: string) {
+  getSessionKey() {
+    return 'authenticated_user'
+  }
+
+  fetchAuthenticatedUser(id: number) {
+    return User.find(id)
+  }
+
+  async tryLogin(email: string, password: string) {
     const maybeUser = await User.findBy('email', email)
 
     if (!maybeUser) {

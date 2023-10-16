@@ -11,6 +11,10 @@
   padding: 0.75rem 1.25rem;
   transition: background-color 100ms ease-in;
 
+  &:hover {
+    background-color: var(--white);
+  }
+
   &.small {
     padding: 0.5rem;
   }

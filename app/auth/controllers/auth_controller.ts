@@ -15,7 +15,7 @@ export default class AuthController {
   async login({ request, session, response }: HttpContext) {
     const { email, password } = request.all()
 
-    const user = await this.authService.login(email, password)
+    const user = await this.authService.tryLogin(email, password)
 
     if (!user) {
       session.flash('error', "Aucun compte n'a été trouvé avec les identifiants fournis.")
@@ -24,7 +24,7 @@ export default class AuthController {
       return response.redirect().back()
     }
 
-    session.put(kAuthSessionKey, { user: user.id })
+    session.put(kAuthSessionKey, user.id)
 
     return response.redirect().toPath('/')
   }
