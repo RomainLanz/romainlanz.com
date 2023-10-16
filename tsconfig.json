@@ -4,6 +4,9 @@
     "rootDir": "./",
     "outDir": "./build",
     "paths": {
+      "#auth/*": ["./app/auth/*.js"],
+      "#blog/*": ["./app/blog/*.js"],
+      "#common/*": ["./app/common/*.js"],
       "#core/*": ["./app/core/*.js"],
       "#paste/*": ["./app/paste/*.js"],
       "#start/*": ["./start/*.js"],
