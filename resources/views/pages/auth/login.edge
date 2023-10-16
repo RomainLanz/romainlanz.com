@@ -1,0 +1,9 @@
+@layouts.master()
+  {{ inspect(flashMessages) }}
+  <form action="{{ route('auth.login') }}" method="post">
+    {{ csrfField() }}
+    <input name="email" type="email">
+    <input name="password" type="password">
+    <button type="submit">Se Connecter</button>
+  </form>
+@end

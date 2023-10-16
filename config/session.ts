@@ -3,7 +3,7 @@ import { defineConfig } from '@adonisjs/session'
 
 export default defineConfig({
   enabled: true,
-  cookieName: 'adonis-session',
+  cookieName: 'romainlanz-session',
 
   /**
    * When set to true, the session id cookie will be deleted
