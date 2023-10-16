@@ -24,6 +24,7 @@
     "@adonisjs/eslint-config": "^1.1.8",
     "@adonisjs/prettier-config": "^1.1.8",
     "@adonisjs/tsconfig": "^1.1.8",
+    "@hotwired/turbo": "^7.3.0",
     "@japa/assert": "^2.0.0-1",
     "@japa/plugin-adonisjs": "^2.0.0-0",
     "@japa/runner": "^3.0.0-5",
