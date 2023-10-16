@@ -2,7 +2,7 @@
   <section class="centered">
     <div class="card">
       <form class="stack" action="{{ route('auth.login') }}" method="post" style="--gap: {{ space(3) }}">
-        @if(flashMessages.has('error'))
+        @flashMessage('error')
           <p class="form_error">
             Aucun compte n'a été trouvé avec les identifiants fournis.
           </p>
@@ -26,7 +26,7 @@
           @end
         </div>
 
-        @button({ type: 'submit' })
+        @button({ color: 'yellow', type: 'submit' })
           Se connecter
         @end
       </form>

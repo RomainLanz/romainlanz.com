@@ -8,27 +8,34 @@
   cursor: pointer;
   font-size: var(--text-base);
   font-weight: bold;
-  padding: spacePx(3) spacePx(5);
-  transition: box-shadow 200ms ease-in-out;
-  will-change: box-shadow;
+  padding: 0.75rem 1.25rem;
+  transition: background-color 100ms ease-in;
 
-  &:hover {
-    box-shadow: var(--shadow-medium);
-  }
-
-  &.large {
-    padding: spacePx(6) spacePx(7);
+  &.small {
+    padding: 0.5rem;
   }
 
   &.violet {
     background-color: var(--violet-300);
+
+    &:hover {
+      background-color: var(--violet-500);
+    }
   }
 
   &.cyan {
     background-color: var(--cyan-300);
+
+    &:hover {
+      background-color: var(--cyan-500);
+    }
   }
 
   &.yellow {
     background-color: var(--yellow-300);
+
+    &:hover {
+      background-color: var(--yellow-500);
+    }
   }
 }

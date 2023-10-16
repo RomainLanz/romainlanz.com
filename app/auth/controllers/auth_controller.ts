@@ -19,6 +19,7 @@ export default class AuthController {
 
     if (!user) {
       session.flash('error', "Aucun compte n'a été trouvé avec les identifiants fournis.")
+      session.flashAll()
 
       return response.redirect().back()
     }
