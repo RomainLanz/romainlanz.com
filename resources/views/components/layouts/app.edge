@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title></title>
+  <title>{{ title ?? 'RomainLanz' }}</title>
 
   {{-- Compiled Assets --}}
   @vite(['resources/js/app.js'])
 </head>
-<body>
+<body {{{ page ? `data-page="${page}"` : "" }}}>
   @include('partials/header')
 
   {{{ await $slots.main() }}}

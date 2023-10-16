@@ -1,0 +1,29 @@
+@import 'functions';
+
+@mixin page($pageName) {
+  [data-page='#{$pageName}'] {
+    @content;
+  }
+}
+
+@mixin up($size) {
+  $size: strip-unit($size);
+  @media (min-width: $size * 1px) {
+    @content;
+  }
+}
+
+@mixin down($size) {
+  $size: strip-unit($size);
+  @media (max-width: $size * 1px) {
+    @content;
+  }
+}
+
+@mixin between($down, $up) {
+  $down: strip-unit($down);
+  $up: strip-unit($up);
+  @media (min-width: $down * 1px) and (max-width: $up * 1px) {
+    @content;
+  }
+}

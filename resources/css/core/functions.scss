@@ -1,6 +1,7 @@
-@function space($i) {
+@function spacePx($i) {
   @return calc(#{$i} * var(--space));
 }
+
 
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {

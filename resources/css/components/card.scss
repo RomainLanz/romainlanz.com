@@ -6,13 +6,15 @@
   border-radius: var(--rounded);
   box-shadow: var(--shadow-small);
   color: var(--gray-800);
-  padding: space(8) space(9);
+  padding: spacePx(8) spacePx(9);
   transition: box-shadow 200ms ease-in-out;
   will-change: box-shadow;
   isolation: isolate;
 
-  &:hover {
-    box-shadow: var(--shadow-medium);
+  &.with-hover {
+    &:hover {
+      box-shadow: var(--shadow-medium);
+    }
   }
 
   time {

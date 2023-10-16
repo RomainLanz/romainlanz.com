@@ -1,7 +1,7 @@
 @import '../core/functions';
 
 .hero {
-  margin-block: space(38);
+  margin-block: spacePx(38);
 
   img {
     //? It allows the image to be aligned to the text.

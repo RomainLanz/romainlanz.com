@@ -1,0 +1,11 @@
+<label class="form_label" for="{{ $context.name }}">
+  @if(title)
+    {{ title }}
+  @else
+    {{{ await $slots.main() }}}
+  @end
+
+  @if($context.required)
+    <span class="text-xs text--danger">*</span>
+  @end
+</label>

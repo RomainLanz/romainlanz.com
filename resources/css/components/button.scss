@@ -8,7 +8,7 @@
   cursor: pointer;
   font-size: var(--text-base);
   font-weight: bold;
-  padding: space(3) space(5);
+  padding: spacePx(3) spacePx(5);
   transition: box-shadow 200ms ease-in-out;
   will-change: box-shadow;
 
@@ -17,7 +17,7 @@
   }
 
   &.large {
-    padding: space(6) space(7);
+    padding: spacePx(6) spacePx(7);
   }
 
   &.violet {

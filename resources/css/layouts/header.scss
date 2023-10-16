@@ -4,12 +4,12 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin-top: space(5);
+  margin-top: spacePx(5);
 
   &__title {
     align-items: center;
     display: flex;
-    gap: space(6);
+    gap: spacePx(6);
 
     span {
       color: var(--gray-800);

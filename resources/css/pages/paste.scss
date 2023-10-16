@@ -1,7 +1,7 @@
 @import '../core/functions';
 
 .paste-wrapper {
-  padding: space(4);
+  padding: spacePx(4);
 
   code {
     font-size: var(--text-base);

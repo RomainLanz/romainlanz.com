@@ -1,0 +1,17 @@
+@let(oldValue = flashMessages.get($context.name) || '')
+@let(error = flashMessages.get(`errors.${$context.name}`) || '')
+
+<input
+  class="form_control"
+  {{
+    $props.merge({
+      value: oldValue,
+      id: $context.name,
+      name: $context.name
+    }).toAttrs()
+  }}
+>
+
+@if(error)
+  <span class="form_error">{{ error }}</span>
+@end

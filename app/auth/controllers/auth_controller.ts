@@ -18,7 +18,7 @@ export default class AuthController {
     const user = await this.authService.login(email, password)
 
     if (!user) {
-      session.flash('error', 'Invalid credentials')
+      session.flash('error', "Aucun compte n'a été trouvé avec les identifiants fournis.")
 
       return response.redirect().back()
     }

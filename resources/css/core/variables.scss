@@ -45,10 +45,10 @@
   --yellow-900: #402f02;
 
   /* Shadows */
-  --shadow-tiny: 2px 2px 0px #1e293b;
-  --shadow-small: 4px 4px 0px #1e293b;
-  --shadow-medium: 8px 8px 0px #1e293b;
-  --shadow-large: 12px 12px 0px #1e293b;
+  --shadow-tiny: 2px 2px 0 #1e293b;
+  --shadow-small: 4px 4px 0 #1e293b;
+  --shadow-medium: 8px 8px 0 #1e293b;
+  --shadow-large: 12px 12px 0 #1e293b;
 
   /* Spacing */
   --space: 4px;
@@ -56,4 +56,7 @@
   /* Border Radius */
   --rounded-sm: 4px;
   --rounded: 8px;
+
+  /* Sizes */
+  --login-box: 450px;
 }

@@ -1,6 +1,10 @@
 import edge from 'edge.js'
 import { cx, cva } from 'class-variance-authority'
 
+edge.global('space', function (space: number) {
+  return `calc(${space} * var(--space))`
+})
+
 edge.global('cva', function (base: Parameters<typeof cva>[0], config: Parameters<typeof cva>[1]) {
   return cva(base, config)
 })

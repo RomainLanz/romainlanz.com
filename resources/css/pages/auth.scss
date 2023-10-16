@@ -1,0 +1,8 @@
+@import '../core/functions';
+@import '../core/mixins';
+
+@include page('auth') {
+  .card {
+    width: var(--login-box);
+  }
+}
