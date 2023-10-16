@@ -1,0 +1,11 @@
+@layouts.master()
+  <div class="flex paste-wrapper" style="--gap: 16px; --align: start">
+<pre>
+@each(ln in range(1, paste.content.split(/\r\n|\r|\n/).length))
+ <code>{{ ln + 1 }}</code>
+@end
+</pre>
+
+    {{{ paste.content }}}
+  </div>
+@end

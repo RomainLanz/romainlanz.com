@@ -1,0 +1,10 @@
+@import '../core/functions';
+
+.paste-wrapper {
+  padding: space(4);
+
+  code {
+    font-size: var(--text-base);
+    line-height: 1.45;
+  }
+}

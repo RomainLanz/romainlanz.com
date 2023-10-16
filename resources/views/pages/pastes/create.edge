@@ -1,0 +1,13 @@
+@layouts.master()
+  <div>
+    <form action="{{ route('pastes.store') }}" method="post">
+      {{ csrfField() }}
+      <button type="submit">Sauvegarder</button>
+
+      <textarea
+        name="content"
+        autofocus
+      ></textarea>
+    </form>
+  </div>
+@end

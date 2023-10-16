@@ -15,6 +15,7 @@
   },
   "imports": {
     "#core/*": "./app/core/*.js",
+    "#paste/*": "./app/paste/*.js",
     "#start/*": "./start/*.js",
     "#config/*": "./config/*.js",
     "#types/*": "./types/*.js"
