@@ -6,8 +6,12 @@
     </a>
 
     @if(user)
-      <div class="d-flex items-center">
-        <span class="mr-4">{{ user.email }}</span>
+      <div class="d-flex items-center" style="gap: {{ space(3) }}">
+        <a href="{{ route('admin.pages.dashboard') }}">Admin</a>
+
+        <span>|</span>
+
+        <span>{{ user.email }}</span>
 
         <form action="{{ route('auth.logout') }}?_method=DELETE" method="post">
           {{ csrfField() }}

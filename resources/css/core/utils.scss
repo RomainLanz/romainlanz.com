@@ -104,6 +104,10 @@
   gap: var(--gap, space(1));
 }
 
+.grow {
+  flex-grow: 1;
+}
+
 .items-center {
   align-items: center;
 }
@@ -138,6 +142,10 @@
 
 .circle {
   border-radius: 50%;
+}
+
+.h-full {
+  height: 100%;
 }
 
 .w-full {

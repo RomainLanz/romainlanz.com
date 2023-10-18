@@ -8,6 +8,7 @@
       "#blog/*": ["./app/blog/*.js"],
       "#common/*": ["./app/common/*.js"],
       "#core/*": ["./app/core/*.js"],
+      "#pages/*": ["./app/pages/*.js"],
       "#paste/*": ["./app/paste/*.js"],
       "#start/*": ["./start/*.js"],
       "#config/*": ["./config/*.js"],

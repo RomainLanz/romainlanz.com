@@ -1,0 +1,30 @@
+@layouts.app()
+  @maxWidthWrapper()
+    <h1 class="page_title">Création d'article</h1>
+
+    <form class="stack" action="{{ route('admin.blog.posts.store') }}" method="post" style="--gap: {{ space(3) }}">
+      {{ csrfField() }}
+
+      @form.group({ name: 'title' })
+        @!form.label({ title: 'Title' })
+        @!form.input({ type: 'text', autocomplete: 'off' })
+      @end
+
+      @form.group({ name: 'canonical_url' })
+        @!form.label({ title: 'Canonical URL' })
+        @!form.input({ type: 'text', autocomplete: 'off' })
+      @end
+
+      @form.group({ name: 'content' })
+        @!form.label({ title: 'Content' })
+        @!form.easymde()
+      @end
+
+      <div>
+        @button({ type: 'submit' })
+          Créer
+        @end
+      </div>
+    </form>
+  @end
+@end

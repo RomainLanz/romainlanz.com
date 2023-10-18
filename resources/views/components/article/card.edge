@@ -3,13 +3,13 @@
 )
 
 <article class="{{ classes }}">
-  @flex({ gap: 16, direction: 'column' })
+  @flex({ class: 'h-full', gap: 16, direction: 'column' })
     <header>
       <time>{{ $props.get('date') }}</time>
       <h2>{{ $props.get('title') }}</h2>
     </header>
 
-    <p>
+    <p class="grow">
       {{{ await $slots.main() }}}
     </p>
 

@@ -13,6 +13,7 @@
 .form_control {
   border: 1px solid var(--gray-800);
   border-radius: var(--rounded);
+  background: transparent;
   padding: 0.75rem 1.25rem;
 
   &[disabled] {
