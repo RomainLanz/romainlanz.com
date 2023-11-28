@@ -1,7 +1,7 @@
 import { inject } from '@adonisjs/core'
 import AuthService from '#auth/services/auth_service'
 import type { HttpContext } from '@adonisjs/core/http'
-import { Login } from '../../../resources/views/pages/auth/login.js'
+import { Login } from '#views/pages/auth/login'
 
 const kAuthSessionKey = 'authenticated_user'
 

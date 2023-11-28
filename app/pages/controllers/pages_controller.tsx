@@ -1,7 +1,7 @@
 import { assert } from '@poppinss/utils/assert'
 import { UserRole } from '#auth/enums/user_role'
 import type { HttpContext } from '@adonisjs/core/http'
-import { Dashboard } from '../../../resources/views/pages/admin/dashboard.js'
+import { Dashboard } from '#views/pages/admin/dashboard'
 
 export default class PagesController {
   dashboard({ user, response }: HttpContext) {
