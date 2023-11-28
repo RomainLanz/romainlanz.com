@@ -34,6 +34,7 @@ export default defineConfig({
     () => import('@adonisjs/session/session_provider'),
     () => import('@adonisjs/shield/shield_provider'),
     () => import('@adonisjs/lucid/database_provider'),
+    () => import('@adonisjs/auth/auth_provider'),
   ],
 
   /*
