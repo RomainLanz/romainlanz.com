@@ -19,8 +19,8 @@ export function Create() {
           </Form.Group>
 
           <Form.Group>
-            <Form.Label title="Canonical URL" for="canonical_url" />
-            <Form.Input name="canonical_url" />
+            <Form.Label title="Canonical URL" for="canonicalUrl" />
+            <Form.Input name="canonicalUrl" />
           </Form.Group>
 
           <Form.Group>

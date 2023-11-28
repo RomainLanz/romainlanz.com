@@ -3,6 +3,7 @@ import type { HttpContext } from '@adonisjs/core/http'
 import Post from '#blog/models/post'
 import string from '@poppinss/utils/string'
 import { PostView } from '#views/pages/admin/blog/posts/posts'
+import { storePostValidator } from '#blog/validators/post_validator'
 
 export default class PostsController {
   create({ auth, response }: HttpContext) {
@@ -22,12 +23,13 @@ export default class PostsController {
       return response.redirect().back()
     }
 
-    const { title, content } = request.all()
+    const { title, content, canonicalUrl } = await request.validateUsing(storePostValidator)
 
     await Post.create({
       title,
+      canonicalUrl,
       content,
-      slug: string.slug(title),
+      slug: string.slug(title).toLocaleLowerCase(),
     })
 
     return response.redirect().back()
