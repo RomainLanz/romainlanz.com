@@ -83,5 +83,9 @@ export default defineConfig({
       pattern: 'public/**',
       reloadServer: false,
     },
+    {
+      pattern: 'resources/views/**/*.tsx',
+      reloadServer: true,
+    },
   ],
 })

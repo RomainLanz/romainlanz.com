@@ -1,6 +1,7 @@
 import { inject } from '@adonisjs/core'
 import AuthService from '#auth/services/auth_service'
 import type { HttpContext } from '@adonisjs/core/http'
+import { Login } from '../../../resources/views/pages/auth/login.js'
 
 const kAuthSessionKey = 'authenticated_user'
 
@@ -8,8 +9,8 @@ const kAuthSessionKey = 'authenticated_user'
 export default class AuthController {
   constructor(private authService: AuthService) {}
 
-  showLoginForm({ view }: HttpContext) {
-    return view.render('pages/auth/login')
+  showLoginForm() {
+    return <Login />
   }
 
   async login({ request, session, response }: HttpContext) {

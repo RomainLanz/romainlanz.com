@@ -9,6 +9,7 @@
 
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
+import { Home } from '#views/pages/home'
 const AssetsController = () => import('../app/media/controllers/assets_controller.js')
 
 const PagesController = () => import('#pages/controllers/pages_controller')
@@ -34,7 +35,8 @@ router
   .as('api')
   .middleware([middleware.auth()])
 
-router.get('/', async ({ view }) => view.render('pages/home')).as('pages.home')
+// router.get('/', async ({ view }) => view.render('pages/home')).as('pages.home')
+router.get('/', () => <Home />).as('pages.home')
 
 router.get('pastes/create', [PastesController, 'create']).as('pastes.create')
 router.get('pastes/:id', [PastesController, 'show']).as('pastes.show')

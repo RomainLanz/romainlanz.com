@@ -1,7 +1,8 @@
 @import '../core/functions';
 
 .button {
-  background-color: transparent;
+  --bg-color: transparant;
+  background-color: var(--bg-color);
   border-radius: var(--rounded);
   border: 2px solid var(--gray-800);
   box-shadow: var(--shadow-small);
@@ -12,7 +13,7 @@
   transition: background-color 100ms ease-in;
 
   &:hover {
-    background-color: var(--white);
+    --bg-color: var(--white);
   }
 
   &.small {
@@ -20,26 +21,26 @@
   }
 
   &.violet {
-    background-color: var(--violet-300);
+    --bg-color: var(--violet-300);
 
     &:hover {
-      background-color: var(--violet-500);
+      --bg-color: var(--violet-500);
     }
   }
 
   &.cyan {
-    background-color: var(--cyan-300);
+    --bg-color: var(--cyan-300);
 
     &:hover {
-      background-color: var(--cyan-500);
+      --bg-color: var(--cyan-500);
     }
   }
 
   &.yellow {
-    background-color: var(--yellow-300);
+    --bg-color: var(--yellow-300);
 
     &:hover {
-      background-color: var(--yellow-500);
+      --bg-color: var(--yellow-500);
     }
   }
 }

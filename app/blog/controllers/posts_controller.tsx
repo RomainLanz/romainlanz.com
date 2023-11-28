@@ -3,16 +3,17 @@ import { UserRole } from '#auth/enums/user_role'
 import type { HttpContext } from '@adonisjs/core/http'
 import Post from '#blog/models/post'
 import string from '@poppinss/utils/string'
+import { PostView } from '#views/pages/admin/blog/posts/posts'
 
 export default class PostsController {
-  create({ user, view, response }: HttpContext) {
+  create({ user, response }: HttpContext) {
     assert(user, 'User is not authenticated')
 
     if (user.role !== UserRole.Admin) {
       return response.redirect().back()
     }
 
-    return view.render('pages/admin/blog/posts/create')
+    return <PostView.Create />
   }
 
   async store({ user, request, response }: HttpContext) {
