@@ -42,6 +42,11 @@ router.get('pastes/create', [PastesController, 'create']).as('pastes.create')
 router.get('pastes/:id', [PastesController, 'show']).as('pastes.show')
 router.post('pastes', [PastesController, 'store']).as('pastes.store')
 
-router.get('login', [AuthController, 'showLoginForm']).as('auth.login')
-router.post('login', [AuthController, 'login'])
+router
+  .group(() => {
+    router.get('login', [AuthController, 'showLoginForm']).as('auth.login')
+    router.post('login', [AuthController, 'login'])
+  })
+  .middleware(middleware.guest())
+
 router.delete('logout', [AuthController, 'logout']).as('auth.logout')
