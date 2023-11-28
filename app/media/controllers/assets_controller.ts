@@ -1,12 +1,11 @@
-import { assert } from '@poppinss/utils/assert'
 import { UserRole } from '#auth/enums/user_role'
 import type { HttpContext } from '@adonisjs/core/http'
 import app from '@adonisjs/core/services/app'
 import { cuid } from '@adonisjs/core/helpers'
 
 export default class AssetsController {
-  async store({ user, request, response }: HttpContext) {
-    assert(user, 'User is not authenticated')
+  async store({ auth, request, response }: HttpContext) {
+    const user = auth.getUserOrFail()
 
     if (user.role !== UserRole.Admin) {
       return response.forbidden()

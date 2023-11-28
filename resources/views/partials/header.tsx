@@ -4,7 +4,7 @@ import { HttpContext } from '@adonisjs/core/http'
 import { Button } from '#views/components/button'
 
 export function Header() {
-  const { user } = HttpContext.getOrFail()
+  const { auth } = HttpContext.getOrFail()
 
   return (
     <MaxWidthWrapper>
@@ -14,7 +14,7 @@ export function Header() {
           <span>Romain Lanz</span>
         </a>
 
-        {user && (
+        {auth.user && (
           <div
             class="d-flex items-center"
             style={{
@@ -25,7 +25,7 @@ export function Header() {
 
             <span>|</span>
 
-            <span>{user.email}</span>
+            <span>{auth.user.email}</span>
 
             <form action={`${route('auth.logout')}?_method=DELETE`} method="post">
               {csrfField()}

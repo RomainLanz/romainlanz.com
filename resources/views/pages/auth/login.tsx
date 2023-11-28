@@ -1,8 +1,8 @@
 import { csrfField, route, space } from '#start/view'
 import { HttpContext } from '@adonisjs/core/http'
-import { Form } from '#views/components/form/form.js'
-import { Button } from '#views/components/button.js'
-import { Master } from '#views/layouts/master.js'
+import { Form } from '#views/components/form/form'
+import { Button } from '#views/components/button'
+import { Master } from '#views/layouts/master'
 
 export function Login() {
   const { session } = HttpContext.getOrFail()

@@ -1,6 +1,6 @@
 import { Assets } from '#start/view'
-import { Header } from '#views/partials/header.js'
-import { Footer } from '#views/partials/footer.js'
+import { Header } from '#views/partials/header'
+import { Footer } from '#views/partials/footer'
 
 interface AppProps {
   title?: string
