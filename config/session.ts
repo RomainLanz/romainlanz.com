@@ -1,5 +1,5 @@
 import env from '#start/env'
-import { defineConfig } from '@adonisjs/session'
+import { defineConfig, stores } from '@adonisjs/session'
 
 export default defineConfig({
   enabled: true,
@@ -22,7 +22,11 @@ export default defineConfig({
    * variable in order to infer the driver name without any
    * errors.
    */
-  driver: env.get('SESSION_DRIVER'),
+  store: env.get('SESSION_DRIVER'),
+
+  stores: {
+    cookie: stores.cookie(),
+  },
 
   cookie: {
     path: '/',
