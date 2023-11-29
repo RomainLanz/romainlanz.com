@@ -1,0 +1,38 @@
+@import '../core/functions';
+@import '../core/mixins';
+
+@include page('dashboard') {
+  .dashboard_wrapper {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: spacePx(4);
+  }
+
+  .card {
+    font-size: var(--text-base);
+  }
+
+  aside {
+    padding: spacePx(4);
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        border-radius: var(--rounded);
+        padding-inline: spacePx(3);
+        padding-block: spacePx(2);
+
+        a {
+          display: block;
+        }
+      }
+
+      li:hover {
+        background-color: var(--yellow-100);
+      }
+    }
+  }
+}
