@@ -10,6 +10,7 @@
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
 import { Home } from '#views/pages/home'
+const RedirectsController = () => import('#redirects/controllers/redirects_controller')
 const AssetsController = () => import('../app/media/controllers/assets_controller.js')
 
 const PagesController = () => import('#pages/controllers/pages_controller')
@@ -17,11 +18,17 @@ const PostsController = () => import('#blog/controllers/posts_controller')
 const PastesController = () => import('#paste/controllers/pastes_controller')
 const AuthController = () => import('#auth/controllers/auth_controller')
 
+router.get('r/:url', [RedirectsController, 'show']).as('redirects.show')
+
 router
   .group(() => {
     router.get('dashboard', [PagesController, 'dashboard']).as('pages.dashboard')
     router.get('blog/posts/create', [PostsController, 'create']).as('blog.posts.create')
     router.post('blog/posts', [PostsController, 'store']).as('blog.posts.store')
+
+    router.get('redirects', [RedirectsController, 'index']).as('redirects.index')
+    router.get('redirects/create', [RedirectsController, 'create']).as('redirects.create')
+    router.post('redirects', [RedirectsController, 'store']).as('redirects.store')
   })
   .prefix('admin')
   .as('admin')

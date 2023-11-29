@@ -10,6 +10,7 @@
       "#core/*": ["./app/core/*.js"],
       "#pages/*": ["./app/pages/*.js"],
       "#paste/*": ["./app/paste/*.js"],
+      "#redirects/*": ["./app/redirects/*.js"],
       "#start/*": ["./start/*.js"],
       "#config/*": ["./config/*.js"],
       "#types/*": ["./types/*.js"],
