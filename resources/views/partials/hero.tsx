@@ -1,6 +1,6 @@
 import { Flex } from '#views/components/flex'
 import { Button } from '#views/components/button'
-import { Assets } from '#start/view'
+import { Vite } from '#start/view'
 
 export function Hero() {
   return (
@@ -28,7 +28,7 @@ export function Hero() {
             </>
           </Flex>
 
-          <Assets.Image src={'resources/images/hero.svg'} />
+          <Vite.Image src={'resources/images/hero.svg'} />
         </>
       </Flex>
     </section>

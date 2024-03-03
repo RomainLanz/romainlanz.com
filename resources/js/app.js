@@ -1,4 +1,3 @@
-import '../css/app.scss'
 import * as Turbo from '@hotwired/turbo'
 import { Application } from '@hotwired/stimulus'
 import EditorController from './controllers/editor_controller.js'

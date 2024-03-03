@@ -1,4 +1,4 @@
-import { Assets } from '#start/view'
+import { Assets, Vite } from '#start/view'
 import { Header } from '#views/partials/header'
 import { Footer } from '#views/partials/footer'
 
@@ -12,23 +12,26 @@ export function App(props: AppProps) {
   const { title = 'RomainLanz', page, children } = props
 
   return (
-    <html lang="fr">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <>
+      {'<!DOCTYPE html>'}
+      <html lang="fr">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>{title}</title>
+          <title>{title}</title>
 
-        <Assets.Script entrypoint={'resources/js/app.js'} />
-      </head>
+          <Vite.Entrypoint entrypoints={['resources/css/app.scss', 'resources/js/app.js']} />
+        </head>
 
-      <body {...(page ? { 'data-page': page } : {})}>
-        <Header />
+        <body {...(page ? { 'data-page': page } : {})}>
+          <Header />
 
-        {children}
+          {children}
 
-        <Footer />
-      </body>
-    </html>
+          <Footer />
+        </body>
+      </html>
+    </>
   )
 }

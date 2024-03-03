@@ -1,5 +1,5 @@
 import { MaxWidthWrapper } from '#views/components/max_width_wrapper'
-import { Assets, csrfField, route, space } from '#start/view'
+import { Vite, csrfField, route, space } from '#start/view'
 import { HttpContext } from '@adonisjs/core/http'
 import { Button } from '#views/components/button'
 
@@ -10,7 +10,7 @@ export function Header() {
     <MaxWidthWrapper>
       <header class="header">
         <a class="header__title" href="/">
-          <Assets.Image src={'resources/images/logo.svg'} />
+          <Vite.Image src={'resources/images/logo.svg'} />
           <span>Romain Lanz</span>
         </a>
 

@@ -1,4 +1,4 @@
-import { Assets } from '#start/view'
+import { Vite } from '#start/view'
 
 interface MasterProps {
   title?: string
@@ -10,17 +10,20 @@ export function Master(props: MasterProps) {
   const { title = 'RomainLanz', page, children } = props
 
   return (
-    <html lang="fr">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <>
+      {'<!DOCTYPE html>'}
+      <html lang="fr">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>{title}</title>
+          <title>{title}</title>
 
-        <Assets.Script entrypoint={'resources/js/app.js'} />
-      </head>
+          <Vite.Entrypoint entrypoints={['resources/css/app.scss', 'resources/js/app.js']} />
+        </head>
 
-      <body {...(page ? { 'data-page': page } : {})}>{children}</body>
-    </html>
+        <body {...(page ? { 'data-page': page } : {})}>{children}</body>
+      </html>
+    </>
   )
 }
