@@ -1,6 +1,12 @@
 import { defineConfig } from '@adonisjs/core/app'
 
 export default defineConfig({
+  assetsBundler: false,
+
+  unstable_assembler: {
+    onBuildStarting: [() => import('@adonisjs/vite/build_hook')],
+  },
+
   /*
   |--------------------------------------------------------------------------
   | Commands
@@ -35,7 +41,7 @@ export default defineConfig({
     () => import('@adonisjs/shield/shield_provider'),
     () => import('@adonisjs/lucid/database_provider'),
     () => import('@adonisjs/auth/auth_provider'),
-    () => import('@adonisjs/core/providers/vinejs_provider')
+    () => import('@adonisjs/core/providers/vinejs_provider'),
   ],
 
   /*

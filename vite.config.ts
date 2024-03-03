@@ -13,7 +13,7 @@ export default defineConfig({
       /**
        * Paths to watch and reload the browser on file change
        */
-      reloads: ['resources/views/**/*.tsx'],
+      reload: ['resources/views/**/*.tsx'],
     }),
   ],
 })
