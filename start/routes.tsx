@@ -1,22 +1,15 @@
-/*
-|--------------------------------------------------------------------------
-| Routes file
-|--------------------------------------------------------------------------
-|
-| The routes file is used for defining the HTTP routes.
-|
-*/
-
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
 import { Home } from '#views/pages/home'
+
+// region Controller's Imports
 const RedirectsController = () => import('#redirects/controllers/redirects_controller')
 const AssetsController = () => import('../app/media/controllers/assets_controller.js')
-
 const PagesController = () => import('#pages/controllers/pages_controller')
 const PostsController = () => import('#blog/controllers/posts_controller')
 const PastesController = () => import('#paste/controllers/pastes_controller')
 const AuthController = () => import('#auth/controllers/auth_controller')
+// endregion
 
 router.get('r/:url', [RedirectsController, 'show']).as('redirects.show')
 
