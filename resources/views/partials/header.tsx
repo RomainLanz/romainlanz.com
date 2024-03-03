@@ -27,7 +27,7 @@ export function Header() {
 
             <span>{auth.user.email}</span>
 
-            <form action={`${route('auth.logout')}?_method=DELETE`} method="post">
+            <form action={`${route('auth.logout')}?_method=DELETE`} method="post" up-submit>
               {csrfField()}
               <Button size="small" type="submit">
                 Se déconnecter

@@ -10,7 +10,7 @@ export function Create() {
       <MaxWidthWrapper>
         <h1>Ajouter une redirection</h1>
 
-        <form action={route('admin.redirects.store')} method="post">
+        <form action={route('admin.redirects.store')} method="post" up-submit>
           {csrfField()}
 
           <Form.Group>

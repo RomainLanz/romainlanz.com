@@ -19,6 +19,7 @@ export function Login() {
             style={{
               ['--gap' as any]: space(3),
             }}
+            up-submit
           >
             {flashMessages.has('error') && (
               <p class="form_error">Aucun compte n'a été trouvé avec les identifiants fournis.</p>

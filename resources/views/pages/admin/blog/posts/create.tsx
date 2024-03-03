@@ -10,7 +10,7 @@ export function Create() {
       <MaxWidthWrapper>
         <h1 class="page_title">Création d'article</h1>
 
-        <form class="stack" action={route('admin.blog.posts.store')} method="post">
+        <form class="stack" action={route('admin.blog.posts.store')} method="post" up-submit>
           {csrfField()}
 
           <Form.Group>
