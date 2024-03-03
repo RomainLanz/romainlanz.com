@@ -14,6 +14,7 @@
 |
 */
 
-import { aceShell } from '@adonisjs/core/ace/shell'
+import { register } from 'node:module'
+register('ts-node/esm', import.meta.url)
 
-await aceShell(new URL('./', import.meta.url)).handle(process.argv.splice(2))
+await import('./bin/console.js')

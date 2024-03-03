@@ -1,10 +1,17 @@
 import { DateTime } from 'luxon'
+import { withAuthFinder } from '@adonisjs/auth'
 import hash from '@adonisjs/core/services/hash'
-import { BaseModel, beforeSave, column } from '@adonisjs/lucid/orm'
+import { BaseModel, column } from '@adonisjs/lucid/orm'
+import { compose } from '@adonisjs/core/helpers'
 import type { IUserRole } from '#auth/enums/user_role'
 import type { UUID } from '#types/common'
 
-export default class User extends BaseModel {
+const AuthFinder = withAuthFinder(() => hash.use('scrypt'), {
+  uids: ['email'],
+  passwordColumnName: 'password',
+})
+
+export default class User extends compose(BaseModel, AuthFinder) {
   @column({ isPrimary: true })
   declare id: UUID
 
@@ -25,15 +32,4 @@ export default class User extends BaseModel {
 
   @column()
   declare role: IUserRole
-
-  @beforeSave()
-  static async hashPassword(user: User) {
-    if (user.$dirty.password) {
-      user.password = await hash.make(user.password)
-    }
-  }
-
-  async verifyPasswordForAuth(plainTextPassword: string) {
-    return hash.verify(this.password, plainTextPassword)
-  }
 }
