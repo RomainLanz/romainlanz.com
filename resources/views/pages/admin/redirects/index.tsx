@@ -2,6 +2,7 @@ import Redirect from '#redirects/models/redirect'
 import { App } from '#views/layouts/app'
 import { MaxWidthWrapper } from '#views/components/max_width_wrapper'
 import { route } from '#start/view'
+import { Button } from '#views/components/button'
 
 interface IndexProps {
   redirects: Redirect[]
@@ -13,9 +14,9 @@ export function Index(props: IndexProps) {
   return (
     <App title="Redirections">
       <MaxWidthWrapper>
-        <h1>redirects</h1>
+        <h1 class="page_title">Redirections</h1>
 
-        <a href={route('admin.redirects.create')}>Ajouter</a>
+        <Button href={route('admin.redirects.create')}>Ajouter</Button>
 
         <table>
           <thead>
@@ -27,6 +28,7 @@ export function Index(props: IndexProps) {
           <tbody>
             {redirects.map((redirect) => (
               <tr>
+                <td>{redirect.createdAt.toISODate()}</td>
                 <td>{redirect.url}</td>
                 <td>{redirect.to}</td>
               </tr>
