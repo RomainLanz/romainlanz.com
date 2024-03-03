@@ -21,7 +21,7 @@ export function App(props: AppProps) {
 
           <title>{title}</title>
 
-          <Vite.Entrypoint entrypoints={['resources/css/app.scss', 'resources/js/app.js']} />
+          <Vite.Entrypoint entrypoints={['resources/css/app.scss', 'resources/js/app.ts']} />
         </head>
 
         <body {...(page ? { 'data-page': page } : {})}>
