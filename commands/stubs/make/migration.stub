@@ -8,7 +8,12 @@ import { Kysely } from 'kysely'
 export async function up(db: Kysely<any>): Promise<void> {
   await db.schema
     .createTable('{{ migration.tableName }}')
-    .addColumn('id', 'integer', (col) => col.primaryKey().notNull())
+    .addColumn('id', 'uuid', (col) =>
+      col
+        .primaryKey()
+        .notNull()
+        .defaultTo(sql\`gen_random_uuid()\`)
+    )
     .addColumn('created_at', 'timestamp', (col) => col.notNull())
     .addColumn('updated_at', 'timestamp', (col) => col.notNull())
     .execute()
