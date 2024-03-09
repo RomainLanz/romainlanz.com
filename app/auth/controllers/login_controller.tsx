@@ -1,7 +1,7 @@
 import { inject } from '@adonisjs/core'
 import { AuthService } from '#auth/services/auth_service'
 import { Login } from '#views/pages/auth/login'
-import { HttpContext } from '@adonisjs/core/http'
+import type { HttpContext } from '@adonisjs/core/http'
 
 @inject()
 export default class LoginController {

@@ -16,7 +16,7 @@ export async function Header() {
           <span>Romain Lanz</span>
         </a>
 
-        {auth.user && (
+        {auth.user ? (
           <div
             class="d-flex items-center"
             style={{
@@ -29,13 +29,22 @@ export async function Header() {
 
             <span>{auth.user.email}</span>
 
-            <form action={`${route('auth.logout')}?_method=DELETE`} method="post" up-submit>
+            <form
+              action={`${route('auth.logout')}?_method=DELETE`}
+              method="post"
+              up-target="header"
+            >
               {csrfField()}
+
               <Button size="small" type="submit">
                 Se déconnecter
               </Button>
             </form>
           </div>
+        ) : (
+          <a href={route('auth.login')} up-layer="new" up-mode="modal">
+            Se connecter
+          </a>
         )}
       </MaxWidthWrapper>
     </header>
