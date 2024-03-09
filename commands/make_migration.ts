@@ -2,7 +2,7 @@ import { BaseCommand, args } from '@adonisjs/core/ace'
 import type { CommandOptions } from '@adonisjs/core/types/ace'
 
 export default class MakeMigration extends BaseCommand {
-  static commandName = 'm:m'
+  static commandName = 'make:migration'
   static description = 'Create a new Kysely migration file'
   static options: CommandOptions = {}
 

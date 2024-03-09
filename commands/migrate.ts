@@ -2,7 +2,8 @@ import path from 'node:path'
 import { db } from '#core/services/db'
 import * as fs from 'node:fs/promises'
 import { BaseCommand } from '@adonisjs/core/ace'
-import { FileMigrationProvider, Migrator } from 'kysely'
+import { Migrator } from 'kysely'
+import { FileMigrationProvider } from '#core/file_migration_provider'
 import type { CommandOptions } from '@adonisjs/core/types/ace'
 
 export default class Migrate extends BaseCommand {
