@@ -1,6 +1,7 @@
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
 import { Home } from '#views/pages/home'
+import GetPostsController from '#blog/controllers/get_posts_controller'
 
 // region Controller's Imports
 const AssetsController = () => import('../app/media/controllers/assets_controller.js')
@@ -17,6 +18,7 @@ router.get('r/:url', [RedirectsController, 'show']).as('redirects.show')
 router
   .group(() => {
     router.get('dashboard', [PagesController, 'dashboard']).as('pages.dashboard')
+    router.get('blog/posts', [GetPostsController]).as('blog.posts.index')
     router.get('blog/posts/create', [PostsController, 'create']).as('blog.posts.create')
     router.post('blog/posts', [PostsController, 'store']).as('blog.posts.store')
 

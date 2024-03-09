@@ -1,9 +1,8 @@
 import { UserRole } from '#auth/enums/user_role'
-import type { HttpContext } from '@adonisjs/core/http'
-import Post from '#blog/models/post'
 import string from '@poppinss/utils/string'
 import { PostView } from '#views/pages/admin/blog/posts/posts'
 import { storePostValidator } from '#blog/validators/post_validator'
+import type { HttpContext } from '@adonisjs/core/http'
 
 export default class PostsController {
   create({ auth, response }: HttpContext) {

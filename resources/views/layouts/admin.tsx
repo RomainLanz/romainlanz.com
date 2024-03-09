@@ -1,6 +1,8 @@
 import { Assets, Vite } from '#start/view'
 import { Header } from '#views/partials/header'
 import { Footer } from '#views/partials/footer'
+import { MaxWidthWrapper } from '#views/components/max_width_wrapper'
+import { Sidebar } from '#views/partials/admin/sidebar'
 
 interface AppProps {
   title?: string
@@ -8,7 +10,7 @@ interface AppProps {
   children: JSX.Element
 }
 
-export function App(props: AppProps) {
+export function Admin(props: AppProps) {
   const { title = 'RomainLanz', page, children } = props
 
   return (
@@ -28,7 +30,19 @@ export function App(props: AppProps) {
         <body {...(page ? { 'data-page': page } : {})}>
           <Header />
 
-          <main up-main>{children}</main>
+          <main up-main>
+            <MaxWidthWrapper>
+              <>
+                <h1 class="page_title">{title}</h1>
+
+                <div class="admin_wrapper">
+                  <Sidebar />
+
+                  <div>{children}</div>
+                </div>
+              </>
+            </MaxWidthWrapper>
+          </main>
 
           <Footer />
         </body>
