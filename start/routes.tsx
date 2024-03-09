@@ -3,12 +3,13 @@ import { middleware } from '#start/kernel'
 import { Home } from '#views/pages/home'
 
 // region Controller's Imports
-const RedirectsController = () => import('#redirects/controllers/redirects_controller')
 const AssetsController = () => import('../app/media/controllers/assets_controller.js')
+const LoginController = () => import('#auth/controllers/login_controller')
+const LogoutController = () => import('#auth/controllers/logout_controller')
 const PagesController = () => import('#pages/controllers/pages_controller')
-const PostsController = () => import('#blog/controllers/posts_controller')
 const PastesController = () => import('#paste/controllers/pastes_controller')
-const AuthController = () => import('#auth/controllers/auth_controller')
+const PostsController = () => import('#blog/controllers/posts_controller')
+const RedirectsController = () => import('#redirects/controllers/redirects_controller')
 // endregion
 
 router.get('r/:url', [RedirectsController, 'show']).as('redirects.show')
@@ -44,9 +45,9 @@ router.post('pastes', [PastesController, 'store']).as('pastes.store')
 
 router
   .group(() => {
-    router.get('login', [AuthController, 'showLoginForm']).as('auth.login')
-    router.post('login', [AuthController, 'login'])
+    router.get('login', [LoginController, 'render']).as('auth.login')
+    router.post('login', [LoginController])
   })
   .middleware(middleware.guest())
 
-router.delete('logout', [AuthController, 'logout']).as('auth.logout')
+router.delete('logout', [LogoutController]).as('auth.logout')

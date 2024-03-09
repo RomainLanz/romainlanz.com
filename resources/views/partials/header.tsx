@@ -3,8 +3,10 @@ import { Vite, csrfField, route, space } from '#start/view'
 import { HttpContext } from '@adonisjs/core/http'
 import { Button } from '#views/components/button'
 
-export function Header() {
+export async function Header() {
   const { auth } = HttpContext.getOrFail()
+
+  await auth.check()
 
   return (
     <MaxWidthWrapper>
