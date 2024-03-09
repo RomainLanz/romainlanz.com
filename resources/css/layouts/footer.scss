@@ -3,8 +3,8 @@
 .footer {
   background-color: var(--yellow-200);
   border-top: 2px solid var(--gray-800);
-  height: 260px;
   margin-top: spacePx(38);
+  min-height: 260px;
   padding-block: spacePx(5);
 
   &__title {

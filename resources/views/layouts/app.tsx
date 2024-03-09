@@ -27,7 +27,7 @@ export function App(props: AppProps) {
         <body {...(page ? { 'data-page': page } : {})}>
           <Header />
 
-          {children}
+          <main>{children}</main>
 
           <Footer />
         </body>

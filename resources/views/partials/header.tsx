@@ -9,8 +9,8 @@ export async function Header() {
   await auth.check()
 
   return (
-    <MaxWidthWrapper>
-      <header class="header">
+    <header>
+      <MaxWidthWrapper class="header">
         <a class="header__title" href="/">
           <Vite.Image src={'resources/images/logo.svg'} />
           <span>Romain Lanz</span>
@@ -37,7 +37,7 @@ export async function Header() {
             </form>
           </div>
         )}
-      </header>
-    </MaxWidthWrapper>
+      </MaxWidthWrapper>
+    </header>
   )
 }

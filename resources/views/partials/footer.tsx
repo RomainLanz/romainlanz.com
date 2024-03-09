@@ -3,11 +3,13 @@ import { Vite } from '#start/view'
 
 export function Footer() {
   return (
-    <MaxWidthWrapper>
-      <a class="footer__title" href="/">
-        <Vite.Image src={'resources/images/logo.svg'} />
-        <span>Romain Lanz</span>
-      </a>
-    </MaxWidthWrapper>
+    <footer class="footer">
+      <MaxWidthWrapper>
+        <a class="footer__title" href="/">
+          <Vite.Image src={'resources/images/logo.svg'} />
+          <span>Romain Lanz</span>
+        </a>
+      </MaxWidthWrapper>
+    </footer>
   )
 }
