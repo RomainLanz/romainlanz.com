@@ -19,7 +19,7 @@ export function Master(props: MasterProps) {
 
           <title>{title}</title>
 
-          <Vite.Entrypoint entrypoints={['resources/css/app.scss', 'resources/js/app.ts']} />
+          <Vite.Entrypoint entrypoints={['resources/css/app.scss', 'resources/ts/app.ts']} />
         </head>
 
         <body {...(page ? { 'data-page': page } : {})}>{children}</body>
