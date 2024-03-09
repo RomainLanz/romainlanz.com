@@ -55,9 +55,10 @@ export default defineConfig({
     () => import('#start/routes'),
     () => import('#start/kernel'),
     {
-      file: () => import('./start/view.js'),
+      file: () => import('#start/view'),
       environment: ['web'],
     },
+    () => import('#start/events'),
   ],
 
   /*
