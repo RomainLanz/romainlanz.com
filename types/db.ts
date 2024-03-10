@@ -7,6 +7,11 @@ export type Generated<T> =
 
 export type Timestamp = ColumnType<Date, Date | string, Date | string>
 
+export interface Categories {
+  id: Generated<string>
+  name: string
+}
+
 export interface Posts {
   canonical_url: string | null
   content: string
@@ -25,6 +30,18 @@ export interface Redirects {
   to: string
   updated_at: Timestamp
   url: string
+  visit_count: Generated<number>
+}
+
+export interface TagPosts {
+  post_id: string
+  tag_id: string
+}
+
+export interface Tags {
+  color: string
+  id: Generated<string>
+  name: string
 }
 
 export interface Users {
@@ -37,7 +54,10 @@ export interface Users {
 }
 
 export interface DB {
+  categories: Categories
   posts: Posts
   redirects: Redirects
+  tag_posts: TagPosts
+  tags: Tags
   users: Users
 }
