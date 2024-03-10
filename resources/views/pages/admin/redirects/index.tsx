@@ -1,41 +1,32 @@
-import Redirect from '#redirects/models/redirect'
-import { App } from '#views/layouts/app'
-import { MaxWidthWrapper } from '#views/components/max_width_wrapper'
-import { route } from '#start/view'
+import { route, space } from '#start/view'
 import { Button } from '#views/components/button'
+import { Admin } from '#views/layouts/admin'
+import { Table } from '#views/components/table/table'
 
 interface IndexProps {
-  redirects: Redirect[]
+  redirects: any[]
 }
 
 export function Index(props: IndexProps) {
   const { redirects } = props
 
   return (
-    <App title="Redirections">
-      <MaxWidthWrapper>
-        <h1 class="page_title">Redirections</h1>
+    <Admin title="Redirections">
+      <div class="d-flex column" style={{ gap: space(5) }}>
+        <div>
+          <Button href={route('admin.redirects.create')}>Ajouter</Button>
+        </div>
 
-        <Button href={route('admin.redirects.create')}>Ajouter</Button>
-
-        <table>
-          <thead>
+        <Table headers={['From', 'To', 'Visits']}>
+          {redirects.map((redirect) => (
             <tr>
-              <th>from</th>
-              <th>to</th>
+              <td>{redirect.url}</td>
+              <td>{redirect.to}</td>
+              <td>{redirect.visit_count}</td>
             </tr>
-          </thead>
-          <tbody>
-            {redirects.map((redirect) => (
-              <tr>
-                <td>{redirect.createdAt.toISODate()}</td>
-                <td>{redirect.url}</td>
-                <td>{redirect.to}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </MaxWidthWrapper>
-    </App>
+          ))}
+        </Table>
+      </div>
+    </Admin>
   )
 }

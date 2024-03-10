@@ -1,19 +1,21 @@
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
 import { Home } from '#views/pages/home'
-import GetPostsController from '#blog/controllers/get_posts_controller'
 
 // region Controller's Imports
+const GetPostsController = () => import('#blog/controllers/get_posts_controller')
+const GetRedirectsController = () => import('#redirects/controllers/get_redirects_controller')
+const StoreRedirectController = () => import('#redirects/controllers/store_redirect_controller')
+const ProcessRedirectController = () => import('#redirects/controllers/process_redirect_controller')
 const AssetsController = () => import('../app/media/controllers/assets_controller.js')
 const LoginController = () => import('#auth/controllers/login_controller')
 const LogoutController = () => import('#auth/controllers/logout_controller')
 const PagesController = () => import('#pages/controllers/pages_controller')
 const PastesController = () => import('#paste/controllers/pastes_controller')
 const PostsController = () => import('#blog/controllers/posts_controller')
-const RedirectsController = () => import('#redirects/controllers/redirects_controller')
 // endregion
 
-router.get('r/:url', [RedirectsController, 'show']).as('redirects.show')
+router.get('r/*', [ProcessRedirectController]).as('redirects.show')
 
 router
   .group(() => {
@@ -22,9 +24,9 @@ router
     router.get('blog/posts/create', [PostsController, 'create']).as('blog.posts.create')
     router.post('blog/posts', [PostsController, 'store']).as('blog.posts.store')
 
-    router.get('redirects', [RedirectsController, 'index']).as('redirects.index')
-    router.get('redirects/create', [RedirectsController, 'create']).as('redirects.create')
-    router.post('redirects', [RedirectsController, 'store']).as('redirects.store')
+    router.get('redirects', [GetRedirectsController]).as('redirects.index')
+    router.get('redirects/create', [StoreRedirectController, 'render']).as('redirects.create')
+    router.post('redirects', [StoreRedirectController]).as('redirects.store')
   })
   .prefix('admin')
   .as('admin')
