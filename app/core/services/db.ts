@@ -25,7 +25,9 @@ export const db = new Kysely<DB>({
     if (app.inProduction) return
 
     if (event.level === 'query') {
-      logger.info(`[SQL] ${event.query.sql} - ${event.queryDurationMillis}ms`)
+      const formattedTime = (Math.round(event.queryDurationMillis * 100) / 100).toFixed(2)
+
+      logger.info(`[SQL] ${event.query.sql} - ${formattedTime}ms`)
     }
   },
 })
