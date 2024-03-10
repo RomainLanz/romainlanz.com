@@ -4,17 +4,12 @@ import { UserRole } from '#auth/enums/user_role'
 export async function up(db: Kysely<any>): Promise<void> {
   await db.schema
     .createTable('users')
-    .addColumn('id', 'uuid', (col) =>
-      col
-        .primaryKey()
-        .notNull()
-        .defaultTo(sql`gen_random_uuid()`)
-    )
+    .addColumn('id', 'uuid', (col) => col.primaryKey().defaultTo(sql`gen_random_uuid()`))
     .addColumn('created_at', 'timestamp', (col) => col.notNull())
     .addColumn('updated_at', 'timestamp', (col) => col.notNull())
     .addColumn('email', 'varchar', (col) => col.notNull().unique())
     .addColumn('password', 'varchar', (col) => col.notNull())
-    .addColumn('role', 'integer', (col) => col.defaultTo(UserRole.User))
+    .addColumn('role', 'integer', (col) => col.notNull().defaultTo(UserRole.User))
     .execute()
 }
 
