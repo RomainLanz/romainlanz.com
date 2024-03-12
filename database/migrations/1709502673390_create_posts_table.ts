@@ -11,7 +11,8 @@ export async function up(db: Kysely<any>): Promise<void> {
     .addColumn('slug', 'varchar(120)', (col) => col.unique().notNull())
     .addColumn('description', 'varchar')
     .addColumn('canonical_url', 'varchar')
-    .addColumn('content', 'text', (col) => col.notNull())
+    .addColumn('markdown_content', 'text', (col) => col.notNull())
+    .addColumn('html_content', 'text', (col) => col.notNull())
     .addColumn('status', 'integer', (col) => col.notNull().defaultTo(PostStatus.Draft))
     .execute()
 }

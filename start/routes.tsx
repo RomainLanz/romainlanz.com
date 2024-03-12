@@ -3,6 +3,7 @@ import { middleware } from '#start/kernel'
 import { Home } from '#views/pages/home'
 
 // region Controller's Imports
+const GetPostController = () => import('#blog/controllers/get_post_controller')
 const DeleteRedirectController = () => import('#redirects/controllers/delete_redirect_controller')
 const GetPostsController = () => import('#blog/controllers/get_posts_controller')
 const StorePostController = () => import('#blog/controllers/store_post_controller')
@@ -13,7 +14,6 @@ const UploadImageController = () => import('#media/controllers/upload_image_cont
 const LoginController = () => import('#auth/controllers/login_controller')
 const LogoutController = () => import('#auth/controllers/logout_controller')
 const PagesController = () => import('#pages/controllers/pages_controller')
-const PastesController = () => import('#paste/controllers/pastes_controller')
 // endregion
 
 router.get('r/*', [ProcessRedirectController]).as('redirects.show')
@@ -45,9 +45,11 @@ router
 // router.get('/', async ({ view }) => view.render('pages/home')).as('pages.home')
 router.get('/', () => <Home />).as('pages.home')
 
-router.get('pastes/create', [PastesController, 'create']).as('pastes.create')
-router.get('pastes/:id', [PastesController, 'show']).as('pastes.show')
-router.post('pastes', [PastesController, 'store']).as('pastes.store')
+router.get('/blog/:slug', [GetPostController]).as('blog.posts.show')
+
+// router.get('pastes/create', [PastesController, 'create']).as('pastes.create')
+// router.get('pastes/:id', [PastesController, 'show']).as('pastes.show')
+// router.post('pastes', [PastesController, 'store']).as('pastes.store')
 
 router
   .group(() => {

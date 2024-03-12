@@ -2,12 +2,11 @@ import { Vite } from '#start/view'
 
 interface MasterProps {
   title?: string
-  page?: string
   children: JSX.Element
 }
 
 export function Master(props: MasterProps) {
-  const { title = 'RomainLanz', page, children } = props
+  const { title = 'RomainLanz', children } = props
 
   return (
     <>
@@ -23,7 +22,7 @@ export function Master(props: MasterProps) {
           <Vite.Entrypoint entrypoints={['resources/css/app.scss', 'resources/ts/app.ts']} />
         </head>
 
-        <body {...(page ? { 'data-page': page } : {})}>{children}</body>
+        <body>{children}</body>
       </html>
     </>
   )

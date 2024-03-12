@@ -1,0 +1,27 @@
+@import '../core/functions';
+@import '../core/mixins';
+
+@include page('article') {
+  pre {
+    @extend .card;
+    background-color: transparent;
+    margin-block: spacePx(2);
+    padding: spacePx(4) spacePx(6);
+  }
+
+  blockquote {
+    color: var(--gray-500);
+  }
+
+  .alert.alert-note {
+    @extend .alert, .info;
+  }
+
+  .alert.alert-warning {
+    @extend .alert, .warning;
+  }
+
+  .alert.alert-tip {
+    @extend .alert, .success;
+  }
+}

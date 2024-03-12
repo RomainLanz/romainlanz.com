@@ -27,10 +27,10 @@ export function Admin(props: AppProps) {
           <Vite.Entrypoint entrypoints={['resources/css/app.scss', 'resources/ts/app.ts']} />
         </head>
 
-        <body {...(page ? { 'data-page': page } : {})}>
+        <body>
           <Header />
 
-          <main up-main>
+          <main {...(page ? { 'data-page': page } : {})} up-main>
             <MaxWidthWrapper>
               <>
                 <h1 class="page_title">{title}</h1>

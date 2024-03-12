@@ -29,7 +29,7 @@ export function Create() {
 
           <Form.Group>
             <Form.Label title="Contenu *" for="content" />
-            <Form.EasyMDE name="content" />
+            <Form.EasyMDE name="markdownContent" />
           </Form.Group>
 
           <div>

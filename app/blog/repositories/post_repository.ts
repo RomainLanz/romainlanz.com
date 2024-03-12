@@ -3,7 +3,8 @@ import { db } from '#core/services/db'
 interface StorePostDTO {
   title: string
   slug: string
-  content: string
+  markdownContent: string
+  htmlContent: string
   canonicalUrl: string
 }
 
@@ -23,9 +24,18 @@ export class PostRepository {
         updated_at: new Date(),
         title: payload.title,
         slug: payload.slug,
-        content: payload.content,
+        html_content: payload.htmlContent,
+        markdown_content: payload.markdownContent,
         canonical_url: payload.canonicalUrl,
       })
       .execute()
+  }
+
+  findBySlug(slug: string) {
+    return db
+      .selectFrom('posts')
+      .select(['id', 'title', 'slug', 'html_content'])
+      .where('slug', '=', slug)
+      .executeTakeFirst()
   }
 }

@@ -18,7 +18,9 @@ export function Index(props: IndexProps) {
         <Table headers={['Titre', 'Actions']}>
           {props.posts.map((post: any) => (
             <tr>
-              <td>{post.title}</td>
+              <td>
+                <a href={route('blog.posts.show', [post.slug])}>{post.title}</a>
+              </td>
               <td>
                 <a href={`/admin/blog/posts/${post.id}/edit`}>Modifier</a>
               </td>

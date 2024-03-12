@@ -18,6 +18,7 @@
 /**
  * Components.
  */
+@import 'components/alert';
 @import 'components/button';
 @import 'components/card';
 @import 'components/code';
@@ -32,6 +33,7 @@
 /**
  * Pages.
  */
+@import 'pages/article';
 @import 'pages/auth';
 @import 'pages/dashboard';
 @import 'pages/paste';
