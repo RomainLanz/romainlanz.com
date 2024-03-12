@@ -2,6 +2,48 @@
 @import '../core/mixins';
 
 @include page('article') {
+  article {
+    margin-inline: auto;
+    margin-top: spacePx(28);
+    width: 80ch;
+
+    header {
+      position: relative;
+      margin-bottom: spacePx(20);
+
+      h1 {
+        font-size: var(--text-h1);
+      }
+
+      img {
+        width: 130px;
+        position: absolute;
+        left: -162px;
+      }
+
+      time {
+        display: inline-block;
+        font-weight: normal;
+        position: relative;
+
+        &:before {
+          background-color: var(--cyan-300);
+          content: '';
+          height: 6px;
+          bottom: 4px;
+          position: absolute;
+          width: 100%;
+          z-index: -1;
+        }
+      }
+    }
+
+    .reading-time {
+      font-size: var(--text-utility);
+      text-transform: uppercase;
+    }
+  }
+
   pre {
     @extend .card;
     background-color: transparent;
@@ -11,6 +53,24 @@
 
   blockquote {
     color: var(--gray-500);
+  }
+
+  code {
+    display: inline-block;
+    color: var(--yellow-900);
+    border-radius: var(--rounded);
+    background-color: var(--yellow-400);
+    padding: 1px spacePx(1);
+  }
+
+  p {
+    margin-block: spacePx(2);
+  }
+
+  h2 {
+    font-size: var(--text-h2);
+    margin-top: spacePx(15);
+    margin-bottom: spacePx(7);
   }
 
   .alert.alert-note {
