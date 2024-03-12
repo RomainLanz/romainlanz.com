@@ -6,14 +6,21 @@
   border-radius: var(--rounded);
   border: 2px solid var(--gray-800);
   box-shadow: var(--shadow-small);
+  display: inline-block;
   cursor: pointer;
   font-size: var(--text-base);
   font-weight: bold;
   padding: 0.75rem 1.25rem;
   transition: background-color 100ms ease-in;
 
-  &:hover {
+  &:not(.blank):hover {
     --bg-color: var(--white);
+  }
+
+  &.blank {
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0;
   }
 
   &.small {

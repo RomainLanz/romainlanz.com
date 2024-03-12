@@ -1,6 +1,7 @@
 import { cva } from 'class-variance-authority'
 
 interface ButtonProps {
+  blank?: boolean
   color?: 'cyan' | 'violet' | 'yellow'
   href?: string
   size?: 'small' | 'medium'
@@ -8,10 +9,13 @@ interface ButtonProps {
 }
 
 export function Button(props: ButtonProps) {
-  const { color, href, children, size = 'medium', ...extraProps } = props
+  const { href, children, size = 'medium', ...extraProps } = props
 
   const button = cva('button', {
     variants: {
+      styled: {
+        blank: 'blank',
+      },
       color: {
         cyan: 'cyan',
         violet: 'violet',
@@ -27,16 +31,22 @@ export function Button(props: ButtonProps) {
     },
   })
 
+  const classes = button({
+    size,
+    ...(props.blank && { styled: 'blank' }),
+    ...('color' in props && { color: props.color }),
+  })
+
   if (typeof href !== 'undefined') {
     return (
-      <a class={button({ color, size })} href={href}>
+      <a class={classes} href={href} {...extraProps}>
         {children}
       </a>
     )
   }
 
   return (
-    <button class={button({ color, size })} {...extraProps}>
+    <button class={classes} {...extraProps}>
       {children}
     </button>
   )

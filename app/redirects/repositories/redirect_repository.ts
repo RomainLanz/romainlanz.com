@@ -8,7 +8,11 @@ interface StoreRedirectDTO {
 
 export class RedirectRepository {
   all() {
-    return db.selectFrom('redirects').select(['url', 'to', 'visit_count']).execute()
+    return db
+      .selectFrom('redirects')
+      .select(['id', 'url', 'to', 'visit_count'])
+      .orderBy('redirects.url')
+      .execute()
   }
 
   findByUrl(url: string) {
@@ -33,5 +37,9 @@ export class RedirectRepository {
         updated_at: new Date(),
       })
       .execute()
+  }
+
+  delete(id: string) {
+    return db.deleteFrom('redirects').where('id', '=', id).execute()
   }
 }

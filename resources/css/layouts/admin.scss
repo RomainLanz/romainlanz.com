@@ -1,15 +1,20 @@
 @import '../core/functions';
 
 .admin_wrapper {
-  display: grid;
-  grid-template-columns: 300px 1fr;
+  display: flex;
   gap: spacePx(4);
+
+  & > div:nth-child(2) {
+    flex-grow: 1;
+  }
 }
 
 .admin_sidebar {
   @extend .card;
 
-  padding: spacePx(4);
+  align-self: start;
+  flex-basis: 300px;
+  padding: spacePx(4A);
 
   ul {
     list-style: none;

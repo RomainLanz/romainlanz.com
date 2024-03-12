@@ -1,16 +1,24 @@
-import { App } from '#views/layouts/app'
-import { MaxWidthWrapper } from '#views/components/max_width_wrapper'
-import { csrfField, route } from '#start/view'
+import { csrfField, route, space } from '#start/view'
 import { Form } from '#views/components/form/form'
 import { Button } from '#views/components/button'
+import { Admin } from '#views/layouts/admin'
 
 export function Create() {
   return (
-    <App>
-      <MaxWidthWrapper>
-        <h1>Ajouter une redirection</h1>
-
-        <form action={route('admin.redirects.store')} method="post" up-submit>
+    <Admin title="Ajouter une redirection">
+      <div class="card">
+        <form
+          class="stack"
+          action={route('admin.redirects.store')}
+          method="post"
+          style={{
+            ['--gap' as any]: space(3),
+          }}
+          up-modal-scope
+          up-layer="parent"
+          up-target="body"
+          up-fail-target="form"
+        >
           {csrfField()}
 
           <Form.Group>
@@ -23,11 +31,13 @@ export function Create() {
             <Form.Input id="to" name="to" type="text" />
           </Form.Group>
 
-          <Button color="violet" type="submit">
-            Sauvegarder
-          </Button>
+          <div>
+            <Button color="violet" type="submit">
+              Sauvegarder
+            </Button>
+          </div>
         </form>
-      </MaxWidthWrapper>
-    </App>
+      </div>
+    </Admin>
   )
 }

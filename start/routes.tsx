@@ -3,6 +3,7 @@ import { middleware } from '#start/kernel'
 import { Home } from '#views/pages/home'
 
 // region Controller's Imports
+const DeleteRedirectController = () => import('#redirects/controllers/delete_redirect_controller')
 const GetPostsController = () => import('#blog/controllers/get_posts_controller')
 const GetRedirectsController = () => import('#redirects/controllers/get_redirects_controller')
 const StoreRedirectController = () => import('#redirects/controllers/store_redirect_controller')
@@ -27,6 +28,7 @@ router
     router.get('redirects', [GetRedirectsController]).as('redirects.index')
     router.get('redirects/create', [StoreRedirectController, 'render']).as('redirects.create')
     router.post('redirects', [StoreRedirectController]).as('redirects.store')
+    router.delete('redirects/:id', [DeleteRedirectController]).as('redirects.delete')
   })
   .prefix('admin')
   .as('admin')

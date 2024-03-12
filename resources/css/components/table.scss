@@ -20,10 +20,11 @@
   border: 0;
 }
 
-.table thead th, .table tbody td {
+.table thead th,
+.table tbody td {
   border-collapse: collapse;
   border: 1px solid var(--gray-800);
-  font-size: var(--text-xl);
+  font-size: var(--text-base);
   font-weight: normal;
   padding: spacePx(3) spacePx(4);
 }
