@@ -1,10 +1,10 @@
+import { cuid } from '@adonisjs/core/helpers'
+import app from '@adonisjs/core/services/app'
 import { UserRole } from '#auth/enums/user_role'
 import type { HttpContext } from '@adonisjs/core/http'
-import app from '@adonisjs/core/services/app'
-import { cuid } from '@adonisjs/core/helpers'
 
-export default class AssetsController {
-  async store({ auth, request, response }: HttpContext) {
+export default class UploadImageController {
+  async handle({ auth, request, response }: HttpContext) {
     const user = auth.getUserOrFail()
 
     if (user.role !== UserRole.Admin) {

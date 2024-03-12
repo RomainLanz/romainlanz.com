@@ -5,5 +5,5 @@ interface EasyMDEProps {
 export function EasyMDE(props: EasyMDEProps) {
   const { name } = props
 
-  return <textarea id={name} name={name} data-controller="editor"></textarea>
+  return <easy-mde name={name}></easy-mde>
 }

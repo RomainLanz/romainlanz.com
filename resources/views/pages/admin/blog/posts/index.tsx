@@ -1,5 +1,7 @@
 import { Table } from '#views/components/table/table'
 import { Admin } from '#views/layouts/admin'
+import { route, space } from '#start/view'
+import { Button } from '#views/components/button'
 
 interface IndexProps {
   posts: any
@@ -8,16 +10,22 @@ interface IndexProps {
 export function Index(props: IndexProps) {
   return (
     <Admin title="Articles">
-      <Table headers={['Titre', 'Actions']}>
-        {props.posts.map((post: any) => (
-          <tr>
-            <td>{post.title}</td>
-            <td>
-              <a href={`/admin/blog/posts/${post.id}/edit`}>Modifier</a>
-            </td>
-          </tr>
-        ))}
-      </Table>
+      <div class="d-flex column" style={{ gap: space(5) }}>
+        <div>
+          <Button href={route('admin.blog.posts.create')}>Ajouter</Button>
+        </div>
+
+        <Table headers={['Titre', 'Actions']}>
+          {props.posts.map((post: any) => (
+            <tr>
+              <td>{post.title}</td>
+              <td>
+                <a href={`/admin/blog/posts/${post.id}/edit`}>Modifier</a>
+              </td>
+            </tr>
+          ))}
+        </Table>
+      </div>
     </Admin>
   )
 }

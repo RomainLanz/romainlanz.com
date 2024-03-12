@@ -5,15 +5,15 @@ import { Home } from '#views/pages/home'
 // region Controller's Imports
 const DeleteRedirectController = () => import('#redirects/controllers/delete_redirect_controller')
 const GetPostsController = () => import('#blog/controllers/get_posts_controller')
+const StorePostController = () => import('#blog/controllers/store_post_controller')
 const GetRedirectsController = () => import('#redirects/controllers/get_redirects_controller')
 const StoreRedirectController = () => import('#redirects/controllers/store_redirect_controller')
 const ProcessRedirectController = () => import('#redirects/controllers/process_redirect_controller')
-const AssetsController = () => import('../app/media/controllers/assets_controller.js')
+const UploadImageController = () => import('#media/controllers/upload_image_controller')
 const LoginController = () => import('#auth/controllers/login_controller')
 const LogoutController = () => import('#auth/controllers/logout_controller')
 const PagesController = () => import('#pages/controllers/pages_controller')
 const PastesController = () => import('#paste/controllers/pastes_controller')
-const PostsController = () => import('#blog/controllers/posts_controller')
 // endregion
 
 router.get('r/*', [ProcessRedirectController]).as('redirects.show')
@@ -22,8 +22,8 @@ router
   .group(() => {
     router.get('dashboard', [PagesController, 'dashboard']).as('pages.dashboard')
     router.get('blog/posts', [GetPostsController]).as('blog.posts.index')
-    router.get('blog/posts/create', [PostsController, 'create']).as('blog.posts.create')
-    router.post('blog/posts', [PostsController, 'store']).as('blog.posts.store')
+    router.get('blog/posts/create', [StorePostController, 'render']).as('blog.posts.create')
+    router.post('blog/posts', [StorePostController]).as('blog.posts.store')
 
     router.get('redirects', [GetRedirectsController]).as('redirects.index')
     router.get('redirects/create', [StoreRedirectController, 'render']).as('redirects.create')
@@ -36,7 +36,7 @@ router
 
 router
   .group(() => {
-    router.post('assets', [AssetsController, 'store']).as('assets.store')
+    router.post('assets/images', [UploadImageController]).as('assets.store')
   })
   .prefix('api')
   .as('api')
