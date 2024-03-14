@@ -4,8 +4,13 @@ import { App } from '#views/layouts/app'
 import { MaxWidthWrapper } from '#views/components/max_width_wrapper'
 import { Flex } from '#views/components/flex'
 import { Tag } from '#views/components/tag'
+import type { PostQueryResult } from '#blog/repositories/post_repository'
 
-export function Show(props: any) {
+interface BlogShowProps {
+  post: PostQueryResult
+}
+
+export function Show(props: BlogShowProps) {
   const { post } = props
 
   return (

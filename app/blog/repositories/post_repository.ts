@@ -1,4 +1,5 @@
 import { db } from '#core/services/db'
+import { ResultOf } from '#types/common'
 
 interface StorePostDTO {
   title: string
@@ -7,6 +8,9 @@ interface StorePostDTO {
   htmlContent: string
   canonicalUrl: string
 }
+
+export type PostListQueryResult = ResultOf<PostRepository, 'all'>
+export type PostQueryResult = ResultOf<PostRepository, 'findBySlug'>
 
 export class PostRepository {
   all() {

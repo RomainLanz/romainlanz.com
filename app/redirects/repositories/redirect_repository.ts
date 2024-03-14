@@ -1,10 +1,14 @@
 import { db } from '#core/services/db'
 import { sql } from 'kysely'
+import { ResultOf } from '#types/common'
 
 interface StoreRedirectDTO {
   url: string
   to: string
 }
+
+export type RedirectListQueryResult = ResultOf<RedirectRepository, 'all'>
+export type RedirectQueryResult = ResultOf<RedirectRepository, 'findByUrl'>
 
 export class RedirectRepository {
   all() {

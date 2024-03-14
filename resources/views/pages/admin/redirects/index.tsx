@@ -2,9 +2,10 @@ import { csrfField, route, space } from '#start/view'
 import { Button } from '#views/components/button'
 import { Admin } from '#views/layouts/admin'
 import { Table } from '#views/components/table/table'
+import type { RedirectListQueryResult } from '#redirects/repositories/redirect_repository'
 
 interface IndexProps {
-  redirects: any[]
+  redirects: RedirectListQueryResult
 }
 
 export function Index(props: IndexProps) {

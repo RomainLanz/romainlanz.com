@@ -2,9 +2,10 @@ import { Table } from '#views/components/table/table'
 import { Admin } from '#views/layouts/admin'
 import { route, space } from '#start/view'
 import { Button } from '#views/components/button'
+import type { PostListQueryResult } from '#blog/repositories/post_repository'
 
 interface IndexProps {
-  posts: any
+  posts: PostListQueryResult
 }
 
 export function Index(props: IndexProps) {
@@ -16,7 +17,7 @@ export function Index(props: IndexProps) {
         </div>
 
         <Table headers={['Titre', 'Actions']}>
-          {props.posts.map((post: any) => (
+          {props.posts.map((post) => (
             <tr>
               <td>
                 <a href={route('blog.posts.show', [post.slug])}>{post.title}</a>
