@@ -2,8 +2,6 @@ import 'easymde/dist/easymde.min.css'
 import EasyMDE from 'easymde'
 
 class EasyMDEComponent extends HTMLElement {
-  // value: string
-
   get name() {
     return this.getAttribute('name') || ''
   }
@@ -32,7 +30,6 @@ class EasyMDEComponent extends HTMLElement {
     })
 
     editor.codemirror.on('change', () => {
-      console.log(editor.value())
       element.value = editor.value()
     })
   }
