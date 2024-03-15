@@ -6,6 +6,7 @@ declare global {
 
     interface HtmlTag {
       ['up-main']?: boolean
+      ['up-hungry']?: boolean
     }
 
     interface HtmlAnchorTag {

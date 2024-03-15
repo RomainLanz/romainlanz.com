@@ -9,7 +9,7 @@ export async function Header() {
   await auth.check()
 
   return (
-    <header>
+    <header id="the-header">
       <MaxWidthWrapper class="header">
         <a class="header__title" href="/">
           <Vite.Image src={'resources/images/logo.svg'} />
@@ -27,13 +27,9 @@ export async function Header() {
 
             <span>|</span>
 
-            <span>{auth.user.email}</span>
+            <span safe>{auth.user.email}</span>
 
-            <form
-              action={`${route('auth.logout')}?_method=DELETE`}
-              method="post"
-              up-target="header"
-            >
+            <form action={`${route('auth.logout')}?_method=DELETE`} method="post">
               {csrfField()}
 
               <Button size="small" type="submit">
@@ -42,7 +38,12 @@ export async function Header() {
             </form>
           </div>
         ) : (
-          <a href={route('auth.login')} up-layer="new" up-mode="modal">
+          <a
+            href={route('auth.login')}
+            up-layer="new"
+            up-accept-location={route('pages.home')}
+            up-on-accepted="up.render('#the-header', { response: event.response })"
+          >
             Se connecter
           </a>
         )}

@@ -9,8 +9,8 @@ export function Login() {
   const flashMessages = session.flashMessages
 
   return (
-    <Master title="Connexion" page="auth">
-      <section class="centered">
+    <Master title="Connexion">
+      <main class="centered" data-page="auth">
         <div class="card">
           <form
             class="stack"
@@ -20,9 +20,7 @@ export function Login() {
               ['--gap' as any]: space(3),
             }}
             up-main
-            up-layer="parent"
             up-target="body"
-            up-fail-target="form"
           >
             {flashMessages.has('error') && (
               <p class="form_error">Aucun compte n'a été trouvé avec les identifiants fournis.</p>
@@ -49,7 +47,7 @@ export function Login() {
             </Button>
           </form>
         </div>
-      </section>
+      </main>
     </Master>
   )
 }
