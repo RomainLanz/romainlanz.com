@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node bin/server.js",
     "build": "node ace build",
-    "dev": "node ace serve --watch",
+    "dev": "node ace serve",
     "test": "node ace test",
     "lint": "eslint .",
     "postinstall": "patch-package",
