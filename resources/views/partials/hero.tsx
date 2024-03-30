@@ -2,8 +2,6 @@ import { Flex } from '#views/components/flex'
 import { Button } from '#views/components/button'
 import { Vite } from '#start/view'
 
-import.meta.hot?.decline()
-
 export function Hero() {
   return (
     <section class="hero max-width-wrapper">
