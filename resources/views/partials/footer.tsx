@@ -2,6 +2,7 @@ import { MaxWidthWrapper } from '#views/components/max_width_wrapper'
 import { currentYear, Vite } from '#start/view'
 import { Form } from '#views/components/form/form'
 import { Button } from '#views/components/button'
+import { SocialNetwork } from '#views/components/social_network'
 
 export function Footer() {
   return (
@@ -20,24 +21,16 @@ export function Footer() {
               <h4>Réseau&nbsp;sociaux</h4>
               <ul>
                 <li>
-                  <a href="https://github.com/RomainLanz" rel="nofollow">
-                    GitHub
-                  </a>
+                  <SocialNetwork name="GitHub" link="https://github.com/RomainLanz" />
                 </li>
                 <li>
-                  <a href="https://www.twitch.tv/romainlanz" rel="nofollow">
-                    Twitch
-                  </a>
+                  <SocialNetwork name="Twitch" link="https://www.twitch.tv/romainlanz" />
                 </li>
                 <li>
-                  <a href="https://x.com/romainlanz" rel="nofollow">
-                    X (Twitter)
-                  </a>
+                  <SocialNetwork name="X (Twitter)" icon="x" link="https://x.com/romainlanz" />
                 </li>
                 <li>
-                  <a href="https://www.youtube.com/c/RomainLanz" rel="nofollow">
-                    YouTube
-                  </a>
+                  <SocialNetwork name="YouTube" link="https://www.youtube.com/c/RomainLanz" />
                 </li>
               </ul>
             </section>

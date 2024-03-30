@@ -78,6 +78,12 @@
       font-size: var(--text-sm);
       line-height: 21px;
     }
+
+    .social_network {
+      display: flex;
+      flex-direction: row;
+      gap: spacePx(2);
+    }
   }
 
   #newsletter_registration {
