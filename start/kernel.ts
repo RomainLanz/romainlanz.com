@@ -25,6 +25,7 @@ server.errorHandler(() => import('#core/exceptions/handler'))
 server.use([
   () => import('#core/middleware/container_bindings_middleware'),
   () => import('@adonisjs/static/static_middleware'),
+  () => import('@adonisjs/vite/vite_middleware'),
 ])
 
 /**
