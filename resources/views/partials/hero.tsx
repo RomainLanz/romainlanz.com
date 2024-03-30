@@ -5,14 +5,14 @@ import { Vite } from '#start/view'
 export function Hero() {
   return (
     <section class="hero max-width-wrapper">
-      <Flex gap={8}>
+      <Flex>
         <>
           <Flex direction="column" gap={24}>
             <>
-              <h2>
+              <h1>
                 Salut, je suis <span>Romain Lanz,</span>
                 <br /> un développeur Full Stack JavaScript.
-              </h2>
+              </h1>
 
               <p>
                 Cras mattis enim orci, at feugiat nunc euismod nec. Donec elementum in arcu

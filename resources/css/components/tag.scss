@@ -1,5 +1,11 @@
 @import '../core/functions';
 
+a.tag {
+  &:hover {
+    box-shadow: var(--shadow-tiny);
+  }
+}
+
 .tag {
   --bg-color: var(--white);
   background-color: var(--bg-color);
@@ -7,7 +13,7 @@
   border: 1px solid var(--gray-800);
   color: var(--gray-800);
   cursor: pointer;
-  font-size: var(--text-xs);
+  font-size: var(--text-utility);
   letter-spacing: 0.05em;
   line-height: 1;
   padding: spacePx(2) spacePx(3);
@@ -15,10 +21,6 @@
   text-transform: uppercase;
   transition: box-shadow 200ms ease-in-out;
   will-change: box-shadow;
-
-  &:hover {
-    box-shadow: var(--shadow-tiny);
-  }
 
   &.cyan {
     --bg-color: var(--cyan-300);

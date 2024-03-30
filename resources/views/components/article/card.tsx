@@ -13,28 +13,26 @@ interface CardProps {
 export function Card(props: CardProps) {
   const { class: className, title, date, children, tags } = props
 
-  const classes = cx(['card with-hover', className])
+  const classes = cx(['card clickable', className])
 
   return (
-    <article class={classes}>
-      <Flex class="h-full" gap={16} direction="column">
-        <header>
-          <time>{date}</time>
-          <h2>{title}</h2>
-        </header>
+    <a href="/">
+      <article class={classes}>
+        <Flex class="h-full" gap={16} direction="column">
+          <header>
+            <time>{date}</time>
+            <h2>{title}</h2>
+          </header>
 
-        <p class="grow">{children}</p>
+          <p class="grow">{children}</p>
 
-        <Flex class="w-full" gap={12} align="center" justify="space-between">
           <Flex gap={8}>
             {tags.map((tag) => (
               <Tag color={tag.color} label={tag.label} />
             ))}
           </Flex>
-
-          <a href="">Read</a>
         </Flex>
-      </Flex>
-    </article>
+      </article>
+    </a>
   )
 }

@@ -18,7 +18,7 @@ export function Flex(props: FlexProps) {
     <div
       class={classes}
       style={{
-        ['--gap' as any]: `${props.gap}px` ?? '8px',
+        ['--gap' as any]: `${props.gap ?? 0}px`,
         ['--direction' as any]: props.direction ?? 'row',
         ['--align' as any]: props.align ?? 'start',
         ['--justify' as any]: props.justify ?? 'start',

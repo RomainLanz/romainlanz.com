@@ -4,16 +4,18 @@
   background-color: var(--white);
   border: 2px solid var(--gray-800);
   border-radius: var(--rounded);
-  box-shadow: var(--shadow-small);
+  box-shadow: var(--shadow-medium);
   color: var(--gray-800);
   padding: spacePx(8) spacePx(9);
-  transition: box-shadow 200ms ease-in-out;
+  transition: background-color 200ms ease-in-out;
   will-change: box-shadow;
   isolation: isolate;
 
-  &.with-hover {
+  &.clickable {
+    cursor: pointer;
+
     &:hover {
-      box-shadow: var(--shadow-medium);
+      background-color: var(--yellow-100);
     }
   }
 
@@ -24,7 +26,7 @@
     position: relative;
 
     &:before {
-      background-color: var(--cyan-300);
+      background-color: var(--yellow-500);
       content: '';
       height: 6px;
       bottom: 5px;
@@ -36,13 +38,13 @@
   }
 
   h2 {
-    font-size: var(--text-h3);
+    font-size: var(--text-h4);
     font-weight: normal;
-    line-height: 44px;
+    line-height: 36px;
   }
 
   p {
     font-size: var(--text-lg);
-    line-height: 28px;
+    line-height: 26px;
   }
 }
