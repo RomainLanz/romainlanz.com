@@ -1,14 +1,109 @@
 import { MaxWidthWrapper } from '#views/components/max_width_wrapper'
-import { Vite } from '#start/view'
+import { currentYear, Vite } from '#start/view'
+import { Form } from '#views/components/form/form'
+import { Button } from '#views/components/button'
 
 export function Footer() {
   return (
     <footer class="footer">
       <MaxWidthWrapper>
-        <a class="footer__title" href="/">
-          <Vite.Image src={'resources/images/logo.svg'} />
-          <span>Romain Lanz</span>
-        </a>
+        <>
+          <div class="footer__container">
+            <div>
+              <a class="footer__title" href="/">
+                <Vite.Image src={'resources/images/logo_mono.svg'} alt="" />
+                <span class="visually-hidden">Romain Lanz</span>
+              </a>
+            </div>
+
+            <section class="footer__section">
+              <h4>Réseau&nbsp;sociaux</h4>
+              <ul>
+                <li>
+                  <a href="https://github.com/RomainLanz" rel="nofollow">
+                    GitHub
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.twitch.tv/romainlanz" rel="nofollow">
+                    Twitch
+                  </a>
+                </li>
+                <li>
+                  <a href="https://x.com/romainlanz" rel="nofollow">
+                    X (Twitter)
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/c/RomainLanz" rel="nofollow">
+                    YouTube
+                  </a>
+                </li>
+              </ul>
+            </section>
+
+            {/*<nav class="footer__section" aria-labelledby="footer-navigation-heading">*/}
+            {/*  <h4 id="footer-navigation-heading">Navigation</h4>*/}
+            {/*  <ul>*/}
+            {/*    <li>*/}
+            {/*      <a href="">Articles</a>*/}
+            {/*    </li>*/}
+            {/*    <li>*/}
+            {/*      <a href="">Twitch</a>*/}
+            {/*    </li>*/}
+            {/*    <li>*/}
+            {/*      <a href="">X (Twitter)</a>*/}
+            {/*    </li>*/}
+            {/*    <li>*/}
+            {/*      <a href="">YouTube</a>*/}
+            {/*    </li>*/}
+            {/*  </ul>*/}
+            {/*</nav>*/}
+
+            <section class="footer__section">
+              <h4>Partners</h4>
+
+              <ul class="partners">
+                <li>
+                  <a href="https://m.do.co/c/cc9e0b565057" rel="sponsored">
+                    <Vite.Image
+                      src={'resources/images/partners/digitalocean.svg'}
+                      alt="DigitalOcean"
+                    />
+                  </a>
+                </li>
+                <li>
+                  <a href="https://app.codecrafters.io/join?via=RomainLanz" rel="sponsored">
+                    <Vite.Image
+                      src={'resources/images/partners/codecrafters.svg'}
+                      alt="CodeCrafters"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </section>
+
+            <section id="newsletter_registration" class="footer__section">
+              <h4>Newsletter</h4>
+
+              <p>Inscrivez-vous à la newsletter pour recevoir les derniers articles.</p>
+
+              <form action="" method="post">
+                <Form.Input name="email" type="email" />
+                <Button size="small" type="submit">
+                  S'abonner
+                </Button>
+              </form>
+            </section>
+          </div>
+
+          <hr />
+
+          <div class="footer__copyright">
+            <a href="#">Mentions légales</a>
+            <span>&copy; {currentYear()} Romain Lanz</span>
+          </div>
+        </>
       </MaxWidthWrapper>
     </footer>
   )

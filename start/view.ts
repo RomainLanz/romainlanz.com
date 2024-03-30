@@ -6,6 +6,10 @@ export function space(num: number) {
   return `calc(${num} * var(--space))`
 }
 
+export function currentYear() {
+  return new Date().getFullYear()
+}
+
 export function route(...args: Parameters<typeof router.makeUrl>) {
   return router.makeUrl(...args)
 }
@@ -16,7 +20,11 @@ export function csrfField() {
   return Html.createElement('input', { type: 'hidden', value: request.csrfToken, name: '_csrf' })
 }
 
-function Image(props: { src: string; alt?: string; class?: string }) {
+function Image(props: JSX.HtmlImageTag) {
+  if (!props.src) {
+    throw new Error('Missing src prop for <Image />')
+  }
+
   const url = vite.assetPath(props.src)
 
   return Html.createElement('img', { src: url, alt: props.alt, class: props.class })

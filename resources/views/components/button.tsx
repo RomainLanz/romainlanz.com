@@ -5,11 +5,12 @@ interface ButtonProps {
   color?: 'cyan' | 'violet' | 'yellow'
   href?: string
   size?: 'small' | 'medium'
+  type?: 'button' | 'submit'
   children: JSX.Element
 }
 
 export function Button(props: ButtonProps) {
-  const { href, children, size = 'medium', ...extraProps } = props
+  const { href, children, type = 'button', size = 'medium', ...extraProps } = props
 
   const button = cva('button', {
     variants: {
@@ -46,7 +47,7 @@ export function Button(props: ButtonProps) {
   }
 
   return (
-    <button class={classes} {...extraProps}>
+    <button class={classes} type={type} {...extraProps}>
       {children}
     </button>
   )

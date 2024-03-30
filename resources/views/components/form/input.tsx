@@ -2,10 +2,11 @@ import { HttpContext } from '@adonisjs/core/http'
 
 interface InputProps {
   name: string
+  type: string
 }
 
 export function Input(props: InputProps) {
-  const { name, ...extraProps } = props
+  const { name, type = 'text', ...extraProps } = props
 
   const { session } = HttpContext.getOrFail()
   const flashMessages = session.flashMessages
@@ -15,7 +16,14 @@ export function Input(props: InputProps) {
 
   return (
     <>
-      <input class="form_control" id={name} name={name} value={oldValue} {...extraProps} />
+      <input
+        class="form_control"
+        id={name}
+        name={name}
+        type={type}
+        value={oldValue}
+        {...extraProps}
+      />
 
       {error && <span class="form_error">{error}</span>}
     </>
