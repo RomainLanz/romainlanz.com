@@ -1,6 +1,5 @@
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
-import { Landing } from '#views/pages/landing'
 
 // region Controller's Imports
 const DeleteRedirectController = () => import('#redirects/controllers/delete_redirect_controller')
@@ -45,8 +44,11 @@ router
   .as('api')
   .middleware([middleware.auth()])
 
-// router.get('/', async ({ view }) => view.render('pages/home')).as('pages.home')
-router.get('/', () => <Landing />).as('pages.landing')
+router.get('/', async () => {
+  const { Landing } = await import('#views/pages/landing')
+
+  return <Landing />
+}).as('pages.landing')
 
 router.get('/blog/:slug', [ShowPostController, 'render']).as('blog.posts.show')
 

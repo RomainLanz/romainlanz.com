@@ -1,0 +1,69 @@
+diff --git a/node_modules/@adonisjs/fold/build/chunk-MTKAWPPA.js b/node_modules/@adonisjs/fold/build/chunk-MTKAWPPA.js
+index 2abfd4e..ee22874 100644
+--- a/node_modules/@adonisjs/fold/build/chunk-MTKAWPPA.js
++++ b/node_modules/@adonisjs/fold/build/chunk-MTKAWPPA.js
+@@ -862,12 +862,12 @@ function moduleImporter(importFn, method) {
+       let defaultExport = null;
+       if (container) {
+         return async function(...args) {
+-          defaultExport = defaultExport || await importDefault(importFn);
++          defaultExport = await importDefault(importFn);
+           return container.call(await container.make(defaultExport), method, args);
+         };
+       }
+       return async function(resolver, ...args) {
+-        defaultExport = defaultExport || await importDefault(importFn);
++        defaultExport = await importDefault(importFn);
+         return resolver.call(await resolver.make(defaultExport), method, args);
+       };
+     },
+@@ -906,7 +906,7 @@ function moduleImporter(importFn, method) {
+         return {
+           name: importFn.name,
+           async handle(...args) {
+-            defaultExport = defaultExport || await importDefault(importFn);
++            defaultExport = await importDefault(importFn);
+             return container.call(await container.make(defaultExport), method, args);
+           }
+         };
+@@ -914,7 +914,7 @@ function moduleImporter(importFn, method) {
+       return {
+         name: importFn.name,
+         async handle(resolver, ...args) {
+-          defaultExport = defaultExport || await importDefault(importFn);
++          defaultExport = await importDefault(importFn);
+           return resolver.call(await resolver.make(defaultExport), method, args);
+         }
+       };
+@@ -989,12 +989,12 @@ function moduleExpression(expression, parentURL) {
+       const [importPath, method] = this.parse();
+       if (container) {
+         return async function(...args) {
+-          defaultExport = defaultExport || await resolveDefault(importPath, parentURL);
++          defaultExport = await resolveDefault(importPath, parentURL);
+           return container.call(await container.make(defaultExport), method, args);
+         };
+       }
+       return async function(resolver, ...args) {
+-        defaultExport = defaultExport || await resolveDefault(importPath, parentURL);
++        defaultExport = await resolveDefault(importPath, parentURL);
+         return resolver.call(await resolver.make(defaultExport), method, args);
+       };
+     },
+@@ -1033,14 +1033,14 @@ function moduleExpression(expression, parentURL) {
+       if (container) {
+         return {
+           async handle(...args) {
+-            defaultExport = defaultExport || await resolveDefault(importPath, parentURL);
++            defaultExport = await resolveDefault(importPath, parentURL);
+             return container.call(await container.make(defaultExport), method, args);
+           }
+         };
+       }
+       return {
+         async handle(resolver, ...args) {
+-          defaultExport = defaultExport || await resolveDefault(importPath, parentURL);
++          defaultExport = await resolveDefault(importPath, parentURL);
+           return resolver.call(await resolver.make(defaultExport), method, args);
+         }
+       };
