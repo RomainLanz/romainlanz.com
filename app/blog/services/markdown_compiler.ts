@@ -1,7 +1,7 @@
 import { MarkdownFile } from '@dimerapp/markdown'
 import { Shiki, codeblocks } from '@dimerapp/shiki'
 import { toHtml } from '@dimerapp/markdown/utils'
-import { tip, note, warning } from '@dimerapp/markdown/macros'
+import { tip, note, warning, codegroup } from '@dimerapp/markdown/macros'
 
 export class MarkdownCompiler {
   static #shiki = new Shiki()
@@ -18,7 +18,7 @@ export class MarkdownCompiler {
   }
 
   #addDirectives(file: MarkdownFile) {
-    file.use(tip).use(note).use(warning)
+    file.use(tip).use(note).use(warning).use(codegroup)
     file.transform(codeblocks, MarkdownCompiler.#shiki)
   }
 
