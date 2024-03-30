@@ -43,7 +43,7 @@
     "@types/pg": "^8.11.4",
     "easymde": "^2.18.0",
     "eslint": "^8.57.0",
-    "hot-hook": "0.0.1",
+    "hot-hook": "^0.0.1",
     "kysely-codegen": "^0.14.1",
     "patch-package": "^8.0.0",
     "pino-pretty": "^11.0.0",
