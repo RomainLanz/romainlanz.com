@@ -1,14 +1,14 @@
 import { inject } from '@adonisjs/core'
 import { PostRepository } from '#blog/repositories/post_repository'
-import { Index } from '#views/pages/admin/blog/posts/index'
+import { PostView } from '#views/pages/admin/blog/posts/posts'
 
 @inject()
-export default class GetPostsController {
+export default class ListPostsController {
   constructor(private repository: PostRepository) {}
 
-  async handle() {
+  async render() {
     const posts = await this.repository.all()
 
-    return <Index posts={posts} />
+    return <PostView.List posts={posts} />
   }
 }

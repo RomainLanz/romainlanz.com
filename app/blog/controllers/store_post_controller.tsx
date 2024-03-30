@@ -1,12 +1,12 @@
 import { inject } from '@adonisjs/core'
 import vine from '@vinejs/vine'
 import string from '@poppinss/utils/string'
-import { UserRole } from '#auth/enums/user_role'
 import { PostRepository } from '#blog/repositories/post_repository'
 import { MarkdownCompiler } from '#blog/services/markdown_compiler'
 import { PostView } from '#views/pages/admin/blog/posts/posts'
 import type { Infer } from '@vinejs/vine/types'
 import type { HttpContext } from '@adonisjs/core/http'
+import { PostPolicy } from '#blog/policies/post_policy'
 
 export type StorePostPayload = Infer<typeof StorePostController.validator>
 
@@ -25,22 +25,14 @@ export default class StorePostController {
     private markdownCompiler: MarkdownCompiler
   ) {}
 
-  render({ auth, response }: HttpContext) {
-    const user = auth.getUserOrFail()
-
-    if (user.role !== UserRole.Admin) {
-      return response.redirect().back()
-    }
+  async render({ bouncer }: HttpContext) {
+    await bouncer.with(PostPolicy).allows('create')
 
     return <PostView.Create />
   }
 
-  async handle({ auth, request, response }: HttpContext) {
-    const user = auth.getUserOrFail()
-
-    if (user.role !== UserRole.Admin) {
-      return response.redirect().back()
-    }
+  async execute({ bouncer, request, response }: HttpContext) {
+    await bouncer.with(PostPolicy).allows('create')
 
     const { title, markdownContent, canonicalUrl } = await request.validateUsing(
       StorePostController.validator

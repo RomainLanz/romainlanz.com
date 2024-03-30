@@ -8,7 +8,7 @@ interface IndexProps {
   posts: PostListQueryResult
 }
 
-export function Index(props: IndexProps) {
+export function List(props: IndexProps) {
   return (
     <Admin title="Articles">
       <div class="d-flex column" style={{ gap: space(5) }}>
