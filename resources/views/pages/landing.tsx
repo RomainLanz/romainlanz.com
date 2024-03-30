@@ -4,7 +4,7 @@ import { Flex } from '#views/components/flex'
 import { Grid } from '#views/components/grid'
 import { Article } from '#views/components/article/article'
 
-export function Home() {
+export function Landing() {
   return (
     <App>
       <>

@@ -41,7 +41,7 @@ export async function Header() {
           <a
             href={route('auth.login')}
             up-layer="new"
-            up-accept-location={route('pages.home')}
+            up-accept-location={route('pages.landing')}
             up-on-accepted="up.render('#the-header', { response: event.response })"
           >
             Se connecter

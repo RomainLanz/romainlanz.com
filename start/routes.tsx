@@ -1,6 +1,6 @@
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
-import { Home } from '#views/pages/home'
+import { Landing } from '#views/pages/landing'
 
 // region Controller's Imports
 const GetPostController = () => import('#blog/controllers/get_post_controller')
@@ -43,7 +43,7 @@ router
   .middleware([middleware.auth()])
 
 // router.get('/', async ({ view }) => view.render('pages/home')).as('pages.home')
-router.get('/', () => <Home />).as('pages.home')
+router.get('/', () => <Landing />).as('pages.landing')
 
 router.get('/blog/:slug', [GetPostController]).as('blog.posts.show')
 
