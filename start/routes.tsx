@@ -1,6 +1,7 @@
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
 import { Landing } from '#views/pages/landing'
+const UpdatePostController = () => import('#blog/controllers/update_post_controller')
 
 // region Controller's Imports
 const GetPostController = () => import('#blog/controllers/get_post_controller')
@@ -24,6 +25,8 @@ router
     router.get('blog/posts', [GetPostsController]).as('blog.posts.index')
     router.get('blog/posts/create', [StorePostController, 'render']).as('blog.posts.create')
     router.post('blog/posts', [StorePostController]).as('blog.posts.store')
+    router.get('blog/posts/:id/edit', [UpdatePostController, 'render']).as('blog.posts.edit')
+    router.put('blog/posts/:id', [UpdatePostController, 'execute']).as('blog.posts.update')
 
     router.get('redirects', [GetRedirectsController]).as('redirects.index')
     router.get('redirects/create', [StoreRedirectController, 'render']).as('redirects.create')

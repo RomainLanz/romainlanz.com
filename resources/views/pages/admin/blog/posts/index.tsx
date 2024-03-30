@@ -23,7 +23,7 @@ export function Index(props: IndexProps) {
                 <a href={route('blog.posts.show', [post.slug])}>{post.title}</a>
               </td>
               <td>
-                <a href={`/admin/blog/posts/${post.id}/edit`}>Modifier</a>
+                <a href={route('admin.blog.posts.edit', [post.id])}>Modifier</a>
               </td>
             </tr>
           ))}

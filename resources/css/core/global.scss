@@ -10,6 +10,9 @@ body {
   font-family: var(--font-family);
   font-size: var(--text-base);
   line-height: 24px;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 main {

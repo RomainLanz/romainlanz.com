@@ -9,8 +9,10 @@ export class MarkdownCompiler {
 
   async #boot() {
     if (!MarkdownCompiler.#booted) {
-      MarkdownCompiler.#shiki.useTheme('github-light')
+      MarkdownCompiler.#shiki.useTheme('solarized-light')
+
       await MarkdownCompiler.#shiki.boot()
+
       MarkdownCompiler.#booted = true
     }
   }

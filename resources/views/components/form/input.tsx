@@ -2,7 +2,7 @@ import { HttpContext } from '@adonisjs/core/http'
 
 interface InputProps {
   name: string
-  type: string
+  type?: string
 }
 
 export function Input(props: InputProps) {

@@ -1,7 +1,9 @@
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      ['easy-mde']: HtmlTextAreaTag
+      ['easy-mde']: HtmlTextAreaTag & {
+        defaultValue?: string
+      }
     }
 
     interface HtmlTag {

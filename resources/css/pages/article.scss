@@ -3,6 +3,8 @@
 
 @include page('article') {
   article {
+    font-size: var(--text-lg);
+    line-height: 26px;
     margin-inline: auto;
     margin-top: spacePx(28);
     width: 80ch;
@@ -13,6 +15,7 @@
 
       h1 {
         font-size: var(--text-h1);
+        line-height: 64px;
       }
 
       img {
@@ -23,11 +26,12 @@
 
       time {
         display: inline-block;
+        font-size: var(--text-lg);
         font-weight: normal;
         position: relative;
 
         &:before {
-          background-color: var(--cyan-300);
+          background-color: var(--yellow-500);
           content: '';
           height: 6px;
           bottom: 4px;
@@ -46,6 +50,7 @@
 
   pre {
     @extend .card;
+
     background-color: transparent;
     margin-block: spacePx(2);
     padding: spacePx(4) spacePx(6);
@@ -55,7 +60,7 @@
     color: var(--gray-500);
   }
 
-  code {
+  p code {
     display: inline-block;
     color: var(--yellow-900);
     border-radius: var(--rounded);

@@ -6,8 +6,12 @@ class EasyMDEComponent extends HTMLElement {
     return this.getAttribute('name') || ''
   }
 
+  get defaultValue() {
+    return this.getAttribute('defaultValue') || ''
+  }
+
   static get observedAttributes() {
-    return ['name']
+    return ['name', 'defaultValue']
   }
 
   connectedCallback() {
@@ -27,6 +31,7 @@ class EasyMDEComponent extends HTMLElement {
       element: this,
       uploadImage: true,
       imageUploadEndpoint: '/api/assets/images',
+      initialValue: this.defaultValue,
     })
 
     editor.codemirror.on('change', () => {
