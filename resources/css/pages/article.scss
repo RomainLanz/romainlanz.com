@@ -9,7 +9,7 @@
     margin-top: spacePx(28);
     width: 80ch;
 
-    header {
+    & > header {
       position: relative;
       margin-bottom: spacePx(20);
 
@@ -48,12 +48,15 @@
     }
   }
 
-  pre {
+
+  article > div > pre {
     @extend .card;
 
-    background-color: transparent;
+    background-color: var(--yellow-100) !important;
+    font-size: var(--text-sm);
     margin-block: spacePx(2);
     padding: spacePx(4) spacePx(6);
+    overflow-y: auto;
   }
 
   blockquote {

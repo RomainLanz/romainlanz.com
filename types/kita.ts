@@ -4,6 +4,7 @@ declare global {
       ['easy-mde']: HtmlTextAreaTag & {
         defaultValue?: string
       }
+      ['code-group']: HtmlTag
     }
 
     interface HtmlTag {
