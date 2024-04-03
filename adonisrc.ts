@@ -5,6 +5,29 @@ export default defineConfig({
 
   unstable_assembler: {
     onBuildStarting: [() => import('@adonisjs/vite/build_hook')],
+
+    /**
+     * Temporary code to handle HotHook messages
+     * Will be moved to @adonisjs/core or @hot-hook/adonis later
+     */
+    onHttpServerMessage: [
+      async () => ({
+        default: (ui, message, actions) => {
+          if (message.type === 'hot-hook:full-reload') {
+            ui.logger.log(
+              `${ui.colors.green('full-reload')} due to ${ui.colors.cyan(message.path || message.paths.join(', '))}`
+            )
+            actions.restartServer()
+          }
+
+          if (message.type === 'hot-hook:invalidated') {
+            const path = message.path || message.paths[0]
+
+            ui.logger.log(`${ui.colors.yellow('invalidated')} ${ui.colors.cyan(path)}`)
+          }
+        },
+      }),
+    ],
   },
 
   /*
