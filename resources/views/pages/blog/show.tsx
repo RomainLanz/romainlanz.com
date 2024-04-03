@@ -4,14 +4,16 @@ import { App } from '#views/layouts/app'
 import { MaxWidthWrapper } from '#views/components/max_width_wrapper'
 import { Flex } from '#views/components/flex'
 import { Tag } from '#views/components/tag'
+import { MarkdownRenderer } from '#views/components/markdown_renderer'
 import type { PostQueryResult } from '#blog/repositories/post_repository'
 
 interface BlogShowProps {
   post: PostQueryResult
+  ast: any
 }
 
 export function Show(props: BlogShowProps) {
-  const { post } = props
+  const { ast, post } = props
 
   return (
     <App title={post.title} page="article">
@@ -38,7 +40,7 @@ export function Show(props: BlogShowProps) {
             </Flex>
           </header>
 
-          <div>{post.html_content}</div>
+          <MarkdownRenderer ast={ast} />
         </article>
       </MaxWidthWrapper>
     </App>

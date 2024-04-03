@@ -33,4 +33,16 @@ export class MarkdownCompiler {
 
     return toHtml(file)
   }
+
+  async toAST(content: string) {
+    await this.#boot()
+
+    const file = new MarkdownFile(content, { enableDirectives: true, allowHtml: true })
+
+    this.#addDirectives(file)
+
+    await file.process()
+
+    return file.ast
+  }
 }

@@ -64,7 +64,7 @@ export class PostRepository {
   findBySlug(slug: string) {
     return db
       .selectFrom('posts')
-      .select(['id', 'title', 'slug', 'html_content', 'created_at'])
+      .select(['id', 'title', 'slug', 'html_content', 'markdown_content', 'created_at'])
       .where('slug', '=', slug)
       .executeTakeFirst()
   }
