@@ -2,18 +2,19 @@ import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
 
 // region Controller's Imports
-const DeleteRedirectController = () => import('#redirects/controllers/delete_redirect_controller')
-const GetRedirectsController = () => import('#redirects/controllers/get_redirects_controller')
-const ListPostsController = () => import('#blog/controllers/list_posts_controller')
-const LoginController = () => import('#auth/controllers/login_controller')
-const LogoutController = () => import('#auth/controllers/logout_controller')
-const PagesController = () => import('#pages/controllers/pages_controller')
-const ProcessRedirectController = () => import('#redirects/controllers/process_redirect_controller')
-const ShowPostController = () => import('#blog/controllers/show_post_controller')
-const StorePostController = () => import('#blog/controllers/store_post_controller')
-const StoreRedirectController = () => import('#redirects/controllers/store_redirect_controller')
-const UpdatePostController = () => import('#blog/controllers/update_post_controller')
-const UploadImageController = () => import('#media/controllers/upload_image_controller')
+const hmr = import.meta.hot?.boundary
+const DeleteRedirectController = () => import('#redirects/controllers/delete_redirect_controller', hmr)
+const GetRedirectsController = () => import('#redirects/controllers/get_redirects_controller', hmr)
+const ListPostsController = () => import('#blog/controllers/list_posts_controller', hmr)
+const LoginController = () => import('#auth/controllers/login_controller', hmr)
+const LogoutController = () => import('#auth/controllers/logout_controller', hmr)
+const PagesController = () => import('#pages/controllers/pages_controller', hmr)
+const ProcessRedirectController = () => import('#redirects/controllers/process_redirect_controller', hmr)
+const ShowPostController = () => import('#blog/controllers/show_post_controller', hmr)
+const StorePostController = () => import('#blog/controllers/store_post_controller', hmr)
+const StoreRedirectController = () => import('#redirects/controllers/store_redirect_controller', hmr)
+const UpdatePostController = () => import('#blog/controllers/update_post_controller', hmr)
+const UploadImageController = () => import('#media/controllers/upload_image_controller', hmr)
 // endregion
 
 router.get('r/*', [ProcessRedirectController]).as('redirects.show')
@@ -45,7 +46,7 @@ router
   .middleware([middleware.auth()])
 
 router.get('/', async () => {
-  const { Landing } = await import('#views/pages/landing')
+  const { Landing } = await import('#views/pages/landing', hmr)
 
   return <Landing />
 }).as('pages.landing')

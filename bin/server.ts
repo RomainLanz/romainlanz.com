@@ -13,8 +13,11 @@ import 'reflect-metadata'
 import '@kitajs/html/register.js'
 
 import { hot } from 'hot-hook'
-import { fileURLToPath } from 'url'
-import { Ignitor, prettyPrintError } from '@adonisjs/core'
+
+/**
+ * Initialize experimental HMR
+ */
+await hot.init({ root: import.meta.filename })
 
 /**
  * URL to the application root. AdonisJS need it to resolve
@@ -33,18 +36,7 @@ const IMPORTER = (filePath: string) => {
   return import(filePath)
 }
 
-/**
- * Initialize experimental HMR
- */
-await hot.init({
-  projectRoot: fileURLToPath(APP_ROOT),
-
-  /**
-   * Paths that will trigger a full project reload
-   */
-  reload: ['config/*', "start/*", "providers/*"]
-})
-
+const { Ignitor, prettyPrintError } = await import('@adonisjs/core')
 new Ignitor(APP_ROOT, { importer: IMPORTER })
   .tap((app) => {
     app.booting(async () => {

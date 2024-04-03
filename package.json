@@ -10,7 +10,6 @@
     "dev": "node ace serve",
     "test": "node ace test",
     "lint": "eslint .",
-    "postinstall": "patch-package",
     "format": "prettier --write .",
     "typecheck": "tsc --noEmit",
     "kysely:codegen": "kysely-codegen --out-file=types/db.ts"
@@ -43,9 +42,8 @@
     "@types/pg": "^8.11.4",
     "easymde": "^2.18.0",
     "eslint": "^8.57.0",
-    "hot-hook": "^0.0.1",
+    "hot-hook": "^0.1.0",
     "kysely-codegen": "^0.14.2",
-    "patch-package": "^8.0.0",
     "pino-pretty": "^11.0.0",
     "preact": "^10.20.1",
     "preact-custom-element": "^4.3.0",
