@@ -46,53 +46,65 @@
       font-size: var(--text-utility);
       text-transform: uppercase;
     }
-  }
 
+    .codegroup {
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
 
-  article > div > pre {
-    @extend .card;
+    a {
+      cursor: pointer;
+      text-decoration: underline;
+    }
 
-    background-color: var(--yellow-100) !important;
-    font-size: var(--text-sm);
-    margin-top: spacePx(2);
-    margin-bottom: spacePx(4);
-    padding: spacePx(4) spacePx(6);
-    overflow-y: auto;
-  }
+    & > * > pre {
+      @extend .card;
 
-  .codegroup {
-    margin-bottom: spacePx(4);
-  }
+      background-color: var(--yellow-100) !important;
+      font-size: var(--text-sm);
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem 1.5rem;
+      overflow-y: auto;
+    }
 
-  article a {
-    cursor: pointer;
-    text-decoration: underline;
-  }
+    & > * > blockquote {
+      color: var(--gray-500);
+    }
 
-  article > div > blockquote {
-    color: var(--gray-500);
-  }
+    & > * > p code {
+      display: inline-block;
+      color: var(--yellow-900);
+      border-radius: var(--rounded);
+      background-color: var(--yellow-400);
+      font-size: var(--text-sm);
+      padding: 0 0.25rem;
+    }
 
-  article > div > p code {
-    display: inline-block;
-    color: var(--yellow-900);
-    border-radius: var(--rounded);
-    background-color: var(--yellow-400);
-    font-size: var(--text-sm);
-    padding: 1px spacePx(1);
-  }
+    & > * > .alert {
+      margin-block: 1rem;
+    }
 
-  article > div > .alert {
-    margin-block: spacePx(4);
-  }
+    & > * > p {
+      margin-block: 1rem;
+    }
 
-  article > div > p {
-    margin-block: spacePx(2);
-  }
+    & > * > h2 {
+      font-size: var(--text-h2);
+      margin-top: 3.75rem;
+      margin-bottom: 1.75rem;
+    }
 
-  article > div > h2 {
-    font-size: var(--text-h2);
-    margin-top: spacePx(15);
-    margin-bottom: spacePx(7);
+    & > * > h3 {
+      font-size: var(--text-h3);
+      margin-top: 2.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    & > * > h4 {
+      font-size: var(--text-h4);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
   }
 }
