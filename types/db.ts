@@ -26,10 +26,11 @@ export interface Categories {
 export interface Posts {
   canonical_url: string | null;
   created_at: Timestamp;
-  description: string | null;
+  description: string;
   id: Generated<string>;
   markdown_ast: Json;
   markdown_content: string;
+  published_at: Timestamp | null;
   slug: string;
   status: Generated<number>;
   title: string;
@@ -61,7 +62,7 @@ export interface Users {
   email: string;
   id: Generated<string>;
   password: string;
-  role: Generated<number | null>;
+  role: Generated<number>;
   updated_at: Timestamp;
 }
 

@@ -1,10 +1,18 @@
+import { route } from '#start/view'
 import { App } from '#views/layouts/app'
 import { Hero } from '#views/partials/hero'
 import { Flex } from '#views/components/flex'
 import { Grid } from '#views/components/grid'
 import { Article } from '#views/components/article/article'
+import type { PostLastFourQueryResult } from '#blog/repositories/post_repository'
 
-export function Landing() {
+interface LandingProps {
+  posts: PostLastFourQueryResult
+}
+
+export function Landing(props: LandingProps) {
+  const { posts } = props
+
   return (
     <App>
       <>
@@ -22,45 +30,17 @@ export function Landing() {
 
           <Grid columns={2} gap={16}>
             <>
-              <Article.Card
-                class="grid-span-1"
-                date={'Feb 16th 2023'}
-                title="Data URLs and Pool in your URL"
-                tags={[{ color: 'cyan', label: 'JavaScript' }]}
-              >
-                Sed lobortis urna in tempus condimentum. Vestibulum cursus porta elit in
-                condimentum. Donec bibendum lacus vel sem luctus bibendum.
-              </Article.Card>
-
-              <Article.Card
-                class="grid-span-1"
-                date={'Feb 16th 2023'}
-                title="Data URLs and Pool in your URL"
-                tags={[{ color: 'cyan', label: 'JavaScript' }]}
-              >
-                Sed lobortis urna in tempus condimentum. Vestibulum cursus porta elit in
-                condimentum. Donec bibendum lacus vel sem luctus bibendum.
-              </Article.Card>
-
-              <Article.Card
-                class="grid-span-1"
-                date={'Feb 16th 2023'}
-                title="Data URLs and Pool in your URL"
-                tags={[{ color: 'cyan', label: 'JavaScript' }]}
-              >
-                Sed lobortis urna in tempus condimentum. Vestibulum cursus porta elit in
-                condimentum. Donec bibendum lacus vel sem luctus bibendum.
-              </Article.Card>
-
-              <Article.Card
-                class="grid-span-1"
-                date={'Feb 16th 2023'}
-                title="Data URLs and Pool in your URL"
-                tags={[{ color: 'cyan', label: 'JavaScript' }]}
-              >
-                Sed lobortis urna in tempus condimentum. Vestibulum cursus porta elit in
-                condimentum. Donec bibendum lacus vel sem luctus bibendum.
-              </Article.Card>
+              {posts.map((post) => (
+                <Article.Card
+                  class="grid-span-1"
+                  date={post.published_at.toISOString()}
+                  title={post.title}
+                  href={route('blog.posts.show', [post.slug])}
+                  tags={[{ color: 'cyan', label: 'JavaScript' }]}
+                >
+                  {post.description}
+                </Article.Card>
+              ))}
             </>
           </Grid>
         </main>

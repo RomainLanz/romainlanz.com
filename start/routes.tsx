@@ -3,6 +3,7 @@ import { middleware } from '#start/kernel'
 
 // region Controller's Imports
 const hmr = import.meta.hot?.boundary
+const LandingController = () => import('#pages/controllers/landing_controller', hmr)
 const GetLiveStatusController = () => import('#twitch/controllers/get_live_status_controller', hmr)
 const DeleteRedirectController = () =>
   import('#redirects/controllers/delete_redirect_controller', hmr)
@@ -50,13 +51,7 @@ router
   .as('api')
   .middleware([middleware.auth()])
 
-router
-  .get('/', async () => {
-    const { Landing } = await import('#views/pages/landing', hmr)
-
-    return <Landing />
-  })
-  .as('pages.landing')
+router.get('/', [LandingController, 'render']).as('pages.landing')
 
 router.get('/blog/:slug', [ShowPostController, 'render']).as('blog.posts.show')
 

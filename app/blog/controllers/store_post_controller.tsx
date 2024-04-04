@@ -15,6 +15,7 @@ export default class StorePostController {
   static validator = vine.compile(
     vine.object({
       title: vine.string().minLength(3).maxLength(100),
+      description: vine.string().minLength(3).maxLength(255),
       canonicalUrl: vine.string().normalizeUrl().optional(),
       markdownContent: vine.string().minLength(3),
     })
@@ -34,7 +35,7 @@ export default class StorePostController {
   async execute({ bouncer, request, response }: HttpContext) {
     await bouncer.with(PostPolicy).allows('create')
 
-    const { title, markdownContent, canonicalUrl } = await request.validateUsing(
+    const { title, description, markdownContent, canonicalUrl } = await request.validateUsing(
       StorePostController.validator
     )
 
@@ -44,6 +45,7 @@ export default class StorePostController {
     await this.repository.create({
       canonicalUrl: canonicalUrl || slug,
       title,
+      description,
       markdownContent,
       markdownAst,
       slug,

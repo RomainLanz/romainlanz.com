@@ -7,16 +7,17 @@ interface CardProps {
   title: string
   date: string
   children: JSX.Element
+  href: string
   tags: Array<{ label: string; color: 'cyan' | 'violet' | 'yellow' | 'red' }>
 }
 
 export function Card(props: CardProps) {
-  const { class: className, title, date, children, tags } = props
+  const { class: className, href, title, date, children, tags } = props
 
   const classes = cx(['card clickable', className])
 
   return (
-    <a href="/">
+    <a href={href}>
       <article class={classes}>
         <Flex class="h-full" gap={16} direction="column">
           <header>

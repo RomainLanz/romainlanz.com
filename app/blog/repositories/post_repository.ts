@@ -3,6 +3,7 @@ import { ResultOf } from '#types/common'
 
 interface StorePostDTO {
   title: string
+  description: string
   slug: string
   markdownContent: string
   markdownAst: any
@@ -11,6 +12,7 @@ interface StorePostDTO {
 
 interface UpdatePostDTO {
   id: string
+  description: string
   title: string
   markdownContent: string
   markdownAst: any
@@ -18,6 +20,7 @@ interface UpdatePostDTO {
 }
 
 export type PostListQueryResult = ResultOf<PostRepository, 'all'>
+export type PostLastFourPublishedQueryResult = ResultOf<PostRepository, 'findLastFourPublished'>
 export type PostQueryResult = ResultOf<PostRepository, 'findBySlug'>
 export type PostByIdQueryResult = ResultOf<PostRepository, 'findById'>
 
@@ -29,6 +32,17 @@ export class PostRepository {
       .execute()
   }
 
+  findLastFourPublished() {
+    return db
+      .selectFrom('posts')
+      .select(['title', 'description', 'slug', 'published_at'])
+      .orderBy('published_at', 'desc')
+      .where('published_at', 'is not', null)
+      .where('published_at', '<=', new Date())
+      .limit(4)
+      .execute()
+  }
+
   create(payload: StorePostDTO) {
     return db
       .insertInto('posts')
@@ -37,6 +51,7 @@ export class PostRepository {
         updated_at: new Date(),
         title: payload.title,
         slug: payload.slug,
+        description: payload.description,
         markdown_ast: payload.markdownAst,
         markdown_content: payload.markdownContent,
         canonical_url: payload.canonicalUrl,
@@ -49,6 +64,7 @@ export class PostRepository {
       .updateTable('posts')
       .set({
         title: payload.title,
+        description: payload.description,
         markdown_ast: payload.markdownAst,
         markdown_content: payload.markdownContent,
         canonical_url: payload.canonicalUrl,
