@@ -22,7 +22,7 @@ const UploadImageController = () => import('#media/controllers/upload_image_cont
 // endregion
 
 router.get('r/*', [ProcessRedirectController]).as('redirects.show')
-router.get('/live/status', [GetLiveStatusController, 'execute']).as('live.status')
+router.get('/live/status', [GetLiveStatusController, 'render']).as('live.status')
 
 router
   .group(() => {

@@ -1,0 +1,24 @@
+@import '../core/functions';
+
+.live_status {
+  @extend .tag;
+
+  align-items: center;
+  background-color: var(--violet-200) !important;
+  border: 1px solid var(--violet-800) !important;
+  color: var(--violet-800) !important;
+  cursor: pointer;
+  display: flex;
+  gap: 5px;
+  padding: 6px 8px;
+
+  span {
+    box-sizing: content-box;
+    background-color: var(--violet-800);
+    border: 3px solid var(--violet-400);
+    border-radius: 50%;
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+  }
+}

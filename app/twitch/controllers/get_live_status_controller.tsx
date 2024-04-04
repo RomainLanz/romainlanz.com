@@ -1,14 +1,14 @@
 import { inject } from '@adonisjs/core'
 import { Twitch } from '#twitch/services/twitch'
-import type { HttpContext } from '@adonisjs/core/http'
+import { LiveStatus } from '#views/partials/live_status'
 
 @inject()
 export default class GetLiveStatusController {
   constructor(private twitch: Twitch) {}
 
-  async execute({ response }: HttpContext) {
+  async render() {
     const isLive = await this.twitch.getLiveStatus()
 
-    return isLive
+    return <LiveStatus isLive={isLive} />
   }
 }

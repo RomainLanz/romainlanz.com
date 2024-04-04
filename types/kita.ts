@@ -10,6 +10,8 @@ declare global {
     interface HtmlTag {
       ['up-main']?: boolean
       ['up-hungry']?: boolean
+      ['up-source']?: string
+      ['load-fragment']?: boolean
     }
 
     interface HtmlAnchorTag {

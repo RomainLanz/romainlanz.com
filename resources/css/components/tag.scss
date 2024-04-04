@@ -1,6 +1,8 @@
 @import '../core/functions';
 
 a.tag {
+  cursor: pointer;
+
   &:hover {
     box-shadow: var(--shadow-tiny);
   }
@@ -12,7 +14,6 @@ a.tag {
   border-radius: var(--rounded-sm);
   border: 1px solid var(--gray-800);
   color: var(--gray-800);
-  cursor: pointer;
   font-size: var(--text-utility);
   letter-spacing: 0.05em;
   line-height: 1;

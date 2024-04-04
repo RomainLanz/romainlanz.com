@@ -6,6 +6,12 @@
   justify-content: space-between;
   margin-top: spacePx(5);
 
+  & > div {
+    align-items: center;
+    display: flex;
+    gap: spacePx(2);
+  }
+
   &__title {
     align-items: center;
     display: flex;

@@ -11,10 +11,14 @@ export async function Header() {
   return (
     <header id="the-header">
       <MaxWidthWrapper class="header">
-        <a class="header__title" href="/">
-          <Vite.Image src={'resources/images/logo.svg'} />
-          <span>Romain Lanz</span>
-        </a>
+        <div>
+          <a class="header__title" href="/">
+            <Vite.Image src={'resources/images/logo.svg'} />
+            <span>Romain Lanz</span>
+          </a>
+
+          <div id="live-status" up-source="/live/status" load-fragment></div>
+        </div>
 
         {auth.user ? (
           <div
