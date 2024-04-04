@@ -6,9 +6,9 @@ interface MarkdownRendererProps {
   ast: hastTypes.Element[]
 }
 
-export function parseNode(node: hastTypes.Element | hastTypes.Element[]) {
+export function parseNode(node: hastTypes.Element | hastTypes.Element[], shouldEscape = false) {
   if (Array.isArray(node)) {
-    return node.map((n) => parseNode(n))
+    return node.map((n) => parseNode(n, shouldEscape))
   }
 
   /**
@@ -53,12 +53,12 @@ export function parseNode(node: hastTypes.Element | hastTypes.Element[]) {
     if (node.properties.href?.startsWith('http') || node.properties.href?.startsWith('https')) {
       return (
         <a {...node.properties} target="_blank" rel="noopener noreferrer nofollow">
-          {parseNode(node.children)}
+          {parseNode(node.children, true)}
         </a>
       )
     }
 
-    return <a {...node.properties}>{parseNode(node.children)}</a>
+    return <a {...node.properties}>{parseNode(node.children, true)}</a>
   }
 
   if (node.tagName === 'span') {
@@ -78,7 +78,11 @@ export function parseNode(node: hastTypes.Element | hastTypes.Element[]) {
   }
 
   if (node.tagName === 'code') {
-    return <code {...node.properties}>{parseNode(node.children)}</code>
+    return (
+      <code {...node.properties} safe={shouldEscape}>
+        {parseNode(node.children)}
+      </code>
+    )
   }
 
   if (node.tagName === 'div') {
