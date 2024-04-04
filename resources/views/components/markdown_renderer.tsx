@@ -29,11 +29,27 @@ export function parseNode(node: hastTypes.Element | hastTypes.Element[]) {
    * Standard HTML elements
    */
 
+  if (node.tagName === 'strong') {
+    return <strong>{parseNode(node.children)}</strong>
+  }
+
+  if (node.tagName === 'em') {
+    return <em>{parseNode(node.children)}</em>
+  }
+
   if (node.tagName === 'h2') {
     return <h2 {...node.properties}>{parseNode(node.children)}</h2>
   }
 
   if (node.tagName === 'a') {
+    if (node.properties.href?.startsWith('http') || node.properties.href?.startsWith('https')) {
+      return (
+        <a {...node.properties} target="_blank" rel="noopener noreferrer nofollow">
+          {parseNode(node.children)}
+        </a>
+      )
+    }
+
     return <a {...node.properties}>{parseNode(node.children)}</a>
   }
 

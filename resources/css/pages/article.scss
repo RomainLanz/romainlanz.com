@@ -64,6 +64,11 @@
     margin-bottom: spacePx(4);
   }
 
+  article a {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
   article > div > blockquote {
     color: var(--gray-500);
   }
@@ -73,6 +78,7 @@
     color: var(--yellow-900);
     border-radius: var(--rounded);
     background-color: var(--yellow-400);
+    font-size: var(--text-sm);
     padding: 1px spacePx(1);
   }
 
