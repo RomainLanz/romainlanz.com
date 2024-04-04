@@ -25,6 +25,7 @@
     "#redirects/*": "./app/redirects/*.js",
     "#start/*": "./start/*.js",
     "#config/*": "./config/*.js",
+    "#twitch/*": "./app/twitch/*.js",
     "#types/*": "./types/*.js",
     "#views/*": "./resources/views/*.js"
   },
@@ -57,6 +58,7 @@
   "dependencies": {
     "@adonisjs/auth": "^9.2.0",
     "@adonisjs/bouncer": "^3.1.1",
+    "@adonisjs/cache": "^1.0.0-3",
     "@adonisjs/core": "^6.5.0",
     "@adonisjs/i18n": "^2.0.1",
     "@adonisjs/lucid": "^20.5.1",

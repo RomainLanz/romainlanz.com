@@ -35,4 +35,12 @@ export default await Env.create(new URL('../', import.meta.url), {
   DB_USER: Env.schema.string(),
   DB_PASSWORD: Env.schema.string.optional(),
   DB_DATABASE: Env.schema.string(),
+
+  /*
+  |----------------------------------------------------------
+  | Variables for configuring Twitch API
+  |----------------------------------------------------------
+  */
+  TWITCH_CLIENT_ID: Env.schema.string(),
+  TWITCH_CLIENT_SECRET: Env.schema.string(),
 })
