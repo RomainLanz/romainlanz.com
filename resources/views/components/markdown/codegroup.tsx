@@ -1,36 +1,4 @@
-import type { hastTypes } from '@dimerapp/markdown/types'
-
-export function parseCodeNode(node: hastTypes.Element | hastTypes.Element[]) {
-  if (Array.isArray(node)) {
-    return node.map(parseCodeNode)
-  }
-
-  if (node.tagName === 'pre') {
-    return <pre {...node.properties}>{parseCodeNode(node.children)}</pre>
-  }
-
-  if (node.tagName === 'code') {
-    return <code {...node.properties}>{parseCodeNode(node.children)}</code>
-  }
-
-  if (node.tagName === 'div') {
-    return <div {...node.properties}>{parseCodeNode(node.children)}</div>
-  }
-
-  if (node.tagName === 'span') {
-    return (
-      <span {...node.properties} safe>
-        {parseCodeNode(node.children)}
-      </span>
-    )
-  }
-
-  if (node.type === 'text') {
-    return node.value
-  }
-
-  console.log(node)
-}
+import { parseNode } from '#views/components/markdown_renderer'
 
 interface CodeGroupProps {
   tabs: string[]
@@ -62,11 +30,11 @@ export function CodeGroup(props: CodeGroupProps) {
         {children.map((child, index) =>
           index <= 0 ? (
             <div data-tab-content={index} class="codegroup__tab">
-              {parseCodeNode(child)}
+              {parseNode(child)}
             </div>
           ) : (
             <div data-tab-content={index} class="codegroup__tab visually-hidden">
-              {parseCodeNode(child)}
+              {parseNode(child)}
             </div>
           )
         )}
