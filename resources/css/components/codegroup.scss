@@ -12,7 +12,6 @@
 
   header {
     background-color: var(--yellow-300);
-    border-bottom: 2px solid var(--gray-800);
     border-top-left-radius: var(--rounded);
     border-top-right-radius: var(--rounded);
     display: flex;
@@ -20,10 +19,13 @@
     overflow: hidden;
 
     .window__actions {
-      display: flex;
       align-items: center;
+      border-bottom: 2px solid var(--gray-800);
+      display: flex;
+      flex-grow: 1;
       gap: spacePx(2);
-      margin-right: spacePx(5);
+      justify-content: flex-end;
+      padding-right: spacePx(5);
 
       div {
         border-radius: 50%;
@@ -46,24 +48,33 @@
     }
 
     button {
-      all: unset;
+      background-color: var(--yellow-300);
+      border: 2px transparent;
+      border-top: 2px solid var(--gray-800);
       border-right: 2px solid var(--gray-800);
-      border-top-left-radius: var(--rounded);
       border-top-right-radius: var(--rounded);
       cursor: pointer;
       font-family: var(--font-mono);
       font-weight: bold;
-      margin-top: -1px;
+      margin-top: -2px;
       padding: spacePx(2) spacePx(4);
       transition: background-color 200ms ease-in-out;
+
+      &:first-child {
+        border-top-left-radius: var(--rounded);
+      }
 
       &:hover {
         background-color: var(--yellow-100);
       }
 
+      &:not(.active) {
+        border-bottom: 2px solid var(--gray-800);
+      }
+
       &.active {
         background-color: var(--yellow-100);
-        border-bottom: 0;
+        border-bottom: 2px red;
       }
     }
   }
