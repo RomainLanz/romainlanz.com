@@ -17,7 +17,10 @@ import { hot } from 'hot-hook'
 /**
  * Initialize experimental HMR
  */
-await hot.init({ root: import.meta.filename })
+await hot.init({
+  root: import.meta.filename,
+  boundaries: ['../app/**/controllers/*.ts'],
+})
 
 /**
  * URL to the application root. AdonisJS need it to resolve
