@@ -12,7 +12,7 @@ export async function up(db: Kysely<any>): Promise<void> {
     .addColumn('description', 'varchar')
     .addColumn('canonical_url', 'varchar')
     .addColumn('markdown_content', 'text', (col) => col.notNull())
-    .addColumn('html_content', 'text', (col) => col.notNull())
+    .addColumn('markdown_ast', 'jsonb', (col) => col.notNull())
     .addColumn('status', 'integer', (col) => col.notNull().defaultTo(PostStatus.Draft))
     .execute()
 }

@@ -5,7 +5,7 @@ interface StorePostDTO {
   title: string
   slug: string
   markdownContent: string
-  htmlContent: string
+  markdownAst: any
   canonicalUrl: string
 }
 
@@ -13,7 +13,7 @@ interface UpdatePostDTO {
   id: string
   title: string
   markdownContent: string
-  htmlContent: string
+  markdownAst: any
   canonicalUrl: string
 }
 
@@ -37,7 +37,7 @@ export class PostRepository {
         updated_at: new Date(),
         title: payload.title,
         slug: payload.slug,
-        html_content: payload.htmlContent,
+        markdown_ast: payload.markdownAst,
         markdown_content: payload.markdownContent,
         canonical_url: payload.canonicalUrl,
       })
@@ -49,7 +49,7 @@ export class PostRepository {
       .updateTable('posts')
       .set({
         title: payload.title,
-        html_content: payload.htmlContent,
+        markdown_ast: payload.markdownAst,
         markdown_content: payload.markdownContent,
         canonical_url: payload.canonicalUrl,
       })
@@ -64,8 +64,8 @@ export class PostRepository {
   findBySlug(slug: string) {
     return db
       .selectFrom('posts')
-      .select(['id', 'title', 'slug', 'html_content', 'markdown_content', 'created_at'])
+      .select(['id', 'title', 'slug', 'markdown_ast', 'markdown_content', 'created_at'])
       .where('slug', '=', slug)
-      .executeTakeFirst()
+      .executeTakeFirstOrThrow()
   }
 }

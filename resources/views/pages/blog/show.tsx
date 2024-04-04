@@ -9,11 +9,10 @@ import type { PostQueryResult } from '#blog/repositories/post_repository'
 
 interface BlogShowProps {
   post: PostQueryResult
-  ast: any
 }
 
 export function Show(props: BlogShowProps) {
-  const { ast, post } = props
+  const { post } = props
 
   return (
     <App title={post.title} page="article">
@@ -34,13 +33,13 @@ export function Show(props: BlogShowProps) {
                 <Tag label="Database" color="cyan" />
                 <Tag label="AdonisJS" color="violet" />
                 <span class="reading-time">
-                  {Math.ceil(post.html_content.split(/\s+/).length / 225)}mn de lecture
+                  {Math.ceil(post.markdown_content.split(/\s+/).length / 225)}mn de lecture
                 </span>
               </Flex>
             </Flex>
           </header>
 
-          <MarkdownRenderer ast={ast} />
+          <MarkdownRenderer ast={post.markdown_ast.children} />
         </article>
       </MaxWidthWrapper>
     </App>

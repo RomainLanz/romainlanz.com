@@ -39,13 +39,13 @@ export default class StorePostController {
     )
 
     const slug = string.slug(title).toLocaleLowerCase()
-    const htmlContent = await this.markdownCompiler.toHtml(markdownContent)
+    const markdownAst = await this.markdownCompiler.toAST(markdownContent)
 
     await this.repository.create({
       canonicalUrl: canonicalUrl || slug,
       title,
       markdownContent,
-      htmlContent: htmlContent.contents,
+      markdownAst,
       slug,
     })
 

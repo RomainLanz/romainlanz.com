@@ -4,6 +4,18 @@ export type Generated<T> = T extends ColumnType<infer S, infer I, infer U>
   ? ColumnType<S, I | undefined, U>
   : ColumnType<T, T | undefined, T>;
 
+export type Json = JsonValue;
+
+export type JsonArray = JsonValue[];
+
+export type JsonObject = {
+  [K in string]?: JsonValue;
+};
+
+export type JsonPrimitive = boolean | number | string | null;
+
+export type JsonValue = JsonArray | JsonObject | JsonPrimitive;
+
 export type Timestamp = ColumnType<Date, Date | string, Date | string>;
 
 export interface Categories {
@@ -15,8 +27,8 @@ export interface Posts {
   canonical_url: string | null;
   created_at: Timestamp;
   description: string | null;
-  html_content: string;
   id: Generated<string>;
+  markdown_ast: Json;
   markdown_content: string;
   slug: string;
   status: Generated<number>;

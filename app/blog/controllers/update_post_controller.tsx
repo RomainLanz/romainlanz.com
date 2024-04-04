@@ -36,14 +36,14 @@ export default class UpdatePostController {
       UpdatePostController.validator
     )
 
-    const htmlContent = await this.markdownCompiler.toHtml(markdownContent)
+    const markdownAst = await this.markdownCompiler.toAST(markdownContent)
 
     await this.repository.update({
       id: request.param('id')!,
       title,
       markdownContent,
       canonicalUrl,
-      htmlContent: htmlContent.contents,
+      markdownAst,
     })
 
     return response.redirect().toRoute('admin.blog.posts.index')
