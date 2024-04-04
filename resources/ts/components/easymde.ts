@@ -24,6 +24,7 @@ class EasyMDEComponent extends HTMLElement {
     // Forward the name attribute to the textarea
     element.id = this.name
     element.name = this.name
+    element.value = this.defaultValue
 
     this.appendChild(element)
 
@@ -32,6 +33,9 @@ class EasyMDEComponent extends HTMLElement {
       uploadImage: true,
       imageUploadEndpoint: '/api/assets/images',
       initialValue: this.defaultValue,
+      inputStyle: 'contenteditable',
+      spellChecker: false,
+      nativeSpellcheck: true,
     })
 
     editor.codemirror.on('change', () => {
