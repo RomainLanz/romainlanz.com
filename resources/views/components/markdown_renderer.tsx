@@ -1,4 +1,5 @@
 import { CodeGroup } from '#views/components/markdown/codegroup'
+import { Alert } from '#views/components/alert'
 import type { hastTypes } from '@dimerapp/markdown/types'
 
 interface MarkdownRendererProps {
@@ -16,6 +17,12 @@ export function parseNode(node: hastTypes.Element | hastTypes.Element[]) {
 
   if (node.properties?.className?.includes('codegroup')) {
     return <CodeGroup tabs={JSON.parse(node.properties.dataTabs)} children={node.children} />
+  }
+
+  if (node.properties?.className?.includes('alert')) {
+    const type = node.properties.className[1].split('-')[1]
+
+    return <Alert type={type} children={parseNode(node.children)} />
   }
 
   /**

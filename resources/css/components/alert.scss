@@ -6,13 +6,26 @@
   --text-color: var(--gray-800);
   --icon-color: var(--gray-600);
 
+  align-items: flex-start;
   background-color: var(--bg-color);
-  border: 2px solid var(--border-color);
   border-radius: var(--rounded);
+  border: 2px solid var(--border-color);
   color: var(--text-color);
+  display: flex;
+  gap: spacePx(2);
   padding: spacePx(3) spacePx(4);
 
-  &.info {
+
+  &.with-title {
+
+  }
+
+  .icon {
+    color: var(--icon-color);
+    padding-top: 2px;
+  }
+
+  &.info, &.note {
     --bg-color: var(--cyan-100);
     --border-color: var(--cyan-800);
     --text-color: var(--cyan-800);
@@ -33,7 +46,7 @@
     --icon-color: var(--yellow-600);
   }
 
-  &.error {
+  &.error, &.danger {
     --bg-color: var(--red-100);
     --border-color: var(--red-800);
     --text-color: var(--red-800);

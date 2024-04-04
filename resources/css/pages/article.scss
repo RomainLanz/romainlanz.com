@@ -54,16 +54,21 @@
 
     background-color: var(--yellow-100) !important;
     font-size: var(--text-sm);
-    margin-block: spacePx(2);
+    margin-top: spacePx(2);
+    margin-bottom: spacePx(4);
     padding: spacePx(4) spacePx(6);
     overflow-y: auto;
   }
 
-  blockquote {
+  .codegroup {
+    margin-bottom: spacePx(4);
+  }
+
+  article > div > blockquote {
     color: var(--gray-500);
   }
 
-  p code {
+  article > div > p code {
     display: inline-block;
     color: var(--yellow-900);
     border-radius: var(--rounded);
@@ -71,25 +76,17 @@
     padding: 1px spacePx(1);
   }
 
-  p {
+  article > div > .alert {
+    margin-block: spacePx(4);
+  }
+
+  article > div > p {
     margin-block: spacePx(2);
   }
 
-  h2 {
+  article > div > h2 {
     font-size: var(--text-h2);
     margin-top: spacePx(15);
     margin-bottom: spacePx(7);
-  }
-
-  .alert.alert-note {
-    @extend .alert, .info;
-  }
-
-  .alert.alert-warning {
-    @extend .alert, .warning;
-  }
-
-  .alert.alert-tip {
-    @extend .alert, .success;
   }
 }
