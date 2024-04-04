@@ -49,12 +49,13 @@
 
     button {
       background-color: var(--yellow-300);
-      border: 2px transparent;
+      border: 2px solid transparent;
       border-top: 2px solid var(--gray-800);
       border-right: 2px solid var(--gray-800);
       border-top-right-radius: var(--rounded);
       cursor: pointer;
       font-family: var(--font-mono);
+      font-size: var(--text-sm);
       font-weight: bold;
       margin-top: -2px;
       padding: spacePx(2) spacePx(4);
@@ -74,7 +75,7 @@
 
       &.active {
         background-color: var(--yellow-100);
-        border-bottom: 2px red;
+        border-bottom: 2px solid var(--yellow-100);
       }
     }
   }
