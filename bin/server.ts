@@ -19,7 +19,7 @@ import { hot } from 'hot-hook'
  */
 await hot.init({
   root: import.meta.filename,
-  boundaries: ['../app/**/controllers/*.ts'],
+  boundaries: ['../app/**/controllers/*.tsx', '../app/**/controllers/*.ts'],
 })
 
 /**
@@ -52,5 +52,5 @@ new Ignitor(APP_ROOT, { importer: IMPORTER })
   .start()
   .catch((error) => {
     process.exitCode = 1
-    prettyPrintError(error)
+    void prettyPrintError(error)
   })
