@@ -23,6 +23,14 @@ export interface Categories {
   name: string;
 }
 
+export interface Newsletters {
+  created_at: Timestamp;
+  email: string;
+  id: Generated<string>;
+  subscription_status: Generated<number>;
+  unsubscribe_token: string;
+}
+
 export interface Posts {
   canonical_url: string | null;
   created_at: Timestamp;
@@ -62,12 +70,13 @@ export interface Users {
   email: string;
   id: Generated<string>;
   password: string;
-  role: Generated<number>;
+  role: Generated<number | null>;
   updated_at: Timestamp;
 }
 
 export interface DB {
   categories: Categories;
+  newsletters: Newsletters;
   posts: Posts;
   redirects: Redirects;
   tag_posts: TagPosts;

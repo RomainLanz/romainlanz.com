@@ -2,6 +2,8 @@ import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
 
 // region Controller's Imports
+const ConfirmEmailController = () => import('#newsletter/controllers/confirm_email_controller')
+const RegisterEmailController = () => import('#newsletter/controllers/register_email_controller')
 const LandingController = () => import('#pages/controllers/landing_controller')
 const GetLiveStatusController = () => import('#twitch/controllers/get_live_status_controller')
 const DeleteRedirectController = () => import('#redirects/controllers/delete_redirect_controller')
@@ -20,6 +22,9 @@ const UploadImageController = () => import('#media/controllers/upload_image_cont
 
 router.get('r/*', [ProcessRedirectController]).as('redirects.show')
 router.get('/live/status', [GetLiveStatusController, 'render']).as('live.status')
+router.get('newsletters/register', [RegisterEmailController, 'render']).as('newsletters.register')
+router.post('newsletters/register', [RegisterEmailController, 'execute']).as('newsletters.store')
+router.get('newsletters/:id/confirm', [ConfirmEmailController, 'execute']).as('newsletters.confirm')
 
 router
   .group(() => {

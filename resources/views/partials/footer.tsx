@@ -76,18 +76,12 @@ export function Footer() {
               </ul>
             </section>
 
-            <section id="newsletter_registration" class="footer__section">
-              <h4>Newsletter</h4>
-
-              <p>Inscrivez-vous à la newsletter pour recevoir les derniers articles.</p>
-
-              <form action="" method="post">
-                <Form.Input name="email" type="email" />
-                <Button size="small" type="submit">
-                  S'abonner
-                </Button>
-              </form>
-            </section>
+            <section
+              id="newsletter_registration"
+              class="footer__section"
+              up-source="/newsletters/register"
+              load-fragment
+            ></section>
           </div>
 
           <hr />
