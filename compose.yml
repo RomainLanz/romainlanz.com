@@ -8,6 +8,11 @@ services:
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
+  mailer:
+    image: axllent/mailpit:v1.16
+    ports:
+      - 1025:1025
+      - 8025:8025
 
 volumes:
   psql-data:
