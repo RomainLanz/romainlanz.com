@@ -12,16 +12,6 @@
 import 'reflect-metadata'
 import '@kitajs/html/register.js'
 
-import { hot } from 'hot-hook'
-
-/**
- * Initialize experimental HMR
- */
-await hot.init({
-  root: import.meta.filename,
-  boundaries: ['../app/**/controllers/*.tsx', '../app/**/controllers/*.ts'],
-})
-
 /**
  * URL to the application root. AdonisJS need it to resolve
  * paths to file and directories for scaffolding commands

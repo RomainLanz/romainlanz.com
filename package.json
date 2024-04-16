@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node bin/server.js",
     "build": "node ace build",
-    "dev": "node ace serve",
+    "dev": "node ace serve --unstable-hmr",
     "test": "node ace test",
     "lint": "eslint .",
     "format": "prettier --write .",
@@ -30,39 +30,39 @@
     "#views/*": "./resources/views/*.js"
   },
   "devDependencies": {
-    "@adonisjs/assembler": "^7.4.0",
+    "@adonisjs/assembler": "^7.5.0",
     "@adonisjs/eslint-config": "^1.3.0",
     "@adonisjs/prettier-config": "^1.3.0",
     "@adonisjs/tsconfig": "^1.3.0",
     "@japa/assert": "^3.0.0",
     "@japa/plugin-adonisjs": "^3.0.1",
-    "@japa/runner": "^3.1.2",
-    "@swc/core": "1.4.12",
+    "@japa/runner": "^3.1.4",
+    "@swc/core": "1.4.14",
     "@types/luxon": "^3.4.2",
-    "@types/node": "^20.12.5",
-    "@types/pg": "^8.11.4",
+    "@types/node": "^20.12.7",
+    "@types/pg": "^8.11.5",
     "easymde": "^2.18.0",
     "eslint": "^8.57.0",
-    "hot-hook": "^0.1.5",
+    "hot-hook": "^0.1.10",
     "kysely-codegen": "^0.14.2",
     "pino-pretty": "^11.0.0",
-    "preact": "^10.20.1",
+    "preact": "^10.20.2",
     "preact-custom-element": "^4.3.0",
     "prettier": "^3.2.5",
-    "sass": "^1.74.1",
+    "sass": "^1.75.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.4",
+    "typescript": "^5.4.5",
     "unpoly": "^3.7.3",
-    "vite": "^5.2.8"
+    "vite": "^5.2.9"
   },
   "dependencies": {
     "@adonisjs/auth": "^9.2.0",
     "@adonisjs/bouncer": "^3.1.1",
     "@adonisjs/cache": "^1.0.0-3",
-    "@adonisjs/core": "^6.5.0",
-    "@adonisjs/i18n": "^2.0.1",
+    "@adonisjs/core": "^6.7.1",
+    "@adonisjs/i18n": "^2.1.0",
     "@adonisjs/lucid": "^20.5.1",
-    "@adonisjs/session": "^7.3.0",
+    "@adonisjs/session": "^7.4.0",
     "@adonisjs/shield": "^8.1.1",
     "@adonisjs/static": "^1.1.1",
     "@adonisjs/vite": "^3.0.0-11",
@@ -70,7 +70,7 @@
     "@dimerapp/shiki": "^5.0.0",
     "@kitajs/html": "^3.1.2",
     "@kitajs/ts-html-plugin": "^1.3.4",
-    "@vinejs/vine": "^1.8.0",
+    "@vinejs/vine": "^2.0.0",
     "class-variance-authority": "^0.7.0",
     "edge.js": "^6.0.2",
     "kysely": "^0.27.3",
@@ -78,11 +78,18 @@
     "pg": "^8.11.5",
     "reflect-metadata": "^0.2.2"
   },
+  "hotHook": {
+    "boundaries": [
+      "../app/**/controllers/**/*.ts",
+      "../app/**/controllers/**/*.tsx",
+      "../app/**/middleware/**/*.ts"
+    ]
+  },
   "eslintConfig": {
     "extends": "@adonisjs/eslint-config/app"
   },
   "prettier": "@adonisjs/prettier-config",
   "volta": {
-    "node": "20.12.1"
+    "node": "21.7.2"
   }
 }
