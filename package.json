@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node bin/server.js",
     "build": "node ace build",
-    "dev": "node ace serve hmr",
+    "dev": "node ace serve --hmr",
     "test": "node ace test",
     "lint": "eslint .",
     "format": "prettier --write .",
@@ -15,6 +15,7 @@
     "kysely:codegen": "kysely-codegen --out-file=types/db.ts"
   },
   "imports": {
+    "#admin/*": "./app/admin/*.js",
     "#auth/*": "./app/auth/*.js",
     "#blog/*": "./app/blog/*.js",
     "#common/*": "./app/common/*.js",
@@ -44,7 +45,7 @@
     "@types/node": "^20.12.8",
     "@types/pg": "^8.11.5",
     "easymde": "^2.18.0",
-    "eslint": "^9.1.1",
+    "eslint": "^8.57.0",
     "hot-hook": "^0.2.5",
     "kysely-codegen": "^0.15.0",
     "pino-pretty": "^11.0.0",
@@ -84,9 +85,9 @@
   },
   "hotHook": {
     "boundaries": [
-      "../app/**/controllers/**/*.ts",
-      "../app/**/controllers/**/*.tsx",
-      "../app/**/middleware/**/*.ts"
+      "./app/**/controllers/**/*.ts",
+      "./app/**/controllers/**/*.tsx",
+      "./app/**/middleware/**/*.ts"
     ]
   },
   "eslintConfig": {
