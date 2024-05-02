@@ -6,11 +6,11 @@ import { MaxWidthWrapper } from '#views/components/max_width_wrapper'
 import type { ArticlePaginatedQueryResult } from '#articles/repositories/article_repository'
 
 interface ListProps {
-  posts: ArticlePaginatedQueryResult
+  articles: ArticlePaginatedQueryResult
 }
 
 export function List(props: ListProps) {
-  const { posts } = props
+  const { articles } = props
 
   return (
     <App title="asd" page="articles">
@@ -23,14 +23,14 @@ export function List(props: ListProps) {
           </aside>
 
           <section class="grid-span-2">
-            {posts.map((post) => (
+            {articles.map((article) => (
               <Article.Card
-                title={post.title}
-                date={post.published_at}
-                href={post.slug}
+                title={article.title}
+                date={article.published_at}
+                href={article.slug}
                 tags={[{ color: 'cyan', label: 'adonis' }]}
               >
-                {post.description}
+                {article.description}
               </Article.Card>
             ))}
           </section>

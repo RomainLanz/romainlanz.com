@@ -9,8 +9,8 @@ export default class ListArticlesController {
 
   async render({ request }: HttpContext) {
     const page = request.input('page', 1)
-    const posts = await this.repository.paginated(page, 4)
+    const articles = await this.repository.paginated(page, 4)
 
-    return <ArticleView.List posts={posts} />
+    return <ArticleView.List articles={articles} />
   }
 }

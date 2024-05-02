@@ -5,7 +5,7 @@ export function Sidebar() {
     <aside class="admin_sidebar">
       <ul>
         <li>
-          <a href={route('admin.blog.posts.index')}>Articles</a>
+          <a href={route('admin.articles.index')}>Articles</a>
         </li>
         <li>
           <a href={route('admin.redirects.index')}>Redirection</a>

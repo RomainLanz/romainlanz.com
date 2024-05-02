@@ -4,11 +4,11 @@ import { Landing } from '#views/pages/landing'
 
 @inject()
 export default class LandingController {
-  constructor(private postRepository: ArticleRepository) {}
+  constructor(private repository: ArticleRepository) {}
 
   async render() {
-    const posts = await this.postRepository.findLastFourPublished()
+    const articles = await this.repository.findLastFourPublished()
 
-    return <Landing posts={posts} />
+    return <Landing articles={articles} />
   }
 }

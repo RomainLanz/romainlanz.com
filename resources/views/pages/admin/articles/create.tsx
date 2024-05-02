@@ -9,7 +9,7 @@ export function Create() {
       <div class="card">
         <form
           class="stack"
-          action={route('admin.blog.posts.store')}
+          action={route('admin.articles.store')}
           method="post"
           style={{
             ['--gap' as any]: space(3),

@@ -7,8 +7,8 @@ export default class ListArticlesController {
   constructor(private repository: ArticleRepository) {}
 
   async render() {
-    const posts = await this.repository.all()
+    const articles = await this.repository.all()
 
-    return <AdminArticleView.List posts={posts} />
+    return <AdminArticleView.List articles={articles} />
   }
 }

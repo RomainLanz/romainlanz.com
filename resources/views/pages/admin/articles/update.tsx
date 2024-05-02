@@ -5,35 +5,35 @@ import { Button } from '#views/components/button'
 import type { ArticleByIdQueryResult } from '#articles/repositories/article_repository'
 
 interface UpdateProps {
-  post: ArticleByIdQueryResult
+  article: ArticleByIdQueryResult
 }
 
 export function Update(props: UpdateProps) {
-  const { post } = props
+  const { article } = props
 
   return (
     <Admin title="Édition de l'article">
       <div class="card">
         <form
           class="stack"
-          action={route('admin.blog.posts.update', [post.id], { qs: { _method: 'PUT' } })}
+          action={route('admin.articles.update', [article.id], { qs: { _method: 'PUT' } })}
           method="post"
         >
           {csrfField()}
 
           <Form.Group>
             <Form.Label title="Titre *" for="title" />
-            <Form.Input name="title" value={post.title} />
+            <Form.Input name="title" value={article.title} />
           </Form.Group>
 
           <Form.Group>
             <Form.Label title="Canonical URL" for="canonicalUrl" />
-            <Form.Input name="canonicalUrl" value={post.slug} />
+            <Form.Input name="canonicalUrl" value={article.slug} />
           </Form.Group>
 
           <Form.Group>
             <Form.Label title="Contenu *" for="content" />
-            <Form.EasyMDE name="markdownContent" defaultValue={post.markdown_content} />
+            <Form.EasyMDE name="markdownContent" defaultValue={article.markdown_content} />
           </Form.Group>
 
           <div>

@@ -18,7 +18,6 @@
     "#admin/*": "./app/admin/*.js",
     "#articles/*": "./app/articles/*.js",
     "#auth/*": "./app/auth/*.js",
-    "#blog/*": "./app/blog/*.js",
     "#common/*": "./app/common/*.js",
     "#core/*": "./app/core/*.js",
     "#media/*": "./app/media/*.js",

@@ -4,14 +4,14 @@ import { Hero } from '#views/partials/hero'
 import { Flex } from '#views/components/flex'
 import { Grid } from '#views/components/grid'
 import { Article } from '#views/components/article/article'
-import type { PostLastFourQueryResult } from '#articles/repositories/article_repository'
+import type { ArticleLastFourPublishedQueryResult } from '#articles/repositories/article_repository'
 
 interface LandingProps {
-  posts: PostLastFourQueryResult
+  articles: ArticleLastFourPublishedQueryResult
 }
 
 export function Landing(props: LandingProps) {
-  const { posts } = props
+  const { articles } = props
 
   return (
     <App>
@@ -30,15 +30,15 @@ export function Landing(props: LandingProps) {
 
           <Grid columns={2} gap={16}>
             <>
-              {posts.map((post) => (
+              {articles.map((article) => (
                 <Article.Card
                   class="grid-span-1"
-                  date={post.published_at}
-                  title={post.title}
-                  href={route('blog.posts.show', [post.slug])}
+                  date={article.published_at}
+                  title={article.title}
+                  href={route('articles.show', [article.slug])}
                   tags={[{ color: 'cyan', label: 'JavaScript' }]}
                 >
-                  {post.description}
+                  {article.description}
                 </Article.Card>
               ))}
             </>

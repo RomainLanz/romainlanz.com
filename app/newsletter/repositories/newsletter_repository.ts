@@ -22,7 +22,7 @@ export class NewsletterRepository {
   confirmSubscription(id: string) {
     return db
       .updateTable('newsletters')
-      .set('status', NewsletterSubscriptionStatus.Confirmed)
+      .set('subscription_status', NewsletterSubscriptionStatus.Confirmed)
       .where('id', '=', id)
       .execute()
   }

@@ -20,6 +20,10 @@ interface UpdateArticleDTO {
 }
 
 export type ArticleListQueryResult = ResultOf<ArticleRepository, 'all'>
+export type ArticleLastFourPublishedQueryResult = ResultOf<
+  ArticleRepository,
+  'findLastFourPublished'
+>
 export type ArticlePaginatedQueryResult = ResultOf<ArticleRepository, 'paginated'>
 export type ArticleQueryResult = ResultOf<ArticleRepository, 'findBySlug'>
 export type ArticleByIdQueryResult = ResultOf<ArticleRepository, 'findById'>

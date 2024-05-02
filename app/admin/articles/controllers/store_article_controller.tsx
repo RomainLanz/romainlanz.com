@@ -48,6 +48,6 @@ export default class StoreArticleController {
       slug,
     })
 
-    return response.redirect().toRoute('admin.blog.posts.index')
+    return response.redirect().toRoute('admin.articles.index')
   }
 }

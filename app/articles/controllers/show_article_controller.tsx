@@ -8,8 +8,8 @@ export default class ShowArticleController {
   constructor(private repository: ArticleRepository) {}
 
   async render({ params }: HttpContext) {
-    const post = await this.repository.findBySlug(params.slug)
+    const article = await this.repository.findBySlug(params.slug)
 
-    return <ArticleView.Show post={post} />
+    return <ArticleView.Show article={article} />
   }
 }

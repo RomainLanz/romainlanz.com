@@ -24,9 +24,9 @@ export default class UpdateArticleController {
   async render({ bouncer, params }: HttpContext) {
     await bouncer.with(ArticlePolicy).allows('update')
 
-    const post = await this.repository.findById(params.id)
+    const article = await this.repository.findById(params.id)
 
-    return <AdminArticleView.Update post={post} />
+    return <AdminArticleView.Update article={article} />
   }
 
   async execute({ bouncer, request, response }: HttpContext) {
@@ -46,6 +46,6 @@ export default class UpdateArticleController {
       markdownAst,
     })
 
-    return response.redirect().toRoute('admin.blog.posts.index')
+    return response.redirect().toRoute('admin.articles.index')
   }
 }

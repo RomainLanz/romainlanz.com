@@ -7,39 +7,39 @@ import { Tag } from '#views/components/tag'
 import { MarkdownRenderer } from '#views/components/markdown_renderer'
 import type { ArticleQueryResult } from '#articles/repositories/article_repository'
 
-interface BlogShowProps {
-  post: ArticleQueryResult
+interface ArticleShowProps {
+  article: ArticleQueryResult
 }
 
-export function Show(props: BlogShowProps) {
-  const { post } = props
+export function Show(props: ArticleShowProps) {
+  const { article } = props
 
   return (
-    <App title={post.title} page="article">
+    <App title={article.title} page="article">
       <MaxWidthWrapper>
         <article>
           <header>
             <Vite.Image src="resources/images/categories/adonis.svg" />
 
             <Flex gap={8} direction="column">
-              <time datetime={post.created_at}>
-                {i18n.locale('fr').formatDate(post.created_at, { dateStyle: 'long' })}
+              <time datetime={article.created_at}>
+                {i18n.locale('fr').formatDate(article.created_at, { dateStyle: 'long' })}
               </time>
 
-              <h1>{post.title}</h1>
+              <h1>{article.title}</h1>
 
               <Flex class="w-full" gap={12} align="center" justify="start">
                 <Tag label="JavaScript" color="yellow" />
                 <Tag label="Database" color="cyan" />
                 <Tag label="AdonisJS" color="violet" />
                 <span class="reading-time">
-                  {Math.ceil(post.markdown_content.split(/\s+/).length / 225)}mn de lecture
+                  {Math.ceil(article.markdown_content.split(/\s+/).length / 225)}mn de lecture
                 </span>
               </Flex>
             </Flex>
           </header>
 
-          <MarkdownRenderer ast={post.markdown_ast.children} />
+          <MarkdownRenderer ast={article.markdown_ast.children} />
         </article>
       </MaxWidthWrapper>
     </App>
