@@ -18,20 +18,7 @@ export type JsonValue = JsonArray | JsonObject | JsonPrimitive;
 
 export type Timestamp = ColumnType<Date, Date | string, Date | string>;
 
-export interface Categories {
-  id: Generated<string>;
-  name: string;
-}
-
-export interface Newsletters {
-  created_at: Timestamp;
-  email: string;
-  id: Generated<string>;
-  subscription_status: Generated<number>;
-  unsubscribe_token: string;
-}
-
-export interface Posts {
+export interface Articles {
   canonical_url: string | null;
   created_at: Timestamp;
   description: string;
@@ -45,6 +32,19 @@ export interface Posts {
   updated_at: Timestamp;
 }
 
+export interface Categories {
+  id: Generated<string>;
+  name: string;
+}
+
+export interface Newsletters {
+  created_at: Timestamp;
+  email: string;
+  id: Generated<string>;
+  subscription_status: Generated<number>;
+  unsubscribe_token: string;
+}
+
 export interface Redirects {
   created_at: Timestamp;
   id: Generated<string>;
@@ -54,8 +54,8 @@ export interface Redirects {
   visit_count: Generated<number>;
 }
 
-export interface TagPosts {
-  post_id: string;
+export interface TagArticles {
+  article_id: string;
   tag_id: string;
 }
 
@@ -75,11 +75,11 @@ export interface Users {
 }
 
 export interface DB {
+  articles: Articles;
   categories: Categories;
   newsletters: Newsletters;
-  posts: Posts;
   redirects: Redirects;
-  tag_posts: TagPosts;
+  tag_articles: TagArticles;
   tags: Tags;
   users: Users;
 }

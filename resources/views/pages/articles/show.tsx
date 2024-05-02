@@ -5,10 +5,10 @@ import { MaxWidthWrapper } from '#views/components/max_width_wrapper'
 import { Flex } from '#views/components/flex'
 import { Tag } from '#views/components/tag'
 import { MarkdownRenderer } from '#views/components/markdown_renderer'
-import type { PostQueryResult } from '#blog/repositories/post_repository'
+import type { ArticleQueryResult } from '#articles/repositories/article_repository'
 
 interface BlogShowProps {
-  post: PostQueryResult
+  post: ArticleQueryResult
 }
 
 export function Show(props: BlogShowProps) {

@@ -2,10 +2,10 @@ import { Table } from '#views/components/table/table'
 import { Admin } from '#views/layouts/admin'
 import { route, space } from '#start/view'
 import { Button } from '#views/components/button'
-import type { PostListQueryResult } from '#blog/repositories/post_repository'
+import type { ArticleListQueryResult } from '#articles/repositories/article_repository'
 
 interface IndexProps {
-  posts: PostListQueryResult
+  posts: ArticleListQueryResult
 }
 
 export function List(props: IndexProps) {

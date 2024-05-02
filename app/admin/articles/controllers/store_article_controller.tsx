@@ -1,17 +1,14 @@
 import { inject } from '@adonisjs/core'
 import vine from '@vinejs/vine'
 import string from '@poppinss/utils/string'
-import { PostRepository } from '#blog/repositories/post_repository'
-import { MarkdownCompiler } from '#blog/services/markdown_compiler'
-import { PostView } from '#views/pages/admin/blog/posts/posts'
-import type { Infer } from '@vinejs/vine/types'
+import { ArticlePolicy } from '#admin/articles/policies/article_policy'
+import { ArticleRepository } from '#articles/repositories/article_repository'
+import { MarkdownCompiler } from '#articles/services/markdown_compiler'
+import { AdminArticleView } from '#views/pages/admin/articles/main'
 import type { HttpContext } from '@adonisjs/core/http'
-import { PostPolicy } from '#blog/policies/post_policy'
-
-export type StorePostPayload = Infer<typeof StorePostController.validator>
 
 @inject()
-export default class StorePostController {
+export default class StoreArticleController {
   static validator = vine.compile(
     vine.object({
       title: vine.string().minLength(3).maxLength(100),
@@ -22,21 +19,21 @@ export default class StorePostController {
   )
 
   constructor(
-    private repository: PostRepository,
+    private repository: ArticleRepository,
     private markdownCompiler: MarkdownCompiler
   ) {}
 
   async render({ bouncer }: HttpContext) {
-    await bouncer.with(PostPolicy).allows('create')
+    await bouncer.with(ArticlePolicy).allows('create')
 
-    return <PostView.Create />
+    return <AdminArticleView.Create />
   }
 
   async execute({ bouncer, request, response }: HttpContext) {
-    await bouncer.with(PostPolicy).allows('create')
+    await bouncer.with(ArticlePolicy).allows('create')
 
     const { title, description, markdownContent, canonicalUrl } = await request.validateUsing(
-      StorePostController.validator
+      StoreArticleController.validator
     )
 
     const slug = string.slug(title).toLocaleLowerCase()

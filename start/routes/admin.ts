@@ -4,11 +4,11 @@ import { middleware } from '#start/kernel'
 // region Controller's Imports
 const DeleteRedirectController = () => import('#redirects/controllers/delete_redirect_controller')
 const GetRedirectsController = () => import('#redirects/controllers/get_redirects_controller')
-const ListPostsController = () => import('#admin/blog/controllers/list_posts_controller')
+const ListPostsController = () => import('#admin/articles/controllers/list_articles_controller')
 const PagesController = () => import('#pages/controllers/pages_controller')
-const StorePostController = () => import('#admin/blog/controllers/store_post_controller')
+const StorePostController = () => import('#admin/articles/controllers/store_article_controller')
 const StoreRedirectController = () => import('#redirects/controllers/store_redirect_controller')
-const UpdatePostController = () => import('#admin/blog/controllers/update_post_controller')
+const UpdatePostController = () => import('#admin/articles/controllers/update_article_controller')
 // endregion
 
 router

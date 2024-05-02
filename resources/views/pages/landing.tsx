@@ -4,7 +4,7 @@ import { Hero } from '#views/partials/hero'
 import { Flex } from '#views/components/flex'
 import { Grid } from '#views/components/grid'
 import { Article } from '#views/components/article/article'
-import type { PostLastFourQueryResult } from '#blog/repositories/post_repository'
+import type { PostLastFourQueryResult } from '#articles/repositories/article_repository'
 
 interface LandingProps {
   posts: PostLastFourQueryResult

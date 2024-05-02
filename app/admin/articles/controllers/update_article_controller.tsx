@@ -1,13 +1,13 @@
 import { inject } from '@adonisjs/core'
 import vine from '@vinejs/vine'
-import { HttpContext } from '@adonisjs/core/http'
-import { PostPolicy } from '#blog/policies/post_policy'
-import { PostRepository } from '#blog/repositories/post_repository'
-import { PostView } from '#views/pages/admin/blog/posts/posts'
-import { MarkdownCompiler } from '#blog/services/markdown_compiler'
+import { ArticlePolicy } from '#admin/articles/policies/article_policy'
+import { ArticleRepository } from '#articles/repositories/article_repository'
+import { MarkdownCompiler } from '#articles/services/markdown_compiler'
+import { AdminArticleView } from '#views/pages/admin/articles/main'
+import type { HttpContext } from '@adonisjs/core/http'
 
 @inject()
-export default class UpdatePostController {
+export default class UpdateArticleController {
   static validator = vine.compile(
     vine.object({
       title: vine.string().minLength(3).maxLength(100),
@@ -17,23 +17,23 @@ export default class UpdatePostController {
   )
 
   constructor(
-    private repository: PostRepository,
+    private repository: ArticleRepository,
     private markdownCompiler: MarkdownCompiler
   ) {}
 
   async render({ bouncer, params }: HttpContext) {
-    await bouncer.with(PostPolicy).allows('update')
+    await bouncer.with(ArticlePolicy).allows('update')
 
     const post = await this.repository.findById(params.id)
 
-    return <PostView.Update post={post} />
+    return <AdminArticleView.Update post={post} />
   }
 
   async execute({ bouncer, request, response }: HttpContext) {
-    await bouncer.with(PostPolicy).allows('update')
+    await bouncer.with(ArticlePolicy).allows('update')
 
     const { title, markdownContent, canonicalUrl } = await request.validateUsing(
-      UpdatePostController.validator
+      UpdateArticleController.validator
     )
 
     const markdownAst = await this.markdownCompiler.toAST(markdownContent)

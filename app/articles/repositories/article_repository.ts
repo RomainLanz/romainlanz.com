@@ -1,7 +1,7 @@
 import { db } from '#core/services/db'
 import { ResultOf } from '#types/common'
 
-interface StorePostDTO {
+interface StoreArticleDTO {
   title: string
   description: string
   slug: string
@@ -10,7 +10,7 @@ interface StorePostDTO {
   canonicalUrl: string
 }
 
-interface UpdatePostDTO {
+interface UpdateArticleDTO {
   id: string
   description: string
   title: string
@@ -19,23 +19,19 @@ interface UpdatePostDTO {
   canonicalUrl: string
 }
 
-export type PostListQueryResult = ResultOf<PostRepository, 'all'>
-export type PostLastFourPublishedQueryResult = ResultOf<PostRepository, 'findLastFourPublished'>
-export type PostPaginatedQueryResult = ResultOf<PostRepository, 'paginated'>
-export type PostQueryResult = ResultOf<PostRepository, 'findBySlug'>
-export type PostByIdQueryResult = ResultOf<PostRepository, 'findById'>
+export type ArticleListQueryResult = ResultOf<ArticleRepository, 'all'>
+export type ArticlePaginatedQueryResult = ResultOf<ArticleRepository, 'paginated'>
+export type ArticleQueryResult = ResultOf<ArticleRepository, 'findBySlug'>
+export type ArticleByIdQueryResult = ResultOf<ArticleRepository, 'findById'>
 
-export class PostRepository {
+export class ArticleRepository {
   all() {
-    return db
-      .selectFrom('posts')
-      .select(['posts.id', 'posts.title', 'posts.slug', 'posts.created_at'])
-      .execute()
+    return db.selectFrom('articles').select(['id', 'title', 'slug', 'published_at']).execute()
   }
 
   paginated(page: number, perPage: number) {
     return db
-      .selectFrom('posts')
+      .selectFrom('articles')
       .select(['title', 'description', 'slug', 'published_at'])
       .orderBy('published_at', 'desc')
       .where('published_at', 'is not', null)
@@ -47,7 +43,7 @@ export class PostRepository {
 
   findLastFourPublished() {
     return db
-      .selectFrom('posts')
+      .selectFrom('articles')
       .select(['title', 'description', 'slug', 'published_at'])
       .orderBy('published_at', 'desc')
       .where('published_at', 'is not', null)
@@ -56,9 +52,9 @@ export class PostRepository {
       .execute()
   }
 
-  create(payload: StorePostDTO) {
+  create(payload: StoreArticleDTO) {
     return db
-      .insertInto('posts')
+      .insertInto('articles')
       .values({
         created_at: new Date(),
         updated_at: new Date(),
@@ -72,9 +68,9 @@ export class PostRepository {
       .execute()
   }
 
-  update(payload: UpdatePostDTO) {
+  update(payload: UpdateArticleDTO) {
     return db
-      .updateTable('posts')
+      .updateTable('articles')
       .set({
         title: payload.title,
         description: payload.description,
@@ -87,12 +83,12 @@ export class PostRepository {
   }
 
   findById(id: string) {
-    return db.selectFrom('posts').selectAll().where('id', '=', id).executeTakeFirst()
+    return db.selectFrom('articles').selectAll().where('id', '=', id).executeTakeFirst()
   }
 
   findBySlug(slug: string) {
     return db
-      .selectFrom('posts')
+      .selectFrom('articles')
       .select(['id', 'title', 'slug', 'markdown_ast', 'markdown_content', 'created_at'])
       .where('slug', '=', slug)
       .executeTakeFirstOrThrow()

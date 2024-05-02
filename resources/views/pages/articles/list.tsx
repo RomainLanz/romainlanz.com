@@ -1,12 +1,12 @@
-import { App } from '#views/layouts/app'
-import { MaxWidthWrapper } from '#views/components/max_width_wrapper'
-import { Grid } from '#views/components/grid'
-import { Article } from '#views/components/article/article'
-import type { PostPaginatedQueryResult } from '#blog/repositories/post_repository'
 import { space } from '#start/view'
+import { App } from '#views/layouts/app'
+import { Article } from '#views/components/article/article'
+import { Grid } from '#views/components/grid'
+import { MaxWidthWrapper } from '#views/components/max_width_wrapper'
+import type { ArticlePaginatedQueryResult } from '#articles/repositories/article_repository'
 
 interface ListProps {
-  posts: PostPaginatedQueryResult
+  posts: ArticlePaginatedQueryResult
 }
 
 export function List(props: ListProps) {

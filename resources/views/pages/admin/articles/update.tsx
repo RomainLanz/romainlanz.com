@@ -2,10 +2,10 @@ import { csrfField, route } from '#start/view'
 import { Admin } from '#views/layouts/admin'
 import { Form } from '#views/components/form/form'
 import { Button } from '#views/components/button'
-import type { PostByIdQueryResult } from '#blog/repositories/post_repository'
+import type { ArticleByIdQueryResult } from '#articles/repositories/article_repository'
 
 interface UpdateProps {
-  post: PostByIdQueryResult
+  post: ArticleByIdQueryResult
 }
 
 export function Update(props: UpdateProps) {
