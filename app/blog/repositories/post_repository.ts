@@ -21,6 +21,7 @@ interface UpdatePostDTO {
 
 export type PostListQueryResult = ResultOf<PostRepository, 'all'>
 export type PostLastFourPublishedQueryResult = ResultOf<PostRepository, 'findLastFourPublished'>
+export type PostPaginatedQueryResult = ResultOf<PostRepository, 'paginated'>
 export type PostQueryResult = ResultOf<PostRepository, 'findBySlug'>
 export type PostByIdQueryResult = ResultOf<PostRepository, 'findById'>
 
@@ -29,6 +30,18 @@ export class PostRepository {
     return db
       .selectFrom('posts')
       .select(['posts.id', 'posts.title', 'posts.slug', 'posts.created_at'])
+      .execute()
+  }
+
+  paginated(page: number, perPage: number) {
+    return db
+      .selectFrom('posts')
+      .select(['title', 'description', 'slug', 'published_at'])
+      .orderBy('published_at', 'desc')
+      .where('published_at', 'is not', null)
+      .where('published_at', '<=', new Date())
+      .offset((page - 1) * perPage)
+      .limit(perPage)
       .execute()
   }
 

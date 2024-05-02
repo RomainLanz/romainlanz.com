@@ -108,3 +108,18 @@
     }
   }
 }
+
+@include page('articles') {
+  h1 {
+    border-bottom: 2px solid var(--gray-900);
+    margin-top: spacePx(27);
+    margin-bottom: spacePx(15);
+    padding-bottom: spacePx(6);
+  }
+
+  h3 {
+    font-size: var(--text-sm);
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
