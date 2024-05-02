@@ -1,6 +1,9 @@
+import i18nManager from '@adonisjs/i18n/services/main'
 import vite from '@adonisjs/vite/services/main'
 import router from '@adonisjs/core/services/router'
 import { HttpContext } from '@adonisjs/core/http'
+
+const dateFormatter = i18nManager.locale('fr')
 
 export function space(num: number) {
   return `calc(${num} * var(--space))`
@@ -8,6 +11,12 @@ export function space(num: number) {
 
 export function currentYear() {
   return new Date().getFullYear()
+}
+
+export function formatDate(value: Date) {
+  return dateFormatter.formatDate(value, {
+    dateStyle: 'medium',
+  })
 }
 
 export function route(...args: Parameters<typeof router.makeUrl>) {
