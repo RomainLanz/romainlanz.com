@@ -33,7 +33,7 @@ export function Landing(props: LandingProps) {
               {posts.map((post) => (
                 <Article.Card
                   class="grid-span-1"
-                  date={post.published_at.toISOString()}
+                  date={post.published_at}
                   title={post.title}
                   href={route('blog.posts.show', [post.slug])}
                   tags={[{ color: 'cyan', label: 'JavaScript' }]}
