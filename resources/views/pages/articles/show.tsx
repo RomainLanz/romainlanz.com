@@ -19,7 +19,10 @@ export function Show(props: ArticleShowProps) {
       <MaxWidthWrapper>
         <article>
           <header>
-            <Vite.Image src="resources/images/categories/adonis.svg" />
+            <Vite.Image
+              src={`resources/images/categories/${article.category_slug}.svg`}
+              alt={article.category_name}
+            />
 
             <Flex gap={8} direction="column">
               <time datetime={article.created_at}>

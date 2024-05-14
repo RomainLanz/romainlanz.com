@@ -1,5 +1,5 @@
 import { db } from '#core/services/db'
-import { ResultOf } from '#types/common'
+import type { ResultOf } from '#types/common'
 
 interface StoreArticleDTO {
   title: string
@@ -8,6 +8,7 @@ interface StoreArticleDTO {
   markdownContent: string
   markdownAst: any
   canonicalUrl: string
+  categoryId: string
 }
 
 interface UpdateArticleDTO {
@@ -17,6 +18,7 @@ interface UpdateArticleDTO {
   markdownContent: string
   markdownAst: any
   canonicalUrl: string
+  categoryId: string
 }
 
 export type ArticleListQueryResult = ResultOf<ArticleRepository, 'all'>
@@ -68,6 +70,7 @@ export class ArticleRepository {
         markdown_ast: payload.markdownAst,
         markdown_content: payload.markdownContent,
         canonical_url: payload.canonicalUrl,
+        category_id: payload.categoryId,
       })
       .execute()
   }
@@ -81,6 +84,7 @@ export class ArticleRepository {
         markdown_ast: payload.markdownAst,
         markdown_content: payload.markdownContent,
         canonical_url: payload.canonicalUrl,
+        category_id: payload.categoryId,
       })
       .where('id', '=', payload.id)
       .execute()
@@ -93,8 +97,18 @@ export class ArticleRepository {
   findBySlug(slug: string) {
     return db
       .selectFrom('articles')
-      .select(['id', 'title', 'slug', 'markdown_ast', 'markdown_content', 'created_at'])
-      .where('slug', '=', slug)
+      .leftJoin('categories', 'articles.category_id', 'categories.id')
+      .select([
+        'articles.id',
+        'articles.title',
+        'articles.slug',
+        'articles.markdown_ast',
+        'articles.markdown_content',
+        'articles.created_at',
+        'categories.name as category_name',
+        'categories.slug as category_slug',
+      ])
+      .where('articles.slug', '=', slug)
       .executeTakeFirstOrThrow()
   }
 }

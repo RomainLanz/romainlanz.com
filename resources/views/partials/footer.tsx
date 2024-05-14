@@ -1,7 +1,5 @@
 import { MaxWidthWrapper } from '#views/components/max_width_wrapper'
 import { currentYear, Vite } from '#start/view'
-import { Form } from '#views/components/form/form'
-import { Button } from '#views/components/button'
 import { SocialNetwork } from '#views/components/social_network'
 
 export function Footer() {
@@ -76,12 +74,12 @@ export function Footer() {
               </ul>
             </section>
 
-            <section
-              id="newsletter_registration"
-              class="footer__section"
-              up-source="/newsletters/register"
-              load-fragment
-            ></section>
+            {/*<section*/}
+            {/*  id="newsletter_registration"*/}
+            {/*  class="footer__section"*/}
+            {/*  up-source="/newsletters/register"*/}
+            {/*  load-fragment*/}
+            {/*></section>*/}
           </div>
 
           <hr />

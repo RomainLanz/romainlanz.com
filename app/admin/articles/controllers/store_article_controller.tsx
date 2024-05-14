@@ -4,6 +4,7 @@ import string from '@poppinss/utils/string'
 import { ArticlePolicy } from '#admin/articles/policies/article_policy'
 import { ArticleRepository } from '#articles/repositories/article_repository'
 import { MarkdownCompiler } from '#articles/services/markdown_compiler'
+import { CategoryRepository } from '#categories/repositories/category_repository'
 import { AdminArticleView } from '#views/pages/admin/articles/main'
 import type { HttpContext } from '@adonisjs/core/http'
 
@@ -15,26 +16,30 @@ export default class StoreArticleController {
       description: vine.string().minLength(3).maxLength(255),
       canonicalUrl: vine.string().normalizeUrl().optional(),
       markdownContent: vine.string().minLength(3),
+      // TODO: Validate that the category exists
+      categoryId: vine.string().uuid(),
     })
   )
 
   constructor(
     private repository: ArticleRepository,
+    private categoryRepository: CategoryRepository,
     private markdownCompiler: MarkdownCompiler
   ) {}
 
   async render({ bouncer }: HttpContext) {
     await bouncer.with(ArticlePolicy).allows('create')
 
-    return <AdminArticleView.Create />
+    const categories = await this.categoryRepository.all()
+
+    return <AdminArticleView.Create categories={categories} />
   }
 
   async execute({ bouncer, request, response }: HttpContext) {
     await bouncer.with(ArticlePolicy).allows('create')
 
-    const { title, description, markdownContent, canonicalUrl } = await request.validateUsing(
-      StoreArticleController.validator
-    )
+    const { title, description, markdownContent, canonicalUrl, categoryId } =
+      await request.validateUsing(StoreArticleController.validator)
 
     const slug = string.slug(title).toLocaleLowerCase()
     const markdownAst = await this.markdownCompiler.toAST(markdownContent)
@@ -46,6 +51,7 @@ export default class StoreArticleController {
       markdownContent,
       markdownAst,
       slug,
+      categoryId,
     })
 
     return response.redirect().toRoute('admin.articles.index')

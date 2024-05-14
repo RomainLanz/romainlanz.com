@@ -5,6 +5,7 @@ export async function up(db: Kysely<any>): Promise<void> {
     .createTable('categories')
     .addColumn('id', 'uuid', (col) => col.primaryKey().defaultTo(sql`gen_random_uuid()`))
     .addColumn('name', 'varchar', (col) => col.notNull().unique())
+    .addColumn('slug', 'varchar', (col) => col.notNull().unique())
     .execute()
 }
 

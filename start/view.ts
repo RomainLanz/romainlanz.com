@@ -36,7 +36,7 @@ function Image(props: JSX.HtmlImageTag) {
 
   const url = vite.assetPath(props.src)
 
-  return Html.createElement('img', { src: url, alt: props.alt, class: props.class })
+  return Html.createElement('img', { src: url, alt: props.alt || '', class: props.class })
 }
 
 async function Entrypoint(props: { entrypoints: string[] }) {

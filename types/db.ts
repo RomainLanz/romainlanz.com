@@ -18,13 +18,9 @@ export type JsonValue = JsonArray | JsonObject | JsonPrimitive;
 
 export type Timestamp = ColumnType<Date, Date | string, Date | string>;
 
-export interface ArticleCategories {
-  article_id: string;
-  category_id: string;
-}
-
 export interface Articles {
   canonical_url: string | null;
+  category_id: string | null;
   created_at: Timestamp;
   description: string;
   id: Generated<string>;
@@ -40,6 +36,7 @@ export interface Articles {
 export interface Categories {
   id: Generated<string>;
   name: string;
+  slug: string;
 }
 
 export interface Newsletters {
@@ -80,7 +77,6 @@ export interface Users {
 }
 
 export interface DB {
-  article_categories: ArticleCategories;
   articles: Articles;
   categories: Categories;
   newsletters: Newsletters;

@@ -3,13 +3,20 @@ import { Admin } from '#views/layouts/admin'
 import { Form } from '#views/components/form/form'
 import { Button } from '#views/components/button'
 import type { ArticleByIdQueryResult } from '#articles/repositories/article_repository'
+import type { CategoryListQueryResult } from '#categories/repositories/category_repository'
 
 interface UpdateProps {
   article: ArticleByIdQueryResult
+  categories: CategoryListQueryResult
 }
 
 export function Update(props: UpdateProps) {
-  const { article } = props
+  const { article, categories } = props
+
+  const categoriesOptions = categories.map((category) => ({
+    value: category.id,
+    label: category.name,
+  }))
 
   return (
     <Admin title="Édition de l'article">
@@ -29,6 +36,15 @@ export function Update(props: UpdateProps) {
           <Form.Group>
             <Form.Label title="Canonical URL" for="canonicalUrl" />
             <Form.Input name="canonicalUrl" value={article.slug} />
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label title="Catégorie *" for="categoryId" />
+            <Form.Select
+              name="categoryId"
+              options={categoriesOptions}
+              selected={article.category_id}
+            />
           </Form.Group>
 
           <Form.Group>

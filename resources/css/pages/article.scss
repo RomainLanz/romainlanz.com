@@ -122,4 +122,54 @@
     font-weight: bold;
     text-transform: uppercase;
   }
+
+  aside {
+    a {
+      display: flex;
+      align-items: center;
+      font-size: var(--text-lg);
+      padding-block: spacePx(3);
+      padding-inline: spacePx(4);
+      gap: spacePx(3);
+    }
+
+    div {
+      display: grid;
+      place-items: center;
+      width: spacePx(10);
+    }
+
+    img {
+      height: spacePx(10);
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .articles__count {
+      background-color: var(--yellow-100);
+      border-radius: var(--rounded-sm);
+      border: 1px solid var(--gray-800);
+      display: grid;
+      font-size: var(--text-utility);
+      height: 20px;
+      line-height: 1;
+      place-items: center;
+      min-width: 20px;
+    }
+
+    li {
+      border: 1px solid transparent;
+      width: 300px;
+    }
+
+    li:hover {
+      background-color: var(--yellow-300);
+      border-radius: var(--rounded);
+      border: 1px solid var(--gray-800);
+    }
+  }
 }

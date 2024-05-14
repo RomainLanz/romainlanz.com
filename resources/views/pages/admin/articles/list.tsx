@@ -25,7 +25,7 @@ export function List(props: IndexProps) {
                 <a href={route('articles.show', [article.slug])}>{article.title}</a>
               </td>
               <td>
-                <a href={route('articles.edit', [article.id])}>Modifier</a>
+                <a href={route('admin.articles.edit', [article.id])}>Modifier</a>
               </td>
             </tr>
           ))}
