@@ -1,7 +1,7 @@
 /**
  * Components.
  */
-import './components/codegroup.js'
+import './components/easymde.js'
 
 /**
  * Vendors.

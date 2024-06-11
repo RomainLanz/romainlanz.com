@@ -24,7 +24,7 @@ export function Admin(props: AppProps) {
 
           <title>{title}</title>
 
-          <Vite.Entrypoint entrypoints={['resources/css/app.scss', 'resources/ts/app.ts']} />
+          <Vite.Entrypoint entrypoints={['resources/css/app.scss', 'resources/ts/admin.ts']} />
         </head>
 
         <body>
