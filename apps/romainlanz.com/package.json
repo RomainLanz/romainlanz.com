@@ -55,9 +55,9 @@
     "prettier": "^3.2.5",
     "sass": "^1.77.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5",
+    "typescript": "catalog:",
     "unpoly": "^3.7.3",
-    "vite": "^5.2.11"
+    "vite": "catalog:"
   },
   "dependencies": {
     "@adonisjs/auth": "^9.2.1",
