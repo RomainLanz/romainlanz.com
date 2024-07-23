@@ -21,7 +21,7 @@ export type IconName = (typeof IconName)[number];
 </script>
 
 <script lang="ts" setup>
-const props = defineProps<{
+defineProps<{
   name: IconName;
 }>();
 </script>
@@ -39,13 +39,13 @@ const props = defineProps<{
     <symbol id="close">
       <path
         d="M14 6L6 14"
-        stroke="#0F172A"
+        stroke="currentColor"
         stroke-width="2"
         stroke-linecap="round"
       />
       <path
         d="M6 6L14 14"
-        stroke="#0F172A"
+        stroke="currentColor"
         stroke-width="2"
         stroke-linecap="round"
       />
@@ -54,13 +54,13 @@ const props = defineProps<{
     <symbol id="close-large">
       <path
         d="M16 4L4 16"
-        stroke="#0F172A"
+        stroke="currentColor"
         stroke-width="2"
         stroke-linecap="round"
       />
       <path
         d="M4 4L16 16"
-        stroke="#0F172A"
+        stroke="currentColor"
         stroke-width="2"
         stroke-linecap="round"
       />
@@ -69,16 +69,16 @@ const props = defineProps<{
     <symbol id="danger">
       <path
         d="M9.13176 3.51942C9.51565 2.84761 10.4843 2.84761 10.8682 3.51943L17.1451 14.5039C17.526 15.1705 17.0446 16 16.2768 16H3.72318C2.95536 16 2.47399 15.1705 2.85494 14.5039L9.13176 3.51942Z"
-        stroke="#0F172A"
+        stroke="currentColor"
         stroke-width="2"
       />
       <path
         d="M10 8L10 10"
-        stroke="#0F172A"
+        stroke="currentColor"
         stroke-width="2"
         stroke-linecap="round"
       />
-      <circle cx="10" cy="13" r="1" fill="#0F172A" />
+      <circle cx="10" cy="13" r="1" fill="currentColor" />
     </symbol>
   </svg>
 </template>
