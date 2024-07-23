@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/vue3";
 
 const meta = {
   component: Button,
+  title: "Atoms/Button",
 } satisfies Meta<typeof Button>;
 
 export default meta;
