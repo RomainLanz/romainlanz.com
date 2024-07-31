@@ -36,7 +36,7 @@ const buttonOrLink = computed(() => {
 </script>
 
 <template>
-  <component
+  <Component
     v-bind="$attrs"
     :is="buttonOrLink"
     :class="
@@ -47,7 +47,7 @@ const buttonOrLink = computed(() => {
     "
   >
     <slot />
-  </component>
+  </Component>
 </template>
 
 <style scoped>
