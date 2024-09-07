@@ -18,7 +18,7 @@ body {
 }
 
 body {
-  font-family: var(--font-family), sans-serif;
+  @apply font-sans;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
