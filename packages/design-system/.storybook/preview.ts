@@ -1,6 +1,5 @@
-import "../src/css/font.css";
 import "../src/css/reset.css";
-import "../src/css/main.css";
+import "virtual:uno.css";
 
 import type { Preview } from "@storybook/vue3";
 
