@@ -1,0 +1,16 @@
+import Checkbox from './checkbox.vue';
+import type { Meta, StoryObj } from '@storybook/vue3';
+
+const meta = {
+	component: Checkbox,
+	title: 'Atoms/Checkbox',
+} satisfies Meta<typeof Checkbox>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const Base: Story = {
+	argTypes: {},
+	args: {},
+};
