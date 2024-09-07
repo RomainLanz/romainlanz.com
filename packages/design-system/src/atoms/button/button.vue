@@ -2,7 +2,7 @@
 	import { tv, type VariantProps } from 'tailwind-variants';
 
 	const button = tv({
-		base: 'inline-block cursor-pointer text-base font-bold bg-transparent hover:bg-white rounded-lg border-2 border-solid border-gray-800 shadow-small transition-colors',
+		base: 'inline-block cursor-pointer text-base font-bold bg-transparent hover:bg-yellow-100 rounded-lg transition-colors',
 
 		variants: {
 			color: {
@@ -16,6 +16,11 @@
 			size: {
 				small: 'py-2 px-3',
 				medium: 'py-3 px-5',
+			},
+
+			flat: {
+				true: 'border-0 shadow-none',
+				false: 'border-2 border-solid border-gray-800 shadow-small',
 			},
 		},
 
@@ -34,6 +39,7 @@
 	const props = defineProps<{
 		color?: ButtonProps['color'];
 		href?: string;
+		flat?: ButtonProps['flat'];
 		size?: ButtonProps['size'];
 	}>();
 
@@ -50,6 +56,7 @@
 			button({
 				color: props.color,
 				size: props.size,
+				flat: props.flat,
 			})
 		"
 	>
