@@ -4,7 +4,7 @@ packages:
 
 catalog:
   "@inertiajs/vue3": ^1.2.0
-  vue: ^3.4.29
-  vue-tsc: ^2.0.21
-  typescript: ~5.4.5
-  vite: ^5.3.1
+  vue: ^3.5.3
+  vue-tsc: ^2.1.6
+  typescript: ~5.5.3
+  vite: ^5.4.3
