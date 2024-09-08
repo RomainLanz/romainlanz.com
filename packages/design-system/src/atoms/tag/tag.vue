@@ -24,7 +24,7 @@
 		},
 	});
 
-	type TagProps = VariantProps<typeof tag>;
+	export type TagProps = VariantProps<typeof tag>;
 </script>
 
 <script lang="ts" setup>
