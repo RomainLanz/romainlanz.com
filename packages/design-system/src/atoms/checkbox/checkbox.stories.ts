@@ -10,7 +10,10 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Base: Story = {
-	argTypes: {},
-	args: {},
+export const Base: Story = {};
+
+export const WithLabel: Story = {
+	args: {
+		label: 'Se souvenir de moi',
+	},
 };
