@@ -4,6 +4,9 @@ import type { Meta, StoryObj } from '@storybook/vue3';
 const meta = {
 	component: TopBar,
 	title: 'Organisms/TopBar',
+	parameters: {
+		layout: 'padded',
+	},
 } satisfies Meta<typeof TopBar>;
 
 export default meta;

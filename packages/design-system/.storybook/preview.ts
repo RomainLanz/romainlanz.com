@@ -1,10 +1,12 @@
-import "../src/css/reset.css";
-import "virtual:uno.css";
+import '../src/css/reset.css';
+import 'virtual:uno.css';
 
-import type { Preview } from "@storybook/vue3";
+import type { Preview } from '@storybook/vue3';
 
 const preview: Preview = {
-  parameters: {},
+	parameters: {
+		layout: 'centered',
+	},
 };
 
 export default preview;
