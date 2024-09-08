@@ -6,7 +6,7 @@ const meta = {
 	component: Dropdown,
 	title: 'Atoms/Dropdown',
 	render: (args) => ({
-		component: {
+		components: {
 			Dropdown,
 			Button,
 		},
