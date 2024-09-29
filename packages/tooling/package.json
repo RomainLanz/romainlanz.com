@@ -1,0 +1,19 @@
+{
+  "name": "@rlanz/tooling",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "exports": {
+    "./unocss": "./build/src/unocss/unocss.config.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "unocss": "catalog:"
+  },
+  "devDependencies": {
+    "@swc/core": "catalog:",
+    "typescript": "catalog:"
+  }
+}
