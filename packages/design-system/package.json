@@ -3,7 +3,10 @@
   "private": true,
   "license": "UNLICENSED",
   "type": "module",
-  "main": "build/design-system.js",
+  "exports": {
+    ".": "./build/design-system.js",
+    "./css": "./build/style.css"
+  },
   "types": "build/src/main.d.ts",
   "scripts": {
     "dev": "vite",

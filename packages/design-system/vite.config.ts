@@ -20,7 +20,7 @@ export default defineConfig({
 			formats: ['es'],
 		},
 		rollupOptions: {
-			external: ['vue', '@inertiajs/vue3'],
+			external: ['vue', '@inertiajs/vue3', 'tailwind-variants'],
 		},
 	},
 });
