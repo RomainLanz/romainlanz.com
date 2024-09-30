@@ -188,9 +188,9 @@ importers:
       sass:
         specifier: ^1.78.0
         version: 1.78.0
-      ts-node:
-        specifier: ^10.9.2
-        version: 10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.13))(@types/node@20.16.5)(typescript@5.4.5)
+      ts-node-maintained:
+        specifier: ^10.9.4
+        version: 10.9.4(@swc/core@1.7.26(@swc/helpers@0.5.13))(@types/node@20.16.5)(typescript@5.4.5)
       typescript:
         specifier: 'catalog:'
         version: 5.4.5
@@ -6349,6 +6349,20 @@ packages:
 
   ts-morph@23.0.0:
     resolution: {integrity: sha512-FcvFx7a9E8TUe6T3ShihXJLiJOiqyafzFKUO4aqIHDUCIvADdGNShcbc2W5PMr3LerXRv7mafvFZ9lRENxJmug==}
+
+  ts-node-maintained@10.9.4:
+    resolution: {integrity: sha512-Fq4c+LoWee4E0YWDBsotcBR8CB9pStBYBUuanQjXuOlLFescZ4uEODG8mdpDGGWYSCCaQXBjEgXzLIGu/NbyNw==}
+    hasBin: true
+    peerDependencies:
+      '@swc/core': '>=1.2.50'
+      '@swc/wasm': '>=1.2.50'
+      '@types/node': '*'
+      typescript: '>=2.7'
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      '@swc/wasm':
+        optional: true
 
   ts-node@10.9.2:
     resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
@@ -14295,7 +14309,7 @@ snapshots:
       '@ts-morph/common': 0.24.0
       code-block-writer: 13.0.2
 
-  ts-node@10.9.2(@swc/core@1.7.26(@swc/helpers@0.5.13))(@types/node@20.16.5)(typescript@5.4.5):
+  ts-node-maintained@10.9.4(@swc/core@1.7.26(@swc/helpers@0.5.13))(@types/node@20.16.5)(typescript@5.4.5):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
       '@tsconfig/node10': 1.0.11

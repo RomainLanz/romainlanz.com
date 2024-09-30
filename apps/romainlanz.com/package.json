@@ -55,7 +55,7 @@
     "preact-custom-element": "^4.3.0",
     "prettier": "^3.3.3",
     "sass": "^1.78.0",
-    "ts-node": "^10.9.2",
+    "ts-node-maintained": "^10.9.4",
     "typescript": "catalog:",
     "unocss": "catalog:",
     "unpoly": "^3.9.0",
