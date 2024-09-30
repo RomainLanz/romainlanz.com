@@ -51,6 +51,7 @@ export default defineConfig({
     () => import('@adonisjs/bouncer/bouncer_provider'),
     () => import('@adonisjs/cache/cache_provider'),
     () => import('@adonisjs/mail/mail_provider'),
+    () => import('@adonisjs/inertia/inertia_provider'),
   ],
 
   /*

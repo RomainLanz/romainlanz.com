@@ -1,19 +1,21 @@
+import AdonisJS from '@adonisjs/vite/client'
+import UnoCSS from 'unocss/vite'
+import Vue from '@vitejs/plugin-vue'
+import inertia from '@adonisjs/inertia/client'
 import { defineConfig } from 'vite'
-import adonisjs from '@adonisjs/vite/client'
+import { getDirname } from '@adonisjs/core/helpers'
 
 export default defineConfig({
   plugins: [
-    adonisjs({
-      /**
-       * Entrypoints of your application. Each entrypoint will
-       * result in a separate bundle.
-       */
-      entrypoints: ['resources/css/app.scss', 'resources/ts/app.ts', 'resources/ts/admin.ts'],
-
-      /**
-       * Paths to watch and reload the browser on file change
-       */
-      reload: ['resources/views/**/*.tsx'],
-    }),
+    inertia({ ssr: { enabled: true, entrypoint: 'inertia/app/ssr.ts' } }),
+    Vue(),
+    AdonisJS({ entrypoints: ['inertia/app/app.ts'], reload: ['resources/views/**/*.edge'] }),
+    UnoCSS(),
   ],
+
+  resolve: {
+    alias: {
+      '~/': `${getDirname(import.meta.url)}/inertia/`,
+    },
+  },
 })
