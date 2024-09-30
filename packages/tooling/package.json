@@ -15,5 +15,8 @@
   "devDependencies": {
     "@swc/core": "catalog:",
     "typescript": "catalog:"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

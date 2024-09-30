@@ -40,5 +40,8 @@
     "vite": "catalog:",
     "vite-plugin-dts": "^4.2.1",
     "vue-tsc": "catalog:"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

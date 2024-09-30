@@ -96,6 +96,6 @@
   },
   "prettier": "@adonisjs/prettier-config",
   "volta": {
-    "node": "22.1.0"
+    "extends": "../../package.json"
   }
 }

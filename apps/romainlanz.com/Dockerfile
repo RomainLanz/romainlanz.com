@@ -1,4 +1,4 @@
-FROM node:20-alpine3.18 as base
+FROM node:lts-bookworm-slim as base
 
 RUN apk --no-cache add curl
 
@@ -13,7 +13,6 @@ FROM base as production-deps
 WORKDIR /app
 ADD package.json package-lock.json ./
 RUN npm ci --omit=dev
-RUN wget https://gobinaries.com/tj/node-prune --output-document - | /bin/sh && node-prune
 
 # Build stage
 FROM base as build
