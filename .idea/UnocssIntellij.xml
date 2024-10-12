@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="me.rerere.unocssintellij.settings.UnocssSettingsState">
+    <option name="jsLiteralMatchRegexPatterns" value="cva\([\s\S]*?\)&#10;tv\([\s\S]*?\)&#10;cn\([\s\S]*?\)" />
+    <option name="matchType" value="FUZZY" />
+  </component>
+</project>

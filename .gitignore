@@ -16,10 +16,8 @@ public/uploads
 # Build tools specific
 npm-debug.log
 yarn-error.log
+*storybook.log
 
 # Editors specific
 .fleet
-.idea
 .vscode
-
-*storybook.log
