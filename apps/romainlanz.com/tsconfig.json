@@ -1,13 +1,13 @@
 {
-  "extends": "@adonisjs/tsconfig/tsconfig.app.json",
-  "exclude": ["node_modules", "./resources/ts/env.d.ts"],
-  "compilerOptions": {
-    "rootDir": "./",
-    "outDir": "./build",
-    "jsx": "react",
-    "types": ["hot-hook/import-meta"],
-    "jsxFactory": "Html.createElement",
-    "jsxFragmentFactory": "Html.Fragment",
-    "plugins": [{ "name": "@kitajs/ts-html-plugin" }]
-  }
+	"extends": "@adonisjs/tsconfig/tsconfig.app.json",
+	"exclude": ["node_modules", "./resources/ts/env.d.ts"],
+	"compilerOptions": {
+		"rootDir": "./",
+		"outDir": "./build",
+		"jsx": "react",
+		"types": ["hot-hook/import-meta"],
+		"jsxFactory": "Html.createElement",
+		"jsxFragmentFactory": "Html.Fragment",
+		"plugins": [{ "name": "@kitajs/ts-html-plugin" }]
+	}
 }

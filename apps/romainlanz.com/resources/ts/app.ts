@@ -1,10 +1,10 @@
 /**
  * Components.
  */
-import './components/codegroup.js'
+import './components/codegroup.js';
 
 /**
  * Vendors.
  */
-import './vendors/unpoly.js'
-import './vendors/vite.js'
+import './vendors/unpoly.js';
+import './vendors/vite.js';

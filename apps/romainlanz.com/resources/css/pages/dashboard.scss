@@ -2,7 +2,7 @@
 @import '../core/mixins';
 
 @include page('dashboard') {
-  .card {
-    font-size: var(--text-base);
-  }
+	.card {
+		font-size: var(--text-base);
+	}
 }

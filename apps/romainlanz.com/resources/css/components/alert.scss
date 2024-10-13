@@ -1,58 +1,58 @@
 @import '../core/functions';
 
 .alert {
-  --bg-color: transparent;
-  --border-color: var(--gray-800);
-  --text-color: var(--gray-800);
-  --icon-color: var(--gray-600);
+	--bg-color: transparent;
+	--border-color: var(--gray-800);
+	--text-color: var(--gray-800);
+	--icon-color: var(--gray-600);
 
-  align-items: flex-start;
-  background-color: var(--bg-color);
-  border-radius: var(--rounded);
-  border: 2px solid var(--border-color);
-  color: var(--text-color);
-  display: flex;
-  gap: spacePx(2);
-  padding: spacePx(3) spacePx(4);
+	align-items: flex-start;
+	background-color: var(--bg-color);
+	border-radius: var(--rounded);
+	border: 2px solid var(--border-color);
+	color: var(--text-color);
+	display: flex;
+	gap: spacePx(2);
+	padding: spacePx(3) spacePx(4);
 
+	&.with-title {
+	}
 
-  &.with-title {
+	.icon {
+		color: var(--icon-color);
+		flex-shrink: 0;
+		height: 20px;
+		padding-top: 2px;
+		width: 20px;
+	}
 
-  }
+	&.info,
+	&.note {
+		--bg-color: var(--cyan-100);
+		--border-color: var(--cyan-800);
+		--text-color: var(--cyan-800);
+		--icon-color: var(--cyan-600);
+	}
 
-  .icon {
-    color: var(--icon-color);
-    flex-shrink: 0;
-    height: 20px;
-    padding-top: 2px;
-    width: 20px;
-  }
+	&.success {
+		--bg-color: var(--lime-100);
+		--border-color: var(--lime-800);
+		--text-color: var(--lime-800);
+		--icon-color: var(--lime-600);
+	}
 
-  &.info, &.note {
-    --bg-color: var(--cyan-100);
-    --border-color: var(--cyan-800);
-    --text-color: var(--cyan-800);
-    --icon-color: var(--cyan-600);
-  }
+	&.warning {
+		--bg-color: var(--yellow-200);
+		--border-color: var(--yellow-800);
+		--text-color: var(--yellow-800);
+		--icon-color: var(--yellow-600);
+	}
 
-  &.success {
-    --bg-color: var(--lime-100);
-    --border-color: var(--lime-800);
-    --text-color: var(--lime-800);
-    --icon-color: var(--lime-600);
-  }
-
-  &.warning {
-    --bg-color: var(--yellow-200);
-    --border-color: var(--yellow-800);
-    --text-color: var(--yellow-800);
-    --icon-color: var(--yellow-600);
-  }
-
-  &.error, &.danger {
-    --bg-color: var(--red-100);
-    --border-color: var(--red-800);
-    --text-color: var(--red-800);
-    --icon-color: var(--red-600);
-  }
+	&.error,
+	&.danger {
+		--bg-color: var(--red-100);
+		--border-color: var(--red-800);
+		--text-color: var(--red-800);
+		--icon-color: var(--red-600);
+	}
 }

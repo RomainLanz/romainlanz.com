@@ -5,22 +5,22 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 * {
-  margin: 0;
+	margin: 0;
 }
 
 html,
 body {
-  height: 100%;
+	height: 100%;
 }
 
 body {
-  @apply font-sans bg-off-white;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+	@apply font-sans bg-off-white;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
 }
 
 img,
@@ -28,15 +28,15 @@ picture,
 video,
 canvas,
 svg {
-  display: block;
-  max-width: 100%;
+	display: block;
+	max-width: 100%;
 }
 
 input,
 button,
 textarea,
 select {
-  font: inherit;
+	font: inherit;
 }
 
 p,
@@ -46,15 +46,15 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
-  overflow-wrap: break-word;
+	font-weight: 400;
+	overflow-wrap: break-word;
 }
 
 #app {
-  isolation: isolate;
+	isolation: isolate;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }

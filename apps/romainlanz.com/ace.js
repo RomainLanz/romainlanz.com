@@ -14,6 +14,6 @@
 |
 */
 
-import 'ts-node-maintained/register/esm'
+import 'ts-node-maintained/register/esm';
 
-await import('./bin/console.js')
+await import('./bin/console.js');

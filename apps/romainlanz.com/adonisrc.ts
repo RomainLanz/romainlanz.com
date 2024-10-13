@@ -1,13 +1,13 @@
-import { defineConfig } from '@adonisjs/core/app'
+import { defineConfig } from '@adonisjs/core/app';
 
 export default defineConfig({
-  assetsBundler: false,
+	assetsBundler: false,
 
-  hooks: {
-    onBuildStarting: [() => import('@adonisjs/vite/build_hook')],
-  },
+	hooks: {
+		onBuildStarting: [() => import('@adonisjs/vite/build_hook')],
+	},
 
-  /*
+	/*
   |--------------------------------------------------------------------------
   | Commands
   |--------------------------------------------------------------------------
@@ -16,14 +16,14 @@ export default defineConfig({
   | will be scanned automatically from the "./commands" directory.
   |
   */
-  commands: [
-    () => import('@adonisjs/core/commands'),
-    () => import('@adonisjs/bouncer/commands'),
-    () => import('@adonisjs/cache/commands'),
-    () => import('@adonisjs/mail/commands'),
-  ],
+	commands: [
+		() => import('@adonisjs/core/commands'),
+		() => import('@adonisjs/bouncer/commands'),
+		() => import('@adonisjs/cache/commands'),
+		() => import('@adonisjs/mail/commands'),
+	],
 
-  /*
+	/*
   |--------------------------------------------------------------------------
   | Service providers
   |--------------------------------------------------------------------------
@@ -32,29 +32,29 @@ export default defineConfig({
   | application
   |
   */
-  providers: [
-    () => import('@adonisjs/core/providers/app_provider'),
-    () => import('@adonisjs/core/providers/hash_provider'),
-    {
-      file: () => import('@adonisjs/core/providers/repl_provider'),
-      environment: ['repl', 'test'],
-    },
-    () => import('./providers/app_provider.js'),
-    () => import('@adonisjs/core/providers/edge_provider'),
-    () => import('@adonisjs/vite/vite_provider'),
-    () => import('@adonisjs/session/session_provider'),
-    () => import('@adonisjs/shield/shield_provider'),
-    () => import('@adonisjs/auth/auth_provider'),
-    () => import('@adonisjs/core/providers/vinejs_provider'),
-    () => import('@adonisjs/static/static_provider'),
-    () => import('@adonisjs/i18n/i18n_provider'),
-    () => import('@adonisjs/bouncer/bouncer_provider'),
-    () => import('@adonisjs/cache/cache_provider'),
-    () => import('@adonisjs/mail/mail_provider'),
-    () => import('@adonisjs/inertia/inertia_provider'),
-  ],
+	providers: [
+		() => import('@adonisjs/core/providers/app_provider'),
+		() => import('@adonisjs/core/providers/hash_provider'),
+		{
+			file: () => import('@adonisjs/core/providers/repl_provider'),
+			environment: ['repl', 'test'],
+		},
+		() => import('./providers/app_provider.js'),
+		() => import('@adonisjs/core/providers/edge_provider'),
+		() => import('@adonisjs/vite/vite_provider'),
+		() => import('@adonisjs/session/session_provider'),
+		() => import('@adonisjs/shield/shield_provider'),
+		() => import('@adonisjs/auth/auth_provider'),
+		() => import('@adonisjs/core/providers/vinejs_provider'),
+		() => import('@adonisjs/static/static_provider'),
+		() => import('@adonisjs/i18n/i18n_provider'),
+		() => import('@adonisjs/bouncer/bouncer_provider'),
+		() => import('@adonisjs/cache/cache_provider'),
+		() => import('@adonisjs/mail/mail_provider'),
+		() => import('@adonisjs/inertia/inertia_provider'),
+	],
 
-  /*
+	/*
   |--------------------------------------------------------------------------
   | Preloads
   |--------------------------------------------------------------------------
@@ -62,17 +62,17 @@ export default defineConfig({
   | List of modules to import before starting the application.
   |
   */
-  preloads: [
-    () => import('#start/routes'),
-    () => import('#start/kernel'),
-    {
-      file: () => import('#start/view'),
-      environment: ['web'],
-    },
-    () => import('#start/events'),
-  ],
+	preloads: [
+		() => import('#start/routes'),
+		() => import('#start/kernel'),
+		{
+			file: () => import('#start/view'),
+			environment: ['web'],
+		},
+		() => import('#start/events'),
+	],
 
-  /*
+	/*
   |--------------------------------------------------------------------------
   | Tests
   |--------------------------------------------------------------------------
@@ -81,33 +81,33 @@ export default defineConfig({
   | and add additional suites.
   |
   */
-  tests: {
-    suites: [
-      {
-        files: ['tests/unit/**/*.spec(.ts|.js)'],
-        name: 'unit',
-        timeout: 2000,
-      },
-      {
-        files: ['tests/functional/**/*.spec(.ts|.js)'],
-        name: 'functional',
-        timeout: 30000,
-      },
-    ],
-    forceExit: false,
-  },
-  metaFiles: [
-    {
-      pattern: 'public/**',
-      reloadServer: false,
-    },
-    {
-      pattern: 'resources/views/**/*.tsx',
-      reloadServer: true,
-    },
-    {
-      pattern: 'resources/lang/**/*.{json,yaml,yml}',
-      reloadServer: false,
-    },
-  ],
-})
+	tests: {
+		suites: [
+			{
+				files: ['tests/unit/**/*.spec(.ts|.js)'],
+				name: 'unit',
+				timeout: 2000,
+			},
+			{
+				files: ['tests/functional/**/*.spec(.ts|.js)'],
+				name: 'functional',
+				timeout: 30000,
+			},
+		],
+		forceExit: false,
+	},
+	metaFiles: [
+		{
+			pattern: 'public/**',
+			reloadServer: false,
+		},
+		{
+			pattern: 'resources/views/**/*.tsx',
+			reloadServer: true,
+		},
+		{
+			pattern: 'resources/lang/**/*.{json,yaml,yml}',
+			reloadServer: false,
+		},
+	],
+});

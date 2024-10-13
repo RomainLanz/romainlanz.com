@@ -1,8 +1,8 @@
 {
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "target": "ESNext",
-    "module": "ES2022",
-    "moduleResolution": "NodeNext"
-  }
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"target": "ESNext",
+		"module": "ES2022",
+		"moduleResolution": "NodeNext"
+	}
 }

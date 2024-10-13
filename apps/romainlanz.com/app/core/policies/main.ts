@@ -1,1 +1,1 @@
-export const policies = {}
+export const policies = {};

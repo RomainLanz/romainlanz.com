@@ -2,7 +2,7 @@
 @import '../core/mixins';
 
 @include page('auth') {
-  .card {
-    width: var(--login-box);
-  }
+	.card {
+		width: var(--login-box);
+	}
 }

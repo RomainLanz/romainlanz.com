@@ -2,174 +2,174 @@
 @import '../core/mixins';
 
 @include page('article') {
-  article {
-    font-size: var(--text-lg);
-    line-height: 26px;
-    margin-inline: auto;
-    margin-top: spacePx(28);
-    width: 80ch;
+	article {
+		font-size: var(--text-lg);
+		line-height: 26px;
+		margin-inline: auto;
+		margin-top: spacePx(28);
+		width: 80ch;
 
-    & > header {
-      position: relative;
-      margin-bottom: spacePx(20);
+		& > header {
+			position: relative;
+			margin-bottom: spacePx(20);
 
-      h1 {
-        font-size: var(--text-h1);
-        line-height: 64px;
-      }
+			h1 {
+				font-size: var(--text-h1);
+				line-height: 64px;
+			}
 
-      img {
-        width: 130px;
-        position: absolute;
-        left: -162px;
-      }
+			img {
+				width: 130px;
+				position: absolute;
+				left: -162px;
+			}
 
-      time {
-        display: inline-block;
-        font-size: var(--text-lg);
-        font-weight: normal;
-        position: relative;
+			time {
+				display: inline-block;
+				font-size: var(--text-lg);
+				font-weight: normal;
+				position: relative;
 
-        &:before {
-          background-color: var(--yellow-500);
-          content: '';
-          height: 6px;
-          bottom: 4px;
-          position: absolute;
-          width: 100%;
-          z-index: -1;
-        }
-      }
-    }
+				&:before {
+					background-color: var(--yellow-500);
+					content: '';
+					height: 6px;
+					bottom: 4px;
+					position: absolute;
+					width: 100%;
+					z-index: -1;
+				}
+			}
+		}
 
-    .reading-time {
-      font-size: var(--text-utility);
-      text-transform: uppercase;
-    }
+		.reading-time {
+			font-size: var(--text-utility);
+			text-transform: uppercase;
+		}
 
-    .codegroup {
-      margin-top: 1rem;
-      margin-bottom: 1.5rem;
-    }
+		.codegroup {
+			margin-top: 1rem;
+			margin-bottom: 1.5rem;
+		}
 
-    a {
-      cursor: pointer;
-      text-decoration: underline;
-    }
+		a {
+			cursor: pointer;
+			text-decoration: underline;
+		}
 
-    & > * > pre {
-      @extend .card;
+		& > * > pre {
+			@extend .card;
 
-      background-color: var(--yellow-100) !important;
-      font-size: var(--text-sm);
-      margin-top: 1rem;
-      margin-bottom: 1.5rem;
-      padding: 1rem 1.5rem;
-      overflow-y: auto;
-    }
+			background-color: var(--yellow-100) !important;
+			font-size: var(--text-sm);
+			margin-top: 1rem;
+			margin-bottom: 1.5rem;
+			padding: 1rem 1.5rem;
+			overflow-y: auto;
+		}
 
-    & > * > blockquote {
-      color: var(--gray-500);
-    }
+		& > * > blockquote {
+			color: var(--gray-500);
+		}
 
-    & > * > p code {
-      display: inline-block;
-      color: var(--yellow-900);
-      border-radius: var(--rounded);
-      background-color: var(--yellow-400);
-      font-size: var(--text-sm);
-      padding: 0 0.25rem;
-    }
+		& > * > p code {
+			display: inline-block;
+			color: var(--yellow-900);
+			border-radius: var(--rounded);
+			background-color: var(--yellow-400);
+			font-size: var(--text-sm);
+			padding: 0 0.25rem;
+		}
 
-    & > * > .alert {
-      margin-block: 1rem;
-    }
+		& > * > .alert {
+			margin-block: 1rem;
+		}
 
-    & > * > p {
-      margin-block: 1rem;
-    }
+		& > * > p {
+			margin-block: 1rem;
+		}
 
-    & > * > h2 {
-      font-size: var(--text-h2);
-      margin-top: 3.75rem;
-      margin-bottom: 1.75rem;
-    }
+		& > * > h2 {
+			font-size: var(--text-h2);
+			margin-top: 3.75rem;
+			margin-bottom: 1.75rem;
+		}
 
-    & > * > h3 {
-      font-size: var(--text-h3);
-      margin-top: 2.5rem;
-      margin-bottom: 1.25rem;
-    }
+		& > * > h3 {
+			font-size: var(--text-h3);
+			margin-top: 2.5rem;
+			margin-bottom: 1.25rem;
+		}
 
-    & > * > h4 {
-      font-size: var(--text-h4);
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-    }
-  }
+		& > * > h4 {
+			font-size: var(--text-h4);
+			margin-top: 2rem;
+			margin-bottom: 1rem;
+		}
+	}
 }
 
 @include page('articles') {
-  h1 {
-    border-bottom: 2px solid var(--gray-900);
-    margin-top: spacePx(27);
-    margin-bottom: spacePx(15);
-    padding-bottom: spacePx(6);
-  }
+	h1 {
+		border-bottom: 2px solid var(--gray-900);
+		margin-top: spacePx(27);
+		margin-bottom: spacePx(15);
+		padding-bottom: spacePx(6);
+	}
 
-  h3 {
-    font-size: var(--text-sm);
-    font-weight: bold;
-    text-transform: uppercase;
-  }
+	h3 {
+		font-size: var(--text-sm);
+		font-weight: bold;
+		text-transform: uppercase;
+	}
 
-  aside {
-    a {
-      display: flex;
-      align-items: center;
-      font-size: var(--text-lg);
-      padding-block: spacePx(3);
-      padding-inline: spacePx(4);
-      gap: spacePx(3);
-    }
+	aside {
+		a {
+			display: flex;
+			align-items: center;
+			font-size: var(--text-lg);
+			padding-block: spacePx(3);
+			padding-inline: spacePx(4);
+			gap: spacePx(3);
+		}
 
-    div {
-      display: grid;
-      place-items: center;
-      width: spacePx(10);
-    }
+		div {
+			display: grid;
+			place-items: center;
+			width: spacePx(10);
+		}
 
-    img {
-      height: spacePx(10);
-    }
+		img {
+			height: spacePx(10);
+		}
 
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
 
-    .articles__count {
-      background-color: var(--yellow-100);
-      border-radius: var(--rounded-sm);
-      border: 1px solid var(--gray-800);
-      display: grid;
-      font-size: var(--text-utility);
-      height: 20px;
-      line-height: 1;
-      place-items: center;
-      min-width: 20px;
-    }
+		.articles__count {
+			background-color: var(--yellow-100);
+			border-radius: var(--rounded-sm);
+			border: 1px solid var(--gray-800);
+			display: grid;
+			font-size: var(--text-utility);
+			height: 20px;
+			line-height: 1;
+			place-items: center;
+			min-width: 20px;
+		}
 
-    li {
-      border: 1px solid transparent;
-      width: 300px;
-    }
+		li {
+			border: 1px solid transparent;
+			width: 300px;
+		}
 
-    li:hover {
-      background-color: var(--yellow-300);
-      border-radius: var(--rounded);
-      border: 1px solid var(--gray-800);
-    }
-  }
+		li:hover {
+			background-color: var(--yellow-300);
+			border-radius: var(--rounded);
+			border: 1px solid var(--gray-800);
+		}
+	}
 }
