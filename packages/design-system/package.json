@@ -19,6 +19,7 @@
     "./tag": "./src/atoms/tag/tag.vue",
     "./alert-note": "./src/molecules/alert_note/alert_note.vue",
     "./field": "./src/molecules/field/field.vue",
+    "./footer": "./src/molecules/footer/footer.vue",
     "./headline": "./src/molecules/headline/headline.vue",
     "./user-action-menu": "./src/molecules/user_action_menu/user_action_menu.vue",
     "./top-bar": "./src/organisms/top_bar/top_bar.vue"

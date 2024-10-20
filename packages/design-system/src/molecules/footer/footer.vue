@@ -1,0 +1,53 @@
+<script lang="ts" setup>
+	import { Link } from '@inertiajs/vue3';
+	import Logo from '../../atoms/logo/logo.vue';
+	import FooterSection from './footer_section.vue';
+	import SocialNetwork from './social_network.vue';
+</script>
+
+<template>
+	<footer class="bg-yellow-200 border-t-2 border-gray-800 text-sm py-12 isolate">
+		<div class="max-w-6xl px-4 m-auto">
+			<div class="flex justify-between">
+				<Link href="/">
+					<Logo monochrome />
+				</Link>
+
+				<FooterSection title="Réseau&nbsp;sociaux">
+					<ul class="flex flex-col gap-1 text-sm list-none pl-0">
+						<li>
+							<SocialNetwork name="GitHub" link="https://github.com/RomainLanz" />
+						</li>
+						<li>
+							<SocialNetwork name="Twitch" link="https://www.twitch.tv/romainlanz" />
+						</li>
+						<li>
+							<SocialNetwork name="X (Twitter)" icon="x" link="https://x.com/romainlanz" />
+						</li>
+						<li>
+							<SocialNetwork name="YouTube" link="https://www.youtube.com/c/RomainLanz" />
+						</li>
+					</ul>
+				</FooterSection>
+
+				<FooterSection title="Partners">
+					<ul class="flex flex-col gap-1 text-sm list-none pl-0">
+						<li>
+							<a href="https://m.do.co/c/cc9e0b565057" rel="sponsored"> Hetzner </a>
+						</li>
+						<li>
+							<a href="https://app.codecrafters.io/join?via=RomainLanz" rel="sponsored"> CodeCrafters </a>
+						</li>
+					</ul>
+				</FooterSection>
+			</div>
+
+			<hr class="h-1px border-none bg-gray-800 my-12" />
+
+			<section class="flex justify-between">
+				<Link href="#">Mentions légales</Link>
+				<span class="block">&copy; 2023 Romain Lanz</span>
+			</section>
+		</div>
+	</footer>
+</template>
