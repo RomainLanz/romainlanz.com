@@ -5,7 +5,6 @@
   "type": "module",
   "exports": {
     "./tokens": "./src/tokens.ts",
-
     "./avatar": "./src/atoms/avatar/avatar.vue",
     "./button": "./src/atoms/button/button.vue",
     "./checkbox": "./src/atoms/checkbox/checkbox.vue",
@@ -18,12 +17,10 @@
     "./live-status": "./src/atoms/live_status/live_status.vue",
     "./logo": "./src/atoms/logo/logo.vue",
     "./tag": "./src/atoms/tag/tag.vue",
-
     "./alert-note": "./src/molecules/alert_note/alert_note.vue",
     "./field": "./src/molecules/field/field.vue",
     "./headline": "./src/molecules/headline/headline.vue",
     "./user-action-menu": "./src/molecules/user_action_menu/user_action_menu.vue",
-
     "./top-bar": "./src/organisms/top_bar/top_bar.vue"
   },
   "scripts": {
@@ -55,7 +52,6 @@
     "typescript": "catalog:",
     "unocss": "catalog:",
     "vite": "catalog:",
-    "vite-plugin-dts": "^4.2.3",
     "vue-tsc": "catalog:"
   },
   "volta": {
