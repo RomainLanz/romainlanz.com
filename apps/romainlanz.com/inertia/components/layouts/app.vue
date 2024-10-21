@@ -1,7 +1,14 @@
 <script lang="ts" setup>
-	import { TopBar } from '@rlanz/design-system';
+	import Footer from '@rlanz/design-system/footer';
+	import TopBar from '@rlanz/design-system/top-bar';
 </script>
 
 <template>
-	<TopBar />
+	<TopBar :is-live="false" />
+
+	<main>
+		<slot />
+	</main>
+
+	<Footer />
 </template>

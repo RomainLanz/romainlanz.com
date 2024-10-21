@@ -8,13 +8,19 @@ catalogs:
   default:
     '@inertiajs/vue3':
       specifier: next
-      version: 2.0.0-beta.1
+      version: 2.0.0-beta.2
     '@julr/tooling-configs':
       specifier: ^2.2.0
       version: 2.2.0
     '@swc/core':
       specifier: ^1.7.36
       version: 1.7.36
+    '@tuyau/client':
+      specifier: ^0.1.2
+      version: 0.1.2
+    '@tuyau/inertia':
+      specifier: ^0.0.2
+      version: 0.0.2
     '@types/node':
       specifier: ^20.16.13
       version: 20.16.13
@@ -103,6 +109,15 @@ importers:
       '@rlanz/tooling':
         specifier: workspace:^
         version: link:../../packages/tooling
+      '@tuyau/client':
+        specifier: 'catalog:'
+        version: 0.1.2
+      '@tuyau/core':
+        specifier: ^0.2.1
+        version: 0.2.1(@adonisjs/core@6.14.1(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@vinejs/vine@2.1.0)(edge.js@6.2.0))
+      '@tuyau/inertia':
+        specifier: 'catalog:'
+        version: 0.0.2(@inertiajs/vue3@1.2.0(vue@3.5.12(typescript@5.6.3)))(@tuyau/client@0.1.2)(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
       '@vinejs/vine':
         specifier: ^2.1.0
         version: 2.1.0
@@ -220,7 +235,16 @@ importers:
         version: 3.14.0(vue@3.5.12(typescript@5.6.3))
       '@inertiajs/vue3':
         specifier: 'catalog:'
-        version: 2.0.0-beta.1(vue@3.5.12(typescript@5.6.3))
+        version: 2.0.0-beta.2(vue@3.5.12(typescript@5.6.3))
+      '@tuyau/client':
+        specifier: 'catalog:'
+        version: 0.1.2
+      '@tuyau/inertia':
+        specifier: 'catalog:'
+        version: 0.0.2(@inertiajs/vue3@2.0.0-beta.2(vue@3.5.12(typescript@5.6.3)))(@tuyau/client@0.1.2)(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
+      romainlanz.com:
+        specifier: workspace:*
+        version: link:../../apps/romainlanz.com
       tailwind-variants:
         specifier: ^0.2.1
         version: 0.2.1(tailwindcss@3.4.10(ts-node@10.9.2(@swc/core@1.7.36(@swc/helpers@0.5.13))(@types/node@22.7.5)(typescript@5.6.3)))
@@ -1027,16 +1051,16 @@ packages:
   '@inertiajs/core@1.2.0':
     resolution: {integrity: sha512-6U0gqCPbGGGMcLoDm+ckKipc5gptZMmfVFfPGdO7vlO7yipWf1RD+TKkcZGJklFvfgFMKwK2VPw8GAv1OctuQA==}
 
-  '@inertiajs/core@2.0.0-beta.1':
-    resolution: {integrity: sha512-T36SqIxtcdiMbGPNeP3rpD7lF3IxKkGBLspX3+Or/7GRUgX4F1Q3ymZMSzTri1torfz4/T76GJPWqFQ/A8ro8g==}
+  '@inertiajs/core@2.0.0-beta.2':
+    resolution: {integrity: sha512-2fi1YAncmkQAGko+miQanobF5anSO9lBK8i6Fgl0YKDjLQJg7+Sdr/yQIDwJtvFYgOgDbAhIcAawn9usc0/9bQ==}
 
   '@inertiajs/vue3@1.2.0':
     resolution: {integrity: sha512-Y6AsvwIK/E1pQKAMp8B7i99CbNApcTYb7j8R+TXM/AFQG6yBlQ1Qb9oFMItb6VimXSnDyfO4+FWe/JPLk9OIVA==}
     peerDependencies:
       vue: ^3.0.0
 
-  '@inertiajs/vue3@2.0.0-beta.1':
-    resolution: {integrity: sha512-tLJhqZ/+F8Xfcspj2WGGNSl5uGBkQuvL9eUAlLQaFmFlQuT7M5hP6jJKkxEQgl85d4wW1wGK5BSTncMO6cJB3g==}
+  '@inertiajs/vue3@2.0.0-beta.2':
+    resolution: {integrity: sha512-tnZN+3eB4sMdgVqERy0jjd2JHJgG8SXrCg9Em5ecJ7X8+HaMSHtSjhrkAduzE+TZPX+WvYuntrwYYtP3AjB2Rg==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -1702,6 +1726,33 @@ packages:
 
   '@tsconfig/node16@1.0.4':
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
+
+  '@tuyau/client@0.1.2':
+    resolution: {integrity: sha512-DpQTpWEDMrrGEneSKSbK21n3p5yHbvfR3UJ7058GZfda9IY7yiS8YC3xLdQOFwHF/pn9Y/GSCujUF7cymSspTg==}
+
+  '@tuyau/core@0.2.1':
+    resolution: {integrity: sha512-CUA1bfEoqVOLFEzSQ8cTHBu+Z+Sbv8CFArr0iKctuApbQ+YJVuY8sAW4J0KgjfoTFOC+wVYtU2Dcp90ZVBZj8g==}
+    engines: {node: '>=20.6.0'}
+    peerDependencies:
+      '@adonisjs/core': ^6.2.0
+
+  '@tuyau/inertia@0.0.2':
+    resolution: {integrity: sha512-DbftNwkVu5mLt00tRVICTuF902vWvZLKEV3IcyFLykmhU9oV9V8sGYqHP36h6jzZXC0AhuDjTPk/83miYC5OJg==}
+    peerDependencies:
+      '@inertiajs/react': ^1.0.16
+      '@inertiajs/vue3': ^1.0.16
+      '@tuyau/client': 0.1.2
+      react: ^18.3.1
+      vue: ^3.4.27
+    peerDependenciesMeta:
+      '@inertiajs/react':
+        optional: true
+      '@inertiajs/vue3':
+        optional: true
+      react:
+        optional: true
+      vue:
+        optional: true
 
   '@tuyau/utils@0.0.4':
     resolution: {integrity: sha512-ex6CAJNLiTuOvx7nUrgs8FwNG/t88Mi8QTLSO3muHbB6vBSpYimZ6iSUkk4cjEFd4XDy0y+24GDgXKoBfGf4ag==}
@@ -4338,6 +4389,10 @@ packages:
   kolorist@1.8.0:
     resolution: {integrity: sha512-Y+60/zizpJ3HRH8DCss+q95yr6145JXZo46OTpFvDZWLfRCE4qChOyk1b26nMaNpfHHgxagk9dXT5OP0Tfe+dQ==}
 
+  ky@1.7.2:
+    resolution: {integrity: sha512-OzIvbHKKDpi60TnF9t7UUVAF1B4mcqc02z5PIvrm08Wyb+yOcz63GRvEuVxNT18a9E1SrNouhB4W2NNLeD7Ykg==}
+    engines: {node: '>=18'}
+
   kysely-codegen@0.16.8:
     resolution: {integrity: sha512-+N4SDdI9akUWug0i/3UvlktpfPiCt1mtDQ+pVCqI5E98xcGWpdfVXb4CD7CGGNg+QMXqpiR3bVKd0LgCJQtrPA==}
     hasBin: true
@@ -4954,6 +5009,9 @@ packages:
   object-keys@1.1.1:
     resolution: {integrity: sha512-NuAESUOUMrlIXOfHKzD6bpPu3tYt3xvjNdRIQ+FeT0lNb4K8WR70CaDxhuNguS2XG+GjkyMwOzsN5ZktImfhLA==}
     engines: {node: '>= 0.4'}
+
+  object-to-formdata@4.5.1:
+    resolution: {integrity: sha512-QiM9D0NiU5jV6J6tjE1g7b4Z2tcUnKs1OPUi4iMb2zH+7jwlcUrASghgkFk9GtzqNNq8rTQJtT8AzjBAvLoNMw==}
 
   object.assign@4.1.5:
     resolution: {integrity: sha512-byy+U7gp+FVwmyzKPYhW2h5l3crpmGsxl7X2s8y43IgxvG4g3QZ6CffDtsNQy1WsmZpQbO+ybo0AlW7TY6DcBQ==}
@@ -7338,7 +7396,7 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@inertiajs/core@2.0.0-beta.1':
+  '@inertiajs/core@2.0.0-beta.2':
     dependencies:
       axios: 1.7.7
       deepmerge: 4.3.1
@@ -7356,9 +7414,9 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@inertiajs/vue3@2.0.0-beta.1(vue@3.5.12(typescript@5.6.3))':
+  '@inertiajs/vue3@2.0.0-beta.2(vue@3.5.12(typescript@5.6.3))':
     dependencies:
-      '@inertiajs/core': 2.0.0-beta.1
+      '@inertiajs/core': 2.0.0-beta.2
       lodash.clonedeep: 4.5.0
       lodash.isequal: 4.5.0
       vue: 3.5.12(typescript@5.6.3)
@@ -8112,6 +8170,33 @@ snapshots:
   '@tsconfig/node14@1.0.3': {}
 
   '@tsconfig/node16@1.0.4': {}
+
+  '@tuyau/client@0.1.2':
+    dependencies:
+      '@poppinss/matchit': 3.1.2
+      ky: 1.7.2
+      object-to-formdata: 4.5.1
+
+  '@tuyau/core@0.2.1(@adonisjs/core@6.14.1(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@vinejs/vine@2.1.0)(edge.js@6.2.0))':
+    dependencies:
+      '@adonisjs/core': 6.14.1(@adonisjs/assembler@7.8.2(typescript@5.6.3))(@vinejs/vine@2.1.0)(edge.js@6.2.0)
+      ts-morph: 23.0.0
+
+  '@tuyau/inertia@0.0.2(@inertiajs/vue3@1.2.0(vue@3.5.12(typescript@5.6.3)))(@tuyau/client@0.1.2)(react@18.3.1)(vue@3.5.12(typescript@5.6.3))':
+    dependencies:
+      '@tuyau/client': 0.1.2
+    optionalDependencies:
+      '@inertiajs/vue3': 1.2.0(vue@3.5.12(typescript@5.6.3))
+      react: 18.3.1
+      vue: 3.5.12(typescript@5.6.3)
+
+  '@tuyau/inertia@0.0.2(@inertiajs/vue3@2.0.0-beta.2(vue@3.5.12(typescript@5.6.3)))(@tuyau/client@0.1.2)(react@18.3.1)(vue@3.5.12(typescript@5.6.3))':
+    dependencies:
+      '@tuyau/client': 0.1.2
+    optionalDependencies:
+      '@inertiajs/vue3': 2.0.0-beta.2(vue@3.5.12(typescript@5.6.3))
+      react: 18.3.1
+      vue: 3.5.12(typescript@5.6.3)
 
   '@tuyau/utils@0.0.4': {}
 
@@ -11400,6 +11485,8 @@ snapshots:
 
   kolorist@1.8.0: {}
 
+  ky@1.7.2: {}
+
   kysely-codegen@0.16.8(kysely@0.27.4)(pg@8.13.0)(tarn@3.0.2):
     dependencies:
       chalk: 4.1.2
@@ -12310,6 +12397,8 @@ snapshots:
   object-inspect@1.13.2: {}
 
   object-keys@1.1.1: {}
+
+  object-to-formdata@4.5.1: {}
 
   object.assign@4.1.5:
     dependencies:

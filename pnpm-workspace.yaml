@@ -5,6 +5,8 @@ catalog:
   '@inertiajs/vue3': next
   '@julr/tooling-configs': ^2.2.0
   '@swc/core': ^1.7.36
+  '@tuyau/client': ^0.1.2
+  '@tuyau/inertia': ^0.0.2
   '@types/node': ^20.16.13
   eslint: ^8.57.1
   prettier: ^3.3.3

@@ -21,6 +21,7 @@ export default defineConfig({
 		() => import('@adonisjs/bouncer/commands'),
 		() => import('@adonisjs/cache/commands'),
 		() => import('@adonisjs/mail/commands'),
+		() => import('@tuyau/core/commands'),
 	],
 
 	/*
@@ -52,6 +53,7 @@ export default defineConfig({
 		() => import('@adonisjs/cache/cache_provider'),
 		() => import('@adonisjs/mail/mail_provider'),
 		() => import('@adonisjs/inertia/inertia_provider'),
+		() => import('@tuyau/core/tuyau_provider'),
 	],
 
 	/*
@@ -91,7 +93,7 @@ export default defineConfig({
 			{
 				files: ['tests/functional/**/*.spec(.ts|.js)'],
 				name: 'functional',
-				timeout: 30000,
+				timeout: 30_000,
 			},
 		],
 		forceExit: false,
