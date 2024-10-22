@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-	import { FieldRoot, FieldLabel, FieldInput, FieldHelperText, FieldErrorText } from '@ark-ui/vue';
+	import { FieldRoot, FieldLabel, FieldInput, FieldHelperText, FieldErrorText, FieldInputProps } from '@ark-ui/vue';
 
-	defineProps<{
+	const { type = 'text' } = defineProps<{
 		label?: string;
+		type?: FieldInputProps['type'];
 		errorMessage?: string;
 		helpMessage?: string;
 	}>();
@@ -16,6 +17,7 @@
 
 		<FieldInput
 			class="border-2 border-solid border-gray-800 rounded-lg bg-transparent px-4 py-2 disabled:cursor-not-allowed placeholder:text-gray-600 placeholder:font-bold"
+			:type
 		/>
 
 		<FieldErrorText class="text-red-500 text-sm uppercase">
