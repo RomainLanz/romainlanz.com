@@ -36,15 +36,16 @@
 	import { computed } from 'vue';
 	import { Link } from '@inertiajs/vue3';
 
-	const props = defineProps<{
+	const { href, prefetch = false } = defineProps<{
 		color?: ButtonProps['color'];
 		href?: string;
+		prefetch?: boolean;
 		flat?: ButtonProps['flat'];
 		size?: ButtonProps['size'];
 	}>();
 
 	const buttonOrLink = computed(() => {
-		return props.href ? Link : 'button';
+		return href ? Link : 'button';
 	});
 </script>
 
@@ -54,12 +55,13 @@
 		:is="buttonOrLink"
 		:class="
 			button({
-				color: props.color,
-				size: props.size,
-				flat: props.flat,
+				color,
+				size,
+				flat,
 			})
 		"
 		:href="href"
+		:prefetch="prefetch"
 	>
 		<slot />
 	</Component>
