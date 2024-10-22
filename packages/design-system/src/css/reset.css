@@ -6,6 +6,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  color: theme('colors.gray.800')
 }
 
 * {
