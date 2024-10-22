@@ -20,6 +20,7 @@
     "./tag": "./src/atoms/tag/tag.vue",
     "./alert-note": "./src/molecules/alert_note/alert_note.vue",
     "./article-card": "./src/molecules/article_card/article_card.vue",
+    "./dialog": "./src/molecules/dialog/dialog.vue",
     "./field": "./src/molecules/field/field.vue",
     "./footer": "./src/molecules/footer/footer.vue",
     "./headline": "./src/molecules/headline/headline.vue",
