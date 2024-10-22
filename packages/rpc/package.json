@@ -1,0 +1,16 @@
+{
+  "name": "@rlanz/rpc",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "exports": {
+    "./client": "./src/client.ts"
+  },
+  "dependencies": {
+    "@rlanz/site": "workspace:*",
+    "@tuyau/client": "catalog:"
+  },
+  "volta": {
+    "extends": "../../package.json"
+  }
+}

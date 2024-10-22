@@ -236,15 +236,18 @@ importers:
       '@inertiajs/vue3':
         specifier: 'catalog:'
         version: 2.0.0-beta.2(vue@3.5.12(typescript@5.6.3))
+      '@rlanz/rpc':
+        specifier: workspace:^
+        version: link:../rpc
+      '@rlanz/site':
+        specifier: workspace:*
+        version: link:../../apps/romainlanz.com
       '@tuyau/client':
         specifier: 'catalog:'
         version: 0.1.2
       '@tuyau/inertia':
         specifier: 'catalog:'
         version: 0.0.2(@inertiajs/vue3@2.0.0-beta.2(vue@3.5.12(typescript@5.6.3)))(@tuyau/client@0.1.2)(react@18.3.1)(vue@3.5.12(typescript@5.6.3))
-      romainlanz.com:
-        specifier: workspace:*
-        version: link:../../apps/romainlanz.com
       tailwind-variants:
         specifier: ^0.2.1
         version: 0.2.1(tailwindcss@3.4.10(ts-node@10.9.2(@swc/core@1.7.36(@swc/helpers@0.5.13))(@types/node@22.7.5)(typescript@5.6.3)))
@@ -303,6 +306,15 @@ importers:
       vue-tsc:
         specifier: 'catalog:'
         version: 2.1.6(typescript@5.6.3)
+
+  packages/rpc:
+    dependencies:
+      '@rlanz/site':
+        specifier: workspace:*
+        version: link:../../apps/romainlanz.com
+      '@tuyau/client':
+        specifier: 'catalog:'
+        version: 0.1.2
 
   packages/tooling:
     dependencies:

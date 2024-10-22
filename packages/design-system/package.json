@@ -32,9 +32,10 @@
     "storybook": "storybook dev -p 6006"
   },
   "dependencies": {
-    "romainlanz.com": "workspace:*",
     "@ark-ui/vue": "^3.14.0",
     "@inertiajs/vue3": "catalog:",
+    "@rlanz/rpc": "workspace:*",
+    "@rlanz/site": "workspace:*",
     "@tuyau/client": "catalog:",
     "@tuyau/inertia": "catalog:",
     "tailwind-variants": "^0.2.1",
