@@ -18,7 +18,7 @@
     "./logo": "./src/atoms/logo/logo.vue",
     "./tag": "./src/atoms/tag/tag.vue",
     "./alert-note": "./src/molecules/alert_note/alert_note.vue",
-    "./article_card": "./src/molecules/article_card/article_card.vue",
+    "./article-card": "./src/molecules/article_card/article_card.vue",
     "./field": "./src/molecules/field/field.vue",
     "./footer": "./src/molecules/footer/footer.vue",
     "./headline": "./src/molecules/headline/headline.vue",
