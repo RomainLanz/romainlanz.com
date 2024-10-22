@@ -2,6 +2,7 @@
 
 <script lang="ts" setup>
 	import { Link } from '@inertiajs/vue3';
+	import { client } from '@rlanz/rpc/client';
 	import Logo from '../../atoms/logo/logo.vue';
 	import Icon from '../../atoms/icon/icon.vue';
 	import Button from '../../atoms/button/button.vue';
@@ -12,6 +13,8 @@
 		user?: UserActionMenuProps['user'];
 		isLive: boolean;
 	}>();
+
+	const loginUrl = client.$url('auth.login');
 </script>
 
 <template>
@@ -38,7 +41,7 @@
 
 				<!-- User is not connected -->
 				<template v-else>
-					<Button class="flex items-center gap-2" color="yellow" href="/">
+					<Button class="flex items-center gap-2" color="yellow" :href="loginUrl" prefetch>
 						<Icon name="user" />
 						<span>Se connecter</span>
 					</Button>
