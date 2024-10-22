@@ -59,6 +59,7 @@
 				flat: props.flat,
 			})
 		"
+		:href="href"
 	>
 		<slot />
 	</Component>
