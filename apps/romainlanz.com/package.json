@@ -85,7 +85,6 @@
 		"@rlanz/design-system": "workspace:^",
 		"@rlanz/rpc": "workspace:*",
 		"@rlanz/tooling": "workspace:^",
-		"@tuyau/client": "catalog:",
 		"@tuyau/core": "^0.2.1",
 		"@tuyau/inertia": "catalog:",
 		"@vinejs/vine": "^2.1.0",

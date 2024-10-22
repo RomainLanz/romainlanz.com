@@ -5,9 +5,9 @@ import '../css/reset.css';
 import 'virtual:uno.css';
 import { resolvePageComponent } from '@adonisjs/inertia/helpers';
 import { createInertiaApp } from '@inertiajs/vue3';
+import { client } from '@rlanz/rpc/client';
 import { TuyauPlugin } from '@tuyau/inertia/vue';
 import { createSSRApp, h } from 'vue';
-import { tuyau } from '~/app/tuyau';
 import AppLayout from '~/components/layouts/app.vue';
 import type { DefineComponent } from 'vue';
 
@@ -32,7 +32,7 @@ void createInertiaApp({
 	setup({ el, App, props, plugin }) {
 		createSSRApp({ render: () => h(App, props) })
 			.use(plugin)
-			.use(TuyauPlugin, { client: tuyau })
+			.use(TuyauPlugin, { client })
 			.mount(el);
 	},
 });
