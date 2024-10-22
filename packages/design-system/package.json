@@ -16,6 +16,7 @@
     "./link": "./src/atoms/link/link.vue",
     "./live-status": "./src/atoms/live_status/live_status.vue",
     "./logo": "./src/atoms/logo/logo.vue",
+    "./panel": "./src/atoms/panel/panel.vue",
     "./tag": "./src/atoms/tag/tag.vue",
     "./alert-note": "./src/molecules/alert_note/alert_note.vue",
     "./article-card": "./src/molecules/article_card/article_card.vue",
