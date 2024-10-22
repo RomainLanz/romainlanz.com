@@ -151,7 +151,7 @@ const routes = [
   },
   {
     params: [],
-    name: 'pages.articles',
+    name: 'articles.index',
     path: '/articles',
     method: ["GET","HEAD"],
     types: {} as unknown,
@@ -216,4 +216,8 @@ const routes = [
 export const api = {
   routes,
   definition: {} as ApiDefinition
+}
+declare module '@tuyau/inertia/types' {
+  type InertiaApi = typeof api
+  export interface Api extends InertiaApi {}
 }

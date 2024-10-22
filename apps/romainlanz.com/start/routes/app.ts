@@ -12,7 +12,7 @@ const ShowArticleController = () => import('#articles/controllers/show_article_c
 // endregion
 
 router.get('/', [LandingController, 'render']).as('pages.landing');
-router.get('articles', [ListArticlesController, 'render']).as('pages.articles');
+router.get('articles', [ListArticlesController, 'render']).as('articles.index');
 router.get('articles/:slug', [ShowArticleController, 'render']).as('articles.show');
 router.get('newsletters/register', [RegisterEmailController, 'render']).as('newsletters.register');
 router.post('newsletters/register', [RegisterEmailController, 'execute']).as('newsletters.store');
