@@ -7,7 +7,7 @@ import { resolvePageComponent } from '@adonisjs/inertia/helpers';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { client } from '@rlanz/rpc/client';
 import { TuyauPlugin } from '@tuyau/inertia/vue';
-import { createSSRApp, h } from 'vue';
+import { createApp, createSSRApp, h } from 'vue';
 import AppLayout from '~/components/layouts/app.vue';
 import type { DefineComponent } from 'vue';
 
@@ -30,9 +30,10 @@ void createInertiaApp({
 	},
 
 	setup({ el, App, props, plugin }) {
-		createSSRApp({ render: () => h(App, props) })
-			.use(plugin)
-			.use(TuyauPlugin, { client })
-			.mount(el);
+		const app = props.initialPage.component.includes('admin')
+			? createApp({ render: () => h(App, props) })
+			: createSSRApp({ render: () => h(App, props) });
+
+		app.use(plugin).use(TuyauPlugin, { client }).mount(el);
 	},
 });

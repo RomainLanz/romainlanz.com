@@ -22,6 +22,9 @@ const inertiaConfig = defineConfig({
 	ssr: {
 		enabled: true,
 		entrypoint: 'inertia/app/ssr.ts',
+		pages(_ctx, page) {
+			return !page.includes('admin');
+		},
 	},
 });
 
