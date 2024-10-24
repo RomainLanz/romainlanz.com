@@ -8,6 +8,7 @@
     "./avatar": "./src/atoms/avatar/avatar.vue",
     "./button": "./src/atoms/button/button.vue",
     "./checkbox": "./src/atoms/checkbox/checkbox.vue",
+    "./client-only": "./src/atoms/client_only/client_only.ts",
     "./dropdown": "./src/atoms/dropdown/dropdown.vue",
     "./icon": "./src/atoms/icon/icon.vue",
     "./icon-name": "./src/atoms/icon/icon_name.vue",
