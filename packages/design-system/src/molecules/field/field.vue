@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 	import { FieldRoot, FieldLabel, FieldInput, FieldHelperText, FieldErrorText, FieldInputProps } from '@ark-ui/vue';
 
+	const model = defineModel<any>();
+
 	const { type = 'text' } = defineProps<{
 		label?: string;
 		type?: FieldInputProps['type'];
@@ -16,6 +18,7 @@
 		</FieldLabel>
 
 		<FieldInput
+			v-model="model"
 			class="border-2 border-solid border-gray-800 rounded-lg bg-transparent px-4 py-2 disabled:cursor-not-allowed placeholder:text-gray-600 placeholder:font-bold"
 			:type
 		/>
