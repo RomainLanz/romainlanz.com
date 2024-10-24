@@ -7,7 +7,7 @@
 	import UserActionMenu, { type UserActionMenuProps } from '../../molecules/user_action_menu/user_action_menu.vue';
 
 	defineProps<{
-		user?: UserActionMenuProps['user'];
+		user?: UserActionMenuProps['user'] | null;
 		isLive: boolean;
 	}>();
 </script>
