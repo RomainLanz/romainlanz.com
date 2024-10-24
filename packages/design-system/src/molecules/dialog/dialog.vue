@@ -22,10 +22,12 @@
 		lazyMount?: boolean;
 		unmountOnExit?: boolean;
 	}>();
+
+	const model = defineModel<boolean>();
 </script>
 
 <template>
-	<DialogRoot :lazy-mount="lazyMount" :unmount-on-exit="unmountOnExit">
+	<DialogRoot v-model:open="model" :lazy-mount="lazyMount" :unmount-on-exit="unmountOnExit">
 		<DialogTrigger as-child>
 			<slot name="trigger" />
 		</DialogTrigger>
@@ -39,7 +41,7 @@
 						<DialogContent as-child>
 							<Panel class="bg-white max-w-2xl w-full">
 								<div class="flex items-start justify-between">
-									<DialogTitle class="text-4xl">{{ title }}</DialogTitle>
+									<DialogTitle class="text-4xl mb-4">{{ title }}</DialogTitle>
 
 									<DialogCloseTrigger as-child>
 										<Icon name="close-large" class="cursor-pointer" />
