@@ -1,9 +1,9 @@
-import app from '@adonisjs/core/services/app';
 import string from '@adonisjs/core/helpers/string';
-import logger from '@adonisjs/core/services/logger';
+import app from '@adonisjs/core/services/app';
 import emitter from '@adonisjs/core/services/emitter';
+import logger from '@adonisjs/core/services/logger';
 
-const blacklistedUrls = ['/node_modules', '/resources', '/@'];
+const blacklistedUrls = ['/node_modules', '/inertia', '/@', '/.adonisjs', '/__', '/installHook'];
 
 emitter.on('http:request_completed', function ({ ctx, duration }) {
 	if (blacklistedUrls.some((url) => ctx.request.url().startsWith(url))) {
@@ -15,6 +15,6 @@ emitter.on('http:request_completed', function ({ ctx, duration }) {
 	}
 
 	logger.info(
-		`[HTTP] ${ctx.response.getStatus()} - ${ctx.request.method()} ${ctx.request.url()} - ${string.prettyHrTime(duration)}`
+		`[HTTP] ${string.prettyHrTime(duration)} - ${ctx.response.getStatus()} - ${ctx.request.method()} ${ctx.request.url()}`
 	);
 });

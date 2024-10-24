@@ -1,9 +1,9 @@
-import pg from 'pg';
+import app from '@adonisjs/core/services/app';
+import logger from '@adonisjs/core/services/logger';
 import { Kysely, PostgresDialect } from 'kysely';
+import pg from 'pg';
 import env from '#start/env';
 import type { DB } from '#types/db';
-import logger from '@adonisjs/core/services/logger';
-import app from '@adonisjs/core/services/app';
 
 const { Pool } = pg;
 
@@ -27,7 +27,7 @@ export const db = new Kysely<DB>({
 		if (event.level === 'query') {
 			const formattedTime = (Math.round(event.queryDurationMillis * 100) / 100).toFixed(2);
 
-			logger.info(`[SQL] ${event.query.sql} - ${formattedTime}ms`);
+			logger.info(`[SQL] ${formattedTime}ms - ${event.query.sql}`);
 		}
 	},
 });
