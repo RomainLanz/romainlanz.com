@@ -97,6 +97,7 @@
 		"mjml": "^4.15.3",
 		"pg": "^8.13.0",
 		"reflect-metadata": "^0.2.2",
+		"uuid": "11.0.0-0",
 		"vue": "catalog:"
 	},
 	"hotHook": {

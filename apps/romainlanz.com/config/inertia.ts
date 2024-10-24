@@ -1,4 +1,5 @@
 import { defineConfig } from '@adonisjs/inertia';
+import { CurrentUserViewModel } from '#auth/view_models/current_user_view_model';
 import type { InferSharedProps } from '@adonisjs/inertia/types';
 
 const inertiaConfig = defineConfig({
@@ -11,7 +12,7 @@ const inertiaConfig = defineConfig({
 	 * Data that should be shared with all rendered pages
 	 */
 	sharedData: {
-		currentUser: (ctx) => ctx.auth.user,
+		currentUser: (ctx) => CurrentUserViewModel.fromDomain(ctx.auth.user).serialize(),
 		errors: (ctx) => ctx.session?.flashMessages.get('errors'),
 	},
 

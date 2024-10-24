@@ -19,7 +19,7 @@ export class AuthService {
 			return false;
 		}
 
-		const hasValidPassword = await hash.verify(user.password, password);
+		const hasValidPassword = await hash.verify(user.getPassword(), password);
 
 		if (!hasValidPassword) {
 			return false;

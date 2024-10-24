@@ -1,5 +1,6 @@
 import { BaseCommand, args } from '@adonisjs/core/ace';
 import hash from '@adonisjs/core/services/hash';
+import { UserIdentifier } from '#auth/domain/user_identifier';
 import { db } from '#core/services/db';
 import type { CommandOptions } from '@adonisjs/core/types/ace';
 
@@ -12,6 +13,9 @@ export default class CreateUser extends BaseCommand {
 	};
 
 	@args.string()
+	declare name: string;
+
+	@args.string()
 	declare email: string;
 
 	async run() {
@@ -21,9 +25,19 @@ export default class CreateUser extends BaseCommand {
 
 		await db
 			.insertInto('users')
-			.values({ email: this.email, password: hashedPassword, created_at: new Date(), updated_at: new Date() })
+			.values({
+				id: UserIdentifier.generate().toString(),
+				created_at: new Date(),
+				name: this.name,
+				email: this.email,
+				password: hashedPassword,
+			})
 			.execute();
 
 		this.logger.success('User created successfully');
+	}
+
+	async completed() {
+		await db.destroy();
 	}
 }
