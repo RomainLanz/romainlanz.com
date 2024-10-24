@@ -18,7 +18,7 @@ export default defineConfig({
 	csrf: {
 		enabled: true,
 		exceptRoutes: (ctx) => ctx.request.url().includes('/api/'),
-		enableXsrfCookie: false,
+		enableXsrfCookie: true,
 		methods: ['POST', 'PUT', 'PATCH', 'DELETE'],
 	},
 

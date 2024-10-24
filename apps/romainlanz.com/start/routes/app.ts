@@ -20,8 +20,7 @@ router.get('newsletters/:id/confirm', [ConfirmEmailController, 'execute']).as('n
 
 router
 	.group(() => {
-		router.get('login', [LoginController, 'render']).as('auth.login');
-		router.post('login', [LoginController]);
+		router.post('login', [LoginController, 'execute']);
 	})
 	.middleware(middleware.guest());
 
