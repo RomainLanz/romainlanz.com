@@ -4,10 +4,7 @@
   "license": "UNLICENSED",
   "type": "module",
   "exports": {
-    "./unocss": "./build/src/unocss/unocss.config.js"
-  },
-  "scripts": {
-    "build": "tsc"
+    "./unocss": "./src/unocss/unocss.config.ts"
   },
   "dependencies": {
     "unocss": "catalog:"
