@@ -4,6 +4,7 @@
 		CheckboxLabel,
 		CheckboxControl,
 		CheckboxIndicator,
+		CheckboxHiddenInput,
 		type CheckboxCheckedState,
 	} from '@ark-ui/vue';
 	import Icon from '../../atoms/icon/icon.vue';
@@ -24,6 +25,8 @@
 				<Icon name="success" />
 			</CheckboxIndicator>
 		</CheckboxControl>
+
+		<CheckboxHiddenInput />
 
 		<CheckboxLabel v-if="label">{{ label }}</CheckboxLabel>
 	</CheckboxRoot>
