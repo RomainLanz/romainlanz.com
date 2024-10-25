@@ -15,6 +15,10 @@ export class User extends Entity<Properties> {
 		return this.props.password;
 	}
 
+	isAdmin() {
+		return this.props.isAdmin;
+	}
+
 	static create(properties: Properties) {
 		return new this(properties);
 	}

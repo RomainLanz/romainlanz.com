@@ -1,3 +1,5 @@
+import { Article } from '#articles/domain/article';
+import { ArticleIdentifier } from '#articles/domain/article_identifier';
 import { db } from '#core/services/db';
 import type { ResultOf } from '#types/common';
 
@@ -28,8 +30,19 @@ export type ArticleQueryResult = ResultOf<ArticleRepository, 'findBySlug'>;
 export type ArticleByIdQueryResult = ResultOf<ArticleRepository, 'findById'>;
 
 export class ArticleRepository {
-	all() {
-		return db.selectFrom('articles').select(['id', 'title', 'slug', 'published_at']).execute();
+	async all() {
+		const articleRecords = await db.selectFrom('articles').select(['id', 'title', 'slug', 'published_at']).execute();
+
+		return articleRecords.map((article) => {
+			return Article.create({
+				id: ArticleIdentifier.fromString(article.id),
+				publishedAt: article.published_at,
+				title: article.title,
+				slug: article.slug,
+				summary: null,
+				content: null,
+			});
+		});
 	}
 
 	paginated(page: number, perPage: number) {

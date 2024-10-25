@@ -3,7 +3,9 @@
 	import TopBar from '@rlanz/design-system/top-bar';
 	import Sidebar from '~/components/admin/sidebar.vue';
 	import { useCurrentUser } from '~/composables/use_current_user';
+	import { usePageTitle } from '~/composables/use_page_title';
 
+	const pageTitle = usePageTitle();
 	const currentUser = useCurrentUser();
 </script>
 
@@ -11,10 +13,14 @@
 	<TopBar :user="currentUser" :is-live="false" />
 
 	<main class="m-auto max-w-6xl px-4">
+		<h1 class="my-8 text-5xl text-gray-800">{{ pageTitle }}</h1>
+
 		<div class="flex gap-4">
 			<Sidebar />
 
-			<slot />
+			<div class="grow">
+				<slot />
+			</div>
 		</div>
 	</main>
 

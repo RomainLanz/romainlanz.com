@@ -1,12 +1,12 @@
 import { BasePolicy } from '@adonisjs/bouncer';
-import { UserRole } from '#auth/enums/user_role';
+import type { User } from '#auth/domain/user';
 
 export class ArticlePolicy extends BasePolicy {
-	create(user: any) {
-		return user.role === UserRole.Admin;
+	create(user: User) {
+		return user.isAdmin();
 	}
 
-	update(user: any) {
-		return user.role !== UserRole.Admin;
+	update(user: User) {
+		return user.isAdmin();
 	}
 }

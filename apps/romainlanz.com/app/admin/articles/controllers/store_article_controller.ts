@@ -1,11 +1,9 @@
 import { inject } from '@adonisjs/core';
 import vine from '@vinejs/vine';
-import string from '@poppinss/utils/string';
 import { ArticlePolicy } from '#admin/articles/policies/article_policy';
 import { ArticleRepository } from '#articles/repositories/article_repository';
 import { MarkdownCompiler } from '#articles/services/markdown_compiler';
 import { CategoryRepository } from '#categories/repositories/category_repository';
-import { AdminArticleView } from '#views/pages/admin/articles/main';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()
@@ -27,12 +25,14 @@ export default class StoreArticleController {
 		private markdownCompiler: MarkdownCompiler
 	) {}
 
-	async render({ bouncer }: HttpContext) {
+	async render({ bouncer, inertia }: HttpContext) {
 		await bouncer.with(ArticlePolicy).allows('create');
 
 		const categories = await this.categoryRepository.all();
 
-		return <AdminArticleView.Create categories={categories} />;
+		return inertia.render('admin/articles/create', {
+			categories,
+		});
 	}
 
 	async execute({ bouncer, request, response }: HttpContext) {
@@ -42,7 +42,7 @@ export default class StoreArticleController {
 			StoreArticleController.validator
 		);
 
-		const slug = string.slug(title).toLocaleLowerCase();
+		// const slug = string.slug(title).toLocaleLowerCase();
 		const markdownAst = await this.markdownCompiler.toAST(markdownContent);
 
 		await this.repository.create({

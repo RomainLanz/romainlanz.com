@@ -5,7 +5,7 @@ import { middleware } from '#start/kernel';
 const DeleteRedirectController = () => import('#redirects/controllers/delete_redirect_controller');
 const GetRedirectsController = () => import('#redirects/controllers/get_redirects_controller');
 const ListArticlesController = () => import('#admin/articles/controllers/list_articles_controller');
-const PagesController = () => import('#pages/controllers/pages_controller');
+const PagesController = () => import('#admin/pages/controllers/pages_controller');
 const StoreArticleController = () => import('#admin/articles/controllers/store_article_controller');
 const StoreRedirectController = () => import('#redirects/controllers/store_redirect_controller');
 const UpdateArticleController = () => import('#admin/articles/controllers/update_article_controller');
