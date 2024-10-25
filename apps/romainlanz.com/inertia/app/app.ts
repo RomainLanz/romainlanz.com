@@ -5,10 +5,8 @@ import '../css/reset.css';
 import 'virtual:uno.css';
 import { resolvePageComponent } from '@adonisjs/inertia/helpers';
 import { createInertiaApp } from '@inertiajs/vue3';
-import { client } from '@rlanz/rpc/client';
-import { TuyauPlugin } from '@tuyau/inertia/vue';
 import { createApp, createSSRApp, h } from 'vue';
-import AppLayout from '~/components/layouts/app.vue';
+import { initiateApplication, setLayout } from '~/app/helpers';
 import type { DefineComponent } from 'vue';
 
 const appName = import.meta.env.VITE_APP_NAME || 'RomainLanz';
@@ -24,7 +22,7 @@ void createInertiaApp({
 			import.meta.glob<DefineComponent>('../pages/**/*.vue')
 		);
 
-		page.default.layout = page.default.layout || AppLayout;
+		setLayout(name, page);
 
 		return page;
 	},
@@ -34,6 +32,6 @@ void createInertiaApp({
 			? createApp({ render: () => h(App, props) })
 			: createSSRApp({ render: () => h(App, props) });
 
-		app.use(plugin).use(TuyauPlugin, { client }).mount(el);
+		initiateApplication(app, plugin).mount(el);
 	},
 });
