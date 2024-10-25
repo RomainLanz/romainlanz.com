@@ -9,12 +9,14 @@
 </script>
 
 <script lang="ts" setup>
+	import { client } from '@rlanz/rpc/client';
 	import Icon from '../../atoms/icon/icon.vue';
 	import Avatar from '../../atoms/avatar/avatar.vue';
 	import Button from '../../atoms/button/button.vue';
 	import Dropdown, { type MenuAction } from '../../atoms/dropdown/dropdown.vue';
 
 	const { user } = defineProps<UserActionMenuProps>();
+	const adminUrl = client.$url('admin.pages.dashboard');
 
 	const actions = [
 		{
@@ -28,7 +30,7 @@
 			enabled: user.isAdmin,
 			label: 'Administration',
 			code: 'admin',
-			href: '/admin',
+			href: adminUrl,
 		},
 	] satisfies MenuAction[];
 </script>
