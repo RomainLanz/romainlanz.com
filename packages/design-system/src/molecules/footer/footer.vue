@@ -6,8 +6,8 @@
 </script>
 
 <template>
-	<footer class="bg-yellow-200 border-t-2 border-gray-800 text-sm py-12 isolate">
-		<div class="max-w-6xl px-4 m-auto">
+	<footer class="bg-yellow-200 border-t-2 border-gray-800 text-sm mt-10 py-12 isolate">
+		<div class="max-w-7xl px-4 m-auto">
 			<div class="flex justify-between">
 				<Link href="/">
 					<Logo monochrome />

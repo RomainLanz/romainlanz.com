@@ -14,7 +14,7 @@
 
 <template>
 	<header class="my-10">
-		<div class="flex items-center justify-between max-w-6xl px-4 m-auto">
+		<div class="flex items-center justify-between max-w-7xl px-4 m-auto">
 			<div class="flex items-center gap-4">
 				<Link class="flex items-center gap-2" href="/">
 					<Logo />

@@ -20,7 +20,7 @@
 
 	<Hero />
 
-	<section class="m-auto max-w-6xl px-4">
+	<section class="m-auto max-w-7xl px-4">
 		<div class="flex items-baseline justify-between">
 			<h3 class="text-5xl text-gray-800">Mes derniers articles</h3>
 

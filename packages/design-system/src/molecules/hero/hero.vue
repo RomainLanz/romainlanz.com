@@ -4,7 +4,7 @@
 </script>
 
 <template>
-	<section class="max-w-6xl px-4 my-38 m-auto">
+	<section class="max-w-7xl px-4 my-38 m-auto">
 		<div class="flex">
 			<div class="flex flex-col gap-6">
 				<h1 class="text-5xl">

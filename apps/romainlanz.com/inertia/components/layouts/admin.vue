@@ -12,7 +12,7 @@
 <template>
 	<TopBar :user="currentUser" :is-live="false" />
 
-	<main class="m-auto max-w-6xl px-4">
+	<main class="m-auto max-w-7xl px-4">
 		<h1 class="my-8 text-5xl text-gray-800">{{ pageTitle }}</h1>
 
 		<div class="flex gap-4">
