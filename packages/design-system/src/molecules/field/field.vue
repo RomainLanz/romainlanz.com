@@ -1,18 +1,21 @@
 <script lang="ts" setup>
 	import { FieldRoot, FieldLabel, FieldInput, FieldHelperText, FieldErrorText, FieldInputProps } from '@ark-ui/vue';
+	import { computed } from 'vue';
 
 	const model = defineModel<any>();
 
-	const { type = 'text' } = defineProps<{
+	const { errorMessage, type = 'text' } = defineProps<{
 		label?: string;
 		type?: FieldInputProps['type'];
 		errorMessage?: string;
 		helpMessage?: string;
 	}>();
+
+	const isInvalid = computed(() => typeof errorMessage !== 'undefined');
 </script>
 
 <template>
-	<FieldRoot class="flex flex-col gap-1" :invalid="typeof errorMessage !== 'undefined'">
+	<FieldRoot class="flex flex-col gap-1" :invalid="isInvalid">
 		<FieldLabel v-if="label" class="text-gray-800">
 			{{ label }}
 		</FieldLabel>
