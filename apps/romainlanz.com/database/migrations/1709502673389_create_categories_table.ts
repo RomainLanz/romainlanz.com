@@ -1,11 +1,12 @@
-import { Kysely, sql } from 'kysely';
+import type { Kysely } from 'kysely';
 
 export async function up(db: Kysely<any>): Promise<void> {
 	await db.schema
 		.createTable('categories')
-		.addColumn('id', 'uuid', (col) => col.primaryKey().defaultTo(sql`gen_random_uuid()`))
-		.addColumn('name', 'varchar', (col) => col.notNull().unique())
-		.addColumn('slug', 'varchar', (col) => col.notNull().unique())
+		.addColumn('id', 'uuid', (col) => col.primaryKey())
+		.addColumn('name', 'text', (col) => col.notNull().unique())
+		.addColumn('slug', 'text', (col) => col.notNull().unique())
+		.addColumn('illustration_name', 'text')
 		.execute();
 }
 

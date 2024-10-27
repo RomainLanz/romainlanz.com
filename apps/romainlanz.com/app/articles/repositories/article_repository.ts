@@ -5,26 +5,23 @@ import type { ResultOf } from '#types/common';
 
 interface StoreArticleDTO {
 	title: string;
-	description: string;
+	summary: string;
 	slug: string;
 	markdownContent: string;
 	markdownAst: any;
-	canonicalUrl: string;
 	categoryId: string;
 }
 
 interface UpdateArticleDTO {
 	id: string;
-	description: string;
+	summary: string;
 	title: string;
 	markdownContent: string;
 	markdownAst: any;
-	canonicalUrl: string;
 	categoryId: string;
 }
 
 export type ArticleListQueryResult = ResultOf<ArticleRepository, 'all'>;
-export type ArticleLastFourPublishedQueryResult = ResultOf<ArticleRepository, 'findLastFourPublished'>;
 export type ArticlePaginatedQueryResult = ResultOf<ArticleRepository, 'paginated'>;
 export type ArticleQueryResult = ResultOf<ArticleRepository, 'findBySlug'>;
 export type ArticleByIdQueryResult = ResultOf<ArticleRepository, 'findById'>;
@@ -48,7 +45,7 @@ export class ArticleRepository {
 	paginated(page: number, perPage: number) {
 		return db
 			.selectFrom('articles')
-			.select(['title', 'description', 'slug', 'published_at'])
+			.select(['title', 'summary', 'slug', 'published_at'])
 			.orderBy('published_at', 'desc')
 			.where('published_at', 'is not', null)
 			.where('published_at', '<=', new Date())
@@ -60,7 +57,7 @@ export class ArticleRepository {
 	findLastFourPublished() {
 		return db
 			.selectFrom('articles')
-			.select(['title', 'description', 'slug', 'published_at'])
+			.select(['title', 'summary', 'slug', 'published_at'])
 			.orderBy('published_at', 'desc')
 			.where('published_at', 'is not', null)
 			.where('published_at', '<=', new Date())
@@ -72,14 +69,13 @@ export class ArticleRepository {
 		return db
 			.insertInto('articles')
 			.values({
+				id: ArticleIdentifier.generate().toString(),
 				created_at: new Date(),
-				updated_at: new Date(),
 				title: payload.title,
 				slug: payload.slug,
-				description: payload.description,
+				summary: payload.summary,
 				markdown_ast: payload.markdownAst,
 				markdown_content: payload.markdownContent,
-				canonical_url: payload.canonicalUrl,
 				category_id: payload.categoryId,
 			})
 			.execute();
@@ -90,10 +86,9 @@ export class ArticleRepository {
 			.updateTable('articles')
 			.set({
 				title: payload.title,
-				description: payload.description,
+				summary: payload.summary,
 				markdown_ast: payload.markdownAst,
 				markdown_content: payload.markdownContent,
-				canonical_url: payload.canonicalUrl,
 				category_id: payload.categoryId,
 			})
 			.where('id', '=', payload.id)

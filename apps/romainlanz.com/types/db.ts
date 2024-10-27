@@ -24,22 +24,22 @@ export type JsonValue = JsonArray | JsonObject | JsonPrimitive;
 export type Timestamp = ColumnType<Date, Date | string>;
 
 export interface Articles {
-  canonical_url: string | null;
   category_id: string;
   created_at: Timestamp;
-  description: string;
-  id: Generated<string>;
+  id: string;
   markdown_ast: Json;
   markdown_content: string;
   published_at: Timestamp | null;
   slug: string;
   status: Generated<number>;
+  summary: string;
   title: string;
-  updated_at: Timestamp;
+  updated_at: Timestamp | null;
 }
 
 export interface Categories {
-  id: Generated<string>;
+  id: string;
+  illustration_name: string | null;
   name: string;
   slug: string;
 }

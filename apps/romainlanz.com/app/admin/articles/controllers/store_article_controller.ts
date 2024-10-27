@@ -1,9 +1,11 @@
 import { inject } from '@adonisjs/core';
+import string from '@adonisjs/core/helpers/string';
 import vine from '@vinejs/vine';
 import { ArticlePolicy } from '#admin/articles/policies/article_policy';
 import { ArticleRepository } from '#articles/repositories/article_repository';
 import { MarkdownCompiler } from '#articles/services/markdown_compiler';
 import { CategoryRepository } from '#categories/repositories/category_repository';
+import { AllCategoryViewModel } from '#categories/view_models/all_category_view_model';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()
@@ -11,8 +13,7 @@ export default class StoreArticleController {
 	static validator = vine.compile(
 		vine.object({
 			title: vine.string().minLength(3).maxLength(100),
-			description: vine.string().minLength(3).maxLength(255),
-			canonicalUrl: vine.string().normalizeUrl().optional(),
+			summary: vine.string().minLength(3).maxLength(255),
 			markdownContent: vine.string().minLength(3),
 			// TODO: Validate that the category exists
 			categoryId: vine.string().uuid(),
@@ -31,14 +32,14 @@ export default class StoreArticleController {
 		const categories = await this.categoryRepository.all();
 
 		return inertia.render('admin/articles/create', {
-			categories,
+			categories: AllCategoryViewModel.fromDomain(categories).serialize(),
 		});
 	}
 
 	async execute({ bouncer, request, response }: HttpContext) {
 		await bouncer.with(ArticlePolicy).allows('create');
 
-		const { title, description, markdownContent, canonicalUrl, categoryId } = await request.validateUsing(
+		const { title, summary, markdownContent, categoryId } = await request.validateUsing(
 			StoreArticleController.validator
 		);
 
@@ -46,12 +47,11 @@ export default class StoreArticleController {
 		const markdownAst = await this.markdownCompiler.toAST(markdownContent);
 
 		await this.repository.create({
-			canonicalUrl: canonicalUrl || slug,
 			title,
-			description,
+			summary,
 			markdownContent,
 			markdownAst,
-			slug,
+			slug: string.slug(title).toLocaleLowerCase(),
 			categoryId,
 		});
 
