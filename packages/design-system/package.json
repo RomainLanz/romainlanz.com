@@ -23,6 +23,7 @@
     "./article-card": "./src/molecules/article_card/article_card.vue",
     "./dialog": "./src/molecules/dialog/dialog.vue",
     "./field": "./src/molecules/field/field.vue",
+    "./field_select": "./src/molecules/field_select/field_select.vue",
     "./footer": "./src/molecules/footer/footer.vue",
     "./headline": "./src/molecules/headline/headline.vue",
     "./hero": "./src/molecules/hero/hero.vue",
