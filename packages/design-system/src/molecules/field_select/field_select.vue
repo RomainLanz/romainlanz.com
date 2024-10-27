@@ -7,6 +7,7 @@
 </script>
 
 <script lang="ts" setup>
+	import { computed } from 'vue';
 	import {
 		createListCollection,
 		SelectRoot,
@@ -23,9 +24,9 @@
 		SelectItemIndicator,
 		SelectHiddenSelect,
 	} from '@ark-ui/vue/select';
-	import Icon from '../../atoms/icon/icon.vue';
 	import { FieldErrorText, FieldHelperText, FieldRoot } from '@ark-ui/vue';
-	import { computed } from 'vue';
+	import Icon from '../../atoms/icon/icon.vue';
+	import ClientOnly from '../../atoms/client_only/client_only.ts';
 
 	const model = defineModel<any>();
 
@@ -66,25 +67,28 @@
 				</SelectTrigger>
 			</SelectControl>
 
-			<Teleport to="body">
-				<SelectPositioner>
-					<SelectContent class="bg-white min-w-48 rounded-lg p-2 border-2 border-solid border-gray-800 shadow-small">
-						<SelectItemGroup>
-							<SelectItem
-								v-for="item in collection.items"
-								class="cursor-pointer flex items-center justify-between px-2 py-0.5 rounded-ms hover:bg-yellow-300 transition-colors duration-200"
-								:key="item.value"
-								:item="item"
-							>
-								<SelectItemText>{{ item.label }}</SelectItemText>
-								<SelectItemIndicator>
-									<Icon name="success" />
-								</SelectItemIndicator>
-							</SelectItem>
-						</SelectItemGroup>
-					</SelectContent>
-				</SelectPositioner>
-			</Teleport>
+			<ClientOnly>
+				<Teleport to="body">
+					<SelectPositioner>
+						<SelectContent class="bg-white min-w-48 rounded-lg p-2 border-2 border-solid border-gray-800 shadow-small">
+							<SelectItemGroup>
+								<SelectItem
+									v-for="item in collection.items"
+									class="cursor-pointer flex items-center justify-between px-2 py-0.5 rounded-ms hover:bg-yellow-300 transition-colors duration-200"
+									:key="item.value"
+									:item="item"
+								>
+									<SelectItemText>{{ item.label }}</SelectItemText>
+									<SelectItemIndicator>
+										<Icon name="success" />
+									</SelectItemIndicator>
+								</SelectItem>
+							</SelectItemGroup>
+						</SelectContent>
+					</SelectPositioner>
+				</Teleport>
+			</ClientOnly>
+
 			<SelectHiddenSelect />
 		</SelectRoot>
 
