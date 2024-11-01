@@ -14,7 +14,8 @@ export const Base: Story = {
 	args: {
 		slug: 'article-title',
 		title: 'Article Title',
-		date: new Date(),
+		date: '3 sept. 2024',
+		datetime: '2024-09-03T00:00:00Z',
 		excerpt:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.',
 		readingTime: 5,
