@@ -5,9 +5,10 @@
 	import Link from '@rlanz/design-system/link';
 	import { client } from '@rlanz/rpc/client';
 	import { computed } from 'vue';
+	import type { LandingViewModelSerialized } from '#pages/view_models/landing_view_model';
 
 	defineProps<{
-		articles: any[];
+		vm: LandingViewModelSerialized;
 	}>();
 
 	const allArticlesUrl = computed(() => {
@@ -29,12 +30,13 @@
 
 		<div class="grid cols-2 gap-6">
 			<ArticleCard
-				v-for="article in articles"
+				v-for="article in vm.articles"
 				:key="article.id"
 				:title="article.title"
 				:slug="article.slug"
-				:date="article.published_at"
-				:excerpt="article.description"
+				:date="article.publishedAtHuman"
+				:datetime="article.publishedAt"
+				:excerpt="article.summary"
 				:reading-time="5"
 			/>
 		</div>

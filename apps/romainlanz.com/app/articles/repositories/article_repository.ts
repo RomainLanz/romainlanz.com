@@ -44,7 +44,7 @@ export class ArticleRepository {
 	}
 
 	async paginated(page: number, perPage: number) {
-		const articlesRecords = await db
+		const articleRecords = await db
 			.selectFrom('articles')
 			.select(['id', 'title', 'summary', 'slug', 'published_at'])
 			.orderBy('published_at', 'desc')
@@ -54,7 +54,7 @@ export class ArticleRepository {
 			.limit(perPage)
 			.execute();
 
-		return articlesRecords.map((article) => {
+		return articleRecords.map((article) => {
 			return Article.create({
 				id: ArticleIdentifier.fromString(article.id),
 				publishedAt: DateTime.fromJSDate(article.published_at!),
@@ -66,15 +66,26 @@ export class ArticleRepository {
 		});
 	}
 
-	findLastFourPublished() {
-		return db
+	async findLastFourPublished() {
+		const articleRecords = await db
 			.selectFrom('articles')
-			.select(['title', 'summary', 'slug', 'published_at'])
+			.select(['id', 'title', 'summary', 'slug', 'published_at'])
 			.orderBy('published_at', 'desc')
 			.where('published_at', 'is not', null)
 			.where('published_at', '<=', new Date())
 			.limit(4)
 			.execute();
+
+		return articleRecords.map((article) => {
+			return Article.create({
+				id: ArticleIdentifier.fromString(article.id),
+				publishedAt: DateTime.fromJSDate(article.published_at!),
+				title: article.title,
+				slug: article.slug,
+				summary: article.summary,
+				content: null,
+			});
+		});
 	}
 
 	create(payload: StoreArticleDTO) {
