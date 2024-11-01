@@ -21,7 +21,7 @@
 	<ul class="list-none m-0 p-0">
 		<li
 			class="border-solid border-2 border-transparent w-[300px] rounded-lg hover:bg-yellow-300 hover:border-gray-800"
-			v-for="category of categories"
+			v-for="category in categories"
 			:key="category.id"
 		>
 			<Link class="flex items-center text-lg px-4 py-3 gap-3" href="#">

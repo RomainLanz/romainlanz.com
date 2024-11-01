@@ -21,7 +21,7 @@
 
 			<section class="col-span-2">
 				<ArticleCard
-					v-for="article of vm.articles"
+					v-for="article in vm.articles"
 					:key="article.id"
 					:title="article.title"
 					:slug="article.slug"
