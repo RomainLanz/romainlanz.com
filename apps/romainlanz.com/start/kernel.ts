@@ -10,6 +10,9 @@
 
 import router from '@adonisjs/core/services/router';
 import server from '@adonisjs/core/services/server';
+import { Settings } from 'luxon';
+
+Settings.defaultLocale = 'fr';
 
 /**
  * The error handler is used to convert an exception

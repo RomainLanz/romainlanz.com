@@ -7,7 +7,8 @@
 	const { slug } = defineProps<{
 		slug: string;
 		title: string;
-		date: Date;
+		date: string;
+		datetime: string;
 		excerpt: string;
 		readingTime: number;
 		tags?: Array<{ name: string; color: TagProps['color'] }>;
@@ -24,8 +25,8 @@
 			class="flex flex-col gap-4 bg-white border-2 border-solid border-gray-800 rounded-md shadow-small text-gray-800 p-6 isolate transition-colors hover:(bg-yellow-100)"
 		>
 			<header>
-				<time class="text-xs relative" :class="$style.time" :datetime="date.toISOString()">
-					{{ date.toLocaleDateString() }}
+				<time class="text-xs relative" :class="$style.time" :datetime>
+					{{ date }}
 				</time>
 
 				<h2 class="text-2xl">{{ title }}</h2>

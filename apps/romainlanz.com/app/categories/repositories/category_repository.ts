@@ -24,8 +24,8 @@ export class CategoryRepository {
 		});
 	}
 
-	countWithArticles() {
-		return db
+	async countWithArticles() {
+		const categoryRecords = await db
 			.selectFrom('categories')
 			.leftJoin('articles', 'categories.id', 'articles.category_id')
 			.groupBy('categories.id')
@@ -33,10 +33,23 @@ export class CategoryRepository {
 				'categories.id',
 				'categories.name',
 				'categories.slug',
+				'categories.illustration_name',
 				fn.count('articles.id').as('articles_count'),
 			])
+			.where('published_at', 'is not', null)
+			.where('published_at', '<=', new Date())
 			.having(({ fn }) => fn.count('articles.id'), '>', 0)
 			.orderBy('categories.name')
 			.execute();
+
+		return categoryRecords.map((categoryRecord) => {
+			return Category.create({
+				id: CategoryIdentifier.fromString(categoryRecord.id),
+				name: categoryRecord.name,
+				slug: categoryRecord.slug,
+				illustrationName: categoryRecord.illustration_name,
+				articleCount: Number(categoryRecord.articles_count),
+			});
+		});
 	}
 }

@@ -5,7 +5,8 @@ interface Properties {
 	id: CategoryIdentifier;
 	name: string;
 	slug: string;
-	illustrationName?: string;
+	illustrationName: string | null;
+	articleCount?: number;
 }
 
 export class Category extends Entity<Properties> {

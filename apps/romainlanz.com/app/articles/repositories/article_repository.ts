@@ -1,6 +1,7 @@
 import { Article } from '#articles/domain/article';
 import { ArticleIdentifier } from '#articles/domain/article_identifier';
 import { db } from '#core/services/db';
+import { DateTime } from 'luxon';
 import type { ResultOf } from '#types/common';
 
 interface StoreArticleDTO {
@@ -33,7 +34,7 @@ export class ArticleRepository {
 		return articleRecords.map((article) => {
 			return Article.create({
 				id: ArticleIdentifier.fromString(article.id),
-				publishedAt: article.published_at,
+				publishedAt: article.published_at ? DateTime.fromJSDate(article.published_at) : null,
 				title: article.title,
 				slug: article.slug,
 				summary: null,
@@ -42,16 +43,27 @@ export class ArticleRepository {
 		});
 	}
 
-	paginated(page: number, perPage: number) {
-		return db
+	async paginated(page: number, perPage: number) {
+		const articlesRecords = await db
 			.selectFrom('articles')
-			.select(['title', 'summary', 'slug', 'published_at'])
+			.select(['id', 'title', 'summary', 'slug', 'published_at'])
 			.orderBy('published_at', 'desc')
 			.where('published_at', 'is not', null)
 			.where('published_at', '<=', new Date())
 			.offset((page - 1) * perPage)
 			.limit(perPage)
 			.execute();
+
+		return articlesRecords.map((article) => {
+			return Article.create({
+				id: ArticleIdentifier.fromString(article.id),
+				publishedAt: DateTime.fromJSDate(article.published_at!),
+				title: article.title,
+				slug: article.slug,
+				summary: article.summary,
+				content: null,
+			});
+		});
 	}
 
 	findLastFourPublished() {
