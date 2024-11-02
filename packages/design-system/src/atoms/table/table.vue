@@ -13,9 +13,11 @@
 </script>
 
 <script lang="ts" setup>
+	import { Ref } from 'vue';
+
 	defineProps<{
 		headers: Header[];
-		items: Item[];
+		items: Ref<Item[]>;
 	}>();
 </script>
 
@@ -41,7 +43,7 @@
 						:key="header.key"
 					>
 						<template v-if="header.cell">
-							<slot :name="header.cell" :item="item" />
+							<slot :name="header.cell" :item="item" :header="header" />
 						</template>
 						<template v-else>
 							{{ item[header.key] }}
