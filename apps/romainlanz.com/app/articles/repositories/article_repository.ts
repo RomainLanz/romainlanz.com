@@ -4,14 +4,15 @@ import { Category } from '#categories/domain/category';
 import { CategoryIdentifier } from '#categories/domain/category_identifier';
 import { db } from '#core/services/db';
 import { DateTime } from 'luxon';
+import type { IllustrationName } from '@rlanz/design-system/illustration';
 import type { ResultOf } from '#types/common';
 
 interface StoreArticleDTO {
 	title: string;
 	summary: string;
 	slug: string;
-	markdownContent: string;
-	markdownAst: any;
+	contentHtml: string;
+	contentMarkdown: string;
 	categoryId: string;
 }
 
@@ -19,8 +20,8 @@ interface UpdateArticleDTO {
 	id: string;
 	summary: string;
 	title: string;
-	markdownContent: string;
-	markdownAst: any;
+	contentHtml: string;
+	contentMarkdown: string;
 	categoryId: string;
 }
 
@@ -99,8 +100,8 @@ export class ArticleRepository {
 				title: payload.title,
 				slug: payload.slug,
 				summary: payload.summary,
-				markdown_ast: payload.markdownAst,
-				markdown_content: payload.markdownContent,
+				content_html: payload.contentHtml,
+				content_markdown: payload.contentMarkdown,
 				category_id: payload.categoryId,
 			})
 			.execute();
@@ -112,8 +113,8 @@ export class ArticleRepository {
 			.set({
 				title: payload.title,
 				summary: payload.summary,
-				markdown_ast: payload.markdownAst,
-				markdown_content: payload.markdownContent,
+				content_html: payload.contentHtml,
+				content_markdown: payload.contentMarkdown,
 				category_id: payload.categoryId,
 			})
 			.where('id', '=', payload.id)
@@ -132,7 +133,7 @@ export class ArticleRepository {
 				'articles.id',
 				'articles.title',
 				'articles.slug',
-				'articles.markdown_content',
+				'articles.content_html',
 				'articles.published_at',
 				'categories.id as category_id',
 				'categories.name as category_name',
@@ -146,14 +147,14 @@ export class ArticleRepository {
 			id: ArticleIdentifier.fromString(articleRecord.id),
 			title: articleRecord.title,
 			slug: articleRecord.slug,
-			content: articleRecord.markdown_content,
+			content: articleRecord.content_html,
 			summary: null,
 			publishedAt: DateTime.fromJSDate(articleRecord.published_at!),
 			category: Category.create({
 				id: CategoryIdentifier.fromString(articleRecord.category_id!),
 				name: articleRecord.category_name!,
 				slug: articleRecord.category_slug!,
-				illustrationName: articleRecord.category_illustration_name!,
+				illustrationName: articleRecord.category_illustration_name as IllustrationName,
 			}),
 		});
 	}

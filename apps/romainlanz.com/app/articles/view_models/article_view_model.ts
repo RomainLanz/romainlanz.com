@@ -22,7 +22,7 @@ export class ArticleViewModel {
 					day: 'numeric',
 					year: 'numeric',
 				}),
-				publishedAt: this.article.props.publishedAt!.set({ hour: 0, minute: 0, second: 0, millisecond: 0 }).toISO(),
+				publishedAt: this.article.props.publishedAt!.set({ hour: 0, minute: 0, second: 0, millisecond: 0 }).toISO()!,
 			},
 			category: {
 				id: this.article.props.category!.getIdentifier().toString(),

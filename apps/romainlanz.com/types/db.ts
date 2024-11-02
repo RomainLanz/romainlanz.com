@@ -9,26 +9,14 @@ export type Generated<T> = T extends ColumnType<infer S, infer I, infer U>
   ? ColumnType<S, I | undefined, U>
   : ColumnType<T, T | undefined, T>;
 
-export type Json = JsonValue;
-
-export type JsonArray = JsonValue[];
-
-export type JsonObject = {
-  [x: string]: JsonValue | undefined;
-};
-
-export type JsonPrimitive = boolean | number | string | null;
-
-export type JsonValue = JsonArray | JsonObject | JsonPrimitive;
-
 export type Timestamp = ColumnType<Date, Date | string>;
 
 export interface Articles {
   category_id: string;
+  content_html: string;
+  content_markdown: string;
   created_at: Timestamp;
   id: string;
-  markdown_ast: Json;
-  markdown_content: string;
   published_at: Timestamp | null;
   slug: string;
   status: Generated<number>;

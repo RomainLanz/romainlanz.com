@@ -19,6 +19,7 @@
 		{
 			label: 'Titre',
 			key: 'title',
+			cell: 'title',
 		},
 		{
 			label: 'Actions',
@@ -31,8 +32,13 @@
 		return vm.map((article) => ({
 			id: article.id,
 			title: article.title,
+			slug: article.slug,
 		}));
 	});
+
+	function computeShowUrl(slug: string) {
+		return client.$url('articles.show', { params: { slug } });
+	}
 
 	function computeEditUrl(id: string) {
 		return client.$url('admin.articles.edit', { params: { id } });
@@ -46,9 +52,17 @@
 		</div>
 
 		<Table :headers :items>
+			<template #title="{ item }">
+				<div class="flex gap-2">
+					<Link :href="computeShowUrl(item.slug)">
+						{{ item.title }}
+					</Link>
+				</div>
+			</template>
+
 			<template #actions="{ item }">
 				<div class="flex gap-2">
-					<Link :href="computeEditUrl(item.id)"> Modifier</Link>
+					<Link :href="computeEditUrl(item.id)">Modifier</Link>
 				</div>
 			</template>
 		</Table>

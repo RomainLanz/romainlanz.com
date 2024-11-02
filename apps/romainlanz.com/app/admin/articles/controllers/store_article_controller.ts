@@ -44,13 +44,13 @@ export default class StoreArticleController {
 		);
 
 		// const slug = string.slug(title).toLocaleLowerCase();
-		const markdownAst = await this.markdownCompiler.toAST(markdownContent);
+		const markdownHtml = await this.markdownCompiler.toHtml(markdownContent);
 
 		await this.repository.create({
 			title,
 			summary,
-			markdownContent,
-			markdownAst,
+			contentHtml: markdownHtml.toString(),
+			contentMarkdown: markdownContent,
 			slug: string.slug(title).toLocaleLowerCase(),
 			categoryId,
 		});

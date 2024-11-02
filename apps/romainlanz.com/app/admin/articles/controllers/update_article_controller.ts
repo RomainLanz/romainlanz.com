@@ -4,7 +4,7 @@ import { ArticlePolicy } from '#admin/articles/policies/article_policy';
 import { ArticleRepository } from '#articles/repositories/article_repository';
 import { MarkdownCompiler } from '#articles/services/markdown_compiler';
 import { CategoryRepository } from '#categories/repositories/category_repository';
-import { AdminArticleView } from '#views/pages/admin/articles/main';
+import { AllCategoryViewModel } from '#categories/view_models/all_category_view_model';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()
@@ -12,7 +12,7 @@ export default class UpdateArticleController {
 	static validator = vine.compile(
 		vine.object({
 			title: vine.string().minLength(3).maxLength(100),
-			canonicalUrl: vine.string().normalizeUrl(),
+			summary: vine.string().minLength(3).maxLength(255),
 			markdownContent: vine.string().minLength(3),
 			// TODO: Validate that the category exists
 			categoryId: vine.string().uuid(),
@@ -25,7 +25,7 @@ export default class UpdateArticleController {
 		private markdownCompiler: MarkdownCompiler
 	) {}
 
-	async render({ bouncer, params }: HttpContext) {
+	async render({ bouncer, params, inertia }: HttpContext) {
 		await bouncer.with(ArticlePolicy).allows('update');
 
 		const [article, categories] = await Promise.all([
@@ -33,25 +33,27 @@ export default class UpdateArticleController {
 			this.categoryRepository.all(),
 		]);
 
-		return <AdminArticleView.Update article={article} categories={categories} />;
+		return inertia.render('admin/articles/update', {
+			article,
+			categories: AllCategoryViewModel.fromDomain(categories).serialize(),
+		});
 	}
 
 	async execute({ bouncer, request, response }: HttpContext) {
 		await bouncer.with(ArticlePolicy).allows('update');
 
-		const { title, markdownContent, canonicalUrl, categoryId } = await request.validateUsing(
+		const { title, summary, markdownContent, categoryId } = await request.validateUsing(
 			UpdateArticleController.validator
 		);
 
-		const markdownAst = await this.markdownCompiler.toAST(markdownContent);
+		const markdownHtml = await this.markdownCompiler.toHtml(markdownContent);
 
 		await this.repository.update({
 			id: request.param('id')!,
-			description: '',
 			title,
-			markdownContent,
-			canonicalUrl,
-			markdownAst,
+			summary,
+			contentHtml: markdownHtml.toString(),
+			contentMarkdown: markdownContent,
 			categoryId,
 		});
 
