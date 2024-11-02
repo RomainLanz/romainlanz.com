@@ -12,12 +12,10 @@
 	}
 </script>
 
-<script lang="ts" setup>
-	import { Ref } from 'vue';
-
+<script lang="ts" setup generic="T extends Item">
 	defineProps<{
 		headers: Header[];
-		items: Ref<Item[]>;
+		items: T[];
 	}>();
 </script>
 
