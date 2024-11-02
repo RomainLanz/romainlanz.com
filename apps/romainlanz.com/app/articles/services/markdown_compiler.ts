@@ -1,48 +1,30 @@
-import { MarkdownFile } from '@dimerapp/markdown';
-import { Shiki, codeblocks } from '@dimerapp/shiki';
-import { toHtml } from '@dimerapp/markdown/utils';
-import { tip, note, warning, codegroup } from '@dimerapp/markdown/macros';
+import rehypeShiki from '@shikijs/rehype';
+import { customElementDirective } from '#articles/services/markdown_directives/custom_element';
+import { noteDirective } from '#articles/services/markdown_directives/note';
+import rehypeStringify from 'rehype-stringify';
+import remarkDirective from 'remark-directive';
+import remarkGfm from 'remark-gfm';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import { unified } from 'unified';
 
 export class MarkdownCompiler {
-	static #shiki = new Shiki();
-	static #booted = false;
+	static #processor = unified()
+		.use(remarkParse)
+		.use(remarkDirective)
+		.use(customElementDirective)
+		.use(noteDirective)
+		.use(remarkGfm)
+		.use(remarkRehype)
+		.use(rehypeShiki, {
+			themes: {
+				light: 'rose-pine-dawn',
+				dark: 'rose-pine-moon',
+			},
+		})
+		.use(rehypeStringify);
 
-	async #boot() {
-		if (!MarkdownCompiler.#booted) {
-			MarkdownCompiler.#shiki.useTheme('solarized-light');
-
-			await MarkdownCompiler.#shiki.boot();
-
-			MarkdownCompiler.#booted = true;
-		}
-	}
-
-	#addDirectives(file: MarkdownFile) {
-		file.use(tip).use(note).use(warning).use(codegroup);
-		file.transform(codeblocks, MarkdownCompiler.#shiki);
-	}
-
-	async toHtml(content: string) {
-		await this.#boot();
-
-		const file = new MarkdownFile(content, { enableDirectives: true });
-
-		this.#addDirectives(file);
-
-		await file.process();
-
-		return toHtml(file);
-	}
-
-	async toAST(content: string) {
-		await this.#boot();
-
-		const file = new MarkdownFile(content, { enableDirectives: true, allowHtml: true });
-
-		this.#addDirectives(file);
-
-		await file.process();
-
-		return file.ast;
+	toHtml(content: string) {
+		return MarkdownCompiler.#processor.process(content);
 	}
 }
