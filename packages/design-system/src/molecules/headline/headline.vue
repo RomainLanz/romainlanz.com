@@ -5,17 +5,18 @@
 	defineProps<{
 		title: string;
 		category: IllustrationName;
-		publishedAt: Date;
+		publishedAt: string;
+		publishedAtDatetime: string;
 		readingTime: number;
-		tags: Array<{ name: string; color: TagProps['color'] }>;
+		tags?: Array<{ name: string; color: TagProps['color'] }>;
 	}>();
 </script>
 
 <template>
 	<header class="flex flex-col gap-2">
 		<div>
-			<time class="relative text-xl" :class="$style.time" :datetime="publishedAt.toISOString()">
-				{{ publishedAt.toLocaleDateString('fr', { month: 'long', day: 'numeric', year: 'numeric' }) }}
+			<time class="relative text-xl" :class="$style.time" :datetime="publishedAtDatetime">
+				{{ publishedAt }}
 			</time>
 		</div>
 
@@ -25,7 +26,7 @@
 		</div>
 
 		<div class="flex items-center gap-3">
-			<Tag v-for="tag in tags" :color="tag.color">
+			<Tag v-if="tags" v-for="tag in tags" :color="tag.color">
 				{{ tag.name }}
 			</Tag>
 

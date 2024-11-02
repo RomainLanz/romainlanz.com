@@ -1,6 +1,7 @@
 import { Entity } from '#core/domain/entity';
 import { DateTime } from 'luxon';
 import type { ArticleIdentifier } from '#articles/domain/article_identifier';
+import type { Category } from '#categories/domain/category';
 
 interface Properties {
 	id: ArticleIdentifier;
@@ -9,6 +10,7 @@ interface Properties {
 	summary: string | null;
 	slug: string;
 	content: string | null;
+	category?: Category;
 }
 
 export class Article extends Entity<Properties> {

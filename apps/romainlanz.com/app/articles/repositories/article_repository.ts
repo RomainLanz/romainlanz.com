@@ -1,5 +1,7 @@
 import { Article } from '#articles/domain/article';
 import { ArticleIdentifier } from '#articles/domain/article_identifier';
+import { Category } from '#categories/domain/category';
+import { CategoryIdentifier } from '#categories/domain/category_identifier';
 import { db } from '#core/services/db';
 import { DateTime } from 'luxon';
 import type { ResultOf } from '#types/common';
@@ -122,21 +124,37 @@ export class ArticleRepository {
 		return db.selectFrom('articles').selectAll().where('id', '=', id).executeTakeFirst();
 	}
 
-	findBySlug(slug: string) {
-		return db
+	async findBySlug(slug: string) {
+		const articleRecord = await db
 			.selectFrom('articles')
 			.leftJoin('categories', 'articles.category_id', 'categories.id')
 			.select([
 				'articles.id',
 				'articles.title',
 				'articles.slug',
-				'articles.markdown_ast',
 				'articles.markdown_content',
-				'articles.created_at',
+				'articles.published_at',
+				'categories.id as category_id',
 				'categories.name as category_name',
 				'categories.slug as category_slug',
+				'categories.illustration_name as category_illustration_name',
 			])
 			.where('articles.slug', '=', slug)
 			.executeTakeFirstOrThrow();
+
+		return Article.create({
+			id: ArticleIdentifier.fromString(articleRecord.id),
+			title: articleRecord.title,
+			slug: articleRecord.slug,
+			content: articleRecord.markdown_content,
+			summary: null,
+			publishedAt: DateTime.fromJSDate(articleRecord.published_at!),
+			category: Category.create({
+				id: CategoryIdentifier.fromString(articleRecord.category_id!),
+				name: articleRecord.category_name!,
+				slug: articleRecord.category_slug!,
+				illustrationName: articleRecord.category_illustration_name!,
+			}),
+		});
 	}
 }
