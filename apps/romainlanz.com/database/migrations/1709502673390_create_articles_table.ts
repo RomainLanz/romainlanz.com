@@ -4,7 +4,7 @@ import type { Kysely } from 'kysely';
 export async function up(db: Kysely<any>): Promise<void> {
 	await db.schema
 		.createTable('articles')
-		.addColumn('id', 'uuid', (col) => col.primaryKey().notNull())
+		.addColumn('id', 'uuid', (col) => col.primaryKey())
 		.addColumn('created_at', 'timestamptz', (col) => col.notNull())
 		.addColumn('updated_at', 'timestamptz')
 		.addColumn('published_at', 'timestamptz')
