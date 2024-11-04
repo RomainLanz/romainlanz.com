@@ -53,7 +53,6 @@
 		"eslint": "catalog:",
 		"hot-hook": "^0.3.1",
 		"kysely-codegen": "^0.16.8",
-		"mdast": "^3.0.0",
 		"pino-pretty": "^11.3.0",
 		"preact": "^10.24.3",
 		"preact-custom-element": "^4.3.0",
@@ -63,7 +62,6 @@
 		"typescript": "catalog:",
 		"unocss": "catalog:",
 		"unpoly": "^3.9.2",
-		"vfile": "^6.0.3",
 		"vite": "catalog:"
 	},
 	"dependencies": {
@@ -87,6 +85,7 @@
 		"@rlanz/rpc": "workspace:*",
 		"@rlanz/tooling": "workspace:*",
 		"@shikijs/rehype": "^1.22.2",
+		"@shikijs/transformers": "^1.22.2",
 		"@tuyau/core": "^0.2.1",
 		"@tuyau/inertia": "catalog:",
 		"@vinejs/vine": "^2.1.0",
@@ -101,6 +100,7 @@
 		"reflect-metadata": "^0.2.2",
 		"rehype-stringify": "^10.0.1",
 		"remark-directive": "^3.0.0",
+		"remark-directive-rehype": "^0.4.2",
 		"remark-gfm": "^4.0.0",
 		"remark-parse": "^11.0.0",
 		"remark-rehype": "^11.1.1",

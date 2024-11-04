@@ -1,8 +1,13 @@
 import rehypeShiki from '@shikijs/rehype';
-import { customElementDirective } from '#articles/services/markdown_directives/custom_element';
-import { noteDirective } from '#articles/services/markdown_directives/note';
+import {
+	transformerMetaHighlight,
+	transformerNotationDiff,
+	transformerNotationFocus,
+	transformerNotationHighlight,
+} from '@shikijs/transformers';
 import rehypeStringify from 'rehype-stringify';
 import remarkDirective from 'remark-directive';
+import remarkDirectiveRehype from 'remark-directive-rehype';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
@@ -12,15 +17,20 @@ export class MarkdownCompiler {
 	static #processor = unified()
 		.use(remarkParse)
 		.use(remarkDirective)
-		.use(customElementDirective)
-		.use(noteDirective)
+		.use(remarkDirectiveRehype)
 		.use(remarkGfm)
 		.use(remarkRehype)
 		.use(rehypeShiki, {
 			themes: {
-				light: 'rose-pine-dawn',
-				dark: 'rose-pine-moon',
+				light: 'catppuccin-latte', //'rose-pine-dawn',
+				dark: 'catppuccin-mocha', //'rose-pine-moon',
 			},
+			transformers: [
+				transformerNotationDiff(),
+				transformerNotationHighlight(),
+				transformerNotationFocus(),
+				transformerMetaHighlight(),
+			],
 		})
 		.use(rehypeStringify);
 
