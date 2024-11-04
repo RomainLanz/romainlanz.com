@@ -2,6 +2,8 @@
 /// <reference path="../../config/inertia.ts" />
 
 import '../css/reset.css';
+import '~/custom_elements/alert_note';
+import '~/custom_elements/codeblock';
 import 'virtual:uno.css';
 import { resolvePageComponent } from '@adonisjs/inertia/helpers';
 import { createInertiaApp } from '@inertiajs/vue3';
