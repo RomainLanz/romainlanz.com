@@ -2,10 +2,18 @@
 	import { ref } from 'vue';
 
 	const { tabs } = defineProps<{
-		tabs: string[];
+		tabs: string[] | string;
 	}>();
 
-	const activeTab = ref(tabs[0]);
+	const parsedTabs = Array.isArray(tabs)
+		? tabs
+		: tabs
+				.replaceAll(`'`, '')
+				.replaceAll('[', '')
+				.replaceAll(']', '')
+				.split(',')
+				.map((tab: string) => tab.trim());
+	const activeTab = ref(parsedTabs[0]);
 </script>
 
 <template>
@@ -18,7 +26,7 @@
 						'bg-yellow-300 border-b-gray-800': activeTab !== tab,
 						'bg-yellow-100 border-b-yellow-100': activeTab === tab,
 					}"
-					v-for="tab in tabs"
+					v-for="tab in parsedTabs"
 					:key="tab"
 					@click="activeTab = tab"
 				>
@@ -33,8 +41,10 @@
 			</div>
 		</header>
 
-		<div>
-			<slot :name="activeTab" />
-		</div>
+		<template v-for="tab in parsedTabs" :key="tab">
+			<div v-show="activeTab === tab">
+				<slot :name="tab" />
+			</div>
+		</template>
 	</div>
 </template>
