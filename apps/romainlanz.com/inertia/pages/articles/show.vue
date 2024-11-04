@@ -37,21 +37,22 @@
 	}
 
 	.content {
-		& > a {
+		& > * {
+			margin-block: 1rem;
+		}
+
+		& a {
 			cursor: pointer;
 			text-decoration: underline;
 		}
 
-		& > pre {
-			--at-apply: border-2 border-solid border-gray-800 bg-yellow-100 rounded-lg shadow-small;
+		& pre {
 			font-size: 0.875rem;
-			margin-bottom: 1.5rem;
-			margin-top: 1rem;
 			overflow-y: auto;
 			padding: 1rem 1.5rem;
 		}
 
-		& > :global(.shiki.has-focused .line:not(.focused)) {
+		& :global(.shiki.has-focused .line:not(.focused)) {
 			filter: blur(0.095rem);
 			opacity: 0.7;
 			transition:
@@ -59,12 +60,12 @@
 				opacity 0.35s;
 		}
 
-		& > :global(.shiki.has-focused:hover .line:not(.focused)) {
+		& :global(.shiki.has-focused:hover .line:not(.focused)) {
 			filter: blur(0);
 			opacity: 1;
 		}
 
-		& > :global(.shiki.has-diff .diff) {
+		& :global(.shiki.has-diff .diff) {
 			display: inline-block;
 			margin: 0 -24px;
 			padding: 0 24px;
@@ -93,6 +94,12 @@
 			}
 		}
 
+		& > pre {
+			--at-apply: border-2 border-solid border-gray-800 bg-yellow-100 rounded-lg shadow-small;
+			margin-bottom: 1.5rem;
+			margin-top: 1rem;
+		}
+
 		& > blockquote {
 			--at-apply: text-gray-500;
 		}
@@ -102,10 +109,6 @@
 			display: inline-block;
 			font-size: 0.875rem;
 			padding: 0 0.25rem;
-		}
-
-		& > p {
-			margin-block: 1rem;
 		}
 
 		& > h2 {
