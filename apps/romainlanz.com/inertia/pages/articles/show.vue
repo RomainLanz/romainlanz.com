@@ -18,7 +18,7 @@
 				:reading-time="5"
 			/>
 
-			<div v-html="vm.article.content"></div>
+			<div :class="$style.content" v-html="vm.article.content"></div>
 		</article>
 	</div>
 </template>
@@ -34,18 +34,15 @@
 		& > header {
 			margin-bottom: 5rem;
 		}
+	}
 
-		.codegroup {
-			margin-top: 1rem;
-			margin-bottom: 1.5rem;
-		}
-
-		a {
+	.content {
+		& > a {
 			cursor: pointer;
 			text-decoration: underline;
 		}
 
-		& > * > pre {
+		& > pre {
 			--at-apply: border-2 border-solid border-gray-800 bg-yellow-100 rounded-lg shadow-small;
 			font-size: 0.875rem;
 			margin-bottom: 1.5rem;
@@ -54,38 +51,76 @@
 			padding: 1rem 1.5rem;
 		}
 
-		& > * > blockquote {
+		& > :global(.shiki.has-focused .line:not(.focused)) {
+			filter: blur(0.095rem);
+			opacity: 0.7;
+			transition:
+				filter 0.35s,
+				opacity 0.35s;
+		}
+
+		& > :global(.shiki.has-focused:hover .line:not(.focused)) {
+			filter: blur(0);
+			opacity: 1;
+		}
+
+		& > :global(.shiki.has-diff .diff) {
+			display: inline-block;
+			margin: 0 -24px;
+			padding: 0 24px;
+			transition: background-color 0.5s;
+			width: calc(100% + 48px);
+
+			:global(&.add) {
+				--at-apply: important-bg-lime-300;
+				--shiki-dark-bg: transparent;
+			}
+
+			:global(&.remove) {
+				--at-apply: important-bg-red-300;
+				--shiki-dark-bg: transparent;
+				opacity: 0.7;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:global(&.add) {
+					--at-apply: important-bg-lime-800;
+				}
+
+				:global(&.remove) {
+					--at-apply: important-bg-red-800;
+				}
+			}
+		}
+
+		& > blockquote {
 			--at-apply: text-gray-500;
 		}
 
-		& > * > p code {
+		p code {
 			--at-apply: text-yellow-900 bg-yellow-400 rounded;
 			display: inline-block;
 			font-size: 0.875rem;
 			padding: 0 0.25rem;
 		}
 
-		& > * > .alert {
+		& > p {
 			margin-block: 1rem;
 		}
 
-		& > * > p {
-			margin-block: 1rem;
-		}
-
-		& > * > h2 {
+		& > h2 {
 			font-size: 2.75rem;
 			margin-top: 3.75rem;
 			margin-bottom: 1.75rem;
 		}
 
-		& > * > h3 {
+		& > h3 {
 			font-size: 2.25rem;
 			margin-top: 2.5rem;
 			margin-bottom: 1.25rem;
 		}
 
-		& > * > h4 {
+		& > h4 {
 			font-size: 1.75rem;
 			margin-top: 2rem;
 			margin-bottom: 1rem;
