@@ -5,9 +5,8 @@ import {
 	transformerNotationFocus,
 	transformerNotationHighlight,
 } from '@shikijs/transformers';
+import rehypeRaw from 'rehype-raw';
 import rehypeStringify from 'rehype-stringify';
-import remarkDirective from 'remark-directive';
-import remarkDirectiveRehype from 'remark-directive-rehype';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
@@ -16,10 +15,8 @@ import { unified } from 'unified';
 export class MarkdownCompiler {
 	static #processor = unified()
 		.use(remarkParse)
-		.use(remarkDirective)
-		.use(remarkDirectiveRehype)
 		.use(remarkGfm)
-		.use(remarkRehype)
+		.use(remarkRehype, { allowDangerousHtml: true })
 		.use(rehypeShiki, {
 			themes: {
 				light: 'catppuccin-latte', //'rose-pine-dawn',
@@ -32,6 +29,7 @@ export class MarkdownCompiler {
 				transformerMetaHighlight(),
 			],
 		})
+		.use(rehypeRaw)
 		.use(rehypeStringify);
 
 	toHtml(content: string) {
