@@ -13,16 +13,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Base: Story = {
-	argTypes: {
-		isLive: {
-			type: 'boolean',
-		},
-	},
-	args: {
-		isLive: true,
-	},
-};
+export const Base: Story = {};
 
 export const Connected: Story = {
 	argTypes: {
@@ -31,9 +22,6 @@ export const Connected: Story = {
 			avatarUrl: 'https://avatars.githubusercontent.com/u/2793951?v=4',
 			isAdmin: true,
 		},
-		isLive: {
-			type: 'boolean',
-		},
 	},
 	args: {
 		user: {
@@ -41,6 +29,5 @@ export const Connected: Story = {
 			avatarUrl: 'https://avatars.githubusercontent.com/u/2793951?v=4',
 			isAdmin: true,
 		},
-		isLive: true,
 	},
 };
