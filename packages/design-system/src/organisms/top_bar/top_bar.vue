@@ -1,13 +1,13 @@
 <script lang="ts"></script>
 
 <script lang="ts" setup>
-		import { Link } from '@inertiajs/vue3';
-		import Logo from '../../atoms/logo/logo.vue';
-	w	import UserActionMenu, { type UserActionMenuProps } from '../../molecules/user_action_menu/user_action_menu.vue';
+	import { Link } from '@inertiajs/vue3';
+	import Logo from '../../atoms/logo/logo.vue';
+	import UserActionMenu, { type UserActionMenuProps } from '../../molecules/user_action_menu/user_action_menu.vue';
 
-		defineProps<{
-			user?: UserActionMenuProps['user'] | null;
-		}>();
+	defineProps<{
+		user?: UserActionMenuProps['user'] | null;
+	}>();
 </script>
 
 <template>
