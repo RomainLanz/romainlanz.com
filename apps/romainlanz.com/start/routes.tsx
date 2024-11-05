@@ -1,6 +1,6 @@
 import './routes/admin.js';
 import './routes/app.js';
-import './routes/partials.js';
+import './routes/fragments.js';
 import router from '@adonisjs/core/services/router';
 import { middleware } from '#start/kernel';
 
