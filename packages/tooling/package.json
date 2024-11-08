@@ -7,11 +7,11 @@
     "./unocss": "./src/unocss/unocss.config.ts"
   },
   "dependencies": {
-    "unocss": "catalog:"
+    "unocss": "^0.63.6"
   },
   "devDependencies": {
-    "@swc/core": "catalog:",
-    "typescript": "catalog:"
+    "@swc/core": "^1.7.39",
+    "typescript": "~5.6.3"
   },
   "volta": {
     "extends": "../../package.json"

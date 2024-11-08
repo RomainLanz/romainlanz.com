@@ -41,18 +41,18 @@
   },
   "dependencies": {
     "@ark-ui/vue": "^4.2.0",
-    "@inertiajs/vue3": "catalog:",
+    "@inertiajs/vue3": "next",
     "@rlanz/rpc": "workspace:*",
     "@rlanz/site": "workspace:*",
-    "@tuyau/client": "catalog:",
-    "@tuyau/inertia": "catalog:",
+    "@tuyau/client": "^0.1.2",
+    "@tuyau/inertia": "^0.0.2",
     "tailwind-variants": "^0.2.1",
-    "vue": "catalog:"
+    "vue": "^3.5.12"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^3.1.0",
+    "@chromatic-com/storybook": "^3.2.2",
     "@rlanz/tooling": "workspace:^",
-    "@storybook/addon-essentials": "^8.3.6",
+    "@storybook/addon-essentials": "^8.4.2",
     "@storybook/addon-interactions": "^8.3.6",
     "@storybook/addon-links": "^8.3.6",
     "@storybook/addon-onboarding": "^8.3.6",
@@ -63,10 +63,10 @@
     "@vitejs/plugin-vue": "^5.1.4",
     "prettier": "^3.3.3",
     "storybook": "^8.3.6",
-    "typescript": "catalog:",
-    "unocss": "catalog:",
-    "vite": "catalog:",
-    "vue-tsc": "catalog:"
+    "typescript": "~5.6.3",
+    "unocss": "^0.63.6",
+    "vite": "^5.4.10",
+    "vue-tsc": "^2.1.6"
   },
   "volta": {
     "extends": "../../package.json"
