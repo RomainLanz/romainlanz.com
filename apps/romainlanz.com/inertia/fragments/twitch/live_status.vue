@@ -5,5 +5,5 @@
 </script>
 
 <template>
-	<LiveStatus :is-live />
+	<LiveStatus v-if="isLive" />
 </template>
