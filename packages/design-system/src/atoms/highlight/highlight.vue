@@ -3,11 +3,13 @@
 	import { colors } from '../../tokens.js';
 	import { computed } from 'vue';
 
-	const { color } = defineProps<{
+	const { color, rotation = -2 } = defineProps<{
 		color: string;
+		rotation?: number;
 	}>();
 
 	const colorHex = computed(() => delve(colors, color));
+	const rotateDeg = computed(() => `${rotation}deg`);
 </script>
 
 <template>
@@ -27,7 +29,7 @@
 			height: 95%;
 			margin-left: -2.5%;
 			position: absolute;
-			transform: rotate(-2deg);
+			transform: rotate(v-bind(rotateDeg));
 			transition: transform 300ms ease-in-out;
 			width: 105%;
 			will-change: transform;
