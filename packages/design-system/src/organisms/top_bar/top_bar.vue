@@ -16,7 +16,7 @@
 			<div class="flex items-center gap-4">
 				<Link class="flex items-center gap-2" href="/">
 					<Logo />
-					<span class="text-gray-800 text-xl font-bold">Romain Lanz</span>
+					<span class="text-gray-800 text-xl font-bold hidden xs:block">Romain Lanz</span>
 				</Link>
 
 				<slot name="after-logo" />

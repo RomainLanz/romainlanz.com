@@ -39,7 +39,7 @@
 	<Dropdown id="user_action_menu" :actions="actions">
 		<Button class="flex items-center gap-2" color="yellow">
 			<Avatar :url="user.avatarUrl" />
-			<span>{{ user.name }}</span>
+			<span class="hidden min-[460px]:inline-block">{{ user.name }}</span>
 			<Icon name="dropdown" />
 		</Button>
 	</Dropdown>
