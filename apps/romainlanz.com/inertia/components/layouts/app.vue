@@ -9,7 +9,7 @@
 </script>
 
 <template>
-	<TopBar :user="currentUser" :is-live="false">
+	<TopBar :user="currentUser">
 		<template #after-logo>
 			<LoadFragment source="/live/status" />
 		</template>

@@ -10,7 +10,7 @@
 </script>
 
 <template>
-	<TopBar :user="currentUser" :is-live="false" />
+	<TopBar :user="currentUser" />
 
 	<main class="m-auto max-w-7xl px-4">
 		<h1 class="my-8 text-5xl text-gray-800">{{ pageTitle }}</h1>
