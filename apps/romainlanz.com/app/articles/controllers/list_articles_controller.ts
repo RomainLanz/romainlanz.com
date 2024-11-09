@@ -13,16 +13,20 @@ export default class ListArticlesController {
 
 	async render({ request, inertia }: HttpContext) {
 		const page = Number(request.input('page', 1));
+		const categorySlug = request.input('category', null);
+
+		const category = categorySlug ? await this.categoryRepository.findBySlug(categorySlug) : null;
 
 		const [articles, categories, allArticlesCount] = await Promise.all([
-			this.articleRepository.paginated(page, 4),
+			this.articleRepository.scopeCategory(category).paginated(page, 4),
 			this.categoryRepository.countWithArticles(),
 			this.articleRepository.count(),
 		]);
 
 		return inertia.render('articles/list', {
+			activeCategory: categorySlug,
+			activePage: page,
 			allArticlesCount,
-			page,
 			vm: ArticleListViewModel.fromDomain(articles, categories).serialize(),
 		});
 	}

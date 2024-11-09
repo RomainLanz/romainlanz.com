@@ -6,11 +6,20 @@
 	import { client } from '@rlanz/rpc/client';
 	import type { ArticleListViewModelSerialized } from '#articles/view_models/article_list_view_model';
 
-	defineProps<{
+	const {
+		activeCategory,
+		activePage = 1,
+		allArticlesCount,
+		vm,
+	} = defineProps<{
+		activeCategory: string | null;
+		activePage: number;
 		allArticlesCount: number;
-		page: number;
 		vm: ArticleListViewModelSerialized;
 	}>();
+
+	const paginationCount =
+		vm.categories.find((category) => category.slug === activeCategory)?.articleCount ?? allArticlesCount;
 
 	function onPageChange(page: number) {
 		const url = client.$url('articles.index', { query: { page } });
@@ -43,7 +52,7 @@
 					:reading-time="5"
 				/>
 
-				<Pagination :active-page="page" :count="allArticlesCount" @page-change="onPageChange" />
+				<Pagination :active-page="activePage" :count="paginationCount" @page-change="onPageChange" />
 			</section>
 		</div>
 	</div>

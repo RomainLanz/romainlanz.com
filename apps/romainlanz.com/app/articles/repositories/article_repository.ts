@@ -31,6 +31,8 @@ export type ArticleQueryResult = ResultOf<ArticleRepository, 'findBySlug'>;
 export type ArticleByIdQueryResult = ResultOf<ArticleRepository, 'findById'>;
 
 export class ArticleRepository {
+	#scopeCategory: Category | null = null;
+
 	async all() {
 		const articleRecords = await db.selectFrom('articles').select(['id', 'title', 'slug', 'published_at']).execute();
 
@@ -44,6 +46,12 @@ export class ArticleRepository {
 				content: null,
 			});
 		});
+	}
+
+	scopeCategory(category: Category | null) {
+		this.#scopeCategory = category;
+
+		return this;
 	}
 
 	async count() {
@@ -64,6 +72,11 @@ export class ArticleRepository {
 			.orderBy('published_at', 'desc')
 			.where('published_at', 'is not', null)
 			.where('published_at', '<=', new Date())
+			.$if(this.#scopeCategory !== null, (builder) => {
+				const categoryId = this.#scopeCategory!.getIdentifier().toString();
+				this.#scopeCategory = null;
+				return builder.where('category_id', '=', categoryId);
+			})
 			.offset((page - 1) * perPage)
 			.limit(perPage)
 			.execute();

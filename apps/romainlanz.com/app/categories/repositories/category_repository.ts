@@ -52,4 +52,18 @@ export class CategoryRepository {
 			});
 		});
 	}
+
+	async findBySlug(slug: string) {
+		const categoryRecord = await db
+			.selectFrom('categories')
+			.select(['id', 'name', 'slug'])
+			.where('slug', '=', slug)
+			.executeTakeFirstOrThrow();
+
+		return Category.create({
+			id: CategoryIdentifier.fromString(categoryRecord.id),
+			name: categoryRecord.name,
+			slug: categoryRecord.slug,
+		});
+	}
 }
