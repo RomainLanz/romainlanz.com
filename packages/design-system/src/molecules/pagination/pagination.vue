@@ -6,6 +6,7 @@
 		PaginationContext,
 		PaginationItem,
 		PaginationEllipsis,
+		type PaginationPageChangeDetails as PageChangeDetails,
 	} from '@ark-ui/vue/pagination';
 	import Button from '../../atoms/button/button.vue';
 	import Icon from '../../atoms/icon/icon.vue';
@@ -21,8 +22,12 @@
 		pageSize?: number;
 	}>();
 
-	function onPageChange(page: number) {
-		console.log(page);
+	const emits = defineEmits<{
+		pageChange: [number];
+	}>();
+
+	function onPageChange(details: PageChangeDetails) {
+		emits('pageChange', details.page);
 	}
 </script>
 
@@ -33,7 +38,7 @@
 		:count
 		:sibling-count="siblingCount"
 		:page-size="pageSize"
-		@on-page-change="onPageChange"
+		@page-change="onPageChange"
 	>
 		<PaginationPrevTrigger v-if="activePage !== 1" as-child>
 			<Button class="aspect-ratio-square" size="small" :flat="true">
