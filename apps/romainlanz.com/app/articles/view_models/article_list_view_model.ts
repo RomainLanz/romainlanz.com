@@ -1,3 +1,4 @@
+import { assertExists } from '@adonisjs/core/helpers/assert';
 import type { Article } from '#articles/domain/article';
 import type { Category } from '#categories/domain/category';
 
@@ -15,21 +16,30 @@ export class ArticleListViewModel {
 
 	serialize() {
 		return {
-			articles: this.articles.map((article) => ({
-				id: article.getIdentifier().toString(),
-				title: article.props.title,
-				summary: article.props.summary!,
-				slug: article.props.slug,
-				publishedAtHuman: article.props.publishedAt!.toFormat('DD'),
-				publishedAt: article.props.publishedAt!.set({ hour: 0, minute: 0, second: 0, millisecond: 0 }).toISO(),
-			})),
-			categories: this.categories.map((category) => ({
-				id: category.getIdentifier().toString(),
-				name: category.props.name,
-				slug: category.props.slug,
-				illustrationName: category.props.illustrationName,
-				articleCount: category.props.articleCount || 0,
-			})),
+			articles: this.articles.map((article) => {
+				assertExists(article.props.summary, 'Summary is required');
+				assertExists(article.props.publishedAt, 'Published at is required');
+
+				return {
+					id: article.getIdentifier().toString(),
+					title: article.props.title,
+					summary: article.props.summary,
+					slug: article.props.slug,
+					publishedAtHuman: article.props.publishedAt.toFormat('DD'),
+					publishedAt: article.props.publishedAt.set({ hour: 0, minute: 0, second: 0, millisecond: 0 }).toISO()!,
+				};
+			}),
+			categories: this.categories.map((category) => {
+				assertExists(category.props.illustrationName, 'Illustration name is required');
+
+				return {
+					id: category.getIdentifier().toString(),
+					name: category.props.name,
+					slug: category.props.slug,
+					illustrationName: category.props.illustrationName,
+					articleCount: category.props.articleCount || 0,
+				};
+			}),
 		};
 	}
 }

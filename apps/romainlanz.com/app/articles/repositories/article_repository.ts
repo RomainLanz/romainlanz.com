@@ -46,6 +46,15 @@ export class ArticleRepository {
 		});
 	}
 
+	async count() {
+		const countQueryResult = await db
+			.selectFrom('articles')
+			.select((builder) => builder.fn.count('articles.id').as('count'))
+			.execute();
+
+		return Number(countQueryResult[0].count);
+	}
+
 	async paginated(page: number, perPage: number) {
 		const articleRecords = await db
 			.selectFrom('articles')

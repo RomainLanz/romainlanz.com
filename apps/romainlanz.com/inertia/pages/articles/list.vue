@@ -1,11 +1,16 @@
 <script lang="ts" setup>
 	import ArticleCard from '@rlanz/design-system/article-card';
 	import CategoryListing from '@rlanz/design-system/category-listing';
+	import Pagination from '@rlanz/design-system/pagination';
+	import { ref } from 'vue';
 	import type { ArticleListViewModelSerialized } from '#articles/view_models/article_list_view_model';
 
 	defineProps<{
+		allArticlesCount: number;
 		vm: ArticleListViewModelSerialized;
 	}>();
+
+	const activePage = ref(1);
 </script>
 
 <template>
@@ -16,10 +21,10 @@
 			<aside class="col-span-1">
 				<h3 class="text-sm font-bold uppercase">Categories</h3>
 
-				<CategoryListing :categories="vm.categories" />
+				<CategoryListing :categories="vm.categories" :all-articles-count />
 			</aside>
 
-			<section class="col-span-2">
+			<section class="col-span-2 flex flex-col gap-4">
 				<ArticleCard
 					v-for="article in vm.articles"
 					:key="article.id"
@@ -30,6 +35,8 @@
 					:excerpt="article.summary"
 					:reading-time="5"
 				/>
+
+				<Pagination :active-page="activePage" :count="allArticlesCount" />
 			</section>
 		</div>
 	</div>

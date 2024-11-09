@@ -7,18 +7,22 @@ import type { HttpContext } from '@adonisjs/core/http';
 @inject()
 export default class ListArticlesController {
 	constructor(
-		private repository: ArticleRepository,
+		private articleRepository: ArticleRepository,
 		private categoryRepository: CategoryRepository
 	) {}
 
 	async render({ request, inertia }: HttpContext) {
 		const page = request.input('page', 1);
 
-		const [articles, categories] = await Promise.all([
-			this.repository.paginated(page, 4),
+		const [articles, categories, allArticlesCount] = await Promise.all([
+			this.articleRepository.paginated(page, 4),
 			this.categoryRepository.countWithArticles(),
+			this.articleRepository.count(),
 		]);
 
-		return inertia.render('articles/list', { vm: ArticleListViewModel.fromDomain(articles, categories).serialize() });
+		return inertia.render('articles/list', {
+			allArticlesCount,
+			vm: ArticleListViewModel.fromDomain(articles, categories).serialize(),
+		});
 	}
 }
