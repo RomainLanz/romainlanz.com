@@ -9,7 +9,7 @@
 			<div class="flex flex-col gap-6">
 				<h1 class="text-5xl">
 					Apprenez le <Highlight color="red.300">JavaScript</Highlight> <br />
-					et <Highlight color="lime.300">Node.js</Highlight> à travers différents articles et vidéos
+					et <Highlight color="lime.300" :rotation="2">Node.js</Highlight> à travers différents articles et vidéos
 				</h1>
 
 				<div class="flex gap-4">
