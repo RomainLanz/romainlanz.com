@@ -1,16 +1,23 @@
 <script lang="ts" setup>
+	import { router } from '@inertiajs/vue3';
 	import ArticleCard from '@rlanz/design-system/article-card';
 	import CategoryListing from '@rlanz/design-system/category-listing';
 	import Pagination from '@rlanz/design-system/pagination';
-	import { ref } from 'vue';
+	import { client } from '@rlanz/rpc/client';
 	import type { ArticleListViewModelSerialized } from '#articles/view_models/article_list_view_model';
 
 	defineProps<{
 		allArticlesCount: number;
+		page: number;
 		vm: ArticleListViewModelSerialized;
 	}>();
 
-	const activePage = ref(1);
+	function onPageChange(page: number) {
+		const url = client.$url('articles.index', { query: { page } });
+		router.visit(url, {
+			preserveScroll: true,
+		});
+	}
 </script>
 
 <template>
@@ -36,7 +43,7 @@
 					:reading-time="5"
 				/>
 
-				<Pagination :active-page="activePage" :count="allArticlesCount" />
+				<Pagination :active-page="page" :count="allArticlesCount" @page-change="onPageChange" />
 			</section>
 		</div>
 	</div>

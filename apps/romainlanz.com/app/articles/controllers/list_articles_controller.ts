@@ -12,7 +12,7 @@ export default class ListArticlesController {
 	) {}
 
 	async render({ request, inertia }: HttpContext) {
-		const page = request.input('page', 1);
+		const page = Number(request.input('page', 1));
 
 		const [articles, categories, allArticlesCount] = await Promise.all([
 			this.articleRepository.paginated(page, 4),
@@ -22,6 +22,7 @@ export default class ListArticlesController {
 
 		return inertia.render('articles/list', {
 			allArticlesCount,
+			page,
 			vm: ArticleListViewModel.fromDomain(articles, categories).serialize(),
 		});
 	}
