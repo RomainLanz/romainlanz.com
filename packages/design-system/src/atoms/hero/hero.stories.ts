@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/vue3';
 
 const meta = {
 	component: Hero,
-	title: 'Molecules/Hero',
+	title: 'Atoms/Hero',
 } as Meta<typeof Hero>;
 
 export default meta;

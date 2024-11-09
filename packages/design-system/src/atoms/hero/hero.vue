@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-	import Button from '../../atoms/button/button.vue';
 	import heroImage from './hero.svg';
+	import Highlight from '../highlight/highlight.vue';
 </script>
 
 <template>
@@ -8,13 +8,12 @@
 		<div class="flex">
 			<div class="flex flex-col gap-6">
 				<h1 class="text-5xl">
-					Apprenez le <span :class="$style.funny">JavaScript</span> <br />
-					à travers différents articles et vidéos
+					Apprenez le <Highlight color="red.300">JavaScript</Highlight> <br />
+					et <Highlight color="lime.300">Node.js</Highlight> à travers différents articles et vidéos
 				</h1>
 
 				<div class="flex gap-4">
-					<Button color="violet" href="/">Articles</Button>
-					<Button color="yellow" href="/">Contact</Button>
+					<slot name="actions" />
 				</div>
 			</div>
 
