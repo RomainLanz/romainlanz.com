@@ -30,6 +30,7 @@
     "./footer": "./src/molecules/footer/footer.vue",
     "./headline": "./src/molecules/headline/headline.vue",
     "./hero": "./src/molecules/hero/hero.vue",
+    "./pagination": "./src/molecules/pagination/pagination.vue",
     "./user-action-menu": "./src/molecules/user_action_menu/user_action_menu.vue",
     "./top-bar": "./src/organisms/top_bar/top_bar.vue"
   },

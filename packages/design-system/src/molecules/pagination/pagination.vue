@@ -1,0 +1,62 @@
+<script lang="ts" setup>
+	import {
+		PaginationRoot,
+		PaginationNextTrigger,
+		PaginationPrevTrigger,
+		PaginationContext,
+		PaginationItem,
+		PaginationEllipsis,
+	} from '@ark-ui/vue/pagination';
+	import Button from '../../atoms/button/button.vue';
+	import Icon from '../../atoms/icon/icon.vue';
+
+	const {
+		activePage,
+		siblingCount = 1,
+		pageSize = 4,
+	} = defineProps<{
+		activePage: number;
+		count: number;
+		siblingCount?: number;
+		pageSize?: number;
+	}>();
+
+	function onPageChange(page: number) {
+		console.log(page);
+	}
+</script>
+
+<template>
+	<PaginationRoot
+		class="flex gap-4 font-bold items-center"
+		:page="activePage"
+		:count
+		:sibling-count="siblingCount"
+		:page-size="pageSize"
+		@on-page-change="onPageChange"
+	>
+		<PaginationPrevTrigger v-if="activePage !== 1" as-child>
+			<Button class="aspect-ratio-square" size="small" :flat="true">
+				<Icon name="chevron-right" class="rotate-180" />
+			</Button>
+		</PaginationPrevTrigger>
+
+		<PaginationContext v-slot="pagination">
+			<template v-for="(page, index) in pagination.pages">
+				<PaginationItem v-if="page.type === 'page'" :key="index" :value="page.value" :type="page.type" as-child>
+					<Button class="!text-lg aspect-ratio-square" size="small" :flat="page.value !== activePage">
+						{{ page.value }}
+					</Button>
+				</PaginationItem>
+
+				<PaginationEllipsis v-else :key="'e' + index" :index="index"> &#8230; </PaginationEllipsis>
+			</template>
+		</PaginationContext>
+
+		<PaginationNextTrigger v-if="activePage !== count" as-child>
+			<Button class="aspect-ratio-square" size="small" :flat="true">
+				<Icon name="chevron-right" />
+			</Button>
+		</PaginationNextTrigger>
+	</PaginationRoot>
+</template>
