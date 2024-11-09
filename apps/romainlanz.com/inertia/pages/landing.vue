@@ -22,14 +22,14 @@
 	<Hero />
 
 	<section class="m-auto max-w-7xl px-4">
-		<div class="flex items-baseline justify-between">
+		<div class="mb-10 flex items-baseline justify-between">
 			<h3 class="text-5xl text-gray-800">Mes derniers articles</h3>
 
 			<Link :href="allArticlesUrl" prefetch>Tous</Link>
 		</div>
 
 		<div class="flex gap-6">
-			<div class="flex flex-col gap-6 w-1/2">
+			<div class="w-1/2 flex flex-col gap-6">
 				<ArticleCard
 					v-if="vm.articles[0]"
 					:key="vm.articles[0].id"
@@ -52,7 +52,7 @@
 					:reading-time="5"
 				/>
 			</div>
-			<div class="flex flex-col gap-6 w-1/2">
+			<div class="w-1/2 flex flex-col gap-6">
 				<ArticleCard
 					v-if="vm.articles[1]"
 					:key="vm.articles[1].id"
