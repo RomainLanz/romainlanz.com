@@ -6,7 +6,7 @@ interface Properties {
 	id: CategoryIdentifier;
 	name: string;
 	slug: string;
-	illustrationName: IllustrationName | null;
+	illustrationName?: IllustrationName | null;
 	articleCount?: number;
 }
 
