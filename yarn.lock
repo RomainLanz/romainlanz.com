@@ -365,9 +365,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/inertia@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@adonisjs/inertia@npm:2.0.0"
+"@adonisjs/inertia@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@adonisjs/inertia@npm:2.0.1"
   dependencies:
     "@poppinss/utils": "npm:^6.8.3"
     "@tuyau/utils": "npm:^0.0.4"
@@ -385,7 +385,7 @@ __metadata:
   peerDependenciesMeta:
     "@japa/api-client":
       optional: true
-  checksum: 10c0/1150624c589a173ddf4fb1fc3c86d55030f92c9737993386bf310d330600a681704227393f61104a5f8b346e6c9aa5d9073255fd4332bdf99d5f4442c607b40b
+  checksum: 10c0/8ec36864a732be1ffb07653829fed6ca9ae40300b2036ee3bb8749020568d8b6fea2f83ca89cb422dd5d2139423e89c74c37580f61ca1922c251adb2ca15bbd8
   languageName: node
   linkType: hard
 
@@ -2239,7 +2239,7 @@ __metadata:
     "@adonisjs/cache": "npm:1.0.0-4"
     "@adonisjs/core": "npm:^6.14.1"
     "@adonisjs/i18n": "npm:^2.1.1"
-    "@adonisjs/inertia": "npm:2.0.0"
+    "@adonisjs/inertia": "npm:^2.0.1"
     "@adonisjs/lucid": "npm:^20.6.0"
     "@adonisjs/mail": "npm:^9.2.2"
     "@adonisjs/session": "npm:^7.5.0"
@@ -12279,30 +12279,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pino-pretty@npm:*":
-  version: 12.1.0
-  resolution: "pino-pretty@npm:12.1.0"
-  dependencies:
-    colorette: "npm:^2.0.7"
-    dateformat: "npm:^4.6.3"
-    fast-copy: "npm:^3.0.2"
-    fast-safe-stringify: "npm:^2.1.1"
-    help-me: "npm:^5.0.0"
-    joycon: "npm:^3.1.1"
-    minimist: "npm:^1.2.6"
-    on-exit-leak-free: "npm:^2.1.0"
-    pino-abstract-transport: "npm:^2.0.0"
-    pump: "npm:^3.0.0"
-    readable-stream: "npm:^4.0.0"
-    secure-json-parse: "npm:^2.4.0"
-    sonic-boom: "npm:^4.0.1"
-    strip-json-comments: "npm:^3.1.1"
-  bin:
-    pino-pretty: bin.js
-  checksum: 10c0/76518ced4e6612ff29918288acd0cd3a89f9b3e81024b2e2f364ccd6547c2f8977d41875c005da10ee9c9bdd7b020dfdca0917f3c2f8b003d2e42e60696626c6
-  languageName: node
-  linkType: hard
-
 "pino-pretty@npm:^11.3.0":
   version: 11.3.0
   resolution: "pino-pretty@npm:11.3.0"
@@ -14404,7 +14380,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:*, tslib@npm:2, tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.3.1, tslib@npm:^2.4.0, tslib@npm:^2.6.2":
+"tslib@npm:2, tslib@npm:^2.0.0, tslib@npm:^2.0.1, tslib@npm:^2.3.1, tslib@npm:^2.4.0, tslib@npm:^2.6.2":
   version: 2.8.1
   resolution: "tslib@npm:2.8.1"
   checksum: 10c0/9c4759110a19c53f992d9aae23aac5ced636e99887b51b9e61def52611732872ff7668757d4e4c61f19691e36f4da981cd9485e869b4a7408d689f6bf1f14e62
