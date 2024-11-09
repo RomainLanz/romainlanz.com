@@ -11,6 +11,7 @@
     "./client-only": "./src/atoms/client_only/client_only.ts",
     "./codeblock": "./src/atoms/codeblock/codeblock.vue",
     "./dropdown": "./src/atoms/dropdown/dropdown.vue",
+    "./hero": "./src/atoms/hero/hero.vue",
     "./icon": "./src/atoms/icon/icon.vue",
     "./icon-name": "./src/atoms/icon/icon_name.vue",
     "./illustration": "./src/atoms/illustration/illustration.vue",
@@ -29,7 +30,6 @@
     "./field-select": "./src/molecules/field_select/field_select.vue",
     "./footer": "./src/molecules/footer/footer.vue",
     "./headline": "./src/molecules/headline/headline.vue",
-    "./hero": "./src/molecules/hero/hero.vue",
     "./pagination": "./src/molecules/pagination/pagination.vue",
     "./user-action-menu": "./src/molecules/user_action_menu/user_action_menu.vue",
     "./top-bar": "./src/organisms/top_bar/top_bar.vue"
