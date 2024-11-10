@@ -92,12 +92,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #app {
-	isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  isolation: isolate;
+  min-height: 100vh;
 }
 
 a {
-	color: inherit;
-	text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 /*

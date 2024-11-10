@@ -19,7 +19,7 @@
 		</template>
 	</TopBar>
 
-	<main>
+	<main class="grow">
 		<slot />
 	</main>
 
