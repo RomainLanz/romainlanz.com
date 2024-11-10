@@ -1,11 +1,13 @@
 <script lang="ts" setup>
 	import { resolvePageComponent } from '@adonisjs/inertia/helpers';
+	import { usePage } from '@inertiajs/vue3';
 	import { markRaw, onMounted, ref } from 'vue';
 
 	const { source } = defineProps<{
 		source: string;
 	}>();
 
+	const assetVersion = usePage().version;
 	const componentProps = ref<any>(null);
 	const component = ref<any>(null);
 
@@ -14,6 +16,7 @@
 			headers: {
 				'X-Inertia': 'true',
 				'X-Inertia-Fragment': 'true',
+				'X-Inertia-Version': assetVersion,
 			},
 		}).then((r) => r.json());
 
