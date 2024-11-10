@@ -23,6 +23,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {};
 
+export const Textarea: Story = {
+	args: {
+		type: 'textarea',
+	},
+};
+
 export const WithLabel: Story = {
 	args: {
 		label: 'Label',
