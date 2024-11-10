@@ -22,7 +22,7 @@
 		vm.categories.find((category) => category.slug === activeCategory)?.articleCount ?? allArticlesCount;
 
 	function onPageChange(page: number) {
-		const url = client.$url('articles.index', { query: { page } });
+		const url = client.$url('articles.index', { query: { page, category: activeCategory } });
 		router.visit(url, {
 			preserveScroll: true,
 		});
