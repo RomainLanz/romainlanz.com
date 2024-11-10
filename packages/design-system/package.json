@@ -13,6 +13,7 @@
     "./dropdown": "./src/atoms/dropdown/dropdown.vue",
     "./error-code": "./src/atoms/error_code/error_code.vue",
     "./hero": "./src/atoms/hero/hero.vue",
+    "./highlight": "./src/atoms/highlight/highlight.vue",
     "./icon": "./src/atoms/icon/icon.vue",
     "./icon-name": "./src/atoms/icon/icon_name.vue",
     "./illustration": "./src/atoms/illustration/illustration.vue",
