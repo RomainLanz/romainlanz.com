@@ -21,7 +21,7 @@
 		</div>
 
 		<div class="relative">
-			<Illustration class="absolute left-[-162px] w-[130px]" :name="category" />
+			<Illustration class="hidden xl:block absolute left-[-162px] w-[130px]" :name="category" />
 			<h1 class="text-6xl max-w-4xl">{{ title }}</h1>
 		</div>
 
