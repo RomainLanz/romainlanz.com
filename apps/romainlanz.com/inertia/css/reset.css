@@ -53,6 +53,36 @@ h6 {
 	overflow-wrap: break-word;
 }
 
+h1 {
+  font-size: 3.5rem;
+  line-height: 64px;
+}
+
+h2 {
+  font-size: 2.75rem;
+  line-height: 52px;
+}
+
+h3 {
+  font-size: 2.25rem;
+  line-height: 44px;
+}
+
+h4 {
+  font-size: 1.75rem;
+  line-height: 36px;
+}
+
+h5 {
+  font-size: 1.5rem;
+  line-height: 32px;
+}
+
+h6 {
+  font-size: 1rem;
+  line-height: 22px;
+}
+
 p {
   text-wrap: pretty;
 }
