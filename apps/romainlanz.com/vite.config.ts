@@ -1,9 +1,8 @@
-import AdonisJS from '@adonisjs/vite/client';
-import UnoCSS from 'unocss/vite';
-import Vue from '@vitejs/plugin-vue';
 import inertia from '@adonisjs/inertia/client';
+import AdonisJS from '@adonisjs/vite/client';
+import Vue from '@vitejs/plugin-vue';
+import UnoCSS from 'unocss/vite';
 import { defineConfig } from 'vite';
-import { getDirname } from '@adonisjs/core/helpers';
 
 export default defineConfig({
 	plugins: [
@@ -15,7 +14,7 @@ export default defineConfig({
 
 	resolve: {
 		alias: {
-			'~/': `${getDirname(import.meta.url)}/inertia/`,
+			'~/': `${import.meta.dirname}/inertia/`,
 		},
 	},
 });
