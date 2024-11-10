@@ -35,7 +35,7 @@
 	<Dialog id="login_dialog" v-model="open" title="Se connecter">
 		<template #trigger>
 			<Button class="flex items-center gap-2" color="yellow">
-				<Icon name="user" />
+				<Icon class="hidden min-[415px]:block" name="user" />
 				<span>Se connecter</span>
 			</Button>
 		</template>
