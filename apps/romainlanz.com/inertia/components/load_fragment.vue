@@ -6,6 +6,7 @@
 		source: string;
 	}>();
 
+	const componentProps = ref<any>(null);
 	const component = ref<any>(null);
 
 	onMounted(async () => {
@@ -16,6 +17,7 @@
 			},
 		}).then((r) => r.json());
 
+		componentProps.value = response.props;
 		component.value = await resolvePageComponent(
 			`../fragments/${response.component}.vue`,
 			import.meta.glob('../fragments/**/*.vue')
@@ -28,5 +30,5 @@
 		<slot name="fallback" />
 	</div>
 
-	<Component :is="component" v-else />
+	<Component :is="component" v-bind="componentProps" v-else />
 </template>
