@@ -5,14 +5,9 @@ const meta = {
 	component: CategoryListing,
 	title: 'Molecules/CategoryListing',
 	args: {
+		allArticlesCount: 24,
+		activeCategory: null,
 		categories: [
-			{
-				id: '1',
-				name: 'All',
-				slug: 'all',
-				illustrationName: 'all',
-				articleCount: 24,
-			},
 			{
 				id: '2',
 				name: 'Productivity',
