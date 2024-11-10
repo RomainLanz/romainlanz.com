@@ -28,7 +28,7 @@
 		font-size: 1.125rem;
 		line-height: 26px;
 		margin-inline: auto;
-		width: 80ch;
+		max-width: 80ch;
 		margin-top: 7rem;
 
 		& > header {
