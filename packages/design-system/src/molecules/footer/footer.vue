@@ -30,6 +30,17 @@
 					</ul>
 				</FooterSection>
 
+				<FooterSection title="Navigation">
+					<ul class="flex flex-col gap-1 text-sm list-none pl-0">
+						<li>
+							<Link href="/contact">Contact</Link>
+						</li>
+						<li>
+							<Link href="/a-propos">À Propos</Link>
+						</li>
+					</ul>
+				</FooterSection>
+
 				<FooterSection title="Partners">
 					<ul class="flex flex-col gap-1 text-sm list-none pl-0">
 						<li>
