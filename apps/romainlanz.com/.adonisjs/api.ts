@@ -1,13 +1,57 @@
 import type { MakeTuyauRequest, MakeTuyauResponse } from '@tuyau/utils/types'
 import type { InferInput } from '@vinejs/vine/types'
 
+type LiveStatusGetHead = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/twitch/controllers/get_live_status_controller.ts').default['render']>
+}
+type AdminDashboardGetHead = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/admin/pages/controllers/pages_controller.ts').default['dashboard']>
+}
+type AdminArticlesGetHead = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/admin/articles/controllers/list_articles_controller.ts').default['render']>
+}
+type AdminArticlesCreateGetHead = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/admin/articles/controllers/store_article_controller.ts').default['render']>
+}
+type AdminArticlesPost = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/admin/articles/controllers/store_article_controller.ts').default['execute']>
+}
+type AdminArticlesIdEditGetHead = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/admin/articles/controllers/update_article_controller.ts').default['render']>
+}
+type AdminArticlesIdPut = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/admin/articles/controllers/update_article_controller.ts').default['execute']>
+}
 type AdminRedirectsIdDelete = {
   request: unknown
   response: MakeTuyauResponse<import('../app/redirects/controllers/delete_redirect_controller.ts').default['handle']>
 }
-type NewslettersIdConfirmGetHead = {
+type ArticlesGetHead = {
   request: unknown
-  response: MakeTuyauResponse<import('../app/newsletter/controllers/confirm_email_controller.ts').default['execute']>
+  response: MakeTuyauResponse<import('../app/articles/controllers/list_articles_controller.ts').default['render']>
+}
+type ArticlesIdGetHead = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/articles/controllers/show_article_controller.ts').default['render']>
+}
+type ContactGetHead = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/pages/controllers/contact_controller.ts').default['render']>
+}
+type AProposGetHead = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/pages/controllers/about_controller.ts').default['render']>
+}
+type LoginPost = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/auth/controllers/login_controller.ts').default['execute']>
 }
 type LogoutDelete = {
   request: unknown
@@ -22,7 +66,45 @@ type ApiAssetsImagesPost = {
   response: MakeTuyauResponse<import('../app/media/controllers/upload_image_controller.ts').default['handle']>
 }
 export interface ApiDefinition {
+  'live': {
+    'status': {
+      '$url': {
+      };
+      '$get': LiveStatusGetHead;
+      '$head': LiveStatusGetHead;
+    };
+  };
   'admin': {
+    'dashboard': {
+      '$url': {
+      };
+      '$get': AdminDashboardGetHead;
+      '$head': AdminDashboardGetHead;
+    };
+    'articles': {
+      '$url': {
+      };
+      '$get': AdminArticlesGetHead;
+      '$head': AdminArticlesGetHead;
+      'create': {
+        '$url': {
+        };
+        '$get': AdminArticlesCreateGetHead;
+        '$head': AdminArticlesCreateGetHead;
+      };
+      '$post': AdminArticlesPost;
+      ':id': {
+        'edit': {
+          '$url': {
+          };
+          '$get': AdminArticlesIdEditGetHead;
+          '$head': AdminArticlesIdEditGetHead;
+        };
+        '$url': {
+        };
+        '$put': AdminArticlesIdPut;
+      };
+    };
     'redirects': {
       ':id': {
         '$url': {
@@ -31,15 +113,34 @@ export interface ApiDefinition {
       };
     };
   };
-  'newsletters': {
-    ':id': {
-      'confirm': {
-        '$url': {
-        };
-        '$get': NewslettersIdConfirmGetHead;
-        '$head': NewslettersIdConfirmGetHead;
-      };
+  'articles': {
+    '$url': {
     };
+    '$get': ArticlesGetHead;
+    '$head': ArticlesGetHead;
+    ':slug': {
+      '$url': {
+      };
+      '$get': ArticlesIdGetHead;
+      '$head': ArticlesIdGetHead;
+    };
+  };
+  'contact': {
+    '$url': {
+    };
+    '$get': ContactGetHead;
+    '$head': ContactGetHead;
+  };
+  'a-propos': {
+    '$url': {
+    };
+    '$get': AProposGetHead;
+    '$head': AProposGetHead;
+  };
+  'login': {
+    '$url': {
+    };
+    '$post': LoginPost;
   };
   'logout': {
     '$url': {
@@ -70,49 +171,49 @@ const routes = [
     name: 'live.status',
     path: '/live/status',
     method: ["GET","HEAD"],
-    types: {} as unknown,
+    types: {} as LiveStatusGetHead,
   },
   {
     params: [],
     name: 'admin.pages.dashboard',
     path: '/admin/dashboard',
     method: ["GET","HEAD"],
-    types: {} as unknown,
+    types: {} as AdminDashboardGetHead,
   },
   {
     params: [],
     name: 'admin.articles.index',
     path: '/admin/articles',
     method: ["GET","HEAD"],
-    types: {} as unknown,
+    types: {} as AdminArticlesGetHead,
   },
   {
     params: [],
     name: 'admin.articles.create',
     path: '/admin/articles/create',
     method: ["GET","HEAD"],
-    types: {} as unknown,
+    types: {} as AdminArticlesCreateGetHead,
   },
   {
     params: [],
     name: 'admin.articles.store',
     path: '/admin/articles',
     method: ["POST"],
-    types: {} as unknown,
+    types: {} as AdminArticlesPost,
   },
   {
     params: ["id"],
     name: 'admin.articles.edit',
     path: '/admin/articles/:id/edit',
     method: ["GET","HEAD"],
-    types: {} as unknown,
+    types: {} as AdminArticlesIdEditGetHead,
   },
   {
     params: ["id"],
     name: 'admin.articles.update',
     path: '/admin/articles/:id',
     method: ["PUT"],
-    types: {} as unknown,
+    types: {} as AdminArticlesIdPut,
   },
   {
     params: [],
@@ -154,42 +255,35 @@ const routes = [
     name: 'articles.index',
     path: '/articles',
     method: ["GET","HEAD"],
-    types: {} as unknown,
+    types: {} as ArticlesGetHead,
   },
   {
     params: ["slug"],
     name: 'articles.show',
     path: '/articles/:slug',
     method: ["GET","HEAD"],
-    types: {} as unknown,
+    types: {} as ArticlesIdGetHead,
   },
   {
     params: [],
-    name: 'newsletters.register',
-    path: '/newsletters/register',
+    name: 'pages.contact',
+    path: '/contact',
     method: ["GET","HEAD"],
-    types: {} as unknown,
+    types: {} as ContactGetHead,
   },
   {
     params: [],
-    name: 'newsletters.store',
-    path: '/newsletters/register',
-    method: ["POST"],
-    types: {} as unknown,
-  },
-  {
-    params: ["id"],
-    name: 'newsletters.confirm',
-    path: '/newsletters/:id/confirm',
+    name: 'pages.about',
+    path: '/a-propos',
     method: ["GET","HEAD"],
-    types: {} as NewslettersIdConfirmGetHead,
+    types: {} as AProposGetHead,
   },
   {
     params: [],
     name: 'auth.login',
     path: '/login',
-    method: ["GET","HEAD"],
-    types: {} as unknown,
+    method: ["POST"],
+    types: {} as LoginPost,
   },
   {
     params: [],

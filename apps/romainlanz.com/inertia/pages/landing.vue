@@ -1,19 +1,19 @@
 <script setup lang="ts">
 	import { Head } from '@inertiajs/vue3';
 	import ArticleCard from '@rlanz/design-system/article-card';
+	import Button from '@rlanz/design-system/button';
 	import Hero from '@rlanz/design-system/hero';
 	import Link from '@rlanz/design-system/link';
 	import { client } from '@rlanz/rpc/client';
-	import { computed } from 'vue';
 	import type { LandingViewModelSerialized } from '#pages/view_models/landing_view_model';
 
 	defineProps<{
 		vm: LandingViewModelSerialized;
 	}>();
 
-	const allArticlesUrl = computed(() => {
-		return client.$url('articles.index');
-	});
+	const contactUrl = client.$url('pages.contact');
+	const aboutUrl = client.$url('pages.about');
+	const allArticlesUrl = client.$url('articles.index');
 </script>
 
 <template>
@@ -21,7 +21,8 @@
 
 	<Hero>
 		<template #actions>
-			<!-- TODO: Add CTA when available -->
+			<Button :href="contactUrl" color="violet">Contact</Button>
+			<Button :href="aboutUrl" color="cyan">À propos</Button>
 		</template>
 	</Hero>
 
