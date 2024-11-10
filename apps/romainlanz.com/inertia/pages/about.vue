@@ -19,9 +19,9 @@
 				Ce site est entièrement <Highlight color="cyan.300" :rotation="-1">Open Source</Highlight> et son code est
 				disponible <a href="https://github.com/RomainLanz/romainlanz.com" target="_blank" rel="nofollow">sur GitHub</a>,
 				afin que vous puissiez l'explorer et l'utiliser à des fins d'apprentissage. Le design a été réalisé par
-				<a href="#" target="_blank" rel="nofollow">Louis Burgard</a>, dont le travail apporte une touche moderne et
-				intuitive à l'expérience utilisateur. N'hésitez pas à contribuer ou à poser des questions, l'idée étant de
-				partager et d'apprendre ensemble.
+				<a href="https://bento.me/biip" target="_blank" rel="nofollow">Louis Burgard</a>, dont le travail apporte une
+				touche moderne et intuitive à l'expérience utilisateur. N'hésitez pas à contribuer ou à poser des questions,
+				l'idée étant de partager et d'apprendre ensemble.
 			</p>
 
 			<h2 id="mon-parcours">
