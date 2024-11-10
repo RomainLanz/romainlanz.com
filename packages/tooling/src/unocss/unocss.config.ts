@@ -3,7 +3,6 @@ import {
   presetIcons,
   presetWebFonts,
   transformerDirectives,
-  transformerVariantGroup,
   mergeConfigs,
   type UserConfig,
 } from "unocss";
@@ -23,6 +22,15 @@ export default (config: UserConfig = {}) =>
         borderRadius: {
           ms: "0.25rem",
         },
+
+        breakpoints: {
+          xs: "375px",
+          sm: "640px",
+          md: "768px",
+          lg: "1024px",
+          xl: "1280px",
+          "2xl": "1536px",
+        },
       },
 
       presets: [
@@ -40,6 +48,6 @@ export default (config: UserConfig = {}) =>
         }),
       ],
 
-      transformers: [transformerDirectives(), transformerVariantGroup()],
+      transformers: [transformerDirectives()],
     },
   ]);
