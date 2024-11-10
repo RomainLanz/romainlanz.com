@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-	import { useForm } from '@inertiajs/vue3';
+	import { Head, useForm } from '@inertiajs/vue3';
 	import Button from '@rlanz/design-system/button';
 	import ClientOnly from '@rlanz/design-system/client-only';
 	import Field from '@rlanz/design-system/field';
@@ -16,6 +16,8 @@
 </script>
 
 <template>
+	<Head title="Contact" />
+
 	<section class="mx-auto mt-24 max-w-[80ch] px-4">
 		<h1 class="mb-8">Contact</h1>
 

@@ -1,8 +1,11 @@
 <script setup lang="ts">
+	import { Head } from '@inertiajs/vue3';
 	import Highlight from '@rlanz/design-system/highlight';
 </script>
 
 <template>
+	<Head title="À propos" />
+
 	<section class="mx-auto mt-24 max-w-[80ch] px-4">
 		<h1 class="mb-8">À Propos</h1>
 

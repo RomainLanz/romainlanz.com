@@ -17,7 +17,7 @@
 </script>
 
 <template>
-	<Head title="Homepage" />
+	<Head title="Apprenez le JavaScript, TypeScript et Node.js" />
 
 	<Hero>
 		<template #actions>

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-	import { router } from '@inertiajs/vue3';
+	import { Head, router } from '@inertiajs/vue3';
 	import ArticleCard from '@rlanz/design-system/article-card';
 	import CategoryListing from '@rlanz/design-system/category-listing';
 	import Pagination from '@rlanz/design-system/pagination';
@@ -30,6 +30,8 @@
 </script>
 
 <template>
+	<Head title="Tous les articles" />
+
 	<div class="mx-auto max-w-7xl p-4">
 		<h1 class="mb-15 mt-27 border-b-2 border-gray-900 border-b-solid pb-6">Tous les articles</h1>
 

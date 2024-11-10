@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+	import { Head } from '@inertiajs/vue3';
 	import Headline from '@rlanz/design-system/headline';
 	import type { ArticleViewModelSerialized } from '#articles/view_models/article_view_model';
 
@@ -8,6 +9,8 @@
 </script>
 
 <template>
+	<Head :title="vm.article.title" />
+
 	<div class="mx-auto max-w-7xl px-4">
 		<article :class="$style.article">
 			<Headline
