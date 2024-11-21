@@ -1,6 +1,7 @@
 import './routes/admin.js';
 import './routes/app.js';
 import './routes/fragments.js';
+import './routes/paste.js';
 import router from '@adonisjs/core/services/router';
 import { middleware } from '#start/kernel';
 
@@ -18,7 +19,3 @@ router
 	.prefix('api')
 	.as('api')
 	.middleware([middleware.auth()]);
-
-// router.get('pastes/create', [PastesController, 'create']).as('pastes.create')
-// router.get('pastes/:id', [PastesController, 'show']).as('pastes.show')
-// router.post('pastes', [PastesController, 'store']).as('pastes.store')

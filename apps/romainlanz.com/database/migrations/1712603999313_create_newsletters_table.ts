@@ -1,5 +1,6 @@
-import { Kysely, sql } from 'kysely';
 import { NewsletterSubscriptionStatus } from '#newsletter/enums/newsletter_subscription_status';
+import { sql } from 'kysely';
+import type { Kysely } from 'kysely';
 
 export async function up(db: Kysely<any>): Promise<void> {
 	await db.schema

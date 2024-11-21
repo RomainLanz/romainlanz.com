@@ -40,6 +40,13 @@ export interface Newsletters {
   unsubscribe_token: string;
 }
 
+export interface Pastes {
+  content: string;
+  created_at: Timestamp;
+  id: string;
+  user_id: string | null;
+}
+
 export interface Redirects {
   created_at: Timestamp;
   id: Generated<string>;
@@ -75,6 +82,7 @@ export interface DB {
   articles: Articles;
   categories: Categories;
   newsletters: Newsletters;
+  pastes: Pastes;
   redirects: Redirects;
   tag_articles: TagArticles;
   tags: Tags;

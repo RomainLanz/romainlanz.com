@@ -19,6 +19,7 @@ export function setLayout(name: string, page: DefineComponent) {
 
 	if (name.includes('admin')) {
 		page.default.layout = AdminLayout;
+	} else if (name.includes('pastes')) {
 	} else {
 		page.default.layout = AppLayout;
 	}

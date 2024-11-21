@@ -32,9 +32,10 @@ void createInertiaApp({
 	},
 
 	setup({ el, App, props, plugin }) {
-		const app = props.initialPage.component.includes('admin')
-			? createApp({ render: () => h(App, props) })
-			: createSSRApp({ render: () => h(App, props) });
+		const app =
+			props.initialPage.component.includes('admin') || props.initialPage.component.includes('pastes')
+				? createApp({ render: () => h(App, props) })
+				: createSSRApp({ render: () => h(App, props) });
 
 		initiateApplication(app, plugin).mount(el);
 	},
