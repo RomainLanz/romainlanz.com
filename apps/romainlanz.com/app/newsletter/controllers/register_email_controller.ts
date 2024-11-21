@@ -1,6 +1,5 @@
 import { inject } from '@adonisjs/core';
 import vine from '@vinejs/vine';
-import { Newsletter } from '#views/pages/newsletter/newsletter';
 import { NewsletterRegistration } from '#newsletter/services/newsletter_registration';
 import type { HttpContext } from '@adonisjs/core/http';
 
@@ -15,7 +14,7 @@ export default class RegisterEmailController {
 	constructor(private service: NewsletterRegistration) {}
 
 	render() {
-		return <Newsletter.Register />;
+		// return <Newsletter.Register />;
 	}
 
 	async execute({ request }: HttpContext) {

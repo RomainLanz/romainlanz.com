@@ -1,5 +1,5 @@
 import { BaseEvent } from '@adonisjs/core/events';
-import { ApplicationService } from '@adonisjs/core/types';
+import type { ApplicationService } from '@adonisjs/core/types';
 
 export default class AppProvider {
 	constructor(protected app: ApplicationService) {}

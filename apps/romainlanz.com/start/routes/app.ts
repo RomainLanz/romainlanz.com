@@ -1,16 +1,15 @@
 import router from '@adonisjs/core/services/router';
 import { middleware } from '#start/kernel';
 
-const AboutController = () => import('#pages/controllers/about_controller');
-
 // region Controller's Imports
-const ConfirmEmailController = () => import('#newsletter/controllers/confirm_email_controller');
+const AboutController = () => import('#pages/controllers/about_controller');
+// const ConfirmEmailController = () => import('#newsletter/controllers/confirm_email_controller');
 const ContactController = () => import('#pages/controllers/contact_controller');
 const LandingController = () => import('#pages/controllers/landing_controller');
 const ListArticlesController = () => import('#articles/controllers/list_articles_controller');
 const LoginController = () => import('#auth/controllers/login_controller');
 const LogoutController = () => import('#auth/controllers/logout_controller');
-const RegisterEmailController = () => import('#newsletter/controllers/register_email_controller');
+// const RegisterEmailController = () => import('#newsletter/controllers/register_email_controller');
 const ShowArticleController = () => import('#articles/controllers/show_article_controller');
 // endregion
 

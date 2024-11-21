@@ -64,15 +64,7 @@ export default defineConfig({
   | List of modules to import before starting the application.
   |
   */
-	preloads: [
-		() => import('#start/routes'),
-		() => import('#start/kernel'),
-		{
-			file: () => import('#start/view'),
-			environment: ['web'],
-		},
-		() => import('#start/events'),
-	],
+	preloads: [() => import('#start/routes'), () => import('#start/kernel'), () => import('#start/events')],
 
 	/*
   |--------------------------------------------------------------------------
@@ -102,10 +94,6 @@ export default defineConfig({
 		{
 			pattern: 'public/**',
 			reloadServer: false,
-		},
-		{
-			pattern: 'resources/views/**/*.tsx',
-			reloadServer: true,
 		},
 		{
 			pattern: 'resources/lang/**/*.{json,yaml,yml}',

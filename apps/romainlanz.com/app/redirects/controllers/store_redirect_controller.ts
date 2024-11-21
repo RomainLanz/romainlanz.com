@@ -1,9 +1,8 @@
-import vine from '@vinejs/vine';
 import { inject } from '@adonisjs/core';
+import vine from '@vinejs/vine';
 import { RedirectRepository } from '#redirects/repositories/redirect_repository';
-import { RedirectView } from '#views/pages/admin/redirects/redirects';
-import type { Infer } from '@vinejs/vine/types';
 import type { HttpContext } from '@adonisjs/core/http';
+import type { Infer } from '@vinejs/vine/types';
 
 export type StoreRedirectPayload = Infer<typeof StoreRedirectController.validator>;
 
@@ -19,7 +18,7 @@ export default class StoreRedirectController {
 	constructor(private repository: RedirectRepository) {}
 
 	render() {
-		return <RedirectView.Create />;
+		// return <RedirectView.Create />;
 	}
 
 	async handle({ request, response }: HttpContext) {

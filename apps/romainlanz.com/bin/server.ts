@@ -10,7 +10,6 @@
 */
 
 import 'reflect-metadata';
-import '@kitajs/html/register.js';
 
 /**
  * URL to the application root. AdonisJS need it to resolve

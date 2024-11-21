@@ -1,5 +1,3 @@
-import shiki from 'shiki';
-import Paste from '#paste/models/paste';
 import type { HttpContext } from '@adonisjs/core/http';
 
 export default class PastesController {
@@ -14,18 +12,15 @@ export default class PastesController {
 	}
 
 	async store({ request, response }: HttpContext) {
-		const content = request.input('content');
-
-		const ghl = await shiki.getHighlighter({
-			theme: 'github-light',
-		});
-
-		const code = ghl.codeToHtml(content, { lang: 'ts' });
-
-		const paste = await Paste.create({
-			content: code,
-		});
-
-		return response.redirect().toRoute('pastes.show', [paste.id]);
+		// const content = request.input('content');
+		// const ghl = await shiki.getHighlighter({
+		// 	theme: 'github-light',
+		// });
+		//
+		// const code = ghl.codeToHtml(content, { lang: 'ts' });
+		// const paste = await Paste.create({
+		// 	content: code,
+		// });
+		// return response.redirect().toRoute('pastes.show', [paste.id]);
 	}
 }

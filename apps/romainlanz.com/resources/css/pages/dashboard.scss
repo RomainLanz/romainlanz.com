@@ -1,8 +1,0 @@
-@import '../core/functions';
-@import '../core/mixins';
-
-@include page('dashboard') {
-	.card {
-		font-size: var(--text-base);
-	}
-}
