@@ -1,6 +1,7 @@
 import { BaseCommand } from '@adonisjs/core/ace';
-import type { CommandOptions } from '@adonisjs/core/types/ace';
+import { CategoryIdentifier } from '#categories/domain/category_identifier';
 import { db } from '#core/services/db';
+import type { CommandOptions } from '@adonisjs/core/types/ace';
 
 export default class Seed extends BaseCommand {
 	static commandName = 'seed';
@@ -16,13 +17,38 @@ export default class Seed extends BaseCommand {
 		await db
 			.insertInto('categories')
 			.values([
-				{ name: 'AdonisJS', slug: 'adonisjs' },
-				{ name: 'Base de données', slug: 'database' },
-				{ name: 'Design Pattern', slug: 'design-pattern' },
-				{ name: 'JavaScript', slug: 'javascript' },
-				{ name: 'Productivité', slug: 'productivity' },
-				{ name: 'React', slug: 'react' },
-				{ name: 'VueJS', slug: 'vuejs' },
+				{
+					id: CategoryIdentifier.generate().toString(),
+					name: 'AdonisJS',
+					slug: 'adonisjs',
+					illustration_name: 'adonisjs',
+				},
+				{
+					id: CategoryIdentifier.generate().toString(),
+					name: 'Base de données',
+					slug: 'database',
+					illustration_name: 'database',
+				},
+				{
+					id: CategoryIdentifier.generate().toString(),
+					name: 'Design Pattern',
+					slug: 'design-pattern',
+					illustration_name: 'design-pattern',
+				},
+				{
+					id: CategoryIdentifier.generate().toString(),
+					name: 'JavaScript',
+					slug: 'javascript',
+					illustration_name: 'javascript',
+				},
+				{
+					id: CategoryIdentifier.generate().toString(),
+					name: 'Productivité',
+					slug: 'productivity',
+					illustration_name: 'productivity',
+				},
+				{ id: CategoryIdentifier.generate().toString(), name: 'React', slug: 'react', illustration_name: 'react' },
+				{ id: CategoryIdentifier.generate().toString(), name: 'VueJS', slug: 'vuejs', illustration_name: 'vuejs' },
 			])
 			.execute();
 	}
