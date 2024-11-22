@@ -1,11 +1,11 @@
-import { Kysely, sql } from 'kysely';
+import type { Kysely } from 'kysely';
 
 export async function up(db: Kysely<any>): Promise<void> {
 	await db.schema
 		.createTable('redirects')
-		.addColumn('id', 'uuid', (col) => col.primaryKey().defaultTo(sql`gen_random_uuid()`))
-		.addColumn('created_at', 'timestamp', (col) => col.notNull())
-		.addColumn('updated_at', 'timestamp', (col) => col.notNull())
+		.addColumn('id', 'uuid', (col) => col.primaryKey())
+		.addColumn('created_at', 'timestamptz', (col) => col.notNull())
+		.addColumn('updated_at', 'timestamptz')
 		.addColumn('url', 'varchar(150)', (col) => col.unique().notNull())
 		.addColumn('to', 'varchar(150)', (col) => col.notNull())
 		.addColumn('visit_count', 'integer', (col) => col.notNull().defaultTo(0))
