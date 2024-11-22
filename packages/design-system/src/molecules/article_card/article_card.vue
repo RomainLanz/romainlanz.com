@@ -20,7 +20,7 @@
 </script>
 
 <template>
-	<Link :href="articleUrl">
+	<Link :href="articleUrl" prefetch>
 		<article
 			class="flex flex-col gap-4 bg-white border-2 border-solid border-gray-800 rounded-md shadow-small text-gray-800 p-6 isolate transition-colors hover:bg-yellow-100"
 		>
