@@ -10,7 +10,7 @@
 
 <script lang="ts" setup>
 	import { router } from '@inertiajs/vue3';
-	import { MenuContent, MenuItem, MenuPositioner, MenuRoot, MenuTrigger } from '@ark-ui/vue';
+	import { MenuContent, MenuItem, MenuPositioner, MenuRoot, MenuTrigger } from '@ark-ui/vue/menu';
 	import ClientOnly from '../client_only/client_only.ts';
 
 	const { actions } = defineProps<{

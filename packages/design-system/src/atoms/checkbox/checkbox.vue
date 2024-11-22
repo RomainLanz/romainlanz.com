@@ -6,7 +6,7 @@
 		CheckboxIndicator,
 		CheckboxHiddenInput,
 		type CheckboxCheckedState,
-	} from '@ark-ui/vue';
+	} from '@ark-ui/vue/checkbox';
 	import Icon from '../../atoms/icon/icon.vue';
 
 	defineProps<{

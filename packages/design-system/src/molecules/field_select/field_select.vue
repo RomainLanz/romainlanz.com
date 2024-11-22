@@ -24,7 +24,7 @@
 		SelectItemIndicator,
 		SelectHiddenSelect,
 	} from '@ark-ui/vue/select';
-	import { FieldErrorText, FieldHelperText, FieldRoot } from '@ark-ui/vue';
+	import { FieldErrorText, FieldHelperText, FieldRoot } from '@ark-ui/vue/field';
 	import Icon from '../../atoms/icon/icon.vue';
 	import ClientOnly from '../../atoms/client_only/client_only.ts';
 

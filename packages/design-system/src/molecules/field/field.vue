@@ -7,7 +7,7 @@
 		FieldHelperText,
 		FieldErrorText,
 		FieldInputProps,
-	} from '@ark-ui/vue';
+	} from '@ark-ui/vue/field';
 	import { computed } from 'vue';
 	import ClientOnly from '../../atoms/client_only/client_only.ts';
 
