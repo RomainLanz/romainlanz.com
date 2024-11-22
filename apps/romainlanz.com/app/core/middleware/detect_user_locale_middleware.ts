@@ -1,7 +1,7 @@
+import { type HttpContext, RequestValidator } from '@adonisjs/core/http';
 import { I18n } from '@adonisjs/i18n';
 import i18nManager from '@adonisjs/i18n/services/main';
 import type { NextFn } from '@adonisjs/core/types/http';
-import { type HttpContext, RequestValidator } from '@adonisjs/core/http';
 
 /**
  * The "DetectUserLocaleMiddleware" middleware uses i18n service to share

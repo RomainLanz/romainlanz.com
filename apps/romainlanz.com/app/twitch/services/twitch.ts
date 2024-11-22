@@ -1,7 +1,7 @@
-import env from '#start/env';
-import { inject } from '@adonisjs/core';
 import cache from '@adonisjs/cache/services/main';
+import { inject } from '@adonisjs/core';
 import { TwitchAppTokenRetrieve } from '#twitch/services/twitch_app_token_retrieve';
+import env from '#start/env';
 
 @inject()
 export class Twitch {
@@ -18,7 +18,7 @@ export class Twitch {
 				},
 			});
 
-			const body = await response.json();
+			const body = (await response.json()) as any;
 			return body.data[0];
 		});
 

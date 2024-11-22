@@ -8,10 +8,10 @@ const hashConfig = defineConfig({
 		 * The scrypt driver uses the Node.js crypto module for hashing passwords.
 		 */
 		scrypt: drivers.scrypt({
-			cost: 16384,
+			cost: 16_384,
 			blockSize: 8,
 			parallelization: 1,
-			maxMemory: 33554432,
+			maxMemory: 33_554_432,
 		}),
 	},
 });

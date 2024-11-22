@@ -1,7 +1,6 @@
+import { Bouncer } from '@adonisjs/bouncer';
 import * as abilities from '#core/abilities/main';
 import { policies } from '#core/policies/main';
-
-import { Bouncer } from '@adonisjs/bouncer';
 import type { HttpContext } from '@adonisjs/core/http';
 import type { NextFn } from '@adonisjs/core/types/http';
 
