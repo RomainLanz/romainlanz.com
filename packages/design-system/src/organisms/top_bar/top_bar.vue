@@ -6,6 +6,7 @@
 	import UserActionMenu, { type UserActionMenuProps } from '../../molecules/user_action_menu/user_action_menu.vue';
 
 	defineProps<{
+		title?: string | null;
 		user?: UserActionMenuProps['user'] | null;
 	}>();
 </script>
@@ -14,7 +15,9 @@
 	<header class="my-10">
 		<div class="flex items-center justify-between max-w-7xl px-4 m-auto">
 			<div class="flex items-center gap-4">
-				<Link class="flex items-center gap-2" href="/">
+				<h1 v-if="title" class="text-5xl text-gray-800">{{ title }}</h1>
+
+				<Link v-else class="flex items-center gap-2" href="/">
 					<Logo />
 					<span class="text-gray-800 text-xl font-bold hidden xs:block">Romain Lanz</span>
 				</Link>
