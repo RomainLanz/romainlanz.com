@@ -18,6 +18,10 @@ export class Article extends Entity<Properties> {
 		return this.props.publishedAt ? this.props.publishedAt > DateTime.now() : false;
 	}
 
+	get readingTime() {
+		return Math.ceil((this.props.content?.split(' ').length || 0) / 238);
+	}
+
 	static create(properties: Properties) {
 		return new this(properties);
 	}

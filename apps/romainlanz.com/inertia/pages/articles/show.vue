@@ -18,7 +18,7 @@
 				:category="vm.category.illustrationName"
 				:published-at="vm.article.publishedAtHuman"
 				:published-at-datetime="vm.article.publishedAt"
-				:reading-time="5"
+				:reading-time="vm.article.readingTime"
 			/>
 
 			<div :class="$style.content" v-html="vm.article.content"></div>
