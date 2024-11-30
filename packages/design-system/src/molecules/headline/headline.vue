@@ -6,7 +6,7 @@
 		title: string;
 		category: IllustrationName;
 		publishedAt: string;
-		publishedAtDatetime: string;
+		publishedAtDatetime?: string;
 		readingTime: number;
 		tags?: Array<{ name: string; color: TagProps['color'] }>;
 	}>();
@@ -16,7 +16,7 @@
 	<header class="flex flex-col gap-2">
 		<div>
 			<time class="relative text-xl" :class="$style.time" :datetime="publishedAtDatetime">
-				{{ publishedAt }}
+				{{ publishedAtDatetime ? publishedAt : 'Non publié' }}
 			</time>
 		</div>
 
