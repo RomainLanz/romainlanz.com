@@ -20,7 +20,7 @@
 
 	const { article, categories } = defineProps<Props>();
 
-	usePageTitle('Créer un article');
+	usePageTitle('Modifier un article');
 
 	const form = useForm({
 		title: article!.title,
@@ -48,7 +48,7 @@
 </script>
 
 <template>
-	<Panel>
+	<Panel class="bg-white">
 		<form class="flex flex-col gap-3" @submit.prevent="handleSubmit">
 			<Field v-model="form.title" label="Titre" type="text" :error-message="form.errors.title?.[0]" />
 			<Field v-model="form.summary" label="Résumé" type="text" :error-message="form.errors.summary?.[0]" />
@@ -61,13 +61,11 @@
 				:error-message="form.errors.categoryId?.[0]"
 			/>
 
-			<textarea
-				v-model="form.markdownContent"
-				class="h-64 w-full"
-				:class="{ 'border-red-500': form.errors.markdownContent }"
-			></textarea>
+			<Field v-model="form.markdownContent" class="min-h-6xl" label="Contenu" type="textarea"></Field>
 
-			<Button color="violet" type="submit">Créer</Button>
+			<div>
+				<Button color="violet" type="submit">Mettre à jour</Button>
+			</div>
 		</form>
 	</Panel>
 </template>

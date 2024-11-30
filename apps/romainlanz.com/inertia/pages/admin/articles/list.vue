@@ -47,8 +47,8 @@
 
 <template>
 	<div class="flex flex-col gap-4">
-		<div>
-			<Button color="violet" :href="newArticleUrl">Ajouter</Button>
+		<div class="w-min">
+			<Button color="violet" :href="newArticleUrl">Écrire</Button>
 		</div>
 
 		<Table :headers :items>

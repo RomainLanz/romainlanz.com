@@ -12,7 +12,7 @@
 		categories: any[];
 	}>();
 
-	usePageTitle('Créer un article');
+	usePageTitle('Écrire un article');
 
 	const form = useForm({
 		title: '',
@@ -59,7 +59,9 @@
 				:class="{ 'border-red-500': form.errors.markdownContent }"
 			></textarea>
 
-			<Button color="violet" type="submit">Créer</Button>
+			<div>
+				<Button color="violet" type="submit">Créer</Button>
+			</div>
 		</form>
 	</Panel>
 </template>

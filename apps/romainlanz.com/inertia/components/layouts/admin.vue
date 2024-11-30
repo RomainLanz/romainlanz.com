@@ -10,19 +10,27 @@
 </script>
 
 <template>
-	<TopBar :user="currentUser" />
+	<div class="min-h-full flex flex-grow-1 bg-yellow-100">
+		<Sidebar />
 
-	<main class="m-auto max-w-7xl px-4">
-		<h1 class="my-8 text-5xl text-gray-800">{{ pageTitle }}</h1>
+		<div class="w-0 flex flex-1 flex-col">
+			<main class="relative z-0 flex-grow-1 px-8 focus:outline-none">
+				<div class="space-y-8">
+					<TopBar :title="pageTitle" :user="currentUser" />
 
-		<div class="flex gap-4">
-			<Sidebar />
+					<div class="mx-auto max-w-full pb-4">
+						<slot />
+					</div>
+				</div>
+			</main>
 
-			<div class="grow">
-				<slot />
-			</div>
+			<Footer />
 		</div>
-	</main>
-
-	<Footer />
+	</div>
 </template>
+
+<style>
+	main {
+		scrollbar-gutter: stable both-edges;
+	}
+</style>
