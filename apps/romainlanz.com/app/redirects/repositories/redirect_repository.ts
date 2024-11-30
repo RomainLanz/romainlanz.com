@@ -1,18 +1,28 @@
 import { db } from '#core/services/db';
+import { Redirect } from '#redirects/domain/redirect';
+import { RedirectIdentifier } from '#redirects/domain/redirect_identifier';
 import { sql } from 'kysely';
-import { ResultOf } from '#types/common';
 
 interface StoreRedirectDTO {
 	url: string;
 	to: string;
 }
 
-export type RedirectListQueryResult = ResultOf<RedirectRepository, 'all'>;
-export type RedirectQueryResult = ResultOf<RedirectRepository, 'findByUrl'>;
-
 export class RedirectRepository {
-	all() {
-		return db.selectFrom('redirects').select(['id', 'url', 'to', 'visit_count']).orderBy('redirects.url').execute();
+	async all() {
+		const redirectRecords = await db
+			.selectFrom('redirects')
+			.select(['id', 'url', 'to', 'visit_count'])
+			.orderBy('redirects.id')
+			.execute();
+
+		return redirectRecords.map((redirect) => {
+			return Redirect.create({
+				id: RedirectIdentifier.fromString(redirect.id),
+				destination: redirect.to,
+				slug: redirect.url,
+			});
+		});
 	}
 
 	findByUrl(url: string) {
