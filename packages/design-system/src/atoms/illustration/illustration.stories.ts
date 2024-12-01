@@ -1,4 +1,5 @@
-import Illustration, { IllustrationName } from './illustration.vue';
+import Illustration from './illustration.vue';
+import { IllustrationName } from './illustration_name.js';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 const meta = {

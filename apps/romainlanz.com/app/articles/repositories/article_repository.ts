@@ -4,7 +4,7 @@ import { Category } from '#categories/domain/category';
 import { CategoryIdentifier } from '#categories/domain/category_identifier';
 import { db } from '#core/services/db';
 import { DateTime } from 'luxon';
-import type { IllustrationName } from '@rlanz/design-system/illustration';
+import type { IllustrationName } from '@rlanz/design-system/illustration-name';
 import type { ResultOf } from '#types/common';
 
 interface StoreArticleDTO {

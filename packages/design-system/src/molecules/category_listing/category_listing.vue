@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 	import { Link } from '@inertiajs/vue3';
-	import Illustration, { type IllustrationName } from '../../atoms/illustration/illustration.vue';
+	import Illustration from '../../atoms/illustration/illustration.vue';
 	import { client } from '@rlanz/rpc/client';
+	import type { IllustrationName } from '../../atoms/illustration/illustration_name.js';
 
 	const { activeCategory = null } = defineProps<{
 		allArticlesCount: number;

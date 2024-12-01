@@ -1,4 +1,4 @@
-import { IllustrationName } from '../../atoms/illustration/illustration.vue';
+import { IllustrationName } from '../../atoms/illustration/illustration_name.js';
 import Headline from './headline.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 

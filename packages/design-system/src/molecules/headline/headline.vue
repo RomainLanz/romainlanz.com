@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 	import Tag, { type TagProps } from '../../atoms/tag/tag.vue';
-	import Illustration, { type IllustrationName } from '../../atoms/illustration/illustration.vue';
+	import Illustration from '../../atoms/illustration/illustration.vue';
+	import type { IllustrationName } from '../../atoms/illustration/illustration_name.js';
 
 	defineProps<{
 		title: string;

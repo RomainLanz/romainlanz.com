@@ -1,0 +1,25 @@
+export const IllustrationName = [
+	'productivity',
+	'javascript',
+	'database',
+	'design-pattern',
+	'vuejs',
+	'react',
+	'adonis',
+	'nodejs',
+	'all',
+	'aim',
+	'arrow-bounce',
+	'shapes',
+	'arrow',
+	'switch',
+	'selection',
+	'file',
+	'sparkles',
+	'radar',
+	'zigzag',
+	'transform',
+	'pill',
+] as const;
+
+export type IllustrationName = (typeof IllustrationName)[number];
