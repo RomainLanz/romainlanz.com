@@ -92,6 +92,10 @@ export default defineConfig({
 	},
 	metaFiles: [
 		{
+			pattern: 'resources/views/**/*.edge',
+			reloadServer: false,
+		},
+		{
 			pattern: 'public/**',
 			reloadServer: false,
 		},
