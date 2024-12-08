@@ -1,7 +1,7 @@
 FROM node:lts-bookworm-slim AS base
 WORKDIR /app
 RUN apt update
-RUN apt install -y curl
+RUN apt install -y curl wget
 RUN rm -rf /var/lib/apt/lists/*
 
 # Base installer
