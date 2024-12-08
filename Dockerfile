@@ -1,5 +1,6 @@
 FROM node:lts-bookworm-slim AS base
 WORKDIR /app
+RUN apk --no-cache add curl
 
 # Base installer
 FROM base AS installer
