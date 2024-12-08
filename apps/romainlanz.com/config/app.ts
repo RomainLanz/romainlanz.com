@@ -10,6 +10,8 @@ import env from '#start/env';
  */
 export const appKey = env.get('APP_KEY');
 
+export const appUrl = env.get('APP_URL');
+
 /**
  * The configuration settings used by the HTTP server
  */
