@@ -15,12 +15,6 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('resources/favicon/apple-touch-icon.png') }}" />
     <meta name="apple-mobile-web-app-title" content="RomainLanz" />
 
-    <script>
-      window.RomainLanz = {
-        appUrl: '{{ env('APP_URL') }}',
-      }
-    </script>
-
     @vite(['inertia/app/app.ts', `inertia/pages/${page.component}.vue`])
     @inertiaHead()
   </head>
