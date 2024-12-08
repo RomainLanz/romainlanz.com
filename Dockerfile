@@ -1,6 +1,8 @@
 FROM node:lts-bookworm-slim AS base
 WORKDIR /app
-RUN apk --no-cache add curl
+RUN apt update
+RUN apt install -y curl
+RUN rm -rf /var/lib/apt/lists/*
 
 # Base installer
 FROM base AS installer
