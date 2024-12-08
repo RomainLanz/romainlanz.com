@@ -2049,7 +2049,6 @@ __metadata:
     "@shikijs/transformers": "npm:^1.22.2"
     "@swc/core": "npm:^1.7.39"
     "@tuyau/core": "npm:^0.2.1"
-    "@tuyau/inertia": "npm:^0.0.2"
     "@types/dlv": "npm:^1"
     "@types/luxon": "npm:^3.4.2"
     "@types/mjml": "npm:^4.7.4"

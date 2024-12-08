@@ -1,11 +1,9 @@
-import { client } from '@rlanz/rpc/client';
-import { TuyauPlugin } from '@tuyau/inertia/vue';
 import AdminLayout from '~/components/layouts/admin.vue';
 import AppLayout from '~/components/layouts/app.vue';
 import type { App, DefineComponent, Plugin } from 'vue';
 
 export function initiateApplication(app: App, plugin: Plugin<[]>) {
-	return app.use(plugin).use(TuyauPlugin, { client });
+	return app.use(plugin);
 }
 
 export function setLayout(name: string, page: DefineComponent) {
