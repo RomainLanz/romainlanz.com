@@ -3,5 +3,5 @@ import { api } from "@rlanz/site/api";
 
 export const client = createTuyau({
   api,
-  baseUrl: globalThis.RomainLanz.appUrl,
+  baseUrl: import.meta.env.VITE_APP_URL,
 });
