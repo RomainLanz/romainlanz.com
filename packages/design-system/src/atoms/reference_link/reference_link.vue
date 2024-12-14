@@ -10,7 +10,7 @@
 
 <template>
 	<Link
-		class="block rounded-full bg-cyan-100 p-1 text-cyan-500 transition-colors hover:bg-cyan-500 hover:text-white"
+		class="block rounded-full bg-white p-1 text-yellow-500 transition-colors hover:bg-yellow-500 hover:text-white"
 		:href
 		:prefetch
 	>
