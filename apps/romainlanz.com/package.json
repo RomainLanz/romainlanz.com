@@ -28,6 +28,7 @@
 		"#redirects/*": "./app/redirects/*.js",
 		"#start/*": "./start/*.js",
 		"#config/*": "./config/*.js",
+    "#taxonomy/*": "./app/taxonomy/*.js",
 		"#twitch/*": "./app/twitch/*.js",
 		"#types/*": "./types/*.js",
 		"#views/*": "./resources/views/*.js"

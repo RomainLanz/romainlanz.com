@@ -1,6 +1,6 @@
-import { Category } from '#categories/domain/category';
-import { CategoryIdentifier } from '#categories/domain/category_identifier';
 import { db } from '#core/services/db';
+import { Category } from '../domain/category';
+import { CategoryIdentifier } from '../domain/category_identifier';
 import type { ResultOf } from '#types/common';
 
 export type CategoryListQueryResult = ResultOf<CategoryRepository, 'all'>;

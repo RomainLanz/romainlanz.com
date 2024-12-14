@@ -4,8 +4,8 @@ import vine from '@vinejs/vine';
 import { ArticlePolicy } from '#admin/articles/policies/article_policy';
 import { ArticleRepository } from '#articles/repositories/article_repository';
 import { MarkdownCompiler } from '#articles/services/markdown_compiler';
-import { CategoryRepository } from '#categories/repositories/category_repository';
-import { AllCategoryViewModel } from '#categories/view_models/all_category_view_model';
+import { CategoryRepository } from '#taxonomy/repositories/category_repository';
+import { AllCategoryViewModel } from '#taxonomy/view_models/all_category_view_model';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()

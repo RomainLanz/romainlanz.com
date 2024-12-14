@@ -1,7 +1,7 @@
 import { Entity } from '#core/domain/entity';
 import { DateTime } from 'luxon';
 import type { ArticleIdentifier } from '#articles/domain/article_identifier';
-import type { Category } from '#categories/domain/category';
+import type { Category } from '#taxonomy/domain/category';
 
 interface Properties {
 	id: ArticleIdentifier;
