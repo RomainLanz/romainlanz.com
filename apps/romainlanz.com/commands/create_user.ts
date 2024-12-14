@@ -37,7 +37,7 @@ export default class CreateUser extends BaseCommand {
 				created_at: new Date(),
 				name,
 				email,
-				role,
+				role: Number(role),
 				password: hashedPassword,
 			})
 			.execute();
