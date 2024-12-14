@@ -6,9 +6,8 @@ import type { HttpContext } from '@adonisjs/core/http';
 export default class ProcessRedirectController {
 	constructor(private repository: RedirectRepository) {}
 
-	async handle({ request, response }: HttpContext) {
-		const sanitizedUrl = request.url().slice(3);
-		const redirect = await this.repository.findByUrl(sanitizedUrl);
+	async execute({ params, response }: HttpContext) {
+		const redirect = await this.repository.findByUrl(params['*']);
 
 		if (!redirect) {
 			return response.status(404).send('Not found');
