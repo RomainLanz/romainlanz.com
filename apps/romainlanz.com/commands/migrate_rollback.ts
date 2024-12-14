@@ -1,6 +1,6 @@
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
-import { BaseCommand } from '@adonisjs/core/ace';
+import { BaseCommand, flags } from '@adonisjs/core/ace';
 import { db } from '#core/services/db';
 import { Migrator } from 'kysely';
 import { FileMigrationProvider } from '#core/file_migration_provider';
@@ -12,6 +12,9 @@ export default class MigrateRollback extends BaseCommand {
 	static options: CommandOptions = {
 		startApp: true,
 	};
+
+	@flags.number({ description: 'Define number of migrations to rollback', default: 1, alias: 's' })
+	declare step: number;
 
 	declare migrator: Migrator;
 
@@ -40,9 +43,15 @@ export default class MigrateRollback extends BaseCommand {
 	}
 
 	/**
-	 * Runs migrations up method
+	 * Runs migrations down method
 	 */
 	async run() {
+		for (let i = 0; i < this.step; i++) {
+			await this.#migrateDown();
+		}
+	}
+
+	async #migrateDown() {
 		const { error, results } = await this.migrator.migrateDown();
 
 		/**
