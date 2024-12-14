@@ -1,7 +1,6 @@
 import { db } from '#core/services/db';
 import { Redirect } from '#redirects/domain/redirect';
 import { RedirectIdentifier } from '#redirects/domain/redirect_identifier';
-import { sql } from 'kysely';
 
 interface StoreRedirectDTO {
 	url: string;
@@ -25,16 +24,18 @@ export class RedirectRepository {
 		});
 	}
 
-	findByUrl(url: string) {
-		return db.selectFrom('redirects').where('url', '=', url).select(['id', 'to']).executeTakeFirst();
-	}
+	async findByUrl(url: string) {
+		const redirectRecord = await db
+			.selectFrom('redirects')
+			.where('url', '=', url)
+			.select(['id', 'to'])
+			.executeTakeFirstOrThrow();
 
-	increaseVisitCount(id: string) {
-		return db
-			.updateTable('redirects')
-			.set('visit_count', sql`visit_count + 1`)
-			.where('id', '=', id)
-			.execute();
+		return Redirect.create({
+			id: RedirectIdentifier.fromString(redirectRecord.id),
+			destination: redirectRecord.to,
+			slug: url,
+		});
 	}
 
 	create(payload: StoreRedirectDTO) {

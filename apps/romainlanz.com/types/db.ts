@@ -9,7 +9,7 @@ export type Generated<T> = T extends ColumnType<infer S, infer I, infer U>
   ? ColumnType<S, I | undefined, U>
   : ColumnType<T, T | undefined, T>;
 
-export type Timestamp = ColumnType<Date, Date | string>;
+export type Timestamp = ColumnType<Date, Date | string, Date | string>;
 
 export interface Articles {
   category_id: string;
@@ -78,6 +78,15 @@ export interface Users {
   updated_at: Timestamp | null;
 }
 
+export interface Visits {
+  count: Generated<number>;
+  created_at: Timestamp;
+  id: string;
+  ip_address: string;
+  redirect_id: string;
+  referer: string | null;
+}
+
 export interface DB {
   articles: Articles;
   categories: Categories;
@@ -87,4 +96,5 @@ export interface DB {
   tag_articles: TagArticles;
   tags: Tags;
   users: Users;
+  visits: Visits;
 }

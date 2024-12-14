@@ -1,20 +1,32 @@
 import { inject } from '@adonisjs/core';
+import { TimeServiceContract } from '#core/contracts/time_service_contract';
+import { Visit } from '#redirects/domain/visit';
+import { VisitIdentifier } from '#redirects/domain/visit_identifier';
 import { RedirectRepository } from '#redirects/repositories/redirect_repository';
+import { VisitRepository } from '#redirects/repositories/visit_repository';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()
 export default class ProcessRedirectController {
-	constructor(private repository: RedirectRepository) {}
+	constructor(
+		private readonly redirectRepository: RedirectRepository,
+		private readonly visitRepository: VisitRepository,
+		private readonly timeService: TimeServiceContract
+	) {}
 
-	async execute({ params, response }: HttpContext) {
-		const redirect = await this.repository.findByUrl(params['*']);
+	async execute({ params, request, response }: HttpContext) {
+		const redirect = await this.redirectRepository.findByUrl(params['*']);
 
-		if (!redirect) {
-			return response.status(404).send('Not found');
-		}
+		const visit = Visit.create({
+			id: VisitIdentifier.generate(),
+			createdAt: this.timeService.now(),
+			ipAddressRaw: request.ip(),
+			referer: request.header('referer') ?? '',
+			redirectId: redirect.getIdentifier(),
+		});
 
-		await this.repository.increaseVisitCount(redirect.id);
+		await this.visitRepository.save(visit);
 
-		return response.redirect(redirect.to);
+		return response.redirect(redirect.props.destination);
 	}
 }
