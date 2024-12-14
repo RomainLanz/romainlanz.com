@@ -15,6 +15,7 @@ export class AllArticleViewModel {
 			title: article.props.title,
 			slug: article.props.slug,
 			isPublished: article.isPublished(),
+			publishedAtHuman: article.props.publishedAt?.toFormat('ff') || 'Non publié',
 		}));
 	}
 }

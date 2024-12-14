@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 	import { Link } from '@inertiajs/vue3';
 	import Button from '@rlanz/design-system/button';
+	import ReferenceLink from '@rlanz/design-system/reference-link';
 	import Table from '@rlanz/design-system/table';
 	import { client } from '@rlanz/rpc/client';
 	import { computed } from 'vue';
@@ -17,6 +18,11 @@
 
 	const headers = [
 		{
+			label: 'Publication',
+			key: 'publishedAtHuman',
+			width: '200px',
+		},
+		{
 			label: 'Titre',
 			key: 'title',
 			cell: 'title',
@@ -25,6 +31,7 @@
 			label: 'Actions',
 			key: 'actions',
 			cell: 'actions',
+			width: '70px',
 		},
 	];
 
@@ -33,6 +40,7 @@
 			id: article.id,
 			title: article.title,
 			slug: article.slug,
+			publishedAtHuman: article.publishedAtHuman,
 		}));
 	});
 
@@ -53,10 +61,9 @@
 
 		<Table :headers :items>
 			<template #title="{ item }">
-				<div class="flex gap-2">
-					<Link :href="computeShowUrl(item.slug)">
-						{{ item.title }}
-					</Link>
+				<div class="flex items-center gap-2">
+					<ReferenceLink :href="computeShowUrl(item.slug)" prefetch />
+					<span>{{ item.title }}</span>
 				</div>
 			</template>
 

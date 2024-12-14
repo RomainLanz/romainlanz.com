@@ -34,7 +34,11 @@ export class ArticleRepository {
 	#scopeCategory: Category | null = null;
 
 	async all() {
-		const articleRecords = await db.selectFrom('articles').select(['id', 'title', 'slug', 'published_at']).execute();
+		const articleRecords = await db
+			.selectFrom('articles')
+			.select(['id', 'title', 'slug', 'published_at'])
+			.orderBy('published_at desc')
+			.execute();
 
 		return articleRecords.map((article) => {
 			return Article.create({
