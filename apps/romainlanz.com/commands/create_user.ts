@@ -1,6 +1,7 @@
-import { BaseCommand, args } from '@adonisjs/core/ace';
+import { BaseCommand } from '@adonisjs/core/ace';
 import hash from '@adonisjs/core/services/hash';
 import { UserIdentifier } from '#auth/domain/user_identifier';
+import { UserRole } from '#auth/enums/user_role';
 import { db } from '#core/services/db';
 import type { CommandOptions } from '@adonisjs/core/types/ace';
 
@@ -12,24 +13,31 @@ export default class CreateUser extends BaseCommand {
 		startApp: true,
 	};
 
-	@args.string()
-	declare name: string;
-
-	@args.string()
-	declare email: string;
-
 	async run() {
-		this.logger.info(`Creating user ${this.email} with password "secret"`);
+		const name = await this.prompt.ask('What is your name?');
+		const email = await this.prompt.ask('What is your email?');
+		const password = await this.prompt.secure('What is your password?');
+		const role = await this.prompt.choice('What is your role?', [
+			{
+				name: UserRole.Admin.toString(),
+				message: 'Admin',
+			},
+			{
+				name: UserRole.User.toString(),
+				message: 'User',
+			},
+		]);
 
-		const hashedPassword = await hash.make('secret');
+		const hashedPassword = await hash.make(password);
 
 		await db
 			.insertInto('users')
 			.values({
 				id: UserIdentifier.generate().toString(),
 				created_at: new Date(),
-				name: this.name,
-				email: this.email,
+				name,
+				email,
+				role,
 				password: hashedPassword,
 			})
 			.execute();
