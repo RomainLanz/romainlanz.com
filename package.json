@@ -3,7 +3,7 @@
   "type": "module",
   "license": "UNLICENSED",
   "scripts": {
-    "taze": "pnpx taze -r"
+    "taze": "yarn dlx taze -r -I"
   },
   "workspaces": {
     "packages": [
@@ -13,6 +13,6 @@
   },
   "packageManager": "yarn@4.5.1",
   "volta": {
-    "node": "20.18.0"
+    "node": "22.12.0"
   }
 }
