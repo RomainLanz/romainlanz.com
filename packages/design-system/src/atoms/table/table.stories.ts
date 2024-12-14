@@ -90,3 +90,41 @@ export const WithSlot: Story = {
     `,
 	}),
 };
+
+export const WithCustomWidth: Story = {
+	args: {
+		headers: [
+			{
+				key: 'id',
+				label: 'ID',
+				align: 'center',
+				width: '70px',
+			},
+			{
+				key: 'name',
+				label: 'Name',
+				width: '300px',
+				align: 'left',
+			},
+			{
+				key: 'email',
+				label: 'Email',
+				width: '300px',
+				align: 'left',
+			},
+		],
+
+		items: [
+			{
+				id: '1',
+				name: 'John Doe',
+				email: 'john.doe@example.com',
+			},
+			{
+				id: '2',
+				name: 'Jane Doe',
+				email: 'jane.doe@example.com',
+			},
+		],
+	},
+};

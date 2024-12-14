@@ -3,6 +3,7 @@
 		label: string;
 		key: string;
 		cell?: string;
+		width?: string;
 		align?: 'left' | 'center' | 'right';
 	}
 
@@ -28,6 +29,7 @@
 						class="border-collapse border-1 border-solid border-gray-800 text-base px-4 py-3"
 						v-for="header in headers"
 						:key="header.key"
+						:style="{ width: header.width, textAlign: header.align }"
 					>
 						{{ header.label }}
 					</th>
@@ -39,6 +41,7 @@
 						class="border-collapse border-1 border-solid border-gray-800 text-base px-4 py-3"
 						v-for="header in headers"
 						:key="header.key"
+						:style="{ width: header.width, textAlign: header.align }"
 					>
 						<template v-if="header.cell">
 							<slot :name="header.cell" :item="item" :header="header" />
