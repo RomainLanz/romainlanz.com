@@ -1,4 +1,4 @@
-import rehypeShiki from '@shikijs/rehype';
+import rehypeShikiFromHighlighter from '@shikijs/rehype/core';
 import {
 	transformerMetaHighlight,
 	transformerNotationDiff,
@@ -11,16 +11,17 @@ import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import { unified } from 'unified';
+import { shikiHighlighter } from '#core/shiki_highlighter';
 
 export class MarkdownCompiler {
 	static #processor = unified()
 		.use(remarkParse)
 		.use(remarkGfm)
 		.use(remarkRehype, { allowDangerousHtml: true })
-		.use(rehypeShiki, {
+		.use(rehypeShikiFromHighlighter, shikiHighlighter, {
 			themes: {
-				light: 'catppuccin-latte', //'rose-pine-dawn',
-				dark: 'catppuccin-mocha', //'rose-pine-moon',
+				light: 'rose-pine-dawn',
+				dark: 'rose-pine',
 			},
 			transformers: [
 				transformerNotationDiff(),
