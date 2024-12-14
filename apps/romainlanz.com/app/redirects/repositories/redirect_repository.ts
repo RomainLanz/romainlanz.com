@@ -1,56 +1,56 @@
+import { inject } from '@adonisjs/core';
+import { TimeServiceContract } from '#core/contracts/time_service_contract';
 import { db } from '#core/services/db';
 import { Redirect } from '#redirects/domain/redirect';
 import { RedirectIdentifier } from '#redirects/domain/redirect_identifier';
 
-interface StoreRedirectDTO {
-	url: string;
-	to: string;
-}
-
+@inject()
 export class RedirectRepository {
+	constructor(private readonly timeService: TimeServiceContract) {}
+
 	async all() {
 		const redirectRecords = await db
 			.selectFrom('redirects')
-			.select(['id', 'url', 'to', 'visit_count'])
+			.select(['id', 'destination', 'slug'])
 			.orderBy('redirects.id')
 			.execute();
 
 		return redirectRecords.map((redirect) => {
 			return Redirect.create({
 				id: RedirectIdentifier.fromString(redirect.id),
-				destination: redirect.to,
-				slug: redirect.url,
+				destination: redirect.destination,
+				slug: redirect.slug,
 			});
 		});
 	}
 
-	async findByUrl(url: string) {
+	async findBySlug(slug: string) {
 		const redirectRecord = await db
 			.selectFrom('redirects')
-			.where('url', '=', url)
-			.select(['id', 'to'])
+			.where('slug', '=', slug)
+			.select(['id', 'destination'])
 			.executeTakeFirstOrThrow();
 
 		return Redirect.create({
 			id: RedirectIdentifier.fromString(redirectRecord.id),
-			destination: redirectRecord.to,
-			slug: url,
+			destination: redirectRecord.destination,
+			slug,
 		});
 	}
 
-	create(payload: StoreRedirectDTO) {
+	create(redirect: Redirect) {
 		return db
 			.insertInto('redirects')
 			.values({
-				url: payload.url,
-				to: payload.to,
-				created_at: new Date(),
-				updated_at: new Date(),
+				id: redirect.getIdentifier().toString(),
+				created_at: this.timeService.now().toJSDate(),
+				destination: redirect.props.destination,
+				slug: redirect.props.slug,
 			})
 			.execute();
 	}
 
-	delete(id: string) {
-		return db.deleteFrom('redirects').where('id', '=', id).execute();
+	delete(id: RedirectIdentifier) {
+		return db.deleteFrom('redirects').where('id', '=', id.toString()).execute();
 	}
 }

@@ -1,4 +1,5 @@
 import { inject } from '@adonisjs/core';
+import { RedirectIdentifier } from '#redirects/domain/redirect_identifier';
 import { RedirectRepository } from '#redirects/repositories/redirect_repository';
 import type { HttpContext } from '@adonisjs/core/http';
 
@@ -6,8 +7,8 @@ import type { HttpContext } from '@adonisjs/core/http';
 export default class DeleteRedirectController {
 	constructor(private repository: RedirectRepository) {}
 
-	async handle({ params, response }: HttpContext) {
-		await this.repository.delete(params.id);
+	async execute({ params, response }: HttpContext) {
+		await this.repository.delete(RedirectIdentifier.fromString(params.id));
 
 		return response.redirect().toRoute('admin.redirects.index');
 	}

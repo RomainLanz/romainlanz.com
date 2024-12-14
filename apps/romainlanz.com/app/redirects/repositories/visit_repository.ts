@@ -8,7 +8,7 @@ export class VisitRepository {
 		assertExists(visit.props.ipAddress, 'IP address is required');
 
 		return db
-			.insertInto('visits')
+			.insertInto('redirect_visits')
 			.values({
 				id: visit.getIdentifier().toString(),
 				created_at: visit.props.createdAt.toJSDate(),
@@ -18,7 +18,7 @@ export class VisitRepository {
 			})
 			.onConflict((builder) =>
 				builder.column('ip_address').doUpdateSet({
-					count: sql`visits.count + 1`,
+					count: sql`redirect_visits.count + 1`,
 				})
 			)
 			.execute();

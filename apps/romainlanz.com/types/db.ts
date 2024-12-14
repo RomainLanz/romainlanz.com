@@ -35,7 +35,7 @@ export interface Categories {
 export interface Newsletters {
   created_at: Timestamp;
   email: string;
-  id: Generated<string>;
+  id: string;
   subscription_status: Generated<number>;
   unsubscribe_token: string;
 }
@@ -49,11 +49,19 @@ export interface Pastes {
 
 export interface Redirects {
   created_at: Timestamp;
-  id: Generated<string>;
-  to: string;
-  updated_at: Timestamp;
-  url: string;
-  visit_count: Generated<number>;
+  destination: string;
+  id: string;
+  slug: string;
+  updated_at: Timestamp | null;
+}
+
+export interface RedirectVisits {
+  count: Generated<number>;
+  created_at: Timestamp;
+  id: string;
+  ip_address: string;
+  redirect_id: string;
+  referer: string | null;
 }
 
 export interface TagArticles {
@@ -63,7 +71,7 @@ export interface TagArticles {
 
 export interface Tags {
   color: string;
-  id: Generated<string>;
+  id: string;
   name: string;
 }
 
@@ -78,23 +86,14 @@ export interface Users {
   updated_at: Timestamp | null;
 }
 
-export interface Visits {
-  count: Generated<number>;
-  created_at: Timestamp;
-  id: string;
-  ip_address: string;
-  redirect_id: string;
-  referer: string | null;
-}
-
 export interface DB {
   articles: Articles;
   categories: Categories;
   newsletters: Newsletters;
   pastes: Pastes;
+  redirect_visits: RedirectVisits;
   redirects: Redirects;
   tag_articles: TagArticles;
   tags: Tags;
   users: Users;
-  visits: Visits;
 }

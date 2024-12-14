@@ -16,7 +16,7 @@ export default class ProcessRedirectController {
 	) {}
 
 	async execute({ params, request, response }: HttpContext) {
-		const redirect = await this.redirectRepository.findByUrl(params['*']);
+		const redirect = await this.redirectRepository.findBySlug(params['*']);
 
 		defer.push(async () => {
 			const visit = Visit.create({

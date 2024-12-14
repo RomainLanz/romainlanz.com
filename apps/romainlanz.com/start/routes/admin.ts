@@ -22,8 +22,8 @@ router
 
 		router.get('redirects', [ListRedirectsController, 'render']).as('redirects.index');
 		router.get('redirects/create', [StoreRedirectController, 'render']).as('redirects.create');
-		router.post('redirects', [StoreRedirectController]).as('redirects.store');
-		router.delete('redirects/:id', [DeleteRedirectController]).as('redirects.delete');
+		router.post('redirects', [StoreRedirectController, 'execute']).as('redirects.store');
+		router.delete('redirects/:id', [DeleteRedirectController, 'execute']).as('redirects.delete');
 	})
 	.prefix('admin')
 	.as('admin')
