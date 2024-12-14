@@ -1732,6 +1732,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@poppinss/defer@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@poppinss/defer@npm:1.1.0"
+  dependencies:
+    fastq: "npm:^1.17.1"
+  checksum: 10c0/2139e9e2bd1b5b1829ad73f7583156d79b96e7e6a71e3e570637da010d0f50694e8a7c3b8a7f7a282ad90b7d8ae255b1791f3cf1557efff3d08b434ee9febc63
+  languageName: node
+  linkType: hard
+
 "@poppinss/dumper@npm:^0.6.1":
   version: 0.6.1
   resolution: "@poppinss/dumper@npm:0.6.1"
@@ -1903,6 +1912,7 @@ __metadata:
     "@japa/plugin-adonisjs": "npm:^3.0.1"
     "@japa/runner": "npm:^3.1.4"
     "@julr/tooling-configs": "npm:^2.2.0"
+    "@poppinss/defer": "npm:^1.1.0"
     "@rlanz/design-system": "workspace:*"
     "@rlanz/rpc": "workspace:*"
     "@rlanz/tooling": "workspace:*"

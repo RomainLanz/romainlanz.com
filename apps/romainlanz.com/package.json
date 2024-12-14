@@ -74,6 +74,7 @@
 		"@adonisjs/vite": "^4.0.0",
 		"@formkit/auto-animate": "^0.8.2",
 		"@inertiajs/vue3": "next",
+		"@poppinss/defer": "^1.1.0",
 		"@rlanz/design-system": "workspace:*",
 		"@rlanz/rpc": "workspace:*",
 		"@rlanz/tooling": "workspace:*",

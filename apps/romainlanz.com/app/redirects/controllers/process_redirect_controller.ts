@@ -1,5 +1,6 @@
 import { inject } from '@adonisjs/core';
 import { TimeServiceContract } from '#core/contracts/time_service_contract';
+import { defer } from '#core/services/defer';
 import { Visit } from '#redirects/domain/visit';
 import { VisitIdentifier } from '#redirects/domain/visit_identifier';
 import { RedirectRepository } from '#redirects/repositories/redirect_repository';
@@ -17,15 +18,17 @@ export default class ProcessRedirectController {
 	async execute({ params, request, response }: HttpContext) {
 		const redirect = await this.redirectRepository.findByUrl(params['*']);
 
-		const visit = Visit.create({
-			id: VisitIdentifier.generate(),
-			createdAt: this.timeService.now(),
-			ipAddressRaw: request.ip(),
-			referer: request.header('referer') ?? '',
-			redirectId: redirect.getIdentifier(),
-		});
+		defer.push(async () => {
+			const visit = Visit.create({
+				id: VisitIdentifier.generate(),
+				createdAt: this.timeService.now(),
+				ipAddressRaw: request.ip(),
+				referer: request.header('referer') ?? '',
+				redirectId: redirect.getIdentifier(),
+			});
 
-		await this.visitRepository.save(visit);
+			await this.visitRepository.save(visit);
+		});
 
 		return response.redirect(redirect.props.destination);
 	}
