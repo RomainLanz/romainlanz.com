@@ -1,7 +1,7 @@
 import { inject } from '@adonisjs/core';
 import { ArticleRepository } from '#articles/repositories/article_repository';
 import { ArticleListViewModel } from '#articles/view_models/article_list_view_model';
-import { CategoryRepository } from '#taxonomy/repositories/category_repository';
+import { CategoryRepository } from '#taxonomies/repositories/category_repository';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()

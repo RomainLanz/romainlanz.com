@@ -1,6 +1,6 @@
 import { assertExists } from '@adonisjs/core/helpers/assert';
 import type { Article } from '#articles/domain/article';
-import type { Category } from '#taxonomy/domain/category';
+import type { Category } from '#taxonomies/domain/category';
 
 export type ArticleListViewModelSerialized = ReturnType<ArticleListViewModel['serialize']>;
 

@@ -1,6 +1,6 @@
 import { Entity } from '#core/domain/entity';
 import type { ArticleIdentifier } from '#articles/domain/article_identifier';
-import type { Category } from '#taxonomy/domain/category';
+import type { Category } from '#taxonomies/domain/category';
 import type { DateTime } from 'luxon';
 
 interface Properties {

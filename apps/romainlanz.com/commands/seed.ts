@@ -1,6 +1,6 @@
 import { BaseCommand } from '@adonisjs/core/ace';
 import { db } from '#core/services/db';
-import { CategoryIdentifier } from '#taxonomy/domain/category_identifier';
+import { CategoryIdentifier } from '#taxonomies/domain/category_identifier';
 import type { CommandOptions } from '@adonisjs/core/types/ace';
 
 export default class Seed extends BaseCommand {

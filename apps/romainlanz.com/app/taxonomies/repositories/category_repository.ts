@@ -1,10 +1,6 @@
 import { db } from '#core/services/db';
-import { Category } from '#taxonomy/domain/category';
-import { CategoryIdentifier } from '#taxonomy/domain/category_identifier';
-import type { ResultOf } from '#types/common';
-
-export type CategoryListQueryResult = ResultOf<CategoryRepository, 'all'>;
-export type CategoryCountWithArticlesQueryResult = ResultOf<CategoryRepository, 'countWithArticles'>;
+import { Category } from '#taxonomies/domain/category';
+import { CategoryIdentifier } from '#taxonomies/domain/category_identifier';
 
 export class CategoryRepository {
 	async all() {
