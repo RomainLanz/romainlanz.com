@@ -1,4 +1,4 @@
-import type { Category } from '../domain/category';
+import type { Category } from '#taxonomy/domain/category';
 
 export type AllCategoryViewModelSerialized = ReturnType<AllCategoryViewModel['serialize']>;
 
