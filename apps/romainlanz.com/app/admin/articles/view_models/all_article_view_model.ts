@@ -1,12 +1,16 @@
 import type { Article } from '#articles/domain/article';
+import type { DateTime } from 'luxon';
 
 export type AllArticleViewModelSerialized = ReturnType<AllArticleViewModel['serialize']>;
 
 export class AllArticleViewModel {
-	constructor(private articles: Article[]) {}
+	constructor(
+		private articles: Article[],
+		private now: DateTime
+	) {}
 
-	static fromDomain(articles: Article[]) {
-		return new this(articles);
+	static fromDomain(articles: Article[], now: DateTime) {
+		return new this(articles, now);
 	}
 
 	serialize() {
@@ -14,7 +18,7 @@ export class AllArticleViewModel {
 			id: article.getIdentifier().toString(),
 			title: article.props.title,
 			slug: article.props.slug,
-			isPublished: article.isPublished(),
+			isPublished: article.isPublished(this.now),
 			publishedAtHuman: article.props.publishedAt?.toFormat('ff') || 'Non publié',
 		}));
 	}

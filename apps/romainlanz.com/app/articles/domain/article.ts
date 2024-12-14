@@ -1,7 +1,7 @@
 import { Entity } from '#core/domain/entity';
-import { DateTime } from 'luxon';
 import type { ArticleIdentifier } from '#articles/domain/article_identifier';
 import type { Category } from '#taxonomy/domain/category';
+import type { DateTime } from 'luxon';
 
 interface Properties {
 	id: ArticleIdentifier;
@@ -14,8 +14,8 @@ interface Properties {
 }
 
 export class Article extends Entity<Properties> {
-	isPublished() {
-		return this.props.publishedAt ? this.props.publishedAt > DateTime.now() : false;
+	isPublished(now: DateTime) {
+		return this.props.publishedAt ? this.props.publishedAt > now : false;
 	}
 
 	get readingTime() {
