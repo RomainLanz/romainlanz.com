@@ -30,8 +30,6 @@ export default defineConfig({
 
 	cookie: {
 		path: '/',
-		httpOnly: true,
-		sameSite: false,
 	},
 
 	/**

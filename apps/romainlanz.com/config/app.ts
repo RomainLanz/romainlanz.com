@@ -1,4 +1,5 @@
 import { defineConfig } from '@adonisjs/core/http';
+import app from '@adonisjs/core/services/app';
 import env from '#start/env';
 
 /**
@@ -34,7 +35,7 @@ export const http = defineConfig({
 		path: '/',
 		maxAge: '2h',
 		httpOnly: true,
-		secure: false,
-		sameSite: false,
+		secure: app.inProduction,
+		sameSite: 'lax',
 	},
 });
