@@ -40,7 +40,10 @@ export default (config: UserConfig = {}) =>
 
           fonts: {
             sans: ["Atkinson Hyperlegible"],
-            mono: ["Fira Mono"],
+            mono: [{
+              name: 'mononoki',
+              provider: 'none'
+            }],
           },
         }),
         presetIcons({

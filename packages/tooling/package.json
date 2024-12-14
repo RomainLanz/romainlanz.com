@@ -10,6 +10,7 @@
     "unocss": "^0.63.6"
   },
   "devDependencies": {
+    "@fontsource/mononoki": "^5.1.0",
     "@swc/core": "^1.7.39",
     "typescript": "~5.6.3"
   },

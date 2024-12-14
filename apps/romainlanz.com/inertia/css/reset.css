@@ -109,7 +109,7 @@ a {
  */
 
 code {
-  --at-apply: font-mono;
+  --at-apply: font-mono text-lg;
   font-weight: 500;
 }
 
