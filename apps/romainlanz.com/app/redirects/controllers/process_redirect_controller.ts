@@ -22,7 +22,7 @@ export default class ProcessRedirectController {
 			const visit = Visit.create({
 				id: VisitIdentifier.generate(),
 				createdAt: this.timeService.now(),
-				ipAddressRaw: request.ip(),
+				ipAddressRaw: request.header('CF-Connecting-IP', request.ip()),
 				referer: request.header('referer') ?? '',
 				redirectId: redirect.getIdentifier(),
 			});
