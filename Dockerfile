@@ -1,7 +1,7 @@
 FROM node:lts-bookworm-slim AS base
 WORKDIR /app
 RUN apt update
-RUN apt install -y curl wget
+RUN apt install -y curl wget fontconfig
 RUN rm -rf /var/lib/apt/lists/*
 
 # Base installer
@@ -26,6 +26,7 @@ RUN node ace build --ignore-ts-errors
 # Production stage
 FROM base
 ENV NODE_ENV=production
+ENV FONTCONFIG_PATH=/etc/fonts
 COPY --from=production-deps /app/node_modules /app/node_modules
 COPY --from=build /app/apps/romainlanz.com/build /app
 EXPOSE 8080
