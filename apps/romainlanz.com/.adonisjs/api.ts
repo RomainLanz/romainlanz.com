@@ -6,10 +6,6 @@
 import type { MakeTuyauRequest, MakeTuyauResponse } from '@tuyau/utils/types'
 import type { InferInput } from '@vinejs/vine/types'
 
-type LiveStatusGetHead = {
-  request: unknown
-  response: MakeTuyauResponse<import('../app/twitch/controllers/get_live_status_controller.ts').default['render'], false>
-}
 type AdminDashboardGetHead = {
   request: unknown
   response: MakeTuyauResponse<import('../app/admin/pages/controllers/pages_controller.ts').default['dashboard'], false>
@@ -78,6 +74,10 @@ type ContactGetHead = {
   request: unknown
   response: MakeTuyauResponse<import('../app/pages/controllers/contact_controller.ts').default['render'], false>
 }
+type ContactPost = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/pages/controllers/contact_controller.ts').default['execute'], false>
+}
 type AProposGetHead = {
   request: unknown
   response: MakeTuyauResponse<import('../app/pages/controllers/about_controller.ts').default['render'], false>
@@ -90,19 +90,15 @@ type LogoutDelete = {
   request: unknown
   response: MakeTuyauResponse<import('../app/auth/controllers/logout_controller.ts').default['handle'], false>
 }
+type LiveStatusGetHead = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/twitch/controllers/get_live_status_controller.ts').default['render'], false>
+}
 type ApiAssetsImagesPost = {
   request: unknown
   response: MakeTuyauResponse<import('../app/media/controllers/upload_image_controller.ts').default['handle'], false>
 }
 export interface ApiDefinition {
-  'live': {
-    'status': {
-      '$url': {
-      };
-      '$get': LiveStatusGetHead;
-      '$head': LiveStatusGetHead;
-    };
-  };
   'admin': {
     'dashboard': {
       '$url': {
@@ -195,6 +191,7 @@ export interface ApiDefinition {
     };
     '$get': ContactGetHead;
     '$head': ContactGetHead;
+    '$post': ContactPost;
   };
   'a-propos': {
     '$url': {
@@ -212,6 +209,14 @@ export interface ApiDefinition {
     };
     '$delete': LogoutDelete;
   };
+  'live': {
+    'status': {
+      '$url': {
+      };
+      '$get': LiveStatusGetHead;
+      '$head': LiveStatusGetHead;
+    };
+  };
   'api': {
     'assets': {
       'images': {
@@ -223,13 +228,6 @@ export interface ApiDefinition {
   };
 }
 const routes = [
-  {
-    params: [],
-    name: 'live.status',
-    path: '/live/status',
-    method: ["GET","HEAD"],
-    types: {} as LiveStatusGetHead,
-  },
   {
     params: [],
     name: 'admin.pages.dashboard',
@@ -358,6 +356,13 @@ const routes = [
   },
   {
     params: [],
+    name: 'pages.contact.store',
+    path: '/contact',
+    method: ["POST"],
+    types: {} as ContactPost,
+  },
+  {
+    params: [],
     name: 'pages.about',
     path: '/a-propos',
     method: ["GET","HEAD"],
@@ -376,6 +381,13 @@ const routes = [
     path: '/logout',
     method: ["DELETE"],
     types: {} as LogoutDelete,
+  },
+  {
+    params: [],
+    name: 'live.status',
+    path: '/live/status',
+    method: ["GET","HEAD"],
+    types: {} as LiveStatusGetHead,
   },
   {
     params: [],

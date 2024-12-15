@@ -20,6 +20,7 @@ router.get('/', [LandingController, 'render']).as('pages.landing');
 router.get('articles', [ListArticlesController, 'render']).as('articles.index');
 router.get('articles/:slug', [ShowArticleController, 'render']).as('articles.show');
 router.get('contact', [ContactController, 'render']).as('pages.contact');
+router.post('contact', [ContactController, 'execute']).as('pages.contact.store');
 router.get('a-propos', [AboutController, 'render']).as('pages.about');
 // router.get('newsletters/register', [RegisterEmailController, 'render']).as('newsletters.register');
 // router.post('newsletters/register', [RegisterEmailController, 'execute']).as('newsletters.store');

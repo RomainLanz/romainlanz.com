@@ -14,6 +14,7 @@ const inertiaConfig = defineConfig({
 	sharedData: {
 		currentUser: (ctx) => CurrentUserViewModel.fromDomain(ctx.auth.user).serialize(),
 		errors: (ctx) => ctx.session?.flashMessages.get('errors'),
+		success: (ctx) => ctx.session?.flashMessages.get('success'),
 	},
 
 	/**
