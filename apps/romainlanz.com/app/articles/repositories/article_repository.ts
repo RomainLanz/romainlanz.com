@@ -1,5 +1,6 @@
 import { Article } from '#articles/domain/article';
 import { ArticleIdentifier } from '#articles/domain/article_identifier';
+import { RecordNotFoundException } from '#core/exceptions/record_not_found_exception';
 import { db } from '#core/services/db';
 import { Category } from '#taxonomies/domain/category';
 import { CategoryIdentifier } from '#taxonomies/domain/category_identifier';
@@ -169,7 +170,11 @@ export class ArticleRepository {
 				'categories.illustration_name as category_illustration_name',
 			])
 			.where('articles.slug', '=', slug)
-			.executeTakeFirstOrThrow();
+			.executeTakeFirst();
+
+		if (!articleRecord) {
+			throw new RecordNotFoundException();
+		}
 
 		return Article.create({
 			id: ArticleIdentifier.fromString(articleRecord.id),
