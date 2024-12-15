@@ -1,4 +1,6 @@
 import { inject } from '@adonisjs/core';
+import config from '@adonisjs/core/services/config';
+import router from '@adonisjs/core/services/router';
 import { ArticleRepository } from '#articles/repositories/article_repository';
 import { ArticleViewModel } from '#articles/view_models/article_view_model';
 import { TimeServiceContract } from '#core/contracts/time_service_contract';
@@ -19,6 +21,14 @@ export default class ShowArticleController {
 			throw new RecordNotFoundException();
 		}
 
-		return inertia.render('articles/show', { vm: ArticleViewModel.fromDomain(article).serialize() });
+		const ogImagePath = router.makeSignedUrl('og.compute', undefined, {
+			expiresIn: '24h',
+			qs: { title: article.props.title, subtitle: article.props.summary },
+		});
+
+		return inertia.render('articles/show', {
+			vm: ArticleViewModel.fromDomain(article).serialize(),
+			ogImageUrl: `${config.get('app.appUrl')}${ogImagePath}`,
+		});
 	}
 }

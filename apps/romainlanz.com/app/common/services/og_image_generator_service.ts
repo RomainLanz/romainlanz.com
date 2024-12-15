@@ -17,8 +17,6 @@ export class OgImageGeneratorService {
 
 		assertExists(OgImageGeneratorService.#template, 'Template should be loaded');
 
-		console.log(title);
-
 		const [title1, title2] = title
 			.trim()
 			.split(/(.{0,20})(?:\s|$)/g)

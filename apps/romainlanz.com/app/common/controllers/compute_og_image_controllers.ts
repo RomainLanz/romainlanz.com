@@ -15,6 +15,10 @@ export default class ComputeOgImageControllers {
 	constructor(private readonly ogImageGeneratorService: OgImageGeneratorService) {}
 
 	async execute({ request, response }: HttpContext) {
+		if (!request.hasValidSignature()) {
+			return response.unauthorized();
+		}
+
 		const { title, subtitle } = await request.validateUsing(ComputeOgImageControllers.validator);
 
 		const image = await this.ogImageGeneratorService.generate(title, subtitle);
