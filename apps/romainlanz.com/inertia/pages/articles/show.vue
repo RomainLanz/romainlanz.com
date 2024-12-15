@@ -1,26 +1,29 @@
 <script lang="ts" setup>
 	import { Head } from '@inertiajs/vue3';
 	import Headline from '@rlanz/design-system/headline';
+	import { computed } from 'vue';
 	import type { ArticleViewModelSerialized } from '#articles/view_models/article_view_model';
 
 	const { vm } = defineProps<{
 		vm: ArticleViewModelSerialized;
 		ogImageUrl: string;
 	}>();
+
+	const escapedSummary = computed(() => vm.article.summary.replaceAll('"', '&quot;'));
 </script>
 
 <template>
 	<Head :title="vm.article.title">
-		<meta name="description" :content="vm.article.summary" />
+		<meta name="description" :content="escapedSummary" />
 
 		<meta name="og:title" :content="vm.article.title" />
-		<meta name="og:description" :content="vm.article.summary" />
+		<meta name="og:description" :content="escapedSummary" />
 		<meta name="og:image" :content="ogImageUrl" />
 
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta property="twitter:domain" content="romainlanz.com" />
 		<meta name="twitter:title" :content="vm.article.title" />
-		<meta name="twitter:description" :content="vm.article.summary" />
+		<meta name="twitter:description" :content="escapedSummary" />
 		<meta name="twitter:image" :content="ogImageUrl" />
 	</Head>
 
