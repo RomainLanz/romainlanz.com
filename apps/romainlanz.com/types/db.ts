@@ -27,7 +27,7 @@ export interface Articles {
 
 export interface Categories {
   id: string;
-  illustration_name: string | null;
+  illustration_name: string;
   name: string;
   slug: string;
 }

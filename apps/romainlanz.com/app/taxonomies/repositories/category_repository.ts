@@ -1,6 +1,7 @@
 import { db } from '#core/services/db';
 import { Category } from '#taxonomies/domain/category';
 import { CategoryIdentifier } from '#taxonomies/domain/category_identifier';
+import type { IllustrationName } from '@rlanz/design-system/illustration-name';
 
 export class CategoryRepository {
 	async all() {
@@ -15,7 +16,7 @@ export class CategoryRepository {
 				id: CategoryIdentifier.fromString(categoryRecord.id),
 				name: categoryRecord.name,
 				slug: categoryRecord.slug,
-				illustrationName: categoryRecord.illustration_name,
+				illustrationName: categoryRecord.illustration_name as IllustrationName,
 			});
 		});
 	}
@@ -43,7 +44,7 @@ export class CategoryRepository {
 				id: CategoryIdentifier.fromString(categoryRecord.id),
 				name: categoryRecord.name,
 				slug: categoryRecord.slug,
-				illustrationName: categoryRecord.illustration_name,
+				illustrationName: categoryRecord.illustration_name as IllustrationName,
 				articleCount: Number(categoryRecord.articles_count),
 			});
 		});

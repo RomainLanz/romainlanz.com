@@ -5,6 +5,7 @@
 
 	const articleIndexUrl = client.$url('admin.articles.index');
 	const redirectIndexUrl = client.$url('admin.redirects.index');
+	const taxonomyIndexUrl = client.$url('admin.taxonomies.index');
 </script>
 
 <template>
@@ -35,6 +36,13 @@
 									:href="redirectIndexUrl"
 								>
 									Redirections
+								</Link>
+
+								<Link
+									class="w-full flex items-center rounded-md py-2 pl-2 pr-1 text-gray-600 hover:bg-yellow-300 hover:text-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+									:href="taxonomyIndexUrl"
+								>
+									Taxonomies
 								</Link>
 							</div>
 						</nav>

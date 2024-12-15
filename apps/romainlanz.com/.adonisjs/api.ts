@@ -44,11 +44,23 @@ type AdminRedirectsCreateGetHead = {
 }
 type AdminRedirectsPost = {
   request: unknown
-  response: MakeTuyauResponse<import('../app/admin/redirects/controllers/store_redirect_controller.ts').default['handle'], false>
+  response: MakeTuyauResponse<import('../app/admin/redirects/controllers/store_redirect_controller.ts').default['execute'], false>
 }
 type AdminRedirectsIdDelete = {
   request: unknown
-  response: MakeTuyauResponse<import('../app/admin/redirects/controllers/delete_redirect_controller.ts').default['handle'], false>
+  response: MakeTuyauResponse<import('../app/admin/redirects/controllers/delete_redirect_controller.ts').default['execute'], false>
+}
+type AdminTaxonomiesGetHead = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/admin/taxonomies/controllers/list_taxonomies_controller.ts').default['render'], false>
+}
+type AdminTaxonomiesCategoriesCreateGetHead = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/admin/taxonomies/controllers/store_category_controller.ts').default['render'], false>
+}
+type AdminTaxonomiesCategoriesPost = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/admin/taxonomies/controllers/store_category_controller.ts').default['execute'], false>
 }
 type ArticlesGetHead = {
   request: unknown
@@ -134,6 +146,23 @@ export interface ApiDefinition {
         '$url': {
         };
         '$delete': AdminRedirectsIdDelete;
+      };
+    };
+    'taxonomies': {
+      '$url': {
+      };
+      '$get': AdminTaxonomiesGetHead;
+      '$head': AdminTaxonomiesGetHead;
+      'categories': {
+        'create': {
+          '$url': {
+          };
+          '$get': AdminTaxonomiesCategoriesCreateGetHead;
+          '$head': AdminTaxonomiesCategoriesCreateGetHead;
+        };
+        '$url': {
+        };
+        '$post': AdminTaxonomiesCategoriesPost;
       };
     };
   };
@@ -258,6 +287,27 @@ const routes = [
     path: '/admin/redirects/:id',
     method: ["DELETE"],
     types: {} as AdminRedirectsIdDelete,
+  },
+  {
+    params: [],
+    name: 'admin.taxonomies.index',
+    path: '/admin/taxonomies',
+    method: ["GET","HEAD"],
+    types: {} as AdminTaxonomiesGetHead,
+  },
+  {
+    params: [],
+    name: 'admin.taxonomies.categories.create',
+    path: '/admin/taxonomies/categories/create',
+    method: ["GET","HEAD"],
+    types: {} as AdminTaxonomiesCategoriesCreateGetHead,
+  },
+  {
+    params: [],
+    name: 'admin.taxonomies.categories.store',
+    path: '/admin/taxonomies/categories',
+    method: ["POST"],
+    types: {} as AdminTaxonomiesCategoriesPost,
   },
   {
     params: [],

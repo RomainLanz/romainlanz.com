@@ -6,7 +6,7 @@ export async function up(db: Kysely<any>): Promise<void> {
 		.addColumn('id', 'uuid', (col) => col.primaryKey())
 		.addColumn('name', 'text', (col) => col.notNull().unique())
 		.addColumn('slug', 'text', (col) => col.notNull().unique())
-		.addColumn('illustration_name', 'text')
+		.addColumn('illustration_name', 'text', (col) => col.notNull())
 		.execute();
 }
 
