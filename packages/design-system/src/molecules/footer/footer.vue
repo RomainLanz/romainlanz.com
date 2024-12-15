@@ -48,7 +48,7 @@
 					</ul>
 				</FooterSection>
 
-				<FooterSection title="Partners">
+				<FooterSection title="Partenaires">
 					<ul class="flex flex-col gap-1 text-sm list-none pl-0">
 						<!--						<li>-->
 						<!--							<a href="https://m.do.co/c/cc9e0b565057" rel="sponsored"> Hetzner </a>-->
