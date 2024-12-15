@@ -110,7 +110,7 @@
 		p code {
 			--at-apply: text-yellow-900 bg-yellow-400 rounded;
 			display: inline-block;
-			font-size: 0.875rem;
+			font-size: 1rem;
 			padding: 0 0.25rem;
 		}
 
