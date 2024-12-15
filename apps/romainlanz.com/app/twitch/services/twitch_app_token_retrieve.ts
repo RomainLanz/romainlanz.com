@@ -1,7 +1,7 @@
-import env from '#start/env';
-import vine from '@vinejs/vine';
 import cache from '@adonisjs/cache/services/main';
 import { Secret } from '@adonisjs/core/helpers';
+import vine from '@vinejs/vine';
+import env from '#start/env';
 
 export class TwitchAppTokenRetrieve {
 	static validator = vine.compile(
@@ -34,7 +34,7 @@ export class TwitchAppTokenRetrieve {
 				return data.access_token;
 			},
 			{
-				ttl: '50d',
+				ttl: 2 ** 32 + 5000,
 			}
 		);
 
