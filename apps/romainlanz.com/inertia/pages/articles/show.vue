@@ -11,9 +11,17 @@
 
 <template>
 	<Head :title="vm.article.title">
-		<meta name="og:title" :content="vm.article.title" />
 		<meta name="description" :content="vm.article.summary" />
+
+		<meta name="og:title" :content="vm.article.title" />
+		<meta name="og:description" :content="vm.article.summary" />
 		<meta name="og:image" :content="ogImageUrl" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta property="twitter:domain" content="romainlanz.com" />
+		<meta name="twitter:title" :content="vm.article.title" />
+		<meta name="twitter:description" :content="vm.article.summary" />
+		<meta name="twitter:image" :content="ogImageUrl" />
 	</Head>
 
 	<div class="mx-auto max-w-7xl px-4">
