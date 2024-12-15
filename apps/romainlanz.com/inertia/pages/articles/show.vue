@@ -11,6 +11,8 @@
 
 <template>
 	<Head :title="vm.article.title">
+		<meta name="og:title" :content="vm.article.title" />
+		<meta name="description" :content="vm.article.summary" />
 		<meta name="og:image" :content="ogImageUrl" />
 	</Head>
 
