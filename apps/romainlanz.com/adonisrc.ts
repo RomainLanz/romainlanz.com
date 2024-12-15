@@ -95,9 +95,14 @@ export default defineConfig({
 		],
 		forceExit: false,
 	},
+
 	metaFiles: [
 		{
 			pattern: 'resources/views/**/*.edge',
+			reloadServer: false,
+		},
+		{
+			pattern: 'resources/**/*.svg',
 			reloadServer: false,
 		},
 		{
