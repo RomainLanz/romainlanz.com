@@ -43,7 +43,6 @@
 					:date="vm.articles[0].publishedAtHuman"
 					:datetime="vm.articles[0].publishedAt"
 					:excerpt="vm.articles[0].summary"
-					:reading-time="vm.articles[0].readingTime"
 				/>
 
 				<ArticleCard
@@ -54,7 +53,6 @@
 					:date="vm.articles[2].publishedAtHuman"
 					:datetime="vm.articles[2].publishedAt"
 					:excerpt="vm.articles[2].summary"
-					:reading-time="vm.articles[2].readingTime"
 				/>
 			</div>
 			<div class="flex flex-col gap-6 lg:w-1/2">
@@ -66,7 +64,6 @@
 					:date="vm.articles[1].publishedAtHuman"
 					:datetime="vm.articles[1].publishedAt"
 					:excerpt="vm.articles[1].summary"
-					:reading-time="vm.articles[1].readingTime"
 				/>
 
 				<ArticleCard
@@ -77,7 +74,6 @@
 					:date="vm.articles[3].publishedAtHuman"
 					:datetime="vm.articles[3].publishedAt"
 					:excerpt="vm.articles[3].summary"
-					:reading-time="vm.articles[3].readingTime"
 				/>
 			</div>
 		</div>
