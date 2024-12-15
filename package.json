@@ -3,6 +3,8 @@
   "type": "module",
   "license": "UNLICENSED",
   "scripts": {
+    "docker:build": "docker build . -t site",
+    "docker:run": "docker run --env-file ./apps/romainlanz.com/.env -e NODE_ENV=production -e HOST=0.0.0.0 -e DB_HOST=host.docker.internal -it -p 3333:3333 --add-host=host.docker.internal:host-gateway site",
     "taze": "yarn dlx taze -r -I"
   },
   "workspaces": {
