@@ -9,6 +9,7 @@ export const shikiHighlighter = await createHighlighterCore({
 	themes: [normalizeTheme(rosePineDawn), normalizeTheme(rosePine)],
 	langs: [
 		bundledLanguages.bash(),
+		bundledLanguages.html(),
 		bundledLanguages.sh(),
 		bundledLanguages.javascript(),
 		bundledLanguages.typescript(),
