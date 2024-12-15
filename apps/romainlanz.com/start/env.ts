@@ -40,7 +40,15 @@ export default await Env.create(new URL('../', import.meta.url), {
 
 	// Mail
 	MAIL_DRIVER: Env.schema.enum(['smtp', 'brevo'] as const),
-	SMTP_HOST: Env.schema.string(),
-	SMTP_PORT: Env.schema.string(),
-	BREVO_API_KEY: Env.schema.string(),
+	...(process.env.NODE_ENV === 'production'
+		? {
+				BREVO_API_KEY: Env.schema.string(),
+				SMTP_HOST: Env.schema.string.optional(),
+				SMTP_PORT: Env.schema.string.optional(),
+			}
+		: {
+				BREVO_API_KEY: Env.schema.string.optional(),
+				SMTP_HOST: Env.schema.string(),
+				SMTP_PORT: Env.schema.string(),
+			}),
 });
