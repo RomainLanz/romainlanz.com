@@ -34,7 +34,7 @@ export class TwitchAppTokenRetrieve {
 				return data.access_token;
 			},
 			{
-				ttl: 2 ** 32 + 5000,
+				ttl: 2_147_483_646,
 			}
 		);
 
