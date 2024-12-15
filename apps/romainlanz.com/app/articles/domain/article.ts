@@ -15,7 +15,7 @@ interface Properties {
 
 export class Article extends Entity<Properties> {
 	isPublished(now: DateTime) {
-		return this.props.publishedAt ? this.props.publishedAt > now : false;
+		return this.props.publishedAt ? this.props.publishedAt < now : false;
 	}
 
 	get readingTime() {
