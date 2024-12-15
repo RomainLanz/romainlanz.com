@@ -63,8 +63,8 @@
 			<hr class="h-1px border-none bg-gray-800 my-12" />
 
 			<section class="flex justify-between">
-				<Link href="#">Mentions légales</Link>
-				<span class="block">&copy; 2023 Romain Lanz</span>
+				<!--				<Link href="#">Mentions légales</Link>-->
+				<span class="block">&copy; Romain Lanz</span>
 			</section>
 		</div>
 	</footer>
