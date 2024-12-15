@@ -18,7 +18,6 @@
 		"#admin/*": "./app/admin/*.js",
 		"#articles/*": "./app/articles/*.js",
 		"#auth/*": "./app/auth/*.js",
-		"#categories/*": "./app/categories/*.js",
 		"#common/*": "./app/common/*.js",
 		"#core/*": "./app/core/*.js",
 		"#media/*": "./app/media/*.js",
@@ -28,8 +27,7 @@
 		"#redirects/*": "./app/redirects/*.js",
 		"#start/*": "./start/*.js",
 		"#config/*": "./config/*.js",
-    "#taxonomy/*": "./app/taxonomy/*.js",
-    "#taxonomies/*": "./app/taxonomies/*.js",
+		"#taxonomies/*": "./app/taxonomies/*.js",
 		"#twitch/*": "./app/twitch/*.js",
 		"#types/*": "./types/*.js",
 		"#views/*": "./resources/views/*.js"
