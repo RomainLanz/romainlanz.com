@@ -3,6 +3,7 @@ import { middleware } from '#start/kernel';
 
 // region Controller's Imports
 const AboutController = () => import('#pages/controllers/about_controller');
+const ComputeOgImageControllers = () => import('#common/controllers/compute_og_image_controllers');
 // const ConfirmEmailController = () => import('#newsletter/controllers/confirm_email_controller');
 const ContactController = () => import('#pages/controllers/contact_controller');
 const LandingController = () => import('#pages/controllers/landing_controller');
@@ -12,6 +13,8 @@ const LogoutController = () => import('#auth/controllers/logout_controller');
 // const RegisterEmailController = () => import('#newsletter/controllers/register_email_controller');
 const ShowArticleController = () => import('#articles/controllers/show_article_controller');
 // endregion
+
+router.get('og/compute', [ComputeOgImageControllers, 'execute']).as('og.compute');
 
 router.get('/', [LandingController, 'render']).as('pages.landing');
 router.get('articles', [ListArticlesController, 'render']).as('articles.index');

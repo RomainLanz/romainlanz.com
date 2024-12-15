@@ -162,6 +162,7 @@ export class ArticleRepository {
 				'articles.id',
 				'articles.title',
 				'articles.slug',
+				'articles.summary',
 				'articles.content_html',
 				'articles.published_at',
 				'categories.id as category_id',
@@ -181,7 +182,7 @@ export class ArticleRepository {
 			title: articleRecord.title,
 			slug: articleRecord.slug,
 			content: articleRecord.content_html,
-			summary: null,
+			summary: articleRecord.summary,
 			publishedAt: DateTime.fromJSDate(articleRecord.published_at!),
 			category: Category.create({
 				id: CategoryIdentifier.fromString(articleRecord.category_id!),

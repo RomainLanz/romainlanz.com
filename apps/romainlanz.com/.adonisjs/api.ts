@@ -62,6 +62,10 @@ type AdminTaxonomiesCategoriesPost = {
   request: unknown
   response: MakeTuyauResponse<import('../app/admin/taxonomies/controllers/store_category_controller.ts').default['execute'], false>
 }
+type OgComputeGetHead = {
+  request: unknown
+  response: MakeTuyauResponse<import('../app/common/controllers/compute_og_image_controllers.ts').default['execute'], false>
+}
 type ArticlesGetHead = {
   request: unknown
   response: MakeTuyauResponse<import('../app/articles/controllers/list_articles_controller.ts').default['render'], false>
@@ -164,6 +168,14 @@ export interface ApiDefinition {
         };
         '$post': AdminTaxonomiesCategoriesPost;
       };
+    };
+  };
+  'og': {
+    'compute': {
+      '$url': {
+      };
+      '$get': OgComputeGetHead;
+      '$head': OgComputeGetHead;
     };
   };
   'articles': {
@@ -308,6 +320,13 @@ const routes = [
     path: '/admin/taxonomies/categories',
     method: ["POST"],
     types: {} as AdminTaxonomiesCategoriesPost,
+  },
+  {
+    params: [],
+    name: 'og.compute',
+    path: '/og/compute',
+    method: ["GET","HEAD"],
+    types: {} as OgComputeGetHead,
   },
   {
     params: [],

@@ -1,15 +1,23 @@
 <script lang="ts" setup>
 	import { Head } from '@inertiajs/vue3';
 	import Headline from '@rlanz/design-system/headline';
+	import { client } from '@rlanz/rpc/client';
+	import { computed } from 'vue';
 	import type { ArticleViewModelSerialized } from '#articles/view_models/article_view_model';
 
-	defineProps<{
+	const { vm } = defineProps<{
 		vm: ArticleViewModelSerialized;
 	}>();
+
+	const ogUrl = computed(() => {
+		return client.$url('og.compute', { query: { title: vm.article.title, subtitle: vm.article.summary } });
+	});
 </script>
 
 <template>
-	<Head :title="vm.article.title" />
+	<Head :title="vm.article.title">
+		<meta name="og:url" :content="ogUrl" />
+	</Head>
 
 	<div class="mx-auto max-w-7xl px-4">
 		<article :class="$style.article">
