@@ -3,6 +3,10 @@
 	import Logo from '../../atoms/logo/logo.vue';
 	import FooterSection from './footer_section.vue';
 	import SocialNetwork from './social_network.vue';
+	import { client } from '@rlanz/rpc/client';
+
+	const contactUrl = client.$url('pages.contact');
+	const aboutUrl = client.$url('pages.about');
 </script>
 
 <template>
@@ -33,10 +37,10 @@
 				<FooterSection title="Navigation">
 					<ul class="flex flex-col gap-1 text-sm list-none pl-0">
 						<li>
-							<Link href="/contact">Contact</Link>
+							<Link :href="contactUrl" prefetch>Contact</Link>
 						</li>
 						<li>
-							<Link href="/a-propos">À Propos</Link>
+							<Link :href="aboutUrl" prefetch>À Propos</Link>
 						</li>
 					</ul>
 				</FooterSection>
