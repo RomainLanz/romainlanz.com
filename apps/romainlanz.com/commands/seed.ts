@@ -11,6 +11,14 @@ export default class Seed extends BaseCommand {
 		startApp: true,
 	};
 
+	/**
+	 * The complete lifecycle hook runs after the "run" method
+	 * and hence, we use it to close the data connection.
+	 */
+	async completed() {
+		await db.destroy();
+	}
+
 	async run() {
 		// Seed categories
 		// TODO: Check if categories already exist
