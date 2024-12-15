@@ -18,6 +18,7 @@ export class LandingViewModel {
 				slug: article.props.slug,
 				publishedAtHuman: article.props.publishedAt!.toFormat('DD'),
 				publishedAt: article.props.publishedAt!.set({ hour: 0, minute: 0, second: 0, millisecond: 0 }).toISO(),
+				readingTime: article.readingTime,
 			})),
 		};
 	}
