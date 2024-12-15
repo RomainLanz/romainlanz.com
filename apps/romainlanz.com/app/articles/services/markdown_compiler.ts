@@ -18,11 +18,9 @@ export class MarkdownCompiler {
 		.use(remarkParse)
 		.use(remarkGfm)
 		.use(remarkRehype, { allowDangerousHtml: true })
+		// @ts-expect-error - No idea, but works (:
 		.use(rehypeShikiFromHighlighter, shikiHighlighter, {
-			themes: {
-				light: 'rose-pine-dawn',
-				dark: 'rose-pine',
-			},
+			theme: 'rose-pine-dawn',
 			transformers: [
 				transformerNotationDiff(),
 				transformerNotationHighlight(),
