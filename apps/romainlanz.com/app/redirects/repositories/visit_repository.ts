@@ -1,6 +1,6 @@
 import { assertExists } from '@adonisjs/core/helpers/assert';
-import { db } from '#core/services/db';
 import { sql } from 'kysely';
+import { db } from '#core/services/db';
 import type { Visit } from '#redirects/domain/visit';
 
 export class VisitRepository {

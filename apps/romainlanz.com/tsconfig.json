@@ -1,10 +1,10 @@
 {
 	"extends": "@adonisjs/tsconfig/tsconfig.app.json",
-	"exclude": ["node_modules", "./resources/ts/env.d.ts"],
 	"compilerOptions": {
 		"rootDir": "./",
-		"outDir": "./build",
+		"resolveJsonModule": true,
 		"types": ["hot-hook/import-meta"],
-    "resolveJsonModule": true
-  }
+		"outDir": "./build"
+	},
+	"exclude": ["node_modules", "./resources/ts/env.d.ts"]
 }

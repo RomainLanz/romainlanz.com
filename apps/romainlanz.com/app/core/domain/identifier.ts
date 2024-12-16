@@ -1,5 +1,5 @@
-import { ValueObject } from '#core/domain/value_object';
 import { v7 as randomUUID } from 'uuid';
+import { ValueObject } from '#core/domain/value_object';
 
 export class Identifier<T extends string> extends ValueObject<{ value: string }> {
 	// @ts-expect-error - This is a hack to make the type work

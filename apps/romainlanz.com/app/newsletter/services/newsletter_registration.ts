@@ -1,7 +1,7 @@
 import { inject } from '@adonisjs/core';
 import mail from '@adonisjs/mail/services/main';
-import { NewsletterRepository } from '#newsletter/repositories/newsletter_repository';
 import { RegisterNewsletterNotification } from '#newsletter/mails/register_newsletter_notification';
+import { NewsletterRepository } from '#newsletter/repositories/newsletter_repository';
 
 @inject()
 export class NewsletterRegistration {

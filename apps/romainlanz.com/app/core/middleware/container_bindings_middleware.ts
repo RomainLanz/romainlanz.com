@@ -1,8 +1,8 @@
 import { HttpContext } from '@adonisjs/core/http';
 import { Logger } from '@adonisjs/core/logger';
+import { DateTime } from 'luxon';
 import { TimeFreezeService } from '#common/services/time_freeze_service';
 import { TimeServiceContract } from '#core/contracts/time_service_contract';
-import { DateTime } from 'luxon';
 import type { NextFn } from '@adonisjs/core/types/http';
 
 /**

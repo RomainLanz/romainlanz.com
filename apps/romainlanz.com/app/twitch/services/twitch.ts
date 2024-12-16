@@ -1,7 +1,7 @@
 import cache from '@adonisjs/cache/services/main';
 import { inject } from '@adonisjs/core';
-import { TwitchAppTokenRetrieve } from '#twitch/services/twitch_app_token_retrieve';
 import env from '#start/env';
+import { TwitchAppTokenRetrieve } from '#twitch/services/twitch_app_token_retrieve';
 
 @inject()
 export class Twitch {

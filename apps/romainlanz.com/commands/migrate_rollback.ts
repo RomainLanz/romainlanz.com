@@ -1,9 +1,9 @@
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
 import { BaseCommand, flags } from '@adonisjs/core/ace';
-import { db } from '#core/services/db';
 import { Migrator } from 'kysely';
 import { FileMigrationProvider } from '#core/file_migration_provider';
+import { db } from '#core/services/db';
 import type { CommandOptions } from '@adonisjs/core/types/ace';
 
 export default class MigrateRollback extends BaseCommand {

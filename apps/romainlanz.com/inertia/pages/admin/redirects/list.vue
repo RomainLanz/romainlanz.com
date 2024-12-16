@@ -23,11 +23,6 @@
 			label: 'Slug',
 			key: 'slug',
 		},
-		{
-			label: 'Actions',
-			key: 'actions',
-			cell: 'actions',
-		},
 	];
 </script>
 
@@ -42,10 +37,6 @@
 				<div class="flex gap-2">
 					<a class="underline" :href="item.destination">{{ item.destination }}</a>
 				</div>
-			</template>
-
-			<template #actions="{ item }">
-				<div class="flex gap-2"></div>
 			</template>
 		</Table>
 	</div>

@@ -3,7 +3,7 @@
 	import Checkbox from '@rlanz/design-system/checkbox';
 	import Field from '@rlanz/design-system/field';
 
-	const { loading = false } = defineProps<{
+	defineProps<{
 		loading?: boolean;
 	}>();
 

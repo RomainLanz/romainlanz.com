@@ -13,5 +13,5 @@ export default class StoreCategoryController {
 		return inertia.render('admin/taxonomies/categories/store');
 	}
 
-	async execute({ request }: HttpContext) {}
+	async execute({}: HttpContext) {}
 }

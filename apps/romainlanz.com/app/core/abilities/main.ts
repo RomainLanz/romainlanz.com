@@ -12,7 +12,7 @@
 |
 */
 
-import { Bouncer } from '@adonisjs/bouncer';
+// import { Bouncer } from '@adonisjs/bouncer';
 
 /**
  * Delete the following ability to start from

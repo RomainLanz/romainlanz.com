@@ -6,8 +6,8 @@ import {
 	transformerNotationHighlight,
 } from '@shikijs/transformers';
 import vine from '@vinejs/vine';
-import { PasteRepository } from '#paste/repositories/paste_repository';
 import { codeToHtml, bundledLanguagesInfo } from 'shiki';
+import { PasteRepository } from '#paste/repositories/paste_repository';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()

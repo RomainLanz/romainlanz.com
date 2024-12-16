@@ -1,5 +1,5 @@
-import { db } from '#core/services/db';
 import string from '@adonisjs/core/helpers/string';
+import { db } from '#core/services/db';
 import { NewsletterSubscriptionStatus } from '#newsletter/enums/newsletter_subscription_status';
 
 export class NewsletterRepository {
