@@ -73,11 +73,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/auth@npm:^9.2.4":
-  version: 9.2.4
-  resolution: "@adonisjs/auth@npm:9.2.4"
+"@adonisjs/auth@npm:^9.3.0":
+  version: 9.3.0
+  resolution: "@adonisjs/auth@npm:9.3.0"
   dependencies:
-    "@adonisjs/presets": "npm:^2.5.1"
+    "@adonisjs/presets": "npm:^2.6.3"
     "@poppinss/utils": "npm:^6.8.3"
     basic-auth: "npm:^2.0.1"
   peerDependencies:
@@ -98,7 +98,7 @@ __metadata:
       optional: true
     "@japa/plugin-adonisjs":
       optional: true
-  checksum: 10c0/9c07858477d8703a818baf1e32b185c39e84de87f8f9da761dff963fa25340d828ff901359b1477ef21ed283327fad654c6b8eed106eb068c20ae5fe99f6f79b
+  checksum: 10c0/98ecc717860602d12915b0a0816654c4e0b8d27ae6e36997db930a61773a89800a656739d0d5b0d45aa0668443fa6c319217b01cde74538e46ce2ce19ed8f89c
   languageName: node
   linkType: hard
 
@@ -171,9 +171,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/core@npm:^6.16.0":
-  version: 6.16.0
-  resolution: "@adonisjs/core@npm:6.16.0"
+"@adonisjs/core@npm:^6.17.0":
+  version: 6.17.0
+  resolution: "@adonisjs/core@npm:6.17.0"
   dependencies:
     "@adonisjs/ace": "npm:^13.3.0"
     "@adonisjs/application": "npm:^8.3.1"
@@ -185,7 +185,7 @@ __metadata:
     "@adonisjs/fold": "npm:^10.1.3"
     "@adonisjs/hash": "npm:^9.0.5"
     "@adonisjs/health": "npm:^2.0.0"
-    "@adonisjs/http-server": "npm:^7.3.0"
+    "@adonisjs/http-server": "npm:^7.4.0"
     "@adonisjs/logger": "npm:^6.0.5"
     "@adonisjs/repl": "npm:^4.0.1"
     "@antfu/install-pkg": "npm:^0.5.0"
@@ -222,7 +222,7 @@ __metadata:
       optional: true
   bin:
     adonis-kit: build/toolkit/main.js
-  checksum: 10c0/1c5b7ab256d06a9e857b42ca7943fe15d2317ce8bbf2a4880d21f452e7b91988d3a4c1235ee60afad411a999a9c597e264362a00d9da0048a0badee5eb3030d1
+  checksum: 10c0/333af1fa29238a5172ae6e8e87f6d6da8ea562357ec8bcffcb993a533b6a472081059746ec1e0b03b3df9debce85dbef32cfcb26266e91af582edf5679589b9d
   languageName: node
   linkType: hard
 
@@ -307,9 +307,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/http-server@npm:^7.3.0":
-  version: 7.3.0
-  resolution: "@adonisjs/http-server@npm:7.3.0"
+"@adonisjs/http-server@npm:^7.4.0":
+  version: 7.4.0
+  resolution: "@adonisjs/http-server@npm:7.4.0"
   dependencies:
     "@paralleldrive/cuid2": "npm:^2.2.2"
     "@poppinss/macroable": "npm:^1.0.3"
@@ -338,7 +338,7 @@ __metadata:
     "@adonisjs/events": ^9.0.0
     "@adonisjs/fold": ^10.0.1
     "@adonisjs/logger": ^6.0.1
-  checksum: 10c0/c64a53d9a6d5e33de292c0a80e358a031e496b7fd74f4cf4706b3337107edf28c6a89e122bd7c61d1788eb590b12f9e8171ff17ce68b9828b9208def34adeefe
+  checksum: 10c0/26a6b8dc7e6b19af8fe6d45f3d613855506fae016080779387aa03bdef443b9cab7653b19eb437a43300a0cde5e89e817647a49d55e89d7aa8039b17916a5456
   languageName: node
   linkType: hard
 
@@ -424,7 +424,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/presets@npm:^2.5.1":
+"@adonisjs/presets@npm:^2.6.3":
   version: 2.6.3
   resolution: "@adonisjs/presets@npm:2.6.3"
   dependencies:
@@ -2078,10 +2078,10 @@ __metadata:
   resolution: "@rlanz/site@workspace:apps/romainlanz.com"
   dependencies:
     "@adonisjs/assembler": "npm:^7.8.2"
-    "@adonisjs/auth": "npm:^9.2.4"
+    "@adonisjs/auth": "npm:^9.3.0"
     "@adonisjs/bouncer": "npm:^3.1.4"
     "@adonisjs/cache": "npm:1.0.0-4"
-    "@adonisjs/core": "npm:^6.16.0"
+    "@adonisjs/core": "npm:^6.17.0"
     "@adonisjs/i18n": "npm:^2.2.0"
     "@adonisjs/inertia": "npm:^2.1.0"
     "@adonisjs/mail": "npm:^9.2.2"
@@ -2137,7 +2137,7 @@ __metadata:
     unified: "npm:^11.0.5"
     unist-util-visit: "npm:^5.0.0"
     unocss: "npm:^0.65.1"
-    uuid: "npm:11.0.0-0"
+    uuid: "npm:11.0.3"
     vite: "npm:^6.0.3"
     vue: "npm:^3.5.13"
   languageName: unknown
@@ -14300,11 +14300,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A^5.0.0#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A~5.7.2#optional!builtin<compat/typescript>":
   version: 5.7.2
-  resolution: "typescript@patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=cef18b"
+  resolution: "typescript@patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/c891ccf04008bc1305ba34053db951f8a4584b4a1bf2f68fd972c4a354df3dc5e62c8bfed4f6ac2d12e5b3b1c49af312c83a651048f818cd5b4949d17baacd79
+  checksum: 10c0/f3b8082c9d1d1629a215245c9087df56cb784f9fb6f27b5d55577a20e68afe2a889c040aacff6d27e35be165ecf9dca66e694c42eb9a50b3b2c451b36b5675cb
   languageName: node
   linkType: hard
 
@@ -14597,12 +14597,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:11.0.0-0":
-  version: 11.0.0-0
-  resolution: "uuid@npm:11.0.0-0"
+"uuid@npm:11.0.3":
+  version: 11.0.3
+  resolution: "uuid@npm:11.0.3"
   bin:
     uuid: dist/esm/bin/uuid
-  checksum: 10c0/04415a6b32b82bfcacf1dabc084ae0c64beea9700dfb716bdea4b9f32a2f247f316bd7ec6619813b37fbb00685eeb76efef391d610091413e3a1d53fa13de570
+  checksum: 10c0/cee762fc76d949a2ff9205770334699e0043d52bb766472593a25f150077c9deed821230251ea3d6ab3943a5ea137d2826678797f1d5f6754c7ce5ce27e9f7a6
   languageName: node
   linkType: hard
 
