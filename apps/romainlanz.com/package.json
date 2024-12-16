@@ -61,10 +61,10 @@
 		"vite": "^6.0.3"
 	},
 	"dependencies": {
-		"@adonisjs/auth": "^9.2.4",
+		"@adonisjs/auth": "^9.3.0",
 		"@adonisjs/bouncer": "^3.1.4",
 		"@adonisjs/cache": "1.0.0-4",
-		"@adonisjs/core": "^6.16.0",
+		"@adonisjs/core": "^6.17.0",
 		"@adonisjs/i18n": "^2.2.0",
 		"@adonisjs/inertia": "^2.1.0",
 		"@adonisjs/mail": "^9.2.2",
@@ -100,7 +100,7 @@
 		"shiki": "^1.24.2",
 		"unified": "^11.0.5",
 		"unist-util-visit": "^5.0.0",
-		"uuid": "11.0.0-0",
+		"uuid": "11.0.3",
 		"vue": "^3.5.13"
 	},
 	"hotHook": {
