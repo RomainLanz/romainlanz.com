@@ -9,6 +9,8 @@ export default julr(
 	},
 	{
 		ignores: ['.adonisjs/*', 'types/db.ts'],
+	},
+	{
 		rules: {
 			// Not recommended to be turned on
 			'@typescript-eslint/no-redeclare': 'off',
