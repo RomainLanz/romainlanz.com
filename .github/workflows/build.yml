@@ -9,6 +9,8 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
+  lint:
+    uses: ./.github/workflows/lint.yml
   build-and-push-image:
     runs-on: ubuntu-latest
 
