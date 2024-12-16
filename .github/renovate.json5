@@ -12,6 +12,7 @@
   ignoreDeps: [
     // manually bumping
     "node",
-    "@types/node"
+    "@types/node",
+    "postgres"
   ],
 }
