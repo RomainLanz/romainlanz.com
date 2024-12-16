@@ -54,6 +54,7 @@ export default class UpdateArticleController {
 			summary,
 			contentHtml: markdownHtml.toString(),
 			contentMarkdown: markdownContent,
+			readingTime: Math.ceil((markdownContent.split(' ').length || 0) / 238),
 			categoryId,
 		});
 

@@ -10,16 +10,13 @@ interface Properties {
 	summary: string | null;
 	slug: string;
 	content: string | null;
+	readingTime: number;
 	category?: Category;
 }
 
 export class Article extends Entity<Properties> {
 	isPublished(now: DateTime) {
 		return this.props.publishedAt ? this.props.publishedAt < now : false;
-	}
-
-	get readingTime() {
-		return Math.ceil((this.props.content?.split(' ').length || 0) / 238);
 	}
 
 	static create(properties: Properties) {

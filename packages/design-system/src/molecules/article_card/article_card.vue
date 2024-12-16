@@ -10,6 +10,7 @@
 		date: string;
 		datetime: string;
 		excerpt: string;
+		readingTime: number;
 		tags?: Array<{ name: string; color: TagProps['color'] }>;
 	}>();
 
@@ -39,6 +40,8 @@
 				<Tag v-if="tags" v-for="tag in tags" :color="tag.color">
 					{{ tag.name }}
 				</Tag>
+
+				<span class="text-xs uppercase">{{ readingTime }}mn de lecture</span>
 			</div>
 		</article>
 	</Link>

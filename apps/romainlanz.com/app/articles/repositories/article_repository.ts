@@ -6,7 +6,6 @@ import { Category } from '#taxonomies/domain/category';
 import { CategoryIdentifier } from '#taxonomies/domain/category_identifier';
 import { DateTime } from 'luxon';
 import type { IllustrationName } from '@rlanz/design-system/illustration-name';
-import type { ResultOf } from '#types/common';
 
 interface StoreArticleDTO {
 	title: string;
@@ -14,6 +13,7 @@ interface StoreArticleDTO {
 	slug: string;
 	contentHtml: string;
 	contentMarkdown: string;
+	readingTime: number;
 	categoryId: string;
 }
 
@@ -23,13 +23,9 @@ interface UpdateArticleDTO {
 	title: string;
 	contentHtml: string;
 	contentMarkdown: string;
+	readingTime: number;
 	categoryId: string;
 }
-
-export type ArticleListQueryResult = ResultOf<ArticleRepository, 'all'>;
-export type ArticlePaginatedQueryResult = ResultOf<ArticleRepository, 'paginated'>;
-export type ArticleQueryResult = ResultOf<ArticleRepository, 'findBySlug'>;
-export type ArticleByIdQueryResult = ResultOf<ArticleRepository, 'findById'>;
 
 export class ArticleRepository {
 	#scopeCategory: Category | null = null;
@@ -37,7 +33,7 @@ export class ArticleRepository {
 	async all() {
 		const articleRecords = await db
 			.selectFrom('articles')
-			.select(['id', 'title', 'slug', 'published_at'])
+			.select(['id', 'title', 'slug', 'published_at', 'reading_time'])
 			.orderBy('published_at desc')
 			.execute();
 
@@ -47,6 +43,7 @@ export class ArticleRepository {
 				publishedAt: article.published_at ? DateTime.fromJSDate(article.published_at) : null,
 				title: article.title,
 				slug: article.slug,
+				readingTime: article.reading_time,
 				summary: null,
 				content: null,
 			});
@@ -73,7 +70,7 @@ export class ArticleRepository {
 	async paginated(page: number, perPage: number) {
 		const articleRecords = await db
 			.selectFrom('articles')
-			.select(['id', 'title', 'summary', 'slug', 'published_at'])
+			.select(['id', 'title', 'summary', 'slug', 'published_at', 'reading_time'])
 			.orderBy('published_at', 'desc')
 			.where('published_at', 'is not', null)
 			.where('published_at', '<=', new Date())
@@ -93,6 +90,7 @@ export class ArticleRepository {
 				title: article.title,
 				slug: article.slug,
 				summary: article.summary,
+				readingTime: article.reading_time,
 				content: null,
 			});
 		});
@@ -101,7 +99,7 @@ export class ArticleRepository {
 	async findLastFourPublished() {
 		const articleRecords = await db
 			.selectFrom('articles')
-			.select(['id', 'title', 'summary', 'slug', 'published_at'])
+			.select(['id', 'title', 'summary', 'slug', 'published_at', 'reading_time'])
 			.orderBy('published_at', 'desc')
 			.where('published_at', 'is not', null)
 			.where('published_at', '<=', new Date())
@@ -115,6 +113,7 @@ export class ArticleRepository {
 				title: article.title,
 				slug: article.slug,
 				summary: article.summary,
+				readingTime: article.reading_time,
 				content: null,
 			});
 		});
@@ -131,6 +130,7 @@ export class ArticleRepository {
 				summary: payload.summary,
 				content_html: payload.contentHtml,
 				content_markdown: payload.contentMarkdown,
+				reading_time: payload.readingTime,
 				category_id: payload.categoryId,
 			})
 			.execute();
@@ -144,6 +144,7 @@ export class ArticleRepository {
 				summary: payload.summary,
 				content_html: payload.contentHtml,
 				content_markdown: payload.contentMarkdown,
+				reading_time: payload.readingTime,
 				category_id: payload.categoryId,
 			})
 			.where('id', '=', payload.id)
@@ -165,6 +166,7 @@ export class ArticleRepository {
 				'articles.summary',
 				'articles.content_html',
 				'articles.published_at',
+				'articles.reading_time',
 				'categories.id as category_id',
 				'categories.name as category_name',
 				'categories.slug as category_slug',
@@ -184,6 +186,7 @@ export class ArticleRepository {
 			content: articleRecord.content_html,
 			summary: articleRecord.summary,
 			publishedAt: DateTime.fromJSDate(articleRecord.published_at!),
+			readingTime: articleRecord.reading_time,
 			category: Category.create({
 				id: CategoryIdentifier.fromString(articleRecord.category_id!),
 				name: articleRecord.category_name!,

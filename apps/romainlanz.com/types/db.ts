@@ -18,6 +18,7 @@ export interface Articles {
   created_at: Timestamp;
   id: string;
   published_at: Timestamp | null;
+  reading_time: Generated<number>;
   slug: string;
   status: Generated<number>;
   summary: string;
