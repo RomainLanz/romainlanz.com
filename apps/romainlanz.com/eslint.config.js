@@ -11,11 +11,11 @@ export default julr(
 			'perfectionist/sort-imports': [
 				'error',
 				{
-					'groups': ['side-effect', 'builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'type'],
-					'internal-pattern': ['#**/*', '~/**/*'],
-					'newlines-between': 'never',
-					'order': 'asc',
-					'type': 'alphabetical',
+					groups: ['side-effect', 'builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'type'],
+					internalPattern: ['^#.+', '^~/.+'],
+					newlinesBetween: 'never',
+					order: 'asc',
+					type: 'alphabetical',
 				},
 			],
 		},
