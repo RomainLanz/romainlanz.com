@@ -14,6 +14,8 @@ const LogoutController = () => import('#auth/controllers/logout_controller');
 const ShowArticleController = () => import('#articles/controllers/show_article_controller');
 // endregion
 
+router.get('health', () => ({ uptime: Math.ceil(process.uptime()) }));
+
 router.get('og/compute', [ComputeOgImageControllers, 'execute']).as('og.compute');
 
 router.get('/', [LandingController, 'render']).as('pages.landing');
