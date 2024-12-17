@@ -1,5 +1,4 @@
 on:
-  - push
   - pull_request
   - workflow_call
 
@@ -26,4 +25,4 @@ jobs:
 
       - run: yarn
 
-      - run: yarn lint
+      - run: yarn workspace @rlanz/site lint
