@@ -367,9 +367,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/inertia@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "@adonisjs/inertia@npm:2.1.0"
+"@adonisjs/inertia@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "@adonisjs/inertia@npm:2.1.1"
   dependencies:
     "@poppinss/utils": "npm:^6.8.3"
     "@tuyau/utils": "npm:^0.0.6"
@@ -387,7 +387,7 @@ __metadata:
   peerDependenciesMeta:
     "@japa/api-client":
       optional: true
-  checksum: 10c0/5154828700552cb4034fe12d79e50b695a7ac33a19f16a1ef84d297ee1804ac7969b91f50b3283a5ead7547eaa077707cf2d5ad65dac41eeaf80029a08a9b50f
+  checksum: 10c0/3f5ba800538684e3ed09ff65209d87ac2714d6fe5a000710a55e8fbd5fb4db81f21a804f08665bbb7eb3f09fdfffcc0a3bd931ec91564702407edafa8ce2c5a2
   languageName: node
   linkType: hard
 
@@ -2147,7 +2147,7 @@ __metadata:
     "@adonisjs/cache": "npm:1.0.0-4"
     "@adonisjs/core": "npm:^6.17.0"
     "@adonisjs/i18n": "npm:^2.2.0"
-    "@adonisjs/inertia": "npm:^2.1.0"
+    "@adonisjs/inertia": "npm:^2.1.1"
     "@adonisjs/mail": "npm:^9.2.2"
     "@adonisjs/session": "npm:^7.5.0"
     "@adonisjs/shield": "npm:^8.1.1"
