@@ -42,7 +42,7 @@
 		"@adonisjs/cache": "1.0.0-4",
 		"@adonisjs/core": "^6.17.0",
 		"@adonisjs/i18n": "^2.2.0",
-		"@adonisjs/inertia": "^2.1.0",
+		"@adonisjs/inertia": "^2.1.1",
 		"@adonisjs/mail": "^9.2.2",
 		"@adonisjs/session": "^7.5.0",
 		"@adonisjs/shield": "^8.1.1",
