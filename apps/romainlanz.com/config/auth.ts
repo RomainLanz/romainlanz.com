@@ -1,7 +1,7 @@
 import { defineConfig } from '@adonisjs/auth';
 import { sessionGuard } from '@adonisjs/auth/session';
 import { configProvider } from '@adonisjs/core';
-import type { InferAuthEvents, Authenticators } from '@adonisjs/auth/types';
+import type { InferAuthenticators, InferAuthEvents, Authenticators } from '@adonisjs/auth/types';
 
 const authConfig = defineConfig({
 	default: 'web',
