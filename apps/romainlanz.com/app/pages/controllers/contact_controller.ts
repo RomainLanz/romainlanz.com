@@ -20,7 +20,7 @@ export default class ContactController {
 
 		await mail.sendLater((message) => {
 			message
-				.from(payload.email, payload.name)
+				.from('no-reply@romainlanz.com')
 				.to('hello@romainlanz.com')
 				.subject('Nouveau message depuis formulaire de contact')
 				.html(
