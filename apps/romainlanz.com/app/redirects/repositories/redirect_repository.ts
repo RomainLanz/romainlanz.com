@@ -1,5 +1,6 @@
 import { inject } from '@adonisjs/core';
 import { TimeServiceContract } from '#core/contracts/time_service_contract';
+import { RecordNotFoundException } from '#core/exceptions/record_not_found_exception';
 import { db } from '#core/services/db';
 import { Redirect } from '#redirects/domain/redirect';
 import { RedirectIdentifier } from '#redirects/domain/redirect_identifier';
@@ -29,7 +30,11 @@ export class RedirectRepository {
 			.selectFrom('redirects')
 			.where('slug', '=', slug)
 			.select(['id', 'destination'])
-			.executeTakeFirstOrThrow();
+			.executeTakeFirst();
+
+		if (!redirectRecord) {
+			throw new RecordNotFoundException();
+		}
 
 		return Redirect.create({
 			id: RedirectIdentifier.fromString(redirectRecord.id),
