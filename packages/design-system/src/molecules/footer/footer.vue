@@ -26,6 +26,9 @@
 							<SocialNetwork name="Twitch" link="https://www.twitch.tv/romainlanz" />
 						</li>
 						<li>
+							<SocialNetwork name="Bluesky" link="https://bsky.app/profile/romainlanz.com" />
+						</li>
+						<li>
 							<SocialNetwork name="X (Twitter)" icon="x" link="https://x.com/romainlanz" />
 						</li>
 						<li>
