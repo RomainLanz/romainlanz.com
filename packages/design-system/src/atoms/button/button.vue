@@ -14,6 +14,7 @@
 			},
 
 			size: {
+				extraSmall: 'py-1 px-4',
 				small: 'py-2 px-3',
 				medium: 'py-3 px-5',
 			},
