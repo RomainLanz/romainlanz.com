@@ -41,7 +41,7 @@
 	function handleSubmit() {
 		const url = client.$url('admin.articles.update', { params: { id: article!.id } });
 
-		form.categoryId = category.value[0];
+		form.categoryId = category.value?.[0];
 
 		form.put(url, {});
 	}
@@ -50,15 +50,15 @@
 <template>
 	<Panel class="bg-white">
 		<form class="flex flex-col gap-3" @submit.prevent="handleSubmit">
-			<Field v-model="form.title" label="Titre" type="text" :error-message="form.errors.title?.[0]" />
-			<Field v-model="form.summary" label="Résumé" type="text" :error-message="form.errors.summary?.[0]" />
+			<Field v-model="form.title" label="Titre" type="text" :error-message="form.errors.title" />
+			<Field v-model="form.summary" label="Résumé" type="text" :error-message="form.errors.summary" />
 
 			<FieldSelect
 				v-model="category"
 				label="Catégorie"
 				placeholder="Choisir une catégorie"
 				:items
-				:error-message="form.errors.categoryId?.[0]"
+				:error-message="form.errors.categoryId"
 			/>
 
 			<Field v-model="form.markdownContent" class="min-h-6xl" label="Contenu" type="textarea"></Field>

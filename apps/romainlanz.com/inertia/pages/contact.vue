@@ -19,6 +19,7 @@
 		const url = client.$url('pages.contact.store');
 
 		form.post(url, {
+			preserveScroll: true,
 			onSuccess: () => {
 				form.reset();
 			},
@@ -45,9 +46,15 @@
 
 			<ClientOnly>
 				<form class="flex flex-col gap-4" @submit.prevent="onSubmit">
-					<Field v-model="form.name" label="Nom" />
-					<Field v-model="form.email" label="Email" type="email" />
-					<Field v-model="form.message" label="Message" type="textarea" :rows="10" />
+					<Field v-model="form.name" label="Nom" :error-message="form.errors.name" />
+					<Field v-model="form.email" label="Email" type="email" :error-message="form.errors.email" />
+					<Field
+						v-model="form.message"
+						label="Message"
+						type="textarea"
+						:rows="10"
+						:error-message="form.errors.message"
+					/>
 
 					<Button color="yellow" type="submit">Envoyer</Button>
 				</form>

@@ -23,8 +23,8 @@
 <template>
 	<Panel>
 		<form class="flex flex-col gap-3" @submit.prevent="handleSubmit">
-			<Field v-model="form.destination" label="Destination" type="text" :error-message="form.errors.destination?.[0]" />
-			<Field v-model="form.slug" label="Slug" type="text" :error-message="form.errors.slug?.[0]" />
+			<Field v-model="form.destination" label="Destination" type="text" :error-message="form.errors.destination" />
+			<Field v-model="form.slug" label="Slug" type="text" :error-message="form.errors.slug" />
 
 			<div>
 				<Button color="violet" type="submit">Créer</Button>
