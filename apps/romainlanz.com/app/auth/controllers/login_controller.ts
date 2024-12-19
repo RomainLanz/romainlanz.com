@@ -12,8 +12,9 @@ export default class LoginController {
 		const user = await this.authService.attempt(email, password);
 
 		if (!user) {
-			session.flash('errors', "Aucun compte n'a été trouvé avec les identifiants fournis.");
-			session.flashAll();
+			session.flashErrors({
+				E_INVALID_CREDENTIALS: "Aucun compte n'a été trouvé avec les identifiants fournis.",
+			});
 
 			return response.redirect().back();
 		}

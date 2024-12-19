@@ -16,7 +16,7 @@
 	const errors = usePageErrors();
 	const [parent] = useAutoAnimate();
 
-	const form = useForm({
+	const form = useForm('auth/login', {
 		email: '',
 		password: '',
 		remember: false,
@@ -42,8 +42,8 @@
 
 		<template #content>
 			<div ref="parent" class="flex flex-col gap-2">
-				<AlertNote v-if="errors" type="danger">
-					{{ errors }}
+				<AlertNote v-if="errors.E_INVALID_CREDENTIALS" type="danger">
+					{{ errors.E_INVALID_CREDENTIALS }}
 				</AlertNote>
 
 				<LoginForm
