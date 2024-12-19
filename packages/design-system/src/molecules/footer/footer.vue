@@ -40,7 +40,7 @@
 				<FooterSection title="Navigation">
 					<ul class="flex flex-col gap-1 text-sm list-none pl-0">
 						<li>
-							<a href="https://plausible.romainlanz.com/romainlanz.com" rel="nofollow">Statistiques</a>
+							<a href="https://plausible.romainlanz.com/romainlanz.com" rel="nofollow" target="_blank">Statistiques</a>
 						</li>
 						<li>
 							<Link :href="contactUrl" prefetch>Contact</Link>
