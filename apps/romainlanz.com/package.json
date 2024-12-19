@@ -41,7 +41,7 @@
 		"@adonisjs/bouncer": "^3.1.4",
 		"@adonisjs/core": "^6.17.0",
 		"@adonisjs/i18n": "^2.2.0",
-		"@adonisjs/inertia": "^2.1.1",
+		"@adonisjs/inertia": "^2.1.2",
 		"@adonisjs/mail": "^9.2.2",
 		"@adonisjs/session": "^7.5.0",
 		"@adonisjs/shield": "^8.1.1",
@@ -53,8 +53,8 @@
 		"@rlanz/design-system": "workspace:*",
 		"@rlanz/rpc": "workspace:*",
 		"@rlanz/tooling": "workspace:*",
-		"@shikijs/rehype": "^1.24.2",
-		"@shikijs/transformers": "^1.24.2",
+		"@shikijs/rehype": "^1.24.3",
+		"@shikijs/transformers": "^1.24.3",
 		"@tuyau/core": "^0.2.3",
 		"@vinejs/vine": "^3.0.0",
 		"@vue/server-renderer": "^3.5.13",
@@ -73,7 +73,7 @@
 		"remark-parse": "^11.0.0",
 		"remark-rehype": "^11.1.1",
 		"sharp": "^0.33.5",
-		"shiki": "^1.24.2",
+		"shiki": "^1.24.3",
 		"unified": "^11.0.5",
 		"unist-util-visit": "^5.0.0",
 		"uuid": "11.0.3",
@@ -100,8 +100,8 @@
 		"prettier": "^3.4.2",
 		"ts-node-maintained": "^10.9.4",
 		"typescript": "~5.7.2",
-		"unocss": "^0.65.1",
-		"vite": "^6.0.3"
+		"unocss": "^0.65.2",
+		"vite": "^6.0.4"
 	},
 	"hotHook": {
 		"boundaries": [
