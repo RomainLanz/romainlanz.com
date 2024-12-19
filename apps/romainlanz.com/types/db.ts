@@ -60,9 +60,9 @@ export interface RedirectVisits {
   count: Generated<number>;
   created_at: Timestamp;
   id: string;
-  ip_address: string;
   redirect_id: string;
   referer: string | null;
+  unique_hash: string;
 }
 
 export interface TagArticles {
