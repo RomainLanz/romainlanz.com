@@ -9,7 +9,6 @@
 		DialogCloseTrigger,
 	} from '@ark-ui/vue/dialog';
 	import Icon from '../../atoms/icon/icon.vue';
-	import Panel from '../../atoms/panel/panel.vue';
 	import ClientOnly from '../../atoms/client_only/client_only.ts';
 
 	const {
@@ -39,7 +38,9 @@
 				<DialogPositioner class="fixed inset-0 w-screen overflow-y-auto">
 					<div class="flex min-h-full items-end justify-center p-4 sm:items-center sm:p-0">
 						<DialogContent as-child>
-							<Panel class="bg-white max-w-2xl w-full">
+							<div
+								class="bg-off-white max-w-2xl w-full border-2 border-solid border-gray-800 shadow-small rounded-2xl p-6"
+							>
 								<div class="flex items-start justify-between">
 									<DialogTitle class="text-4xl mb-4">{{ title }}</DialogTitle>
 
@@ -49,7 +50,7 @@
 								</div>
 
 								<slot name="content" />
-							</Panel>
+							</div>
 						</DialogContent>
 					</div>
 				</DialogPositioner>
