@@ -43,7 +43,7 @@
 		"@adonisjs/i18n": "^2.2.0",
 		"@adonisjs/inertia": "^2.1.2",
 		"@adonisjs/mail": "^9.2.2",
-		"@adonisjs/session": "^7.5.0",
+		"@adonisjs/session": "patch:@adonisjs/session@npm%3A7.5.0#~/.yarn/patches/@adonisjs-session-npm-7.5.0-f8176360f4.patch",
 		"@adonisjs/shield": "^8.1.1",
 		"@adonisjs/static": "^1.1.1",
 		"@adonisjs/vite": "^4.0.0",

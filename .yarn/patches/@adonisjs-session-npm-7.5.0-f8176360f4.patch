@@ -1,0 +1,20 @@
+diff --git a/build/chunk-OCQGCVXK.js b/build/chunk-OCQGCVXK.js
+index 24edd57e69a64030a48c8a2376d6f6f3ee1e0f6a..03a02edabf476fbafc74cd1e45914e523c6152a6 100644
+--- a/build/chunk-OCQGCVXK.js
++++ b/build/chunk-OCQGCVXK.js
+@@ -275,7 +275,6 @@ var Session = class extends Macroable {
+       }
+       return result;
+     }, {});
+-    this.flashExcept(["_csrf", "_method", "password", "password_confirmation"]);
+     let summary = "The form could not be saved. Please check the errors below.";
+     if ("i18n" in this.#ctx) {
+       summary = this.#ctx.i18n.t(
+@@ -290,7 +289,6 @@ var Session = class extends Macroable {
+       [String(error.code)]: summary
+     });
+     this.flash("inputErrorsBag", errorsBag);
+-    this.flash("errors", errorsBag);
+   }
+   /**
+    * Flash form input data to the flash messages store

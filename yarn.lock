@@ -432,7 +432,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/session@npm:^7.5.0":
+"@adonisjs/session@npm:7.5.0":
   version: 7.5.0
   resolution: "@adonisjs/session@npm:7.5.0"
   dependencies:
@@ -460,6 +460,37 @@ __metadata:
     edge.js:
       optional: true
   checksum: 10c0/156291b0da7a3885cb9aa5ff545d5af6bd79c468228e207e0f8a5400927794f1bc4bc43a7b442b3d1bfbde8b6194cddbfb6054e5d4873fde4c00165048b92e21
+  languageName: node
+  linkType: hard
+
+"@adonisjs/session@patch:@adonisjs/session@npm%3A7.5.0#~/.yarn/patches/@adonisjs-session-npm-7.5.0-f8176360f4.patch":
+  version: 7.5.0
+  resolution: "@adonisjs/session@patch:@adonisjs/session@npm%3A7.5.0#~/.yarn/patches/@adonisjs-session-npm-7.5.0-f8176360f4.patch::version=7.5.0&hash=ddc91c"
+  dependencies:
+    "@poppinss/macroable": "npm:^1.0.3"
+    "@poppinss/utils": "npm:^6.8.3"
+  peerDependencies:
+    "@adonisjs/core": ^6.6.0
+    "@adonisjs/redis": ^8.0.1 || ^9.0.0
+    "@aws-sdk/client-dynamodb": ^3.658.0
+    "@aws-sdk/util-dynamodb": ^3.658.0
+    "@japa/api-client": ^2.0.3
+    "@japa/browser-client": ^2.0.3
+    edge.js: ^6.0.2
+  peerDependenciesMeta:
+    "@adonisjs/redis":
+      optional: true
+    "@aws-sdk/client-dynamodb":
+      optional: true
+    "@aws-sdk/util-dynamodb":
+      optional: true
+    "@japa/api-client":
+      optional: true
+    "@japa/browser-client":
+      optional: true
+    edge.js:
+      optional: true
+  checksum: 10c0/5c7dbb189c7079d908ef8fe93cc4c452f28c40aae0c849f436838cb9899e41809a019b63c0c900b153e0f4419883c126050954bc85364f6be4e400bfff728856
   languageName: node
   linkType: hard
 
@@ -2069,7 +2100,7 @@ __metadata:
     "@adonisjs/i18n": "npm:^2.2.0"
     "@adonisjs/inertia": "npm:^2.1.2"
     "@adonisjs/mail": "npm:^9.2.2"
-    "@adonisjs/session": "npm:^7.5.0"
+    "@adonisjs/session": "patch:@adonisjs/session@npm%3A7.5.0#~/.yarn/patches/@adonisjs-session-npm-7.5.0-f8176360f4.patch"
     "@adonisjs/shield": "npm:^8.1.1"
     "@adonisjs/static": "npm:^1.1.1"
     "@adonisjs/tsconfig": "npm:^1.4.0"
