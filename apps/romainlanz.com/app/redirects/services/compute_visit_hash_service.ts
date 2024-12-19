@@ -1,5 +1,5 @@
 import { hash, randomBytes } from 'node:crypto';
-import cache from '@adonisjs/cache/services/main';
+import { cache } from '#core/services/cache';
 
 interface ComputeVisitHashServiceParams {
 	ipAddressRaw: string;

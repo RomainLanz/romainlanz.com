@@ -39,7 +39,6 @@
 	"dependencies": {
 		"@adonisjs/auth": "^9.3.0",
 		"@adonisjs/bouncer": "^3.1.4",
-		"@adonisjs/cache": "1.0.0-4",
 		"@adonisjs/core": "^6.17.0",
 		"@adonisjs/i18n": "^2.2.0",
 		"@adonisjs/inertia": "^2.1.1",
@@ -59,6 +58,7 @@
 		"@tuyau/core": "^0.2.3",
 		"@vinejs/vine": "^3.0.0",
 		"@vue/server-renderer": "^3.5.13",
+		"bentocache": "patch:bentocache@npm%3A1.0.0-beta.9#~/.yarn/patches/bentocache-npm-1.0.0-beta.9-c4ad06f897.patch",
 		"dlv": "^1.1.3",
 		"edge.js": "^6.2.0",
 		"hastscript": "^9.0.0",

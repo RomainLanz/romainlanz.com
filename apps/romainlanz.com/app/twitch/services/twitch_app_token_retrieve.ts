@@ -1,6 +1,6 @@
-import cache from '@adonisjs/cache/services/main';
 import { Secret } from '@adonisjs/core/helpers';
 import vine from '@vinejs/vine';
+import { cache } from '#core/services/cache';
 import env from '#start/env';
 
 export class TwitchAppTokenRetrieve {
@@ -13,7 +13,7 @@ export class TwitchAppTokenRetrieve {
 	);
 
 	async get() {
-		const token = await cache.use('memory').getOrSet(
+		const token = await cache.getOrSet(
 			'twitch_app_token',
 			async () => {
 				const response = await fetch('https://id.twitch.tv/oauth2/token', {

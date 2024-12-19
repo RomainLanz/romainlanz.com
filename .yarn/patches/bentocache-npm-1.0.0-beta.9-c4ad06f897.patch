@@ -1,0 +1,13 @@
+diff --git a/build/src/drivers/database/adapters/kysely.js b/build/src/drivers/database/adapters/kysely.js
+index 2ae13313bac0f2e5b12939ba34c1ec1e97658aee..e14a086c5dc65ddda2d18c4ef1463b28a091b227 100644
+--- a/build/src/drivers/database/adapters/kysely.js
++++ b/build/src/drivers/database/adapters/kysely.js
+@@ -61,7 +61,7 @@ var KyselyAdapter = class {
+     await this.#connection.deleteFrom(this.#tableName).where("key", "like", `${prefix}%`).execute();
+   }
+   async set(row) {
+-    const expiresAt = this.#dialect === "sqlite" ? row.expiresAt?.getTime() : row.expiresAt;
++    const expiresAt = row.expiresAt?.getTime();
+     await this.#connection.insertInto(this.#tableName).values({ key: row.key, value: row.value, expires_at: expiresAt ?? null }).$if(
+       this.#dialect === "mysql",
+       (query) => query.onDuplicateKeyUpdate({ value: row.value, expires_at: expiresAt })

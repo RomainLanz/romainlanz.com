@@ -1,5 +1,5 @@
-import cache from '@adonisjs/cache/services/main';
 import { inject } from '@adonisjs/core';
+import { cache } from '#core/services/cache';
 import env from '#start/env';
 import { TwitchAppTokenRetrieve } from '#twitch/services/twitch_app_token_retrieve';
 
@@ -8,7 +8,7 @@ export class Twitch {
 	constructor(private twitchAppTokenRetrieve: TwitchAppTokenRetrieve) {}
 
 	async getLiveStatus() {
-		const streamInfo = await cache.use('memory').getOrSet('twitch_stream_info', async () => {
+		const streamInfo = await cache.use('memoryOnly').getOrSet('twitch_stream_info', async () => {
 			const token = await this.twitchAppTokenRetrieve.get();
 
 			const response = await fetch('https://api.twitch.tv/helix/streams?user_login=romainlanz', {

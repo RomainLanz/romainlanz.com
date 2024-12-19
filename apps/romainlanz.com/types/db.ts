@@ -9,6 +9,8 @@ export type Generated<T> = T extends ColumnType<infer S, infer I, infer U>
   ? ColumnType<S, I | undefined, U>
   : ColumnType<T, T | undefined, T>;
 
+export type Int8 = ColumnType<string, bigint | number | string, bigint | number | string>;
+
 export type Timestamp = ColumnType<Date, Date | string, Date | string>;
 
 export interface Articles {
@@ -24,6 +26,12 @@ export interface Articles {
   summary: string;
   title: string;
   updated_at: Timestamp | null;
+}
+
+export interface Cache {
+  expires_at: Int8 | null;
+  key: string;
+  value: string | null;
 }
 
 export interface Categories {
@@ -89,6 +97,7 @@ export interface Users {
 
 export interface DB {
   articles: Articles;
+  cache: Cache;
   categories: Categories;
   newsletters: Newsletters;
   pastes: Pastes;
