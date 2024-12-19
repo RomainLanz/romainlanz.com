@@ -5,6 +5,8 @@ import pg from 'pg';
 import env from '#start/env';
 import type { DB } from '#types/db';
 
+import.meta.hot?.decline();
+
 const { Pool } = pg;
 
 const pool = new Pool({
