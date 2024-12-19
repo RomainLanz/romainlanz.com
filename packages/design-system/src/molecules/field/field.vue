@@ -52,7 +52,7 @@
 			{{ errorMessage }}
 		</FieldErrorText>
 
-		<FieldHelperText v-if="!errorMessage" class="text-cyan-500 text-sm">
+		<FieldHelperText v-if="!errorMessage && helpMessage" class="text-cyan-500 text-sm">
 			{{ helpMessage }}
 		</FieldHelperText>
 	</FieldRoot>
