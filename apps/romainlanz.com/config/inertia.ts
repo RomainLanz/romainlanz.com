@@ -12,9 +12,9 @@ const inertiaConfig = defineConfig({
 	 * Data that should be shared with all rendered pages
 	 */
 	sharedData: {
-		currentUser: (ctx) => CurrentUserViewModel.fromDomain(ctx.auth.user).serialize(),
-		errors: (ctx) => ctx.session?.flashMessages.get('errors'),
-		success: (ctx) => ctx.session?.flashMessages.get('success'),
+		currentUser: (ctx) => ctx.inertia.always(() => CurrentUserViewModel.fromDomain(ctx.auth.user).serialize()),
+		errors: (ctx) => ctx.inertia.always(() => ctx.session?.flashMessages.get('errors')),
+		success: (ctx) => ctx.inertia.always(() => ctx.session?.flashMessages.get('success')),
 	},
 
 	/**
