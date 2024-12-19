@@ -2156,7 +2156,7 @@ __metadata:
     "@vinejs/vine": "npm:^3.0.0"
     "@vitejs/plugin-vue": "npm:^5.2.1"
     "@vue/server-renderer": "npm:^3.5.13"
-    bentocache: "npm:1.0.0-beta.9"
+    bentocache: "patch:bentocache@npm%3A1.0.0-beta.9#~/.yarn/patches/bentocache-npm-1.0.0-beta.9-c4ad06f897.patch"
     dlv: "npm:^1.1.3"
     edge.js: "npm:^6.2.0"
     eslint: "npm:^9.17.0"
@@ -5401,6 +5401,39 @@ __metadata:
     orchid-orm:
       optional: true
   checksum: 10c0/f609cb204314d31689e6a82daa0c60dfed1f8b8c672a648a6449c52b27df31e2ddafbb3dd62b9fc22726dffb0c66927855e98c0f5b9f4664fa98f7989978a58d
+  languageName: node
+  linkType: hard
+
+"bentocache@patch:bentocache@npm%3A1.0.0-beta.9#~/.yarn/patches/bentocache-npm-1.0.0-beta.9-c4ad06f897.patch":
+  version: 1.0.0-beta.9
+  resolution: "bentocache@patch:bentocache@npm%3A1.0.0-beta.9#~/.yarn/patches/bentocache-npm-1.0.0-beta.9-c4ad06f897.patch::version=1.0.0-beta.9&hash=a584f7"
+  dependencies:
+    "@boringnode/bus": "npm:^0.6.0"
+    "@poppinss/utils": "npm:^6.7.3"
+    async-mutex: "npm:^0.5.0"
+    chunkify: "npm:^5.0.0"
+    hexoid: "npm:^1.0.0"
+    lru-cache: "npm:^10.2.2"
+    p-timeout: "npm:^6.1.2"
+    typescript-log: "npm:^2.0.0"
+  peerDependencies:
+    "@aws-sdk/client-dynamodb": ^3.438.0
+    ioredis: ^5.3.2
+    knex: ^3.0.1
+    kysely: ^0.27.3
+    orchid-orm: ^1.24.0
+  peerDependenciesMeta:
+    "@aws-sdk/client-dynamodb":
+      optional: true
+    ioredis:
+      optional: true
+    knex:
+      optional: true
+    kysely:
+      optional: true
+    orchid-orm:
+      optional: true
+  checksum: 10c0/447c31f5a92949a4a1f9b9c006732597f792bb8d70c59909a57d0b45c0dc18b2f5cfd78645af87ec69be451e38bbad6006568dfbff0b32551e4a483d95feea70
   languageName: node
   linkType: hard
 
