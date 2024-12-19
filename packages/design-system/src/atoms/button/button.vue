@@ -23,6 +23,11 @@
 				true: 'border-0 shadow-none',
 				false: 'border-2 border-solid border-gray-800 shadow-small',
 			},
+
+			disabled: {
+				true: 'cursor-not-allowed opacity-80',
+				false: '',
+			},
 		},
 
 		defaultVariants: {
@@ -37,12 +42,17 @@
 	import { computed } from 'vue';
 	import { Link } from '@inertiajs/vue3';
 
-	const { href, prefetch = false } = defineProps<{
+	const {
+		href,
+		prefetch = false,
+		disabled = false,
+	} = defineProps<{
 		color?: ButtonProps['color'];
 		href?: string;
 		prefetch?: boolean;
 		flat?: ButtonProps['flat'];
 		size?: ButtonProps['size'];
+		disabled?: boolean;
 	}>();
 
 	const buttonOrLink = computed(() => {
@@ -59,10 +69,12 @@
 				color,
 				size,
 				flat,
+				disabled,
 			})
 		"
-		:href="href"
-		:prefetch="prefetch"
+		:href
+		:prefetch
+		:disabled
 	>
 		<slot />
 	</Component>
