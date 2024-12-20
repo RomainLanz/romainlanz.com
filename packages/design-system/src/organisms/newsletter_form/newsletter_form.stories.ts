@@ -1,13 +1,10 @@
-import Footer from './footer.vue';
+import NewsletterForm from './newsletter_form.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 const meta = {
-	component: Footer,
-	title: 'Molecules/Footer',
-	parameters: {
-		layout: 'padded',
-	},
-} as Meta<typeof Footer>;
+	component: NewsletterForm,
+	title: 'Organisms/NewsletterForm',
+} satisfies Meta<typeof NewsletterForm>;
 
 export default meta;
 

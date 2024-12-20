@@ -4,9 +4,18 @@
 	import FooterSection from './footer_section.vue';
 	import SocialNetwork from './social_network.vue';
 	import { client } from '@rlanz/rpc/client';
+	import NewsletterForm from '../newsletter_form/newsletter_form.vue';
+
+	const emit = defineEmits<{
+		register: [email: string];
+	}>();
 
 	const contactUrl = client.$url('pages.contact');
 	const aboutUrl = client.$url('pages.about');
+
+	function onRegister(email: string) {
+		emit('register', email);
+	}
 </script>
 
 <template>
@@ -60,6 +69,10 @@
 							<a href="https://app.codecrafters.io/join?via=RomainLanz" rel="sponsored"> CodeCrafters </a>
 						</li>
 					</ul>
+				</FooterSection>
+
+				<FooterSection title="Newsletter">
+					<NewsletterForm @register="onRegister" />
 				</FooterSection>
 			</div>
 
