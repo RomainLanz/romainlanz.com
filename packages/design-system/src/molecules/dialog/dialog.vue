@@ -33,7 +33,7 @@
 
 		<ClientOnly>
 			<Teleport to="body">
-				<DialogBackdrop v-if="backdrop" class="absolute inset-0 bg-dark opacity-50" />
+				<DialogBackdrop v-if="backdrop" class="fixed inset-0 bg-dark opacity-50" />
 
 				<DialogPositioner class="fixed inset-0 w-screen overflow-y-auto">
 					<div class="flex min-h-full items-end justify-center p-4 sm:items-center sm:p-0">
