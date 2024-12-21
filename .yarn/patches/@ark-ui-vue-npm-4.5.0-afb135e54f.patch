@@ -1,0 +1,51 @@
+diff --git a/dist/components/field/field-input.vue.js b/dist/components/field/field-input.vue.js
+index 40ca1525c479127c575772f43c8e84b69a681652..c91365b87414966f1250912612c18eb6f7594fcf 100644
+--- a/dist/components/field/field-input.vue.js
++++ b/dist/components/field/field-input.vue.js
+@@ -19,12 +19,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
+         "as-child": _ctx.asChild,
+         value: _ctx.modelValue,
+         onInput: _cache[0] || (_cache[0] = (event) => emit("update:modelValue", event.target.value))
+-      }), {
+-        default: withCtx(() => [
+-          renderSlot(_ctx.$slots, "default")
+-        ]),
+-        _: 3
+-      }, 16, ["as-child", "value"]);
++      }), undefined, 16, ["as-child", "value"]);
+     };
+   }
+ });
+diff --git a/dist/components/field/field-textarea.vue.js b/dist/components/field/field-textarea.vue.js
+index d8f4fd71985e1bff86cb7df4fbe327b0463a4a95..471d5bcc65b455998f139bb1b4159c759e51f0d9 100644
+--- a/dist/components/field/field-textarea.vue.js
++++ b/dist/components/field/field-textarea.vue.js
+@@ -22,7 +22,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
+         value: _ctx.modelValue,
+         onInput: _cache[0] || (_cache[0] = (event) => emit("update:modelValue", event.target.value)),
+         style: props.autoresize ? { resize: "none", overflow: "hidden" } : void 0
+-      }), "    <slot />\n  ", 16, _hoisted_1);
++      }), undefined, 16, _hoisted_1);
+     };
+   }
+ });
+diff --git a/dist/components/field/use-field.js b/dist/components/field/use-field.js
+index 5307b16fce6bc22412d4cab13ad1e3165c4dc0e3..48cf89aa56c32bb7332b15e0b2a64796983358c0 100644
+--- a/dist/components/field/use-field.js
++++ b/dist/components/field/use-field.js
+@@ -1,5 +1,5 @@
+ import { getWindow, dataAttr, ariaAttr } from '@zag-js/dom-query';
+-import { reactive, ref, onMounted, onBeforeUnmount, computed } from 'vue';
++import { reactive, ref, onMounted, onBeforeUnmount, computed, useId } from 'vue';
+ import { parts } from './field.anatomy.js';
+ 
+ const useField = (props) => {
+@@ -8,7 +8,7 @@ const useField = (props) => {
+     hasErrorText: false,
+     hasHelperText: false
+   });
+-  const id = props.id ?? `field-${Math.random().toString(36).substr(2, 9)}`;
++  const id = useId();
+   const rootRef = ref(null);
+   const rootId = ids?.control ?? `field::${id}`;
+   const errorTextId = ids?.errorText ?? `field::${id}::error-text`;
