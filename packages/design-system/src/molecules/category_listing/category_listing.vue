@@ -23,7 +23,7 @@
 </script>
 
 <template>
-	<ul class="list-none m-0 p-0 flex flex-wrap">
+	<ul class="list-none m-0 p-0 flex flex-col flex-wrap">
 		<li
 			class="border-solid border-2 w-[300px] rounded-lg hover:bg-yellow-300 transition-all"
 			:class="{
