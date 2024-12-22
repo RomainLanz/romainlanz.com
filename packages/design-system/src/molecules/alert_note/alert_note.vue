@@ -57,6 +57,8 @@
 			<Icon :name="iconName" />
 		</div>
 
-		<slot />
+		<div>
+			<slot />
+		</div>
 	</div>
 </template>
