@@ -123,11 +123,16 @@
 			--at-apply: text-gray-500;
 		}
 
+		li code,
 		p code {
 			--at-apply: text-yellow-900 bg-yellow-400 rounded;
 			display: inline-block;
 			font-size: 1rem;
 			padding: 0 0.25rem;
+		}
+
+		& > p img {
+			margin-inline: auto;
 		}
 
 		& > h2 {
