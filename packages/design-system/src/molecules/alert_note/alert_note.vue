@@ -57,8 +57,24 @@
 			<Icon :name="iconName" />
 		</div>
 
-		<div>
+		<div :class="$style.content">
 			<slot />
 		</div>
 	</div>
 </template>
+
+<style module>
+	.content {
+		& > * {
+			margin-block: 1rem;
+		}
+
+		& > :first-child {
+			margin-top: 0;
+		}
+
+		& > :last-child {
+			margin-bottom: 0;
+		}
+	}
+</style>
