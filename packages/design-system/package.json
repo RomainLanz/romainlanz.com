@@ -34,7 +34,8 @@
 		"./headline": "./src/molecules/headline/headline.vue",
 		"./pagination": "./src/molecules/pagination/pagination.vue",
 		"./user-action-menu": "./src/molecules/user_action_menu/user_action_menu.vue",
-    "./footer": "./src/organisms/footer/footer.vue",
+		"./footer": "./src/organisms/footer/footer.vue",
+		"./newsletter-form": "./src/organisms/newsletter_form/newsletter_form.vue",
 		"./top-bar": "./src/organisms/top_bar/top_bar.vue"
 	},
 	"scripts": {
@@ -44,7 +45,7 @@
 		"storybook": "storybook dev -p 6006"
 	},
 	"dependencies": {
-		"@ark-ui/vue": "^4.5.0",
+		"@ark-ui/vue": "patch:@ark-ui/vue@npm%3A4.5.0#~/.yarn/patches/@ark-ui-vue-npm-4.5.0-afb135e54f.patch",
 		"@inertiajs/vue3": "next",
 		"@rlanz/rpc": "workspace:*",
 		"@rlanz/site": "workspace:*",

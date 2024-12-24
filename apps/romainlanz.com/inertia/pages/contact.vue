@@ -2,7 +2,6 @@
 	import { Head, useForm } from '@inertiajs/vue3';
 	import AlertNote from '@rlanz/design-system/alert-note';
 	import Button from '@rlanz/design-system/button';
-	import ClientOnly from '@rlanz/design-system/client-only';
 	import Field from '@rlanz/design-system/field';
 	import { client } from '@rlanz/rpc/client';
 	import { usePageProps } from '~/composables/use_page_props';
@@ -44,25 +43,13 @@
 				{{ pageProps.success }}
 			</AlertNote>
 
-			<ClientOnly>
-				<form class="flex flex-col gap-4" @submit.prevent="onSubmit">
-					<Field v-model="form.name" label="Nom" :error-message="form.errors.name" />
-					<Field v-model="form.email" label="Email" type="email" :error-message="form.errors.email" />
-					<Field
-						v-model="form.message"
-						label="Message"
-						type="textarea"
-						:rows="10"
-						:error-message="form.errors.message"
-					/>
+			<form class="flex flex-col gap-4" @submit.prevent="onSubmit">
+				<Field v-model="form.name" label="Nom" :error-message="form.errors.name" />
+				<Field v-model="form.email" label="Email" type="email" :error-message="form.errors.email" />
+				<Field v-model="form.message" label="Message" type="textarea" :rows="10" :error-message="form.errors.message" />
 
-					<Button color="yellow" type="submit">Envoyer</Button>
-				</form>
-
-				<template #placeholder>
-					<!-- This is temporary used to avoid having a display without inputs -->
-				</template>
-			</ClientOnly>
+				<Button color="yellow" type="submit">Envoyer</Button>
+			</form>
 		</div>
 	</section>
 </template>

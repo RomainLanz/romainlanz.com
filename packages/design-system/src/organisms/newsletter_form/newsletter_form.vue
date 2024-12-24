@@ -1,16 +1,21 @@
 <script lang="ts" setup>
-	import { ref, unref } from 'vue';
 	import NewsletterConfirmationDialog from './newsletter_confirmation_dialog.vue';
 	import Field from '../../molecules/field/field.vue';
 
 	const emit = defineEmits<{
-		register: [email: string];
+		register: [];
 	}>();
 
-	const email = ref('');
+	const { loading = false, errorMessage = null } = defineProps<{
+		loading?: boolean;
+		errorMessage?: string;
+	}>();
+
+	const email = defineModel<string>('email', { required: true });
+	const open = defineModel<boolean>('open', { required: true });
 
 	function onAccept() {
-		emit('register', unref(email));
+		emit('register');
 	}
 </script>
 
@@ -19,9 +24,15 @@
 		<p>Abonne-toi pour recevoir les dernières tendances et ressources pour ta veille technique.</p>
 
 		<div class="flex gap-4">
-			<Field class="h-full" v-model="email" placeholder="hello@romainlanz.com" type="email" />
+			<Field v-model="email" placeholder="hello@romainlanz.com" type="email" />
 
-			<NewsletterConfirmationDialog v-model="email" @accepted="onAccept" />
+			<NewsletterConfirmationDialog
+				v-model:email="email"
+				v-model:open="open"
+				:loading="loading"
+				:error-message="errorMessage"
+				@accepted="onAccept"
+			/>
 		</div>
 	</div>
 </template>

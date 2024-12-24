@@ -9,9 +9,14 @@
 		accepted: [];
 	}>();
 
-	const email = defineModel<string>({ required: true });
+	const { loading = false } = defineProps<{
+		errorMessage?: string;
+		loading?: boolean;
+	}>();
 
-	const open = ref(false);
+	const email = defineModel<string>('email', { required: true });
+	const open = defineModel<boolean>('open', { required: true });
+
 	const acceptTerms = ref(false);
 
 	const isFormValid = computed(() => {
@@ -32,7 +37,7 @@
 
 		<template #content>
 			<form class="flex flex-col gap-4" @submit.prevent="handleSubmit">
-				<Field v-model="email" label="Adresse email" type="email" />
+				<Field v-model="email" label="Adresse email" type="email" :error-message="errorMessage" />
 
 				<Checkbox v-model="acceptTerms" label="J'accepte de recevoir la newsletter de RomainLanz" />
 
