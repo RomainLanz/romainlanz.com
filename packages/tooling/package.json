@@ -7,11 +7,11 @@
     "./unocss": "./src/unocss/unocss.config.ts"
   },
   "dependencies": {
-    "unocss": "^0.65.2"
+    "unocss": "^0.65.3"
   },
   "devDependencies": {
     "@fontsource/mononoki": "^5.1.0",
-    "@swc/core": "^1.10.1",
+    "@swc/core": "^1.10.3",
     "typescript": "~5.7.2"
   },
   "volta": {
