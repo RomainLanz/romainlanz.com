@@ -2349,9 +2349,9 @@ __metadata:
     "@rlanz/design-system": "workspace:*"
     "@rlanz/rpc": "workspace:*"
     "@rlanz/tooling": "workspace:*"
-    "@shikijs/rehype": "npm:^1.24.4"
-    "@shikijs/transformers": "npm:^1.24.4"
-    "@swc/core": "npm:^1.10.3"
+    "@shikijs/rehype": "npm:^1.25.1"
+    "@shikijs/transformers": "npm:^1.25.1"
+    "@swc/core": "npm:^1.10.4"
     "@tuyau/core": "npm:^0.2.3"
     "@types/dlv": "npm:^1.1.5"
     "@types/luxon": "npm:^3.4.2"
@@ -2381,7 +2381,7 @@ __metadata:
     remark-parse: "npm:^11.0.0"
     remark-rehype: "npm:^11.1.1"
     sharp: "npm:^0.33.5"
-    shiki: "npm:^1.24.4"
+    shiki: "npm:^1.25.1"
     ts-node-maintained: "npm:^10.9.4"
     typescript: "npm:~5.7.2"
     unified: "npm:^11.0.5"
@@ -2398,7 +2398,7 @@ __metadata:
   resolution: "@rlanz/tooling@workspace:packages/tooling"
   dependencies:
     "@fontsource/mononoki": "npm:^5.1.0"
-    "@swc/core": "npm:^1.10.3"
+    "@swc/core": "npm:^1.10.4"
     typescript: "npm:~5.7.2"
     unocss: "npm:^0.65.3"
   languageName: unknown
@@ -2560,71 +2560,89 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@shikijs/core@npm:1.24.4":
-  version: 1.24.4
-  resolution: "@shikijs/core@npm:1.24.4"
+"@shikijs/core@npm:1.25.1":
+  version: 1.25.1
+  resolution: "@shikijs/core@npm:1.25.1"
   dependencies:
-    "@shikijs/engine-javascript": "npm:1.24.4"
-    "@shikijs/engine-oniguruma": "npm:1.24.4"
-    "@shikijs/types": "npm:1.24.4"
+    "@shikijs/engine-javascript": "npm:1.25.1"
+    "@shikijs/engine-oniguruma": "npm:1.25.1"
+    "@shikijs/types": "npm:1.25.1"
     "@shikijs/vscode-textmate": "npm:^9.3.1"
     "@types/hast": "npm:^3.0.4"
     hast-util-to-html: "npm:^9.0.4"
-  checksum: 10c0/4ebdb3022d6d7c0598f42c90f26dc039a758dbda168d0244a1265be805124c2c1846ee502e141605ae75bd2f154a0b99db803603ccc272a90ea96abaefa7cd2b
+  checksum: 10c0/8c1864382cb5b20d869d187ae363daddb3ce66672d4bcdfb67c7effde486bc7f3cfcb298e0e6a4069a23d94548db605f69c13ef2f7b55dfe47fea4d0e49c2428
   languageName: node
   linkType: hard
 
-"@shikijs/engine-javascript@npm:1.24.4":
-  version: 1.24.4
-  resolution: "@shikijs/engine-javascript@npm:1.24.4"
+"@shikijs/engine-javascript@npm:1.25.1":
+  version: 1.25.1
+  resolution: "@shikijs/engine-javascript@npm:1.25.1"
   dependencies:
-    "@shikijs/types": "npm:1.24.4"
+    "@shikijs/types": "npm:1.25.1"
     "@shikijs/vscode-textmate": "npm:^9.3.1"
-    oniguruma-to-es: "npm:0.8.1"
-  checksum: 10c0/dcd244a552f1d8e589140b908496eeeb2a960dfd761dfb3f5ceee00b9560867657267eebaab236fc601bdbd04783e88cd62c7a7c7cdff65e64b521f303df664f
+    oniguruma-to-es: "npm:0.10.0"
+  checksum: 10c0/5ba676a987102110ca46408feddb29cee8fc150006a800cba09e9f14e41d844a50b9fac2d1d7be4d2563b381350a41c2aa9edd2bf10e7e4f6084c6e8d74b1a41
   languageName: node
   linkType: hard
 
-"@shikijs/engine-oniguruma@npm:1.24.4":
-  version: 1.24.4
-  resolution: "@shikijs/engine-oniguruma@npm:1.24.4"
+"@shikijs/engine-oniguruma@npm:1.25.1":
+  version: 1.25.1
+  resolution: "@shikijs/engine-oniguruma@npm:1.25.1"
   dependencies:
-    "@shikijs/types": "npm:1.24.4"
+    "@shikijs/types": "npm:1.25.1"
     "@shikijs/vscode-textmate": "npm:^9.3.1"
-  checksum: 10c0/613180014ca639af9b281c5351d7d5c642c82e53dea7f4f6fd58abaf96c86d6cb06954d6e84f9b463be9d0a215381ee06d0ed14e057d5b770ee72871072334f0
+  checksum: 10c0/68c8847e377b443a1a014bb76bbfb4453c96409eeb50dec500cb7634bedf698ab438e97f099cc57b32d56adebc4b61b59cf6f90fbc8854d02fb2fe3dbf99e16a
   languageName: node
   linkType: hard
 
-"@shikijs/rehype@npm:^1.24.4":
-  version: 1.24.4
-  resolution: "@shikijs/rehype@npm:1.24.4"
+"@shikijs/langs@npm:1.25.1":
+  version: 1.25.1
+  resolution: "@shikijs/langs@npm:1.25.1"
   dependencies:
-    "@shikijs/types": "npm:1.24.4"
+    "@shikijs/types": "npm:1.25.1"
+  checksum: 10c0/344a91c4c86859f8b650a9ce2eb30f3f58e1c68397bf88042f0adef19c755b9fd74dbe23b0d5d960b99abf01c1eb38da273a65a8d797117484735d6804b5bfd8
+  languageName: node
+  linkType: hard
+
+"@shikijs/rehype@npm:^1.25.1":
+  version: 1.25.1
+  resolution: "@shikijs/rehype@npm:1.25.1"
+  dependencies:
+    "@shikijs/types": "npm:1.25.1"
     "@types/hast": "npm:^3.0.4"
     hast-util-to-string: "npm:^3.0.1"
-    shiki: "npm:1.24.4"
+    shiki: "npm:1.25.1"
     unified: "npm:^11.0.5"
     unist-util-visit: "npm:^5.0.0"
-  checksum: 10c0/0cc76b087a602425d28cb38de2bc9b34a2176f5ffb5553da40de0997830a29eba12ac21a5cc230f8b05b1e86851199b3d08e776336e55069c1072ecfdb52bf46
+  checksum: 10c0/3b4f361b00564de5877a472aa69fbd1328f42e26f5461c82bc89c37e074035acd1e934552bf61f1756fc76d5325fb22b6972aa66a284a30e73e8bc1f9b81dfe1
   languageName: node
   linkType: hard
 
-"@shikijs/transformers@npm:^1.24.4":
-  version: 1.24.4
-  resolution: "@shikijs/transformers@npm:1.24.4"
+"@shikijs/themes@npm:1.25.1":
+  version: 1.25.1
+  resolution: "@shikijs/themes@npm:1.25.1"
   dependencies:
-    shiki: "npm:1.24.4"
-  checksum: 10c0/af6cf9f4314cba4f4cb15aba8ac066ebd338a2c250f7a6a4f6f6dc1786b1c46a76a3ae5df9fdef717feb3a78c80a795b4050498a6d4e84792f61f5f0cf599a65
+    "@shikijs/types": "npm:1.25.1"
+  checksum: 10c0/85057fbf741fd446111e938a992598ba74f8669ca5bd984dfdba57a9156409342aadc8849b297ce270e7427f24974bce23a9c53b9fba935e5e65967f2d017480
   languageName: node
   linkType: hard
 
-"@shikijs/types@npm:1.24.4":
-  version: 1.24.4
-  resolution: "@shikijs/types@npm:1.24.4"
+"@shikijs/transformers@npm:^1.25.1":
+  version: 1.25.1
+  resolution: "@shikijs/transformers@npm:1.25.1"
+  dependencies:
+    shiki: "npm:1.25.1"
+  checksum: 10c0/68db49cdaf889c22231e8b49708da4cc29d717315fcacfb2c4eb7f3b13ee15850e1abb4ad22e992339754ad7ae61d2858e17b6f451022602f9e146c9ebd3a7e0
+  languageName: node
+  linkType: hard
+
+"@shikijs/types@npm:1.25.1":
+  version: 1.25.1
+  resolution: "@shikijs/types@npm:1.25.1"
   dependencies:
     "@shikijs/vscode-textmate": "npm:^9.3.1"
     "@types/hast": "npm:^3.0.4"
-  checksum: 10c0/43128e287c445ebdeb0666054d09a78a524e728dbb8dee4565eb27f6e93ad75db9a7e94d37437bcad3874df92e10da57961b18224825e6775904545aeb011a97
+  checksum: 10c0/296c902094852a00792dadb9f6c0d79d5ff7a1f6aaab47f6c2faa4c829f0a92e75934a8adbef24c80ecaf18a075c82259ad9e7afa71c617a102c6c45d9664e60
   languageName: node
   linkType: hard
 
@@ -3071,90 +3089,90 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-arm64@npm:1.10.3":
-  version: 1.10.3
-  resolution: "@swc/core-darwin-arm64@npm:1.10.3"
+"@swc/core-darwin-arm64@npm:1.10.4":
+  version: 1.10.4
+  resolution: "@swc/core-darwin-arm64@npm:1.10.4"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-x64@npm:1.10.3":
-  version: 1.10.3
-  resolution: "@swc/core-darwin-x64@npm:1.10.3"
+"@swc/core-darwin-x64@npm:1.10.4":
+  version: 1.10.4
+  resolution: "@swc/core-darwin-x64@npm:1.10.4"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm-gnueabihf@npm:1.10.3":
-  version: 1.10.3
-  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.10.3"
+"@swc/core-linux-arm-gnueabihf@npm:1.10.4":
+  version: 1.10.4
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.10.4"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-gnu@npm:1.10.3":
-  version: 1.10.3
-  resolution: "@swc/core-linux-arm64-gnu@npm:1.10.3"
+"@swc/core-linux-arm64-gnu@npm:1.10.4":
+  version: 1.10.4
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.10.4"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-musl@npm:1.10.3":
-  version: 1.10.3
-  resolution: "@swc/core-linux-arm64-musl@npm:1.10.3"
+"@swc/core-linux-arm64-musl@npm:1.10.4":
+  version: 1.10.4
+  resolution: "@swc/core-linux-arm64-musl@npm:1.10.4"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-gnu@npm:1.10.3":
-  version: 1.10.3
-  resolution: "@swc/core-linux-x64-gnu@npm:1.10.3"
+"@swc/core-linux-x64-gnu@npm:1.10.4":
+  version: 1.10.4
+  resolution: "@swc/core-linux-x64-gnu@npm:1.10.4"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-musl@npm:1.10.3":
-  version: 1.10.3
-  resolution: "@swc/core-linux-x64-musl@npm:1.10.3"
+"@swc/core-linux-x64-musl@npm:1.10.4":
+  version: 1.10.4
+  resolution: "@swc/core-linux-x64-musl@npm:1.10.4"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-win32-arm64-msvc@npm:1.10.3":
-  version: 1.10.3
-  resolution: "@swc/core-win32-arm64-msvc@npm:1.10.3"
+"@swc/core-win32-arm64-msvc@npm:1.10.4":
+  version: 1.10.4
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.10.4"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-win32-ia32-msvc@npm:1.10.3":
-  version: 1.10.3
-  resolution: "@swc/core-win32-ia32-msvc@npm:1.10.3"
+"@swc/core-win32-ia32-msvc@npm:1.10.4":
+  version: 1.10.4
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.10.4"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@swc/core-win32-x64-msvc@npm:1.10.3":
-  version: 1.10.3
-  resolution: "@swc/core-win32-x64-msvc@npm:1.10.3"
+"@swc/core-win32-x64-msvc@npm:1.10.4":
+  version: 1.10.4
+  resolution: "@swc/core-win32-x64-msvc@npm:1.10.4"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core@npm:^1.10.3":
-  version: 1.10.3
-  resolution: "@swc/core@npm:1.10.3"
+"@swc/core@npm:^1.10.4":
+  version: 1.10.4
+  resolution: "@swc/core@npm:1.10.4"
   dependencies:
-    "@swc/core-darwin-arm64": "npm:1.10.3"
-    "@swc/core-darwin-x64": "npm:1.10.3"
-    "@swc/core-linux-arm-gnueabihf": "npm:1.10.3"
-    "@swc/core-linux-arm64-gnu": "npm:1.10.3"
-    "@swc/core-linux-arm64-musl": "npm:1.10.3"
-    "@swc/core-linux-x64-gnu": "npm:1.10.3"
-    "@swc/core-linux-x64-musl": "npm:1.10.3"
-    "@swc/core-win32-arm64-msvc": "npm:1.10.3"
-    "@swc/core-win32-ia32-msvc": "npm:1.10.3"
-    "@swc/core-win32-x64-msvc": "npm:1.10.3"
+    "@swc/core-darwin-arm64": "npm:1.10.4"
+    "@swc/core-darwin-x64": "npm:1.10.4"
+    "@swc/core-linux-arm-gnueabihf": "npm:1.10.4"
+    "@swc/core-linux-arm64-gnu": "npm:1.10.4"
+    "@swc/core-linux-arm64-musl": "npm:1.10.4"
+    "@swc/core-linux-x64-gnu": "npm:1.10.4"
+    "@swc/core-linux-x64-musl": "npm:1.10.4"
+    "@swc/core-win32-arm64-msvc": "npm:1.10.4"
+    "@swc/core-win32-ia32-msvc": "npm:1.10.4"
+    "@swc/core-win32-x64-msvc": "npm:1.10.4"
     "@swc/counter": "npm:^0.1.3"
     "@swc/types": "npm:^0.1.17"
   peerDependencies:
@@ -3183,7 +3201,7 @@ __metadata:
   peerDependenciesMeta:
     "@swc/helpers":
       optional: true
-  checksum: 10c0/52fb5f6fbeffedcb8d6ff19dd6a44097f78d9f2cc3550c702675c5d3cf7b541a1a43847568125b91417273f1196948ee9456d0b5d20db12d0f35e03ff0d28567
+  checksum: 10c0/0454ed52fa11c3c5679d2b538fe67be2518f82fc7f4ebe511ddec0f9d601ce281b8073e3800ca2615ff224aef9a136defea1886e96fd8b432dc92d6209513bce
   languageName: node
   linkType: hard
 
@@ -11161,14 +11179,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"oniguruma-to-es@npm:0.8.1":
-  version: 0.8.1
-  resolution: "oniguruma-to-es@npm:0.8.1"
+"oniguruma-to-es@npm:0.10.0":
+  version: 0.10.0
+  resolution: "oniguruma-to-es@npm:0.10.0"
   dependencies:
     emoji-regex-xs: "npm:^1.0.0"
-    regex: "npm:^5.0.2"
-    regex-recursion: "npm:^5.0.0"
-  checksum: 10c0/994373a52a424c6ecb81960ee46efdd03c5fbf3d0dd692ec7f164cc29e3a57cebd3ea069b4c1499f1b26cc36b5ef28b42012cedccd3c300f52c4a7acb5c15cbf
+    regex: "npm:^5.1.1"
+    regex-recursion: "npm:^5.1.1"
+  checksum: 10c0/d54c3975515d655186e51973bbbfa41c3191eedaca2fdb909c10d1ce463c4bbbfd075705f58552a724615e3e0d301de05123cb5cad8eac1255c36e75b8562fd5
   languageName: node
   linkType: hard
 
@@ -12330,12 +12348,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regex-recursion@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "regex-recursion@npm:5.0.0"
+"regex-recursion@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "regex-recursion@npm:5.1.1"
   dependencies:
+    regex: "npm:^5.1.1"
     regex-utilities: "npm:^2.3.0"
-  checksum: 10c0/ceb46f92b0c986db7d26359a4d3ce2aecc7ec6735ebfd8a48e99e5f4d075d1c2b453c6e5c269d00cd8a1289a930e52061e6c03152fd1f2ebb5c7ca82e1d0d726
+  checksum: 10c0/c61c284bc41f2b271dfa0549d657a5a26397108b860d7cdb15b43080196681c0092bf8cf920a8836213e239d1195c4ccf6db9be9298bce4e68c9daab1febeab9
   languageName: node
   linkType: hard
 
@@ -12346,12 +12365,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regex@npm:^5.0.2":
-  version: 5.0.2
-  resolution: "regex@npm:5.0.2"
+"regex@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "regex@npm:5.1.1"
   dependencies:
     regex-utilities: "npm:^2.3.0"
-  checksum: 10c0/a9bc88a4b4cfb14a1c273312bb81c1bea5869648810bfb66353aa1ba6ce8bc8967559203eff3e20992c2696af41ed161872b9c49885503ea1c78f8433a9def81
+  checksum: 10c0/314e032f0fe09497ce7a160b99675c4a16c7524f0a24833f567cbbf3a2bebc26bf59737dc5c23f32af7c74aa7a6bd3f809fc72c90c49a05faf8be45677db508a
   languageName: node
   linkType: hard
 
@@ -12883,17 +12902,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shiki@npm:1.24.4, shiki@npm:^1.24.4":
-  version: 1.24.4
-  resolution: "shiki@npm:1.24.4"
+"shiki@npm:1.25.1, shiki@npm:^1.25.1":
+  version: 1.25.1
+  resolution: "shiki@npm:1.25.1"
   dependencies:
-    "@shikijs/core": "npm:1.24.4"
-    "@shikijs/engine-javascript": "npm:1.24.4"
-    "@shikijs/engine-oniguruma": "npm:1.24.4"
-    "@shikijs/types": "npm:1.24.4"
+    "@shikijs/core": "npm:1.25.1"
+    "@shikijs/engine-javascript": "npm:1.25.1"
+    "@shikijs/engine-oniguruma": "npm:1.25.1"
+    "@shikijs/langs": "npm:1.25.1"
+    "@shikijs/themes": "npm:1.25.1"
+    "@shikijs/types": "npm:1.25.1"
     "@shikijs/vscode-textmate": "npm:^9.3.1"
     "@types/hast": "npm:^3.0.4"
-  checksum: 10c0/c3758f67ea997f7b9ce4fe32cf50178a5f26fa49fdb2c3550115764d0a55441f63bd89e659e6ba133bdaeac57bfad485412c1b19c19f3ae523c8ffd4334b0c38
+  checksum: 10c0/0699b0539f386ef4e42e354d2bea5e45470a687d002e5b2d85617b87636a078292a298d26b953eaeaa513fd3e13f4def5c7dee5b80eff2219790a1431c9373db
   languageName: node
   linkType: hard
 
