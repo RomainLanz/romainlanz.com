@@ -36,13 +36,13 @@
 	</main>
 
 	<Footer>
-		<template #newsletter>
-			<NewsletterForm
-				v-model:open="openNewsletterDialog"
-				v-model:email="form.email"
-				error-message="toto"
-				@register="onRegister"
-			/>
-		</template>
+		<!--		<template #newsletter> -->
+		<!--			<NewsletterForm -->
+		<!--				v-model:open="openNewsletterDialog" -->
+		<!--				v-model:email="form.email" -->
+		<!--				error-message="toto" -->
+		<!--				@register="onRegister" -->
+		<!--			/> -->
+		<!--		</template> -->
 	</Footer>
 </template>
