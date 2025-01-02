@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 	import delve from 'dlv';
-	import { colors } from '../../tokens.js';
 	import { computed } from 'vue';
+	import { colors } from '../../tokens.js';
 
 	const { color, rotation = -2 } = defineProps<{
 		color: string;

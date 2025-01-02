@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-	import Icon, { type IconName } from '../../atoms/icon/icon.vue';
 	import { computed } from 'vue';
+	import Icon, { type IconName } from '../../atoms/icon/icon.vue';
 
 	const { name, icon } = defineProps<{
 		name: string;

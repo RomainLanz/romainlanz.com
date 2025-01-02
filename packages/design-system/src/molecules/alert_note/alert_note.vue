@@ -1,5 +1,11 @@
-<script lang="ts">
+<script lang="ts" setup>
 	import { tv, type VariantProps } from 'tailwind-variants';
+	import { computed } from 'vue';
+	import Icon from '../../atoms/icon/icon.vue';
+
+	const props = defineProps<{
+		type: NonNullable<AlertProps['type']>;
+	}>();
 
 	const alert = tv({
 		slots: {
@@ -37,15 +43,6 @@
 	} as const;
 
 	type AlertProps = VariantProps<typeof alert>;
-</script>
-
-<script lang="ts" setup>
-	import Icon from '../../atoms/icon/icon.vue';
-	import { computed } from 'vue';
-
-	const props = defineProps<{
-		type: NonNullable<AlertProps['type']>;
-	}>();
 
 	const iconName = computed(() => alertIconMap[props.type]);
 	const { base, icon } = alert({ type: props.type });

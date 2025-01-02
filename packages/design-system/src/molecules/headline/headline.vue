@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-	import Tag, { type TagProps } from '../../atoms/tag/tag.vue';
 	import Illustration from '../../atoms/illustration/illustration.vue';
+	import Tag, { type TagProps } from '../../atoms/tag/tag.vue';
 	import type { IllustrationName } from '../../atoms/illustration/illustration_name.js';
 
 	defineProps<{
@@ -22,12 +22,12 @@
 		</div>
 
 		<div class="relative">
-			<Illustration class="hidden xl:block absolute left-[-162px] w-[130px]" :name="category" />
-			<h1 class="text-6xl max-w-4xl">{{ title }}</h1>
+			<Illustration class="absolute left-[-162px] hidden w-[130px] xl:block" :name="category" />
+			<h1 class="max-w-4xl text-6xl">{{ title }}</h1>
 		</div>
 
 		<div class="flex items-center gap-3">
-			<Tag v-if="tags" v-for="tag in tags" :color="tag.color">
+			<Tag v-for="tag in tags" v-if="tags" :color="tag.color">
 				{{ tag.name }}
 			</Tag>
 

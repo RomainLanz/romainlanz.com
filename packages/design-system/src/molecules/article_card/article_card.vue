@@ -1,18 +1,20 @@
 <script lang="ts" setup>
 	import { Link } from '@inertiajs/vue3';
-	import { computed } from 'vue';
 	import { client } from '@rlanz/rpc/client';
-	import Tag, { TagProps } from '../../atoms/tag/tag.vue';
+	import { computed } from 'vue';
+	import Tag from '../../atoms/tag/tag.vue';
+	import type { TagProps } from '../../atoms/tag/tag.vue';
 
-	const { slug } = defineProps<{
-		slug: string;
-		title: string;
-		date: string;
-		datetime: string;
-		excerpt: string;
-		readingTime: number;
-		tags?: Array<{ name: string; color: TagProps['color'] }>;
-	}>();
+	const { slug } = defineProps<
+		{
+			slug: string;
+			title: string;
+			date: string;
+			datetime: string;
+			excerpt: string;
+			tags?: Array<{ name: string; color: TagProps['color'] }>;
+		} & ({ readingTime: number } | { thumbnailUrl: string; videoLength: string })
+	>();
 
 	const articleUrl = computed(() => {
 		return client.$url('articles.show', { params: { slug } });
@@ -22,10 +24,10 @@
 <template>
 	<Link :href="articleUrl" prefetch>
 		<article
-			class="flex flex-col gap-4 bg-white border-2 border-solid border-gray-800 rounded-md shadow-small text-gray-800 p-6 isolate transition-colors hover:bg-yellow-100"
+			class="isolate flex flex-col gap-4 border-2 border-gray-800 rounded-md border-solid bg-white p-6 text-gray-800 shadow-small transition-colors hover:bg-yellow-100"
 		>
 			<header>
-				<time class="text-xs relative" :class="$style.time" :datetime>
+				<time class="relative text-xs" :class="$style.time" :datetime>
 					{{ date }}
 				</time>
 
@@ -37,7 +39,7 @@
 			</p>
 
 			<div class="flex items-center gap-3">
-				<Tag v-if="tags" v-for="tag in tags" :color="tag.color">
+				<Tag v-for="tag in tags" v-if="tags" :color="tag.color">
 					{{ tag.name }}
 				</Tag>
 

@@ -1,17 +1,17 @@
 <script lang="ts" setup>
 	import { computed, ref, unref } from 'vue';
 	import Button from '../../atoms/button/button.vue';
-	import Dialog from '../../molecules/dialog/dialog.vue';
 	import Checkbox from '../../atoms/checkbox/checkbox.vue';
+	import Dialog from '../../molecules/dialog/dialog.vue';
 	import Field from '../../molecules/field/field.vue';
-
-	const emit = defineEmits<{
-		accepted: [];
-	}>();
 
 	const { loading = false } = defineProps<{
 		errorMessage?: string;
 		loading?: boolean;
+	}>();
+
+	const emit = defineEmits<{
+		accepted: [];
 	}>();
 
 	const email = defineModel<string>('email', { required: true });
@@ -30,7 +30,7 @@
 </script>
 
 <template>
-	<Dialog title="Confirmez votre inscription" v-model="open">
+	<Dialog v-model="open" title="Confirmez votre inscription">
 		<template #trigger>
 			<Button size="extraSmall">S'abonner</Button>
 		</template>

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-	import { IllustrationName } from './illustration_name.js';
+	import type { IllustrationName } from './illustration_name.js';
 
 	defineProps<{
 		name: IllustrationName;

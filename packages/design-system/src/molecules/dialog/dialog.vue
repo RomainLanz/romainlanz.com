@@ -8,8 +8,8 @@
 		DialogContent,
 		DialogCloseTrigger,
 	} from '@ark-ui/vue/dialog';
-	import Icon from '../../atoms/icon/icon.vue';
 	import ClientOnly from '../../atoms/client_only/client_only.ts';
+	import Icon from '../../atoms/icon/icon.vue';
 
 	const {
 		backdrop = true,
@@ -36,13 +36,13 @@
 				<DialogBackdrop v-if="backdrop" class="fixed inset-0 bg-dark opacity-50" />
 
 				<DialogPositioner class="fixed inset-0 w-screen overflow-y-auto">
-					<div class="flex min-h-full items-end justify-center p-4 sm:items-center sm:p-0">
+					<div class="min-h-full flex items-end justify-center p-4 sm:items-center sm:p-0">
 						<DialogContent as-child>
 							<div
-								class="bg-off-white max-w-2xl w-full border-2 border-solid border-gray-800 shadow-small rounded-2xl p-6"
+								class="max-w-2xl w-full border-2 border-gray-800 rounded-2xl border-solid bg-off-white p-6 shadow-small"
 							>
 								<div class="flex items-start justify-between">
-									<DialogTitle class="text-4xl mb-4">{{ title }}</DialogTitle>
+									<DialogTitle class="mb-4 text-4xl">{{ title }}</DialogTitle>
 
 									<DialogCloseTrigger as-child>
 										<Icon name="close-large" class="cursor-pointer" />

@@ -1,6 +1,6 @@
+import Button from '../../atoms/button/button.vue';
 import Table from './table.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
-import Button from '../../atoms/button/button.vue';
 
 const meta = {
 	component: Table,

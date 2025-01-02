@@ -22,13 +22,13 @@
 
 <template>
 	<div class="border-2 border-gray-800 rounded-lg border-solid">
-		<table class="w-full overflow-hidden shadow-sm border-none border-collapse rounded-lg border-spacing-none">
-			<thead class="bg-white border-none">
+		<table class="w-full border-collapse border-spacing-none overflow-hidden rounded-lg border-none shadow-sm">
+			<thead class="border-none bg-white">
 				<tr>
 					<th
-						class="border-collapse border-1 border-solid border-gray-800 text-base px-4 py-3"
 						v-for="header in headers"
 						:key="header.key"
+						class="border-collapse border-1 border-gray-800 border-solid px-4 py-3 text-base"
 						:style="{ width: header.width, textAlign: header.align }"
 					>
 						{{ header.label }}
@@ -38,9 +38,9 @@
 			<tbody>
 				<tr v-for="item in items" :key="item.id">
 					<td
-						class="border-collapse border-1 border-solid border-gray-800 text-base px-4 py-3"
 						v-for="header in headers"
 						:key="header.key"
+						class="border-collapse border-1 border-gray-800 border-solid px-4 py-3 text-base"
 						:style="{ width: header.width, textAlign: header.align }"
 					>
 						<template v-if="header.cell">

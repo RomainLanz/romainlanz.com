@@ -1,18 +1,18 @@
 {
-  $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  extends: ["config:recommended", "schedule:weekly", "group:allNonMajor"],
-  labels: ["dependencies"],
-  rangeStrategy: "bump",
-  packageRules: [
-    {
-      matchDepTypes: ["peerDependencies"],
-      enabled: false,
-    },
-  ],
-  ignoreDeps: [
-    // manually bumping
-    "node",
-    "@types/node",
-    "postgres"
-  ],
+	$schema: 'https://docs.renovatebot.com/renovate-schema.json',
+	extends: ['config:recommended', 'schedule:weekly', 'group:allNonMajor'],
+	labels: ['dependencies'],
+	rangeStrategy: 'bump',
+	packageRules: [
+		{
+			matchDepTypes: ['peerDependencies'],
+			enabled: false,
+		},
+	],
+	ignoreDeps: [
+		// manually bumping
+		'node',
+		'@types/node',
+		'postgres',
+	],
 }

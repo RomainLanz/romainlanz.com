@@ -1,4 +1,8 @@
-<script lang="ts">
+<script lang="ts" setup>
+	import { MenuContent, MenuItem, MenuPositioner, MenuRoot, MenuTrigger } from '@ark-ui/vue/menu';
+	import { router } from '@inertiajs/vue3';
+	import ClientOnly from '../client_only/client_only.ts';
+
 	export interface MenuAction {
 		enabled?: boolean;
 		label: string;
@@ -6,12 +10,6 @@
 		href?: string;
 		onClick?: () => void;
 	}
-</script>
-
-<script lang="ts" setup>
-	import { router } from '@inertiajs/vue3';
-	import { MenuContent, MenuItem, MenuPositioner, MenuRoot, MenuTrigger } from '@ark-ui/vue/menu';
-	import ClientOnly from '../client_only/client_only.ts';
 
 	const { actions } = defineProps<{
 		actions: MenuAction[];
@@ -37,12 +35,12 @@
 		<ClientOnly>
 			<Teleport to="body">
 				<MenuPositioner>
-					<MenuContent class="bg-white min-w-48 rounded-lg p-2 border-2 border-solid border-gray-800 shadow-small">
+					<MenuContent class="min-w-48 border-2 border-gray-800 rounded-lg border-solid bg-white p-2 shadow-small">
 						<template v-for="action in actions">
 							<MenuItem
 								v-if="action.enabled !== false"
-								class="cursor-pointer px-2 py-0.5 rounded-ms hover:bg-yellow-300 transition-colors duration-200"
 								:id="`${action.code}-menu-action`"
+								class="cursor-pointer rounded-ms px-2 py-0.5 transition-colors duration-200 hover:bg-yellow-300"
 								:code="action.code"
 								:value="action.code"
 							>

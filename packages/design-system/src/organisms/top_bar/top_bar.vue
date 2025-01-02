@@ -13,13 +13,13 @@
 
 <template>
 	<header class="my-10">
-		<div class="flex items-center justify-between max-w-7xl px-4 m-auto">
+		<div class="m-auto max-w-7xl flex items-center justify-between px-4">
 			<div class="flex items-center gap-4">
 				<h1 v-if="title" class="text-5xl text-gray-800">{{ title }}</h1>
 
 				<Link v-else class="flex items-center gap-2" href="/">
 					<Logo />
-					<span class="text-gray-800 text-xl font-bold hidden xs:block">Romain Lanz</span>
+					<span class="hidden text-xl text-gray-800 font-bold xs:block">Romain Lanz</span>
 				</Link>
 
 				<slot name="after-logo" />

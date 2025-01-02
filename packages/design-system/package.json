@@ -1,8 +1,8 @@
 {
 	"name": "@rlanz/design-system",
+	"type": "module",
 	"private": true,
 	"license": "UNLICENSED",
-	"type": "module",
 	"exports": {
 		"./tokens": "./src/tokens.ts",
 		"./avatar": "./src/atoms/avatar/avatar.vue",

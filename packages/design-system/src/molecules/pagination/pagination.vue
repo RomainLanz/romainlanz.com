@@ -33,7 +33,7 @@
 
 <template>
 	<PaginationRoot
-		class="flex gap-4 font-bold items-center"
+		class="flex items-center gap-4 font-bold"
 		:page="activePage"
 		:count
 		:sibling-count="siblingCount"
@@ -49,12 +49,12 @@
 		<PaginationContext v-slot="pagination">
 			<template v-for="(page, index) in pagination.pages">
 				<PaginationItem v-if="page.type === 'page'" :key="index" :value="page.value" :type="page.type" as-child>
-					<Button class="!text-lg aspect-ratio-square" size="small" :flat="page.value !== activePage">
+					<Button class="aspect-ratio-square !text-lg" size="small" :flat="page.value !== activePage">
 						{{ page.value }}
 					</Button>
 				</PaginationItem>
 
-				<PaginationEllipsis v-else :key="'e' + index" :index="index"> &#8230; </PaginationEllipsis>
+				<PaginationEllipsis v-else :key="`e${index}`" :index="index"> &#8230; </PaginationEllipsis>
 			</template>
 		</PaginationContext>
 

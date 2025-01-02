@@ -1,6 +1,5 @@
 import '../src/css/reset.css';
 import 'virtual:uno.css';
-
 import type { Preview } from '@storybook/vue3';
 
 globalThis.RomainLanz = {

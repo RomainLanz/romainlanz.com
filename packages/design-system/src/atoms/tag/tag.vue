@@ -1,5 +1,11 @@
-<script lang="ts">
+<script lang="ts" setup>
 	import { tv, type VariantProps } from 'tailwind-variants';
+	import { computed } from 'vue';
+
+	const props = defineProps<{
+		color?: TagProps['color'];
+		href?: string;
+	}>();
 
 	const tag = tv({
 		base: 'bg-white border border-solid border-gray-800 rounded-ms text-gray-800 tracking-wider text-xs uppercase py-1.5 px-2',
@@ -25,15 +31,6 @@
 	});
 
 	export type TagProps = VariantProps<typeof tag>;
-</script>
-
-<script lang="ts" setup>
-	import { computed } from 'vue';
-
-	const props = defineProps<{
-		color?: TagProps['color'];
-		href?: string;
-	}>();
 
 	const spanOrLink = computed(() => {
 		return props.href ? 'a' : 'span';

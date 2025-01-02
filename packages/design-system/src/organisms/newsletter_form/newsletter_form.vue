@@ -1,14 +1,14 @@
 <script lang="ts" setup>
-	import NewsletterConfirmationDialog from './newsletter_confirmation_dialog.vue';
 	import Field from '../../molecules/field/field.vue';
-
-	const emit = defineEmits<{
-		register: [];
-	}>();
+	import NewsletterConfirmationDialog from './newsletter_confirmation_dialog.vue';
 
 	const { loading = false, errorMessage = null } = defineProps<{
 		loading?: boolean;
 		errorMessage?: string;
+	}>();
+
+	const emit = defineEmits<{
+		register: [];
 	}>();
 
 	const email = defineModel<string>('email', { required: true });
@@ -20,7 +20,7 @@
 </script>
 
 <template>
-	<div class="flex flex-col gap-10 w-min">
+	<div class="w-min flex flex-col gap-10">
 		<p>Abonne-toi pour recevoir les dernières tendances et ressources pour ta veille technique.</p>
 
 		<div class="flex gap-4">

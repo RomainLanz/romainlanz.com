@@ -1,5 +1,20 @@
-<script lang="ts">
+<script lang="ts" setup>
+	import { Link } from '@inertiajs/vue3';
 	import { tv, type VariantProps } from 'tailwind-variants';
+	import { computed } from 'vue';
+
+	const {
+		href,
+		prefetch = false,
+		disabled = false,
+	} = defineProps<{
+		color?: ButtonProps['color'];
+		href?: string;
+		prefetch?: boolean;
+		flat?: ButtonProps['flat'];
+		size?: ButtonProps['size'];
+		disabled?: boolean;
+	}>();
 
 	const button = tv({
 		base: 'inline-block flex items-center justify-center cursor-pointer text-base font-bold bg-off-white hover:bg-yellow-100 rounded-lg transition-colors',
@@ -36,24 +51,6 @@
 	});
 
 	type ButtonProps = VariantProps<typeof button>;
-</script>
-
-<script lang="ts" setup>
-	import { computed } from 'vue';
-	import { Link } from '@inertiajs/vue3';
-
-	const {
-		href,
-		prefetch = false,
-		disabled = false,
-	} = defineProps<{
-		color?: ButtonProps['color'];
-		href?: string;
-		prefetch?: boolean;
-		flat?: ButtonProps['flat'];
-		size?: ButtonProps['size'];
-		disabled?: boolean;
-	}>();
 
 	const buttonOrLink = computed(() => {
 		return href ? Link : 'button';

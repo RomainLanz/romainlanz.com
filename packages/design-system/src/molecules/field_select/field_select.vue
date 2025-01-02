@@ -1,13 +1,5 @@
-<script lang="ts">
-	export interface FieldSelectItem {
-		label: string;
-		value: string | number;
-		disabled?: boolean;
-	}
-</script>
-
 <script lang="ts" setup>
-	import { computed } from 'vue';
+	import { FieldErrorText, FieldHelperText, FieldRoot } from '@ark-ui/vue/field';
 	import {
 		createListCollection,
 		SelectRoot,
@@ -24,11 +16,15 @@
 		SelectItemIndicator,
 		SelectHiddenSelect,
 	} from '@ark-ui/vue/select';
-	import { FieldErrorText, FieldHelperText, FieldRoot } from '@ark-ui/vue/field';
-	import Icon from '../../atoms/icon/icon.vue';
+	import { computed } from 'vue';
 	import ClientOnly from '../../atoms/client_only/client_only.ts';
+	import Icon from '../../atoms/icon/icon.vue';
 
-	const model = defineModel<any>();
+	export interface FieldSelectItem {
+		label: string;
+		value: string | number;
+		disabled?: boolean;
+	}
 
 	const { errorMessage, items } = defineProps<{
 		label?: string;
@@ -37,6 +33,8 @@
 		errorMessage?: string;
 		helpMessage?: string;
 	}>();
+
+	const model = defineModel<any>();
 
 	const collection = createListCollection({
 		items,
@@ -54,7 +52,7 @@
 
 			<SelectControl>
 				<SelectTrigger
-					class="flex items-center w-full gap-2 border-2 border-solid border-gray-800 transition-colors rounded-lg bg-transparent px-4 py-2 disabled:cursor-not-allowed placeholder:text-gray-600 placeholder:font-bold hover:bg-yellow-100 cursor-pointer"
+					class="w-full flex cursor-pointer items-center gap-2 border-2 border-gray-800 rounded-lg border-solid bg-transparent px-4 py-2 transition-colors disabled:cursor-not-allowed hover:bg-yellow-100 placeholder:text-gray-600 placeholder:font-bold"
 					:class="{
 						'justify-between': placeholder,
 						'justify-end': !placeholder,
@@ -70,12 +68,12 @@
 			<ClientOnly>
 				<Teleport to="body">
 					<SelectPositioner>
-						<SelectContent class="bg-white min-w-48 rounded-lg p-2 border-2 border-solid border-gray-800 shadow-small">
+						<SelectContent class="min-w-48 border-2 border-gray-800 rounded-lg border-solid bg-white p-2 shadow-small">
 							<SelectItemGroup>
 								<SelectItem
 									v-for="item in collection.items"
-									class="cursor-pointer flex items-center justify-between px-2 py-0.5 rounded-ms hover:bg-yellow-300 transition-colors duration-200"
 									:key="item.value"
+									class="flex cursor-pointer items-center justify-between rounded-ms px-2 py-0.5 transition-colors duration-200 hover:bg-yellow-300"
 									:item="item"
 								>
 									<SelectItemText>{{ item.label }}</SelectItemText>
@@ -92,11 +90,11 @@
 			<SelectHiddenSelect />
 		</SelectRoot>
 
-		<FieldErrorText class="text-red-500 text-sm uppercase">
+		<FieldErrorText class="text-sm text-red-500 uppercase">
 			{{ errorMessage }}
 		</FieldErrorText>
 
-		<FieldHelperText v-if="!errorMessage" class="text-cyan-500 text-sm">
+		<FieldHelperText v-if="!errorMessage" class="text-sm text-cyan-500">
 			{{ helpMessage }}
 		</FieldHelperText>
 	</FieldRoot>

@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/vue3';
 import Tag from './tag.vue';
+import type { Meta, StoryObj } from '@storybook/vue3';
 
 const meta = {
 	component: Tag,

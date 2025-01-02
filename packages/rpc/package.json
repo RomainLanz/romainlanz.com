@@ -1,16 +1,16 @@
 {
-  "name": "@rlanz/rpc",
-  "private": true,
-  "license": "UNLICENSED",
-  "type": "module",
-  "exports": {
-    "./client": "./src/client.ts"
-  },
-  "dependencies": {
-    "@rlanz/site": "workspace:*",
-    "@tuyau/client": "^0.2.2"
-  },
-  "volta": {
-    "extends": "../../package.json"
-  }
+	"name": "@rlanz/rpc",
+	"type": "module",
+	"private": true,
+	"license": "UNLICENSED",
+	"exports": {
+		"./client": "./src/client.ts"
+	},
+	"dependencies": {
+		"@rlanz/site": "workspace:*",
+		"@tuyau/client": "^0.2.2"
+	},
+	"volta": {
+		"extends": "../../package.json"
+	}
 }

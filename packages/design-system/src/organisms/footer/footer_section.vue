@@ -6,7 +6,7 @@
 
 <template>
 	<section>
-		<h4 class="relative text-xs w-min mb-3" :class="$style.title">{{ title }}</h4>
+		<h4 class="relative mb-3 w-min text-xs" :class="$style.title">{{ title }}</h4>
 
 		<slot />
 	</section>

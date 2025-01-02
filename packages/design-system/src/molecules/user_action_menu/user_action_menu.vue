@@ -1,4 +1,10 @@
-<script lang="ts">
+<script lang="ts" setup>
+	import { client } from '@rlanz/rpc/client';
+	import Avatar from '../../atoms/avatar/avatar.vue';
+	import Button from '../../atoms/button/button.vue';
+	import Dropdown, { type MenuAction } from '../../atoms/dropdown/dropdown.vue';
+	import Icon from '../../atoms/icon/icon.vue';
+
 	export interface UserActionMenuProps {
 		user: {
 			name: string;
@@ -6,14 +12,6 @@
 			isAdmin: boolean;
 		};
 	}
-</script>
-
-<script lang="ts" setup>
-	import { client } from '@rlanz/rpc/client';
-	import Icon from '../../atoms/icon/icon.vue';
-	import Avatar from '../../atoms/avatar/avatar.vue';
-	import Button from '../../atoms/button/button.vue';
-	import Dropdown, { type MenuAction } from '../../atoms/dropdown/dropdown.vue';
 
 	const { user } = defineProps<UserActionMenuProps>();
 	const adminUrl = client.$url('admin.pages.dashboard');
