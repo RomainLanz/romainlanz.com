@@ -1469,13 +1469,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fontsource/mononoki@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "@fontsource/mononoki@npm:5.1.0"
-  checksum: 10c0/d5a96516459a1f5341132be349c70c2b0ee0e06d3cbb5f134b88c3ebf1afe8083313f93365560f8c9aee4781d640cb406d8e9f70c73c49c064d1905a3f73f8e2
-  languageName: node
-  linkType: hard
-
 "@formatjs/ecma402-abstract@npm:2.3.1":
   version: 2.3.1
   resolution: "@formatjs/ecma402-abstract@npm:2.3.1"
@@ -2292,7 +2285,6 @@ __metadata:
     "@inertiajs/vue3": "npm:next"
     "@rlanz/rpc": "workspace:*"
     "@rlanz/site": "workspace:*"
-    "@rlanz/tooling": "workspace:*"
     "@storybook/addon-essentials": "npm:^8.4.7"
     "@storybook/addon-interactions": "npm:^8.4.7"
     "@storybook/addon-links": "npm:^8.4.7"
@@ -2344,11 +2336,9 @@ __metadata:
     "@japa/assert": "npm:^4.0.0"
     "@japa/plugin-adonisjs": "npm:^3.0.1"
     "@japa/runner": "npm:^3.1.4"
-    "@julr/tooling-configs": "npm:^3.0.1"
     "@poppinss/defer": "npm:^1.1.1"
     "@rlanz/design-system": "workspace:*"
     "@rlanz/rpc": "workspace:*"
-    "@rlanz/tooling": "workspace:*"
     "@shikijs/rehype": "npm:^1.25.1"
     "@shikijs/transformers": "npm:^1.25.1"
     "@swc/core": "npm:^1.10.4"
@@ -2364,7 +2354,6 @@ __metadata:
     bentocache: "patch:bentocache@npm%3A1.0.0-beta.9#~/.yarn/patches/bentocache-npm-1.0.0-beta.9-c4ad06f897.patch"
     dlv: "npm:^1.1.3"
     edge.js: "npm:^6.2.0"
-    eslint: "npm:^9.17.0"
     hastscript: "npm:^9.0.0"
     hot-hook: "npm:^0.4.0"
     kysely: "npm:^0.27.5"
@@ -2373,7 +2362,6 @@ __metadata:
     mjml: "npm:^4.15.3"
     pg: "npm:^8.13.1"
     pino-pretty: "npm:^13.0.0"
-    prettier: "npm:^3.4.2"
     reflect-metadata: "npm:^0.2.2"
     rehype-raw: "npm:^7.0.0"
     rehype-stringify: "npm:^10.0.1"
@@ -2390,17 +2378,6 @@ __metadata:
     uuid: "npm:11.0.3"
     vite: "npm:^6.0.6"
     vue: "npm:^3.5.13"
-  languageName: unknown
-  linkType: soft
-
-"@rlanz/tooling@workspace:*, @rlanz/tooling@workspace:packages/tooling":
-  version: 0.0.0-use.local
-  resolution: "@rlanz/tooling@workspace:packages/tooling"
-  dependencies:
-    "@fontsource/mononoki": "npm:^5.1.0"
-    "@swc/core": "npm:^1.10.4"
-    typescript: "npm:~5.7.2"
-    unocss: "npm:^0.65.3"
   languageName: unknown
   linkType: soft
 
@@ -12660,6 +12637,10 @@ __metadata:
 "root-workspace-0b6124@workspace:.":
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
+  dependencies:
+    "@julr/tooling-configs": "npm:^3.0.1"
+    eslint: "npm:^9.17.0"
+    prettier: "npm:^3.4.2"
   languageName: unknown
   linkType: soft
 

@@ -3,9 +3,19 @@
   "type": "module",
   "license": "UNLICENSED",
   "scripts": {
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
     "docker:build": "docker build . -t site",
     "docker:run": "docker run --env-file ./apps/romainlanz.com/.env -e NODE_ENV=production -e HOST=0.0.0.0 -e DB_HOST=host.docker.internal -it -p 3333:3333 --add-host=host.docker.internal:host-gateway site",
-    "taze": "yarn dlx taze -r -I"
+    "lint": "eslint .",
+    "format": "prettier .",
+    "taze": "yarn dlx taze -r -I",
+    "typecheck": "yarn workspaces foreach -p -A run typecheck"
+  },
+  "devDependencies": {
+    "@julr/tooling-configs": "^3.0.1",
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2"
   },
   "workspaces": {
     "packages": [

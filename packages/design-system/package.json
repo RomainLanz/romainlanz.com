@@ -55,7 +55,6 @@
 	},
 	"devDependencies": {
 		"@chromatic-com/storybook": "^3.2.3",
-		"@rlanz/tooling": "workspace:*",
 		"@storybook/addon-essentials": "^8.4.7",
 		"@storybook/addon-interactions": "^8.4.7",
 		"@storybook/addon-links": "^8.4.7",
