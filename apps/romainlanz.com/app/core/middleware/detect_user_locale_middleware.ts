@@ -12,11 +12,11 @@ export default class DetectUserLocaleMiddleware {
 	 * Using i18n for validation messages. Applicable to only
 	 * "request.validateUsing" method calls
 	 */
-	static {
-		RequestValidator.messagesProvider = (ctx) => {
-			return ctx.i18n.createMessagesProvider();
-		};
-	}
+	// static {
+	// 	RequestValidator.messagesProvider = (ctx) => {
+	// 		return ctx.i18n.createMessagesProvider();
+	// 	};
+	// }
 
 	/**
 	 * This method reads the user language from the "Accept-Language"
