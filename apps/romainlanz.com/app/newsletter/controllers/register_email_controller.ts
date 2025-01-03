@@ -1,6 +1,6 @@
 import { inject } from '@adonisjs/core';
 import vine from '@vinejs/vine';
-import { NewsletterRegistration } from '#newsletter/services/newsletter_registration';
+import { BrevoService } from '#newsletter/services/brevo_service';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()
@@ -11,15 +11,13 @@ export default class RegisterEmailController {
 		})
 	);
 
-	constructor(private service: NewsletterRegistration) {}
+	constructor(private readonly brevoService: BrevoService) {}
 
-	render() {
-		// return <Newsletter.Register />;
-	}
-
-	async execute({ request }: HttpContext) {
+	async execute({ request, response }: HttpContext) {
 		const { email } = await request.validateUsing(RegisterEmailController.validator);
 
-		this.service.execute(email);
+		await this.brevoService.sendDoubleOptInConfirmation(email);
+
+		return response.redirect().back();
 	}
 }
