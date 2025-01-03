@@ -9,16 +9,16 @@
 		"strictNullChecks": true,
 		"strictPropertyInitialization": true,
 		"noImplicitAny": true,
-    "declaration": true,
-    "allowSyntheticDefaultImports": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"isolatedModules": true,
 		"noImplicitThis": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
+		"declaration": true,
 		"removeComments": true,
 		"sourceMap": true,
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"isolatedModules": true,
 		"skipLibCheck": true
 	}
 }

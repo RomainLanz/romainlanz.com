@@ -39,9 +39,11 @@
 			</p>
 
 			<div class="flex items-center gap-3">
-				<Tag v-for="tag in tags" v-if="tags" :color="tag.color">
-					{{ tag.name }}
-				</Tag>
+				<template v-if="tags">
+					<Tag v-for="tag in tags" :key="tag.name" :color="tag.color">
+						{{ tag.name }}
+					</Tag>
+				</template>
 
 				<span class="text-xs uppercase">{{ readingTime }}mn de lecture</span>
 			</div>

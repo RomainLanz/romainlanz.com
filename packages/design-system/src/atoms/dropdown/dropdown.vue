@@ -40,6 +40,7 @@
 							<MenuItem
 								v-if="action.enabled !== false"
 								:id="`${action.code}-menu-action`"
+								:key="action.code"
 								class="cursor-pointer rounded-ms px-2 py-0.5 transition-colors duration-200 hover:bg-yellow-300"
 								:code="action.code"
 								:value="action.code"
