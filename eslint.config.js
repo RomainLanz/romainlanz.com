@@ -8,7 +8,7 @@ export default julr(
 		},
 	},
 	{
-		ignores: ['apps/romainlanz.com/.adonisjs/*', 'apps/romainlanz.comtypes/db.ts'],
+		ignores: ['apps/romainlanz.com/.adonisjs/*', 'apps/romainlanz.com/types/db.ts'],
 	},
 	{
 		rules: {
