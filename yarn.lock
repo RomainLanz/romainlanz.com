@@ -1921,9 +1921,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@japa/plugin-adonisjs@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "@japa/plugin-adonisjs@npm:3.0.2"
+"@japa/plugin-adonisjs@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@japa/plugin-adonisjs@npm:4.0.0"
   peerDependencies:
     "@adonisjs/core": ^6.17.0
     "@japa/api-client": ^2.0.3 || ^3.0.0
@@ -1937,7 +1937,7 @@ __metadata:
       optional: true
     playwright:
       optional: true
-  checksum: 10c0/b5f84b2332cf3fb665cbeee4b8b84ec304d0ad27e65a8354b61aee8ddc6a9a93e52c6a67cf273a496cdcc5eb1906ccab48383b7796b33cbea31f0c62e051859a
+  checksum: 10c0/d1c8fa712530d6bbd1942cf819aba9c1e323370b4474c713426c91fb2f7ff6d203199bf503d93dff6af34158d3f4edd9e4268d28aa5a1a4495215d30ca4dca62
   languageName: node
   linkType: hard
 
@@ -2455,7 +2455,7 @@ __metadata:
     "@formkit/auto-animate": "npm:^0.8.2"
     "@inertiajs/vue3": "npm:next"
     "@japa/assert": "npm:^4.0.1"
-    "@japa/plugin-adonisjs": "npm:^3.0.2"
+    "@japa/plugin-adonisjs": "npm:^4.0.0"
     "@japa/runner": "npm:^3.1.4"
     "@poppinss/defer": "npm:^1.1.1"
     "@rlanz/design-system": "workspace:*"
