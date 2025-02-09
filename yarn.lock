@@ -1893,31 +1893,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@japa/core@npm:^9.0.1":
-  version: 9.0.1
-  resolution: "@japa/core@npm:9.0.1"
+"@japa/core@npm:^10.3.0":
+  version: 10.3.0
+  resolution: "@japa/core@npm:10.3.0"
   dependencies:
-    "@poppinss/cliui": "npm:^6.4.1"
-    "@poppinss/hooks": "npm:^7.2.3"
-    "@poppinss/macroable": "npm:^1.0.2"
+    "@poppinss/hooks": "npm:^7.2.5"
+    "@poppinss/macroable": "npm:^1.0.4"
+    "@poppinss/string": "npm:^1.2.0"
     async-retry: "npm:^1.3.3"
     emittery: "npm:^1.0.3"
-    string-width: "npm:^7.1.0"
+    string-width: "npm:^7.2.0"
     time-span: "npm:^5.1.0"
-  checksum: 10c0/7b54fcc708023169a05128ec32f8aad785212ee1c108eb3a8f54ce41610e9f76acd5c82322e68c7abb49d726ed9c0f2689b1f95f1c565ca0a61767f732b8ed33
+  checksum: 10c0/76c32ee9e8554e5c93650d91547204deb52efdd8490ec938515412bee38cf9202c6e192e86a9856e5f6a5ac05eefc524cc14395cd8792b6ae1458184363df40c
   languageName: node
   linkType: hard
 
-"@japa/errors-printer@npm:^3.0.4":
-  version: 3.0.4
-  resolution: "@japa/errors-printer@npm:3.0.4"
+"@japa/errors-printer@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "@japa/errors-printer@npm:4.1.2"
   dependencies:
-    "@poppinss/colors": "npm:^4.1.3"
+    "@poppinss/colors": "npm:^4.1.4"
     jest-diff: "npm:^29.7.0"
-    supports-color: "npm:^9.4.0"
-    youch: "npm:^3.3.3"
-    youch-terminal: "npm:^2.2.3"
-  checksum: 10c0/fc91c7e4970715c69a806c0df0807623d374ff1f0f0099e392fd78dcc047b6bd40d42749238712b3ad45aa0d931ad2ef771cbe4e2e5bdf642cca087257172f8c
+    supports-color: "npm:^10.0.0"
+    youch: "npm:^4.1.0-beta.5"
+  checksum: 10c0/9758e98b892a7bd27c0ecf483a77b38b5cdcfc756c1462dab55e8723155edb016e82385ab39356a5523778493bb12fba8a50e42d7e93fc0a76231c4ea5fbc7f7
   languageName: node
   linkType: hard
 
@@ -1941,22 +1940,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@japa/runner@npm:^3.1.4":
-  version: 3.1.4
-  resolution: "@japa/runner@npm:3.1.4"
+"@japa/runner@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "@japa/runner@npm:4.2.0"
   dependencies:
-    "@japa/core": "npm:^9.0.1"
-    "@japa/errors-printer": "npm:^3.0.4"
-    "@poppinss/colors": "npm:^4.1.3"
-    "@poppinss/hooks": "npm:^7.2.3"
-    fast-glob: "npm:^3.3.2"
+    "@japa/core": "npm:^10.3.0"
+    "@japa/errors-printer": "npm:^4.1.2"
+    "@poppinss/colors": "npm:^4.1.4"
+    "@poppinss/hooks": "npm:^7.2.5"
+    fast-glob: "npm:^3.3.3"
     find-cache-dir: "npm:^5.0.0"
     getopts: "npm:^2.3.0"
     ms: "npm:^2.1.3"
-    serialize-error: "npm:^11.0.3"
+    serialize-error: "npm:^12.0.0"
     slash: "npm:^5.1.0"
-    supports-color: "npm:^9.4.0"
-  checksum: 10c0/81f47d6e2a6fa5d09b76f45cde3a2807a9c37d2661958d894cffa37fc0089d4fc3ac2271db63aa7d7d1de5cd85346efa1b9eec07fd8d72f7503f828422a2cb59
+    supports-color: "npm:^10.0.0"
+  checksum: 10c0/9dc7ea7c84bed9f26c883398bb1f155d4477e755adfce100ae07d88037ac048f56d5bf48dc87664683a0b54b702790b1136563a36d4518cee2c88f4481ecfa95
   languageName: node
   linkType: hard
 
@@ -2256,6 +2255,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@poppinss/hooks@npm:^7.2.5":
+  version: 7.2.5
+  resolution: "@poppinss/hooks@npm:7.2.5"
+  checksum: 10c0/407cc5c9ba09c5432fe42a9dc677a9ff5e46fe5ec380c42040024c6e5cf4681b15c415279bda3eefe8cf8e92eeac1ef5e80ee347689e170ba8060e909614903b
+  languageName: node
+  linkType: hard
+
 "@poppinss/inspect@npm:^1.0.1":
   version: 1.0.1
   resolution: "@poppinss/inspect@npm:1.0.1"
@@ -2331,7 +2337,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@poppinss/string@npm:^1.1.0":
+"@poppinss/string@npm:^1.1.0, @poppinss/string@npm:^1.2.0":
   version: 1.2.0
   resolution: "@poppinss/string@npm:1.2.0"
   dependencies:
@@ -2456,7 +2462,7 @@ __metadata:
     "@inertiajs/vue3": "npm:next"
     "@japa/assert": "npm:^4.0.1"
     "@japa/plugin-adonisjs": "npm:^4.0.0"
-    "@japa/runner": "npm:^3.1.4"
+    "@japa/runner": "npm:^4.2.0"
     "@poppinss/defer": "npm:^1.1.1"
     "@rlanz/design-system": "workspace:*"
     "@rlanz/rpc": "workspace:*"
@@ -2784,6 +2790,13 @@ __metadata:
   version: 4.0.0
   resolution: "@sindresorhus/merge-streams@npm:4.0.0"
   checksum: 10c0/482ee543629aa1933b332f811a1ae805a213681ecdd98c042b1c1b89387df63e7812248bb4df3910b02b3cc5589d3d73e4393f30e197c9dde18046ccd471fc6b
+  languageName: node
+  linkType: hard
+
+"@speed-highlight/core@npm:^1.2.7":
+  version: 1.2.7
+  resolution: "@speed-highlight/core@npm:1.2.7"
+  checksum: 10c0/33905da58b7e0f0857f3ec7c60a4d2e7bd7e25573dd8676de2dab555057e9873084fd2bb1d97c4629131a990f7e230cb7068045370a15c77c4412527776791d4
   languageName: node
   linkType: hard
 
@@ -7218,6 +7231,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"error-stack-parser-es@npm:^0.1.5":
+  version: 0.1.5
+  resolution: "error-stack-parser-es@npm:0.1.5"
+  checksum: 10c0/60331183269d5d5f2d80ce01be58387e7f7ef86ec821db7bba3e7aad201174b3f1b561973c678af7ec945542de8f2d1d23d5152ff8adf6154080eff02cd0e0b5
+  languageName: node
+  linkType: hard
+
 "error-stack-parser-es@npm:^1.0.5":
   version: 1.0.5
   resolution: "error-stack-parser-es@npm:1.0.5"
@@ -8056,6 +8076,19 @@ __metadata:
     merge2: "npm:^1.3.0"
     micromatch: "npm:^4.0.4"
   checksum: 10c0/42baad7b9cd40b63e42039132bde27ca2cb3a4950d0a0f9abe4639ea1aa9d3e3b40f98b1fe31cbc0cc17b664c9ea7447d911a152fa34ec5b72977b125a6fc845
+  languageName: node
+  linkType: hard
+
+"fast-glob@npm:^3.3.3":
+  version: 3.3.3
+  resolution: "fast-glob@npm:3.3.3"
+  dependencies:
+    "@nodelib/fs.stat": "npm:^2.0.2"
+    "@nodelib/fs.walk": "npm:^1.2.3"
+    glob-parent: "npm:^5.1.2"
+    merge2: "npm:^1.3.0"
+    micromatch: "npm:^4.0.8"
+  checksum: 10c0/f6aaa141d0d3384cf73cbcdfc52f475ed293f6d5b65bfc5def368b09163a9f7e5ec2b3014d80f733c405f58e470ee0cc451c2937685045cddcdeaa24199c43fe
   languageName: node
   linkType: hard
 
@@ -12992,12 +13025,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"serialize-error@npm:^11.0.3":
-  version: 11.0.3
-  resolution: "serialize-error@npm:11.0.3"
+"serialize-error@npm:^12.0.0":
+  version: 12.0.0
+  resolution: "serialize-error@npm:12.0.0"
   dependencies:
-    type-fest: "npm:^2.12.2"
-  checksum: 10c0/7263603883b8936650819f0fd5150d41427b317432678b21722c54b85367ae15b8552865eb7f3f39ba71a32a003730a2e2e971e6909431eb54db70a3ef8eca17
+    type-fest: "npm:^4.31.0"
+  checksum: 10c0/d8422db262dd28422834e0acdaaa2425ba6735f791417cfbcbceb201ddea0e41ccd2865778afeb9b33c28273f01e89a4503fa670f82c0a387de61e2b0f8d74e4
   languageName: node
   linkType: hard
 
@@ -13975,7 +14008,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:^2.12.2, type-fest@npm:^2.19.0, type-fest@npm:~2.19":
+"type-fest@npm:^2.19.0, type-fest@npm:~2.19":
   version: 2.19.0
   resolution: "type-fest@npm:2.19.0"
   checksum: 10c0/a5a7ecf2e654251613218c215c7493574594951c08e52ab9881c9df6a6da0aeca7528c213c622bc374b4e0cb5c443aa3ab758da4e3c959783ce884c3194e12cb
@@ -13986,6 +14019,13 @@ __metadata:
   version: 4.30.1
   resolution: "type-fest@npm:4.30.1"
   checksum: 10c0/7ee8084aa764c9703f92e4c3546e0943909a1b508c93a02f1e528b877803b4af2cd68982d1d36578738a14026d5f5a3049d840aa11fca1d690d13a1612222da1
+  languageName: node
+  linkType: hard
+
+"type-fest@npm:^4.31.0":
+  version: 4.33.0
+  resolution: "type-fest@npm:4.33.0"
+  checksum: 10c0/20015eea353605e08e3f4b967291b225fa4e7c43361de44f39b88131715e41877458af80da59c8f17e40c0e3842298996f0651219dc9823e35c7e46ecbc8a44f
   languageName: node
   linkType: hard
 
@@ -14870,6 +14910,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"youch-core@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "youch-core@npm:0.3.1"
+  dependencies:
+    "@poppinss/exception": "npm:^1.2.0"
+    error-stack-parser-es: "npm:^0.1.5"
+  checksum: 10c0/730f5e31a92e005312a5a242a60b16f8c5e0f84d9b1eee6fbec7d30d7d3270e379917325fe007b49fa3800851ab047488f78f65cd1062cd7d83049468d712b27
+  languageName: node
+  linkType: hard
+
 "youch-terminal@npm:^2.2.3":
   version: 2.2.3
   resolution: "youch-terminal@npm:2.2.3"
@@ -14881,7 +14931,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"youch@npm:^3.3.3, youch@npm:^3.3.4":
+"youch@npm:^3.3.4":
   version: 3.3.4
   resolution: "youch@npm:3.3.4"
   dependencies:
@@ -14889,6 +14939,18 @@ __metadata:
     mustache: "npm:^4.2.0"
     stacktracey: "npm:^2.1.8"
   checksum: 10c0/ab573c7dccebdaf2d6b084d262d5bfb22ad5c049fb1ad3e2d6a840af851042dd3a8a072665c5a5ee73c75bbc1618fbc08f1371ac896e54556bced0ddf996b026
+  languageName: node
+  linkType: hard
+
+"youch@npm:^4.1.0-beta.5":
+  version: 4.1.0-beta.5
+  resolution: "youch@npm:4.1.0-beta.5"
+  dependencies:
+    "@poppinss/dumper": "npm:^0.6.2"
+    "@speed-highlight/core": "npm:^1.2.7"
+    cookie: "npm:^1.0.2"
+    youch-core: "npm:^0.3.1"
+  checksum: 10c0/c2f9b4020779edd238e796b0c81e49fca2f9f751f558e461a674ea45ce96d059b09824836f3d02a998879b5725c374f1f2cd91a0d1732bdc4850b479b45f4ad1
   languageName: node
   linkType: hard
 
