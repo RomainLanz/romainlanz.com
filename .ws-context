@@ -1,0 +1,9 @@
+{
+	"framework": "none",
+	"apps/romainlanz.com/inertia/**": {
+		"framework": "vue"
+	},
+	"packages/design-system/**": {
+		"framework": "vue"
+	}
+}
