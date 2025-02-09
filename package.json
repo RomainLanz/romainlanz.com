@@ -4,6 +4,7 @@
 	"packageManager": "yarn@4.6.0",
 	"license": "UNLICENSED",
 	"scripts": {
+		"start:app": "yarn workspace @rlanz/site dev",
 		"docker:up": "docker compose up -d",
 		"docker:down": "docker compose down",
 		"docker:build": "docker build . -t site",
