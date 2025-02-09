@@ -360,27 +360,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@adonisjs/inertia@npm:^2.1.3":
-  version: 2.1.3
-  resolution: "@adonisjs/inertia@npm:2.1.3"
+"@adonisjs/inertia@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@adonisjs/inertia@npm:3.1.0"
   dependencies:
-    "@poppinss/utils": "npm:^6.8.3"
+    "@poppinss/utils": "npm:^6.9.2"
     "@tuyau/utils": "npm:^0.0.6"
-    crc-32: "npm:^1.2.2"
-    edge-error: "npm:^4.0.1"
+    edge-error: "npm:^4.0.2"
     html-entities: "npm:^2.5.2"
     locate-path: "npm:^7.2.0"
-    qs: "npm:^6.13.1"
+    qs: "npm:^6.14.0"
   peerDependencies:
     "@adonisjs/core": ^6.9.1
     "@adonisjs/session": ^7.4.0
     "@adonisjs/vite": ^4.0.0
-    "@japa/api-client": ^2.0.0
+    "@japa/api-client": ^2.0.0 || ^3.0.0
     edge.js: ^6.0.0
   peerDependenciesMeta:
     "@japa/api-client":
       optional: true
-  checksum: 10c0/7762769187761aeb3210f6c9a2d1d064d0790f160f4d538eac829fdfff0d708ba366a41dd323a1280d6897140687533506f23e8dc82ee4afbcc216996d2c2e78
+  checksum: 10c0/a8e2466255c67973445c1a52097830858db3e3a3a6b9d335944bf737dc0deb1591bac4e4ec586233dd39b11f09b82de3f1c8ff98ee356b7199317903356f5384
   languageName: node
   linkType: hard
 
@@ -2451,7 +2450,7 @@ __metadata:
     "@adonisjs/bouncer": "npm:^3.1.5"
     "@adonisjs/core": "npm:^6.17.1"
     "@adonisjs/i18n": "npm:^2.2.0"
-    "@adonisjs/inertia": "npm:^2.1.3"
+    "@adonisjs/inertia": "npm:^3.1.0"
     "@adonisjs/mail": "npm:^9.2.2"
     "@adonisjs/session": "patch:@adonisjs/session@npm%3A7.5.0#~/.yarn/patches/@adonisjs-session-npm-7.5.0-f8176360f4.patch"
     "@adonisjs/shield": "npm:^8.1.2"
@@ -6512,15 +6511,6 @@ __metadata:
     p-filter: "npm:^4.1.0"
     p-map: "npm:^7.0.2"
   checksum: 10c0/32c747d3d2ddfd79cfb107a0012a75d9a1c2ec9e1e40f90c4560eb5b7023587ba43d0439a3a2a706b28c04b81388c0afcc9d80b0f7bff88b214cd5bb31e756ea
-  languageName: node
-  linkType: hard
-
-"crc-32@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "crc-32@npm:1.2.2"
-  bin:
-    crc32: bin/crc32.njs
-  checksum: 10c0/11dcf4a2e77ee793835d49f2c028838eae58b44f50d1ff08394a610bfd817523f105d6ae4d9b5bef0aad45510f633eb23c903e9902e4409bed1ce70cb82b9bf0
   languageName: node
   linkType: hard
 
@@ -12382,6 +12372,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"qs@npm:^6.14.0":
+  version: 6.14.0
+  resolution: "qs@npm:6.14.0"
+  dependencies:
+    side-channel: "npm:^1.1.0"
+  checksum: 10c0/8ea5d91bf34f440598ee389d4a7d95820e3b837d3fd9f433871f7924801becaa0cd3b3b4628d49a7784d06a8aea9bc4554d2b6d8d584e2d221dc06238a42909c
+  languageName: node
+  linkType: hard
+
 "queue-microtask@npm:^1.2.2":
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
@@ -13206,7 +13205,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"side-channel@npm:^1.0.6":
+"side-channel@npm:^1.0.6, side-channel@npm:^1.1.0":
   version: 1.1.0
   resolution: "side-channel@npm:1.1.0"
   dependencies:
