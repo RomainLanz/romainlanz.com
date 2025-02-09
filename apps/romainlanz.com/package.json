@@ -94,7 +94,7 @@
 		"pino-pretty": "^13.0.0",
 		"ts-node-maintained": "^10.9.5",
 		"typescript": "~5.7.3",
-		"unocss": "^0.65.4",
+		"unocss": "^65.4.3",
 		"vite": "^6.0.6"
 	},
 	"hotHook": {
