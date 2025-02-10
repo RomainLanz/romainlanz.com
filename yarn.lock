@@ -2019,16 +2019,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@julr/tooling-configs@npm:^3.3.0":
-  version: 3.3.0
-  resolution: "@julr/tooling-configs@npm:3.3.0"
+"@julr/tooling-configs@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@julr/tooling-configs@npm:4.0.0"
   dependencies:
     "@adonisjs/eslint-plugin": "npm:2.0.0-beta.5"
     "@clack/prompts": "npm:^0.9.1"
-    "@eslint/eslintrc": "npm:^3.2.0"
     "@stylistic/eslint-plugin": "npm:^3.0.1"
-    "@typescript-eslint/eslint-plugin": "npm:^8.22.0"
-    "@typescript-eslint/parser": "npm:^8.22.0"
+    "@typescript-eslint/eslint-plugin": "npm:^8.23.0"
+    "@typescript-eslint/parser": "npm:^8.23.0"
     "@unocss/eslint-plugin": "npm:^65.4.3"
     eslint-config-flat-gitignore: "npm:^2.0.0"
     eslint-config-prettier: "npm:^10.0.1"
@@ -2036,7 +2035,7 @@ __metadata:
     eslint-plugin-jsdoc: "npm:^50.6.3"
     eslint-plugin-jsonc: "npm:^2.19.1"
     eslint-plugin-n: "npm:^17.15.1"
-    eslint-plugin-perfectionist: "npm:^4.7.0"
+    eslint-plugin-perfectionist: "npm:^4.8.0"
     eslint-plugin-prettier: "npm:^5.2.3"
     eslint-plugin-unicorn: "npm:^56.0.1"
     eslint-plugin-vue: "npm:^9.32.0"
@@ -2046,7 +2045,7 @@ __metadata:
     vue-eslint-parser: "npm:^9.4.3"
   bin:
     tooling-configs: dist/cli/index.js
-  checksum: 10c0/100860662447b7329f68684029e9517722da9ddbdba65e92ace9adbc09575824e99e5d1967c8417b61abcf20481e93dd76cc89b76bff06b93748661167982e94
+  checksum: 10c0/45c5d1b698a996ef31fc77eda9edfeeabcbe4ab41f519ed3b8bf9cf4f37b3ea8f48f37b6cf2eace0b786250bed21ef6207986bee6c78587491f0b4e6c6e183ea
   languageName: node
   linkType: hard
 
@@ -3716,7 +3715,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^8.22.0":
+"@typescript-eslint/eslint-plugin@npm:^8.23.0":
   version: 8.23.0
   resolution: "@typescript-eslint/eslint-plugin@npm:8.23.0"
   dependencies:
@@ -3737,7 +3736,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^8.22.0":
+"@typescript-eslint/parser@npm:^8.23.0":
   version: 8.23.0
   resolution: "@typescript-eslint/parser@npm:8.23.0"
   dependencies:
@@ -7713,7 +7712,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-perfectionist@npm:^4.7.0":
+"eslint-plugin-perfectionist@npm:^4.8.0":
   version: 4.8.0
   resolution: "eslint-plugin-perfectionist@npm:4.8.0"
   dependencies:
@@ -12902,7 +12901,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
-    "@julr/tooling-configs": "npm:^3.3.0"
+    "@julr/tooling-configs": "npm:^4.0.0"
     eslint: "npm:^9.20.0"
     prettier: "npm:^3.4.2"
   languageName: unknown
