@@ -15,6 +15,11 @@
 <template>
 	<Head :title="vm.article.title">
 		<meta name="description" :content="escapedSummary" />
+    <meta name="author" content='Romain Lanz' />
+
+    <meta property="og:title" :content="vm.article.title" />
+    <meta property="og:description" :content="escapedSummary" />
+    <meta property="og:image" :content="ogImageUrl" />
 
 		<meta name="og:title" :content="vm.article.title" />
 		<meta name="og:description" :content="escapedSummary" />
