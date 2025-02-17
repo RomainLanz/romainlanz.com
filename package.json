@@ -15,8 +15,8 @@
 	},
 	"devDependencies": {
 		"@julr/tooling-configs": "^3.3.0",
-		"eslint": "^9.20.0",
-		"prettier": "^3.4.2"
+		"eslint": "^9.20.1",
+		"prettier": "^3.5.1"
 	},
 	"workspaces": {
 		"packages": [
