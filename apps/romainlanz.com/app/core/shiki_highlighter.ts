@@ -14,6 +14,7 @@ export const shikiHighlighter = await createHighlighterCore({
 		bundledLanguages.typescript(),
 		bundledLanguages.vue(),
 		bundledLanguages.tsx(),
+		bundledLanguages.python(),
 	],
 	engine: createOnigurumaEngine(import('shiki/wasm')),
 });
