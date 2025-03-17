@@ -14,6 +14,7 @@ export default class UpdateArticleController {
 			title: vine.string().minLength(3).maxLength(100),
 			summary: vine.string().minLength(3).maxLength(255),
 			markdownContent: vine.string().minLength(3),
+			slug: vine.string().minLength(3),
 			// TODO: Validate that the category exists
 			categoryId: vine.string().uuid(),
 		})
@@ -42,7 +43,7 @@ export default class UpdateArticleController {
 	async execute({ bouncer, request, response }: HttpContext) {
 		await bouncer.with(ArticlePolicy).allows('update');
 
-		const { title, summary, markdownContent, categoryId } = await request.validateUsing(
+		const { title, summary, slug, markdownContent, categoryId } = await request.validateUsing(
 			UpdateArticleController.validator
 		);
 
@@ -52,6 +53,7 @@ export default class UpdateArticleController {
 			id: request.param('id')!,
 			title,
 			summary,
+			slug,
 			contentHtml: markdownHtml.toString(),
 			contentMarkdown: markdownContent,
 			readingTime: Math.ceil((markdownContent.split(' ').length || 0) / 238),

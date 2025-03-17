@@ -21,6 +21,7 @@ interface UpdateArticleDTO {
 	id: string;
 	summary: string;
 	title: string;
+	slug: string;
 	contentHtml: string;
 	contentMarkdown: string;
 	readingTime: number;
@@ -142,6 +143,7 @@ export class ArticleRepository {
 			.set({
 				title: payload.title,
 				summary: payload.summary,
+				slug: payload.slug,
 				content_html: payload.contentHtml,
 				content_markdown: payload.contentMarkdown,
 				reading_time: payload.readingTime,
