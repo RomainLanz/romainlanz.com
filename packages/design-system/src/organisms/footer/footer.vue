@@ -20,6 +20,9 @@
 				<FooterSection title="Réseau&nbsp;sociaux">
 					<ul class="flex flex-col list-none gap-1 pl-0 text-sm">
 						<li>
+							<SocialNetwork name="Discord" link="https://discord.gg/hcFa6Za6z8" />
+						</li>
+						<li>
 							<SocialNetwork name="GitHub" link="https://github.com/RomainLanz" />
 						</li>
 						<li>
