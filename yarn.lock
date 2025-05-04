@@ -2456,7 +2456,7 @@ __metadata:
     "@vitejs/plugin-vue": "npm:^5.2.3"
     prettier: "npm:^3.5.3"
     storybook: "npm:^8.6.12"
-    tailwind-variants: "npm:^0.3.1"
+    tailwind-variants: "npm:^1.0.0"
     typescript: "npm:~5.8.3"
     unocss: "npm:^65.5.0"
     vite: "npm:^6.0.6"
@@ -13993,21 +13993,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwind-merge@npm:2.5.4":
-  version: 2.5.4
-  resolution: "tailwind-merge@npm:2.5.4"
-  checksum: 10c0/6c3d2a1d44344f373859f005e6366f0dbd7f66131d330a51dbe823dab08f71c388b2efcbb2b6a2170ca469581d27079c25cd40c234ca1356c4893ae99c2febb3
+"tailwind-merge@npm:3.0.2":
+  version: 3.0.2
+  resolution: "tailwind-merge@npm:3.0.2"
+  checksum: 10c0/73f528345e5130e7690c5c57701155849ae4f0834e0a4bf56bc03e25d4563d45d4905ff9c487a7dce9efdfa18689a223e78365962105ad0e2f2d1226216c66ef
   languageName: node
   linkType: hard
 
-"tailwind-variants@npm:^0.3.1":
-  version: 0.3.1
-  resolution: "tailwind-variants@npm:0.3.1"
+"tailwind-variants@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "tailwind-variants@npm:1.0.0"
   dependencies:
-    tailwind-merge: "npm:2.5.4"
+    tailwind-merge: "npm:3.0.2"
   peerDependencies:
     tailwindcss: "*"
-  checksum: 10c0/2ad4a9282ea3d9b66443329ede844bd86b6737b98ede3f31d6b495e3d1f210677c57ba360af2dbffede00cce0026dd1105eeb1af936e825ebd14e715eb6cbc11
+  checksum: 10c0/404b88293067009c72b5c22e662ad6994438278b7ebcf4dedf9782832d98206f56f2918e39e202c590e7bb4a99b6272e3482fae3058fcd1cb7cc6e1c9ccf2435
   languageName: node
   linkType: hard
 
