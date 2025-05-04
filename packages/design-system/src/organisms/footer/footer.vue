@@ -56,18 +56,18 @@
 
 				<FooterSection title="Partenaires">
 					<ul class="flex flex-col list-none gap-1 pl-0 text-sm">
-						<!--						<li> -->
-						<!--							<a href="https://m.do.co/c/cc9e0b565057" rel="sponsored"> Hetzner </a> -->
-						<!--						</li> -->
+						<li>
+							<a href="https://hetzner.cloud/?ref=Qkd3MiGZUIgB" rel="sponsored"> Hetzner </a>
+						</li>
 						<li>
 							<a href="https://app.codecrafters.io/join?via=RomainLanz" rel="sponsored"> CodeCrafters </a>
 						</li>
 					</ul>
 				</FooterSection>
 
-				<!--				<FooterSection title="Newsletter"> -->
-				<!--					<slot name="newsletter" /> -->
-				<!--				</FooterSection> -->
+				<FooterSection title="Newsletter">
+					<slot name="newsletter" />
+				</FooterSection>
 			</div>
 
 			<hr class="my-12 h-1px border-none bg-gray-800" />
