@@ -2498,8 +2498,8 @@ __metadata:
     "@poppinss/defer": "npm:^1.1.1"
     "@rlanz/design-system": "workspace:*"
     "@rlanz/rpc": "workspace:*"
-    "@shikijs/rehype": "npm:^2.5.0"
-    "@shikijs/transformers": "npm:^2.5.0"
+    "@shikijs/rehype": "npm:^3.3.0"
+    "@shikijs/transformers": "npm:^3.3.0"
     "@swc/core": "npm:^1.11.24"
     "@tuyau/core": "npm:^0.4.0"
     "@types/dlv": "npm:^1.1.5"
@@ -2528,7 +2528,7 @@ __metadata:
     remark-parse: "npm:^11.0.0"
     remark-rehype: "npm:^11.1.2"
     sharp: "npm:^0.34.1"
-    shiki: "npm:^2.5.0"
+    shiki: "npm:^3.3.0"
     ts-node-maintained: "npm:^10.9.5"
     typescript: "npm:~5.8.3"
     unified: "npm:^11.0.5"
@@ -2687,90 +2687,88 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@shikijs/core@npm:2.5.0":
-  version: 2.5.0
-  resolution: "@shikijs/core@npm:2.5.0"
+"@shikijs/core@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@shikijs/core@npm:3.3.0"
   dependencies:
-    "@shikijs/engine-javascript": "npm:2.5.0"
-    "@shikijs/engine-oniguruma": "npm:2.5.0"
-    "@shikijs/types": "npm:2.5.0"
+    "@shikijs/types": "npm:3.3.0"
     "@shikijs/vscode-textmate": "npm:^10.0.2"
     "@types/hast": "npm:^3.0.4"
-    hast-util-to-html: "npm:^9.0.4"
-  checksum: 10c0/8851e1db14cf09ec4c6a9ad656d67b807a53e27d0face69a234ad810b3e8198e3fa19a32e9f062a49fd000487c88d8096675bb8fbfaecc64dc99125694f2d7e1
+    hast-util-to-html: "npm:^9.0.5"
+  checksum: 10c0/e9dead5a937000b6956dd7c80fb9a5a105e3b0a63b37be472591e4cb3963bd6ca8b749bb4c0fef87ee50ea1fd53d21dc630db8b02083d34c0fc4e2bb154e5ed3
   languageName: node
   linkType: hard
 
-"@shikijs/engine-javascript@npm:2.5.0":
-  version: 2.5.0
-  resolution: "@shikijs/engine-javascript@npm:2.5.0"
+"@shikijs/engine-javascript@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@shikijs/engine-javascript@npm:3.3.0"
   dependencies:
-    "@shikijs/types": "npm:2.5.0"
+    "@shikijs/types": "npm:3.3.0"
     "@shikijs/vscode-textmate": "npm:^10.0.2"
-    oniguruma-to-es: "npm:^3.1.0"
-  checksum: 10c0/5cc43e7e0c25eb3c56e0ce48ea55e4c8f09e235e4148f5c852febcd0569f74b6e3c91887d2e5bb079821fb2f13412e551d20491b516e2ad7ae675b613a727093
+    oniguruma-to-es: "npm:^4.2.0"
+  checksum: 10c0/cfb15b99875055b00037940717e1d4423bd6bdd715fe9b43bcc382faa091227fdb7b90f76835d821b30c3012229feb71967254893998d73661e1af494e38aa49
   languageName: node
   linkType: hard
 
-"@shikijs/engine-oniguruma@npm:2.5.0":
-  version: 2.5.0
-  resolution: "@shikijs/engine-oniguruma@npm:2.5.0"
+"@shikijs/engine-oniguruma@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@shikijs/engine-oniguruma@npm:3.3.0"
   dependencies:
-    "@shikijs/types": "npm:2.5.0"
+    "@shikijs/types": "npm:3.3.0"
     "@shikijs/vscode-textmate": "npm:^10.0.2"
-  checksum: 10c0/7c1ae4cf0196b51b8a1da9496ca2ba5fbd9d1765629e312922804507b07d794208ff6562ece555518c641c99f190ec2c22202edddd5d78c7983a163677883dfe
+  checksum: 10c0/60674fa7154cd55d335450e896ee7e3f942f7ef687c12281107e1a2e7a68c5e2f9e290344c9bb6fbbcfe411ab061d12bb833f7533d0b3942b9d81385a3d4888b
   languageName: node
   linkType: hard
 
-"@shikijs/langs@npm:2.5.0":
-  version: 2.5.0
-  resolution: "@shikijs/langs@npm:2.5.0"
+"@shikijs/langs@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@shikijs/langs@npm:3.3.0"
   dependencies:
-    "@shikijs/types": "npm:2.5.0"
-  checksum: 10c0/bf8007f33aa9e8d5009054e9ab00fa608605bd203090bd3a648316cb632a63b6b99009a674198f386bb0647e1ce8f0d91adac3324999a8697eb6eafc12a6f0ed
+    "@shikijs/types": "npm:3.3.0"
+  checksum: 10c0/b5cde8f48cc860882561d5c63ab5e284c4d26c56fb49a4296903a9cbac8be25ef2bd6bd8f62d02672f2f82f53193a6c33e6f61e43ce3a200714f42b6d74c7bcb
   languageName: node
   linkType: hard
 
-"@shikijs/rehype@npm:^2.5.0":
-  version: 2.5.0
-  resolution: "@shikijs/rehype@npm:2.5.0"
+"@shikijs/rehype@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "@shikijs/rehype@npm:3.3.0"
   dependencies:
-    "@shikijs/types": "npm:2.5.0"
+    "@shikijs/types": "npm:3.3.0"
     "@types/hast": "npm:^3.0.4"
     hast-util-to-string: "npm:^3.0.1"
-    shiki: "npm:2.5.0"
+    shiki: "npm:3.3.0"
     unified: "npm:^11.0.5"
     unist-util-visit: "npm:^5.0.0"
-  checksum: 10c0/b287d040e307d4b0f58fb7582f3cc561b75f4d271e621fd1fb3c8823e6e94b82bc41d7a3fd1014b3f7e0e8c01f608f1dc08db6e4668abad86588ef3b1416cc5f
+  checksum: 10c0/8ed0e7ea6aa1965d6dd42109006a3b66c7d0b1399020e997db1cbb6fff2328e31154482c4b91e5df25cc154472a1615389053b1f7b55fa7a6bb864a4cba6e829
   languageName: node
   linkType: hard
 
-"@shikijs/themes@npm:2.5.0":
-  version: 2.5.0
-  resolution: "@shikijs/themes@npm:2.5.0"
+"@shikijs/themes@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@shikijs/themes@npm:3.3.0"
   dependencies:
-    "@shikijs/types": "npm:2.5.0"
-  checksum: 10c0/73e38847138a2cb4a034af15279f30f4637a4f95217cb1d4212ea708f00cb68cb6c9ed0067a41c4d67b1b6a4cec1f71034aae22c2626a24629f2e13f7363428d
+    "@shikijs/types": "npm:3.3.0"
+  checksum: 10c0/cbb5a0a07aaf4448919dbe564a5d88a3771a82e3e45434b112d8395f4179062dc46b7d5441c8ead67a482321acc506bd85bb4e2419827d3483ada66845d6818f
   languageName: node
   linkType: hard
 
-"@shikijs/transformers@npm:^2.5.0":
-  version: 2.5.0
-  resolution: "@shikijs/transformers@npm:2.5.0"
+"@shikijs/transformers@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "@shikijs/transformers@npm:3.3.0"
   dependencies:
-    "@shikijs/core": "npm:2.5.0"
-    "@shikijs/types": "npm:2.5.0"
-  checksum: 10c0/2a9c91215ed14182ef4cdc248ee490cef56bc220a0dd50e551be77a704c51360aea9104bdc4a25f6c54f999ebd4e1bc123075735e930daf3e2c82393373197a7
+    "@shikijs/core": "npm:3.3.0"
+    "@shikijs/types": "npm:3.3.0"
+  checksum: 10c0/8ea6d3873fafb175e25638a80cbb1cd3d753202ba955652c2cd1ba202274a1b7ccca52bfcb6d8f9b970785b8b49221111550790e1dc32c4e37cc3c7a765b4850
   languageName: node
   linkType: hard
 
-"@shikijs/types@npm:2.5.0":
-  version: 2.5.0
-  resolution: "@shikijs/types@npm:2.5.0"
+"@shikijs/types@npm:3.3.0":
+  version: 3.3.0
+  resolution: "@shikijs/types@npm:3.3.0"
   dependencies:
     "@shikijs/vscode-textmate": "npm:^10.0.2"
     "@types/hast": "npm:^3.0.4"
-  checksum: 10c0/71e75351ac550d079d220235d40d4aff7f81c2ac8cd7d846cf16cd10db4d59bee982e097d87b4709a8ef5993add96a6841a0f6a42caebc300cfbe83191028f5d
+  checksum: 10c0/1b5205ec33bf17b88d389d8da58d20432a3de71b937d4bd5b4ace424bc5e6fe7c82514cfaf10b3d22e789137ce0b6fefc917e8b578aab354653c8d654cd83c94
   languageName: node
   linkType: hard
 
@@ -7197,13 +7195,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"emoji-regex-xs@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "emoji-regex-xs@npm:1.0.0"
-  checksum: 10c0/1082de006991eb05a3324ef0efe1950c7cdf66efc01d4578de82b0d0d62add4e55e97695a8a7eeda826c305081562dc79b477ddf18d886da77f3ba08c4b940a0
-  languageName: node
-  linkType: hard
-
 "emoji-regex@npm:^10.3.0":
   version: 10.4.0
   resolution: "emoji-regex@npm:10.4.0"
@@ -8930,7 +8921,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hast-util-to-html@npm:^9.0.0, hast-util-to-html@npm:^9.0.4":
+"hast-util-to-html@npm:^9.0.0":
   version: 9.0.4
   resolution: "hast-util-to-html@npm:9.0.4"
   dependencies:
@@ -8946,6 +8937,25 @@ __metadata:
     stringify-entities: "npm:^4.0.0"
     zwitch: "npm:^2.0.4"
   checksum: 10c0/5eba69554c41d036105b9cedd61df26fd9046b64172aa6b61c143c8c539b43fe27bc7e04e50099564e5a3a501aa6c6719620365120eedf1b09eca51cb8b4dc40
+  languageName: node
+  linkType: hard
+
+"hast-util-to-html@npm:^9.0.5":
+  version: 9.0.5
+  resolution: "hast-util-to-html@npm:9.0.5"
+  dependencies:
+    "@types/hast": "npm:^3.0.0"
+    "@types/unist": "npm:^3.0.0"
+    ccount: "npm:^2.0.0"
+    comma-separated-tokens: "npm:^2.0.0"
+    hast-util-whitespace: "npm:^3.0.0"
+    html-void-elements: "npm:^3.0.0"
+    mdast-util-to-hast: "npm:^13.0.0"
+    property-information: "npm:^7.0.0"
+    space-separated-tokens: "npm:^2.0.0"
+    stringify-entities: "npm:^4.0.0"
+    zwitch: "npm:^2.0.4"
+  checksum: 10c0/b7a08c30bab4371fc9b4a620965c40b270e5ae7a8e94cf885f43b21705179e28c8e43b39c72885d1647965fb3738654e6962eb8b58b0c2a84271655b4d748836
   languageName: node
   linkType: hard
 
@@ -11638,14 +11648,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"oniguruma-to-es@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "oniguruma-to-es@npm:3.1.0"
+"oniguruma-parser@npm:^0.12.1":
+  version: 0.12.1
+  resolution: "oniguruma-parser@npm:0.12.1"
+  checksum: 10c0/b843ea54cda833efb19f856314afcbd43e903ece3de489ab78c527ddec84859208052557daa9fad4bdba89ebdd15b0cc250de86b3daf8c7cbe37bac5a6a185d3
+  languageName: node
+  linkType: hard
+
+"oniguruma-to-es@npm:^4.2.0":
+  version: 4.3.3
+  resolution: "oniguruma-to-es@npm:4.3.3"
   dependencies:
-    emoji-regex-xs: "npm:^1.0.0"
+    oniguruma-parser: "npm:^0.12.1"
     regex: "npm:^6.0.1"
     regex-recursion: "npm:^6.0.2"
-  checksum: 10c0/ae0973d3b39c0f72c343dc3df9c527028b118fff0548538a24946bc6ac65ba01953791eb92a1a0ed908309f423c190538dfab257c2565e52de3b74185395d985
+  checksum: 10c0/bc034e84dfee4dbc061cf6364023e66e1667fb8dc3afcad3b7d6a2c77e2d4a4809396ee2fb8c1fd3d6f00f76f7ca14b773586bf862c5f0c0074c059e2a219252
   languageName: node
   linkType: hard
 
@@ -13505,19 +13522,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shiki@npm:2.5.0, shiki@npm:^2.5.0":
-  version: 2.5.0
-  resolution: "shiki@npm:2.5.0"
+"shiki@npm:3.3.0, shiki@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "shiki@npm:3.3.0"
   dependencies:
-    "@shikijs/core": "npm:2.5.0"
-    "@shikijs/engine-javascript": "npm:2.5.0"
-    "@shikijs/engine-oniguruma": "npm:2.5.0"
-    "@shikijs/langs": "npm:2.5.0"
-    "@shikijs/themes": "npm:2.5.0"
-    "@shikijs/types": "npm:2.5.0"
+    "@shikijs/core": "npm:3.3.0"
+    "@shikijs/engine-javascript": "npm:3.3.0"
+    "@shikijs/engine-oniguruma": "npm:3.3.0"
+    "@shikijs/langs": "npm:3.3.0"
+    "@shikijs/themes": "npm:3.3.0"
+    "@shikijs/types": "npm:3.3.0"
     "@shikijs/vscode-textmate": "npm:^10.0.2"
     "@types/hast": "npm:^3.0.4"
-  checksum: 10c0/1f7adf5dae47e37a828f8a442dc98a378014c2f8793e4e1f3562b85be23b295456ba82fded08da61d1f9d35917e6fb98517c6b6f43c65d972f7cbca6ecd596c9
+  checksum: 10c0/bac5b7ed1e56c960cce023d2c82e9304ef7128a2cdc1568799138f55b658d1aca91d7948848889ba11379ceda3ca89172531f9c44f349ee4510ac4a957153519
   languageName: node
   linkType: hard
 
