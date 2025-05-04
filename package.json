@@ -14,7 +14,7 @@
 		"typecheck": "yarn workspaces foreach -p -A run typecheck"
 	},
 	"devDependencies": {
-		"@julr/tooling-configs": "^3.3.0",
+		"@julr/tooling-configs": "^4.0.0",
 		"eslint": "^9.26.0",
 		"prettier": "^3.5.3"
 	},
