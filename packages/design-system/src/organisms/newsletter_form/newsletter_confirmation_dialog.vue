@@ -5,7 +5,7 @@
 	import Dialog from '../../molecules/dialog/dialog.vue';
 	import Field from '../../molecules/field/field.vue';
 
-	const { loading = false } = defineProps<{
+	defineProps<{
 		errorMessage?: string;
 		loading?: boolean;
 	}>();
@@ -25,7 +25,6 @@
 
 	function handleSubmit() {
 		emit('accepted');
-		open.value = false;
 	}
 </script>
 

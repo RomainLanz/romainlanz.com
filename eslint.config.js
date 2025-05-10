@@ -2,6 +2,7 @@ import { julr } from '@julr/tooling-configs/eslint';
 
 export default julr(
 	{
+		jsonc: false,
 		typescript: {
 			forceDecorators: true,
 			tsconfigPath: ['./tsconfig.json', './inertia/tsconfig.json'],
