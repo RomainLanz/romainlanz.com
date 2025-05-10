@@ -65,9 +65,9 @@
 					</ul>
 				</FooterSection>
 
-				<FooterSection title="Newsletter">
-					<slot name="newsletter" />
-				</FooterSection>
+				<!--				<FooterSection title="Newsletter"> -->
+				<!--					<slot name="newsletter" /> -->
+				<!--				</FooterSection> -->
 			</div>
 
 			<hr class="my-12 h-1px border-none bg-gray-800" />
