@@ -64,6 +64,7 @@
 		"@storybook/vue3": "^8.6.12",
 		"@storybook/vue3-vite": "^8.6.12",
 		"@vitejs/plugin-vue": "^5.2.3",
+		"@vitejs/plugin-vue-jsx": "^4.1.2",
 		"prettier": "^3.5.3",
 		"storybook": "^8.6.12",
 		"typescript": "~5.8.3",

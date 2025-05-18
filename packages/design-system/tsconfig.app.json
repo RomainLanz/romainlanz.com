@@ -4,6 +4,7 @@
 		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 		"target": "ES2020",
 		"jsx": "preserve",
+		"jsxImportSource": "vue",
 		"lib": ["ES2020", "DOM", "DOM.Iterable"],
 		"moduleDetection": "force",
 		"useDefineForClassFields": true,
