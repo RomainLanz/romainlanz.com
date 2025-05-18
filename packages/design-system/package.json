@@ -25,6 +25,7 @@
 		"./reference-link": "./src/atoms/reference_link/reference_link.vue",
 		"./table": "./src/atoms/table/table.vue",
 		"./tag": "./src/atoms/tag/tag.vue",
+		"./toaster": "./src/atoms/toast/index.ts",
 		"./alert-note": "./src/molecules/alert_note/alert_note.vue",
 		"./article-card": "./src/molecules/article_card/article_card.vue",
 		"./category-listing": "./src/molecules/category_listing/category_listing.vue",
