@@ -82,12 +82,11 @@
 			</p>
 
 			<p>
-				Je travaille principalement sur macOS avec un
-				<Highlight color="red.300" :rotation="-1">MacBook Pro M1</Highlight>, qui m'offre une excellente performance
-				pour mes projets professionnels. Pour mes projets personnels, je préfère utiliser ma tour gaming sous Linux,
-				plus précisément
+				À mon travail, j'utilise principalement macOS avec un
+				<Highlight color="red.300" :rotation="-1">MacBook Pro M1</Highlight>. À la maison, je préfère utiliser ma tour
+				sous Linux, plus précisément
 				<Highlight color="cyan.300" :rotation="1"
-					><a href="https://zorin.com/os" target="_blank" rel="nofollow">Zorin OS</a></Highlight
+					><a href="https://voidlinux.org/" target="_blank" rel="nofollow">Void Linux</a></Highlight
 				>.
 			</p>
 		</div>
