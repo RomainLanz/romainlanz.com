@@ -43,7 +43,13 @@
 				<FooterSection title="Navigation">
 					<ul class="flex flex-col list-none gap-1 pl-0 text-sm">
 						<li>
-							<a href="https://plausible.romainlanz.com/romainlanz.com" rel="nofollow" target="_blank">Statistiques</a>
+							<a
+								href="https://analytics.romainlanz.com/share/xbQs4BqwTC6h9mtK/romainlanz.com"
+								rel="nofollow"
+								target="_blank"
+							>
+								Statistiques
+							</a>
 						</li>
 						<li>
 							<Link :href="contactUrl" prefetch>Contact</Link>
