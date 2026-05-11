@@ -9424,9 +9424,9 @@ __metadata:
   linkType: hard
 
 "kysely@npm:^0.28.2":
-  version: 0.28.2
-  resolution: "kysely@npm:0.28.2"
-  checksum: 10c0/66eccd19e6476a10f3b004835c4a966516968003075aa0c217db48ecd0f9679a2efa812f797063540cdb4e3e81fbf5afe876e1f7a08a1550e1fd99acc2a6dbb9
+  version: 0.28.17
+  resolution: "kysely@npm:0.28.17"
+  checksum: 10c0/70573292d8d60a1e29be9b432c1b25fe21d4806ecd5e9859b5ba8d2af799769878f4b3d91731ffe3e03744c7291476fe843640d31741f3637e20c3c49afea3c5
   languageName: node
   linkType: hard
 
