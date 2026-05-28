@@ -2348,6 +2348,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@poppinss/macroable@npm:^1.1.0":
+  version: 1.1.2
+  resolution: "@poppinss/macroable@npm:1.1.2"
+  checksum: 10c0/70ff049095309c696660b6c2993c963a938fa3348bee83cf22659a5b34208ee02e24d6f18aff33af1b4c900dce7d8613bdb1abf188b26bc2775757cd03b1505a
+  languageName: node
+  linkType: hard
+
 "@poppinss/matchit@npm:^3.1.2":
   version: 3.1.2
   resolution: "@poppinss/matchit@npm:3.1.2"
@@ -2422,6 +2429,13 @@ __metadata:
     slugify: "npm:^1.6.6"
     truncatise: "npm:^0.0.8"
   checksum: 10c0/2f5e0e659007d979b597700ea5ff7ad931da07fac373bc671736b2a2280639a6b8377d362c30545fb370b764ce64e10c51c07a9a25cff72048c56790a396cc77
+  languageName: node
+  linkType: hard
+
+"@poppinss/types@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "@poppinss/types@npm:1.2.1"
+  checksum: 10c0/63baf881052f4b9ed83f5fe50ed441c9e82b4f3abfd206e42576c1ed38b7dbe61482b7770bf4ebfa93b5e4c5a7e54187f7cd6d21ec3f47eaec9573dbbf535b9d
   languageName: node
   linkType: hard
 
@@ -2565,7 +2579,7 @@ __metadata:
     "@types/mjml": "npm:^4.7.4"
     "@types/node": "npm:^22.15.30"
     "@types/pg": "npm:^8.15.4"
-    "@vinejs/vine": "npm:^3.0.1"
+    "@vinejs/vine": "npm:^4.4.0"
     "@vitejs/plugin-vue": "npm:^5.2.4"
     "@vue/server-renderer": "npm:^3.5.16"
     bentocache: "patch:bentocache@npm%3A1.0.0-beta.9#~/.yarn/patches/bentocache-npm-1.0.0-beta.9-c4ad06f897.patch"
@@ -2883,6 +2897,13 @@ __metadata:
   version: 1.2.7
   resolution: "@speed-highlight/core@npm:1.2.7"
   checksum: 10c0/33905da58b7e0f0857f3ec7c60a4d2e7bd7e25573dd8676de2dab555057e9873084fd2bb1d97c4629131a990f7e230cb7068045370a15c77c4412527776791d4
+  languageName: node
+  linkType: hard
+
+"@standard-schema/spec@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@standard-schema/spec@npm:1.1.0"
+  checksum: 10c0/d90f55acde4b2deb983529c87e8025fa693de1a5e8b49ecc6eb84d1fd96328add0e03d7d551442156c7432fd78165b2c26ff561b970a9a881f046abb78d6a526
   languageName: node
   linkType: hard
 
@@ -3450,10 +3471,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/validator@npm:^13.12.2":
-  version: 13.12.2
-  resolution: "@types/validator@npm:13.12.2"
-  checksum: 10c0/64f1326c768947d756ab5bcd73f3f11a6f07dc76292aea83890d0390a9b9acb374f8df6b24af2c783271f276d3d613b78fc79491fe87edee62108d54be2e3c31
+"@types/validator@npm:^13.15.10":
+  version: 13.15.10
+  resolution: "@types/validator@npm:13.15.10"
+  checksum: 10c0/3e2e65fcd37dd6961ca3fd0535293d0c42f5911dc3ca44b96f458835e6db2392b678ccbb0c9815d8c0a14e653439e6c62c7b8758a6cd1d6e390551c9e56618ac
   languageName: node
   linkType: hard
 
@@ -4143,26 +4164,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vinejs/compiler@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@vinejs/compiler@npm:3.0.0"
-  checksum: 10c0/b39d34d8031f0d881548a03978fec01a094136813f9db8f7fcfd3428a29c14808ed619cb086cfeb761017b02352bfdd6997f4e12ea9d2efe1ca8b77cf258bbb3
+"@vinejs/compiler@npm:^4.1.3":
+  version: 4.1.3
+  resolution: "@vinejs/compiler@npm:4.1.3"
+  checksum: 10c0/0df4e92bbca5bea6a94135d78f886d0f5c1a5676d7e9965288b161d6857a43c656a0a17d862e6707c017b586085f7b81f9f62523f6028b067d7dc5bcc3890e72
   languageName: node
   linkType: hard
 
-"@vinejs/vine@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "@vinejs/vine@npm:3.0.1"
+"@vinejs/vine@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "@vinejs/vine@npm:4.4.0"
   dependencies:
-    "@poppinss/macroable": "npm:^1.0.4"
-    "@types/validator": "npm:^13.12.2"
-    "@vinejs/compiler": "npm:^3.0.0"
-    camelcase: "npm:^8.0.0"
-    dayjs: "npm:^1.11.13"
+    "@poppinss/macroable": "npm:^1.1.0"
+    "@poppinss/types": "npm:^1.2.1"
+    "@standard-schema/spec": "npm:^1.1.0"
+    "@types/validator": "npm:^13.15.10"
+    "@vinejs/compiler": "npm:^4.1.3"
+    camelcase: "npm:^9.0.0"
+    dayjs: "npm:^1.11.19"
     dlv: "npm:^1.1.3"
-    normalize-url: "npm:^8.0.1"
-    validator: "npm:^13.12.0"
-  checksum: 10c0/70db4e18277de5888360f27ccd4a3d29cc984f14b1786f54761e5f0e98ebe53d34522632f28e98ce6ab3a883a2e00349f53113ce89204c6b805bf63ef8836925
+    normalize-url: "npm:^8.1.1"
+    validator: "npm:^13.15.26"
+  checksum: 10c0/f5e2e6714dfde50b957c6d889016de35a0e40597565c25fa0cec5c5ecc8a41fa08b31c8ad393fbb1ea3210300343ba48e4793624cff0cb9bbc99aec59b797fa7
   languageName: node
   linkType: hard
 
@@ -5985,10 +6008,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"camelcase@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "camelcase@npm:8.0.0"
-  checksum: 10c0/56c5fe072f0523c9908cdaac21d4a3b3fb0f608fb2e9ba90a60e792b95dd3bb3d1f3523873ab17d86d146e94171305f73ef619e2f538bd759675bc4a14b4bff3
+"camelcase@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "camelcase@npm:9.0.0"
+  checksum: 10c0/7171e1540b9b227cab9d59b7afa05174d14c10268171c18bdf2240eb1485ad6851592f1253ddc291f7ae34caad42c18206d339538965c67fb17fc995c0bb509b
   languageName: node
   linkType: hard
 
@@ -6628,10 +6651,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dayjs@npm:^1.11.13":
-  version: 1.11.13
-  resolution: "dayjs@npm:1.11.13"
-  checksum: 10c0/a3caf6ac8363c7dade9d1ee797848ddcf25c1ace68d9fe8678ecf8ba0675825430de5d793672ec87b24a69bf04a1544b176547b2539982275d5542a7955f35b7
+"dayjs@npm:^1.11.19":
+  version: 1.11.21
+  resolution: "dayjs@npm:1.11.21"
+  checksum: 10c0/bd97dfdc4bfea3c66268635690313828b386faa040fbc1f829ff42a2bd748b72c9d9b3c8f9616ce9e61fcb78923f1461a462c969c54b1084458ae1b715898fb0
   languageName: node
   linkType: hard
 
@@ -11029,6 +11052,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"normalize-url@npm:^8.1.1":
+  version: 8.1.1
+  resolution: "normalize-url@npm:8.1.1"
+  checksum: 10c0/1beb700ce42acb2288f39453cdf8001eead55bbf046d407936a40404af420b8c1c6be97a869884ae9e659d7b1c744e40e905c875ac9290644eec2e3e6fb0b370
+  languageName: node
+  linkType: hard
+
 "npm-run-path@npm:^6.0.0":
   version: 6.0.0
   resolution: "npm-run-path@npm:6.0.0"
@@ -14080,7 +14110,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"validator@npm:^13.12.0, validator@npm:^13.9.0":
+"validator@npm:^13.15.26":
+  version: 13.15.35
+  resolution: "validator@npm:13.15.35"
+  checksum: 10c0/1958ebcad578128d154853a2b9bf5b95e7738dcc7d1d065e50a969812272312ec379dcaf375b9d7545e04a71de6755f60f5a4b49c1405737a9c80e11da297eef
+  languageName: node
+  linkType: hard
+
+"validator@npm:^13.9.0":
   version: 13.15.0
   resolution: "validator@npm:13.15.0"
   checksum: 10c0/0f13fd7031ac575e8d7828431da8ef5859bac6a38ee65e1d7fdd367dbf1c3d94d95182aecc3183f7fa7a30ff4474bf864d1aff54707620227a2cdbfd36d894c2
