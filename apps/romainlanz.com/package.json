@@ -77,7 +77,7 @@
 		"vue": "^3.5.16"
 	},
 	"devDependencies": {
-		"@adonisjs/assembler": "^7.8.2",
+		"@adonisjs/assembler": "^8.4.0",
 		"@adonisjs/tsconfig": "^1.4.1",
 		"@japa/assert": "^4.0.1",
 		"@japa/plugin-adonisjs": "^4.0.0",
