@@ -5,8 +5,8 @@
 	import FooterSection from './footer_section.vue';
 	import SocialNetwork from './social_network.vue';
 
-	const contactUrl = client.$url('pages.contact');
-	const aboutUrl = client.$url('pages.about');
+	const contactUrl = client.urlFor('pages.contact');
+	const aboutUrl = client.urlFor('pages.about');
 </script>
 
 <template>

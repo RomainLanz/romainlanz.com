@@ -14,7 +14,7 @@
 	});
 
 	function handleSubmit() {
-		const url = client.$url('admin.taxonomies.categories.store');
+		const url = client.urlFor('admin.taxonomies.categories.store');
 
 		form.post(url, {});
 	}

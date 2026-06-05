@@ -15,7 +15,7 @@
 	});
 
 	function onSubmit() {
-		const url = client.$url('pages.contact.store');
+		const url = client.urlFor('pages.contact.store');
 
 		form.post(url, {
 			preserveScroll: true,

@@ -40,7 +40,7 @@
 	const category = ref<string[]>([article!.category_id]);
 
 	function handleSubmit() {
-		const url = client.$url('admin.articles.update', { params: { id: article!.id } });
+		const url = client.urlFor('admin.articles.update', { params: { id: article!.id } });
 
 		form.categoryId = category.value?.[0];
 

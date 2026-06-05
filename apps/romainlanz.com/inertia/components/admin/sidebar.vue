@@ -3,9 +3,9 @@
 	import Logo from '@rlanz/design-system/logo';
 	import { client } from '@rlanz/rpc/client';
 
-	const articleIndexUrl = client.$url('admin.articles.index');
-	const redirectIndexUrl = client.$url('admin.redirects.index');
-	const taxonomyIndexUrl = client.$url('admin.taxonomies.index');
+	const articleIndexUrl = client.urlFor('admin.articles.index');
+	const redirectIndexUrl = client.urlFor('admin.redirects.index');
+	const taxonomyIndexUrl = client.urlFor('admin.taxonomies.index');
 </script>
 
 <template>

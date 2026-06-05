@@ -8,8 +8,8 @@ export default function render(page: any) {
 		page,
 		render: renderToString,
 		resolve: (name) => {
-			const pages = import.meta.glob<DefineComponent>('../pages/**/*.vue', { eager: true });
-			const page = pages[`../pages/${name}.vue`];
+			const pages = import.meta.glob<DefineComponent>('./pages/**/*.vue', { eager: true });
+			const page = pages[`./pages/${name}.vue`];
 
 			setLayout(name, page);
 

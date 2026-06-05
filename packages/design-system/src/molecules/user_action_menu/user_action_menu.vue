@@ -14,7 +14,7 @@
 	}
 
 	const { user } = defineProps<UserActionMenuProps>();
-	const adminUrl = client.$url('admin.pages.dashboard');
+	const adminUrl = client.urlFor('admin.pages.dashboard');
 
 	const actions = [
 		{

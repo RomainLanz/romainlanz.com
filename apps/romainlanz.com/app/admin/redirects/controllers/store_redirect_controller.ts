@@ -17,7 +17,7 @@ export default class StoreRedirectController {
 	constructor(private repository: RedirectRepository) {}
 
 	render({ inertia }: HttpContext) {
-		return inertia.render('admin/redirects/create');
+		return inertia.render('admin/redirects/create', {});
 	}
 
 	async execute({ request, response }: HttpContext) {

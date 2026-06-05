@@ -10,7 +10,7 @@ export default class StoreCategoryController {
 	);
 
 	render({ inertia }: HttpContext) {
-		return inertia.render('admin/taxonomies/categories/store');
+		return inertia.render('admin/taxonomies/categories/create', {});
 	}
 
 	async execute({}: HttpContext) {}

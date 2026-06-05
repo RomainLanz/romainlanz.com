@@ -17,7 +17,7 @@
 	>();
 
 	const articleUrl = computed(() => {
-		return client.$url('articles.show', { params: { slug } });
+		return client.urlFor('articles.show', { params: { slug } });
 	});
 </script>
 

@@ -32,7 +32,7 @@ server.use([
 	() => import('@adonisjs/session/session_middleware'),
 	() => import('@adonisjs/auth/initialize_auth_middleware'),
 	() => import('#auth/middleware/silent_auth_middleware'),
-	() => import('@adonisjs/inertia/inertia_middleware'),
+	() => import('#middleware/inertia_middleware'),
 ]);
 
 /**

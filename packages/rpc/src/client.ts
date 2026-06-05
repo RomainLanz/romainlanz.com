@@ -1,7 +1,7 @@
-import { api } from '@rlanz/site/api';
-import { createTuyau } from '@tuyau/client';
+import { registry } from '@rlanz/site/registry';
+import { createTuyau } from '@tuyau/core/client';
 
 export const client = createTuyau({
-	api,
+	registry,
 	baseUrl: globalThis.RomainLanz.appUrl,
 });

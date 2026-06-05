@@ -16,9 +16,9 @@
 		}>;
 	}>();
 
-	const allUrl = client.$url('articles.index');
+	const allUrl = client.urlFor('articles.index');
 	function computeCategoryUrl(category: { slug: string }) {
-		return client.$url('articles.index', { query: { category: category.slug } });
+		return client.urlFor('articles.index', { query: { category: category.slug } });
 	}
 </script>
 

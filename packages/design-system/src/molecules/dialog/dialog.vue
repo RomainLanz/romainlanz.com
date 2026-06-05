@@ -26,12 +26,16 @@
 </script>
 
 <template>
-	<DialogRoot v-model:open="model" :lazy-mount="lazyMount" :unmount-on-exit="unmountOnExit">
-		<DialogTrigger as-child>
+	<ClientOnly>
+		<template #placeholder>
 			<slot name="trigger" />
-		</DialogTrigger>
+		</template>
 
-		<ClientOnly>
+		<DialogRoot v-model:open="model" :lazy-mount="lazyMount" :unmount-on-exit="unmountOnExit">
+			<DialogTrigger as-child>
+				<slot name="trigger" />
+			</DialogTrigger>
+
 			<Teleport to="body">
 				<DialogBackdrop v-if="backdrop" class="fixed inset-0 bg-dark opacity-50" />
 
@@ -55,6 +59,6 @@
 					</div>
 				</DialogPositioner>
 			</Teleport>
-		</ClientOnly>
-	</DialogRoot>
+		</DialogRoot>
+	</ClientOnly>
 </template>

@@ -31,7 +31,7 @@
 	const category = ref<string[]>();
 
 	function handleSubmit() {
-		const url = client.$url('admin.articles.store');
+		const url = client.urlFor('admin.articles.store');
 
 		form.categoryId = category.value?.[0];
 

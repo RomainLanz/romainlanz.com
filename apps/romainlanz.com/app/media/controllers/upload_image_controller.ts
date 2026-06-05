@@ -1,13 +1,12 @@
-import { cuid } from '@adonisjs/core/helpers';
 import app from '@adonisjs/core/services/app';
-import { UserRole } from '#auth/enums/user_role';
+import { randomUUID } from 'node:crypto';
 import type { HttpContext } from '@adonisjs/core/http';
 
 export default class UploadImageController {
 	async handle({ auth, request, response }: HttpContext) {
 		const user = auth.getUserOrFail();
 
-		if (user.role !== UserRole.Admin) {
+		if (!user.isAdmin()) {
 			return response.forbidden();
 		}
 
@@ -25,7 +24,7 @@ export default class UploadImageController {
 			return response.badRequest({ errors: image.errors });
 		}
 
-		const fileName = `${cuid()}.${image.extname}`;
+		const fileName = `${randomUUID()}.${image.extname}`;
 
 		await image.move(app.makePath('public/uploads'), {
 			name: fileName,

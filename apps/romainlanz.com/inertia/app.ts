@@ -1,7 +1,7 @@
-/// <reference path="../../adonisrc.ts" />
-/// <reference path="../../config/inertia.ts" />
+/// <reference path="../adonisrc.ts" />
+/// <reference path="../config/inertia.ts" />
 
-import '../css/reset.css';
+import './css/reset.css';
 import '~/custom_elements/alert_note';
 import '~/custom_elements/codeblock';
 import 'virtual:uno.css';
@@ -11,7 +11,7 @@ import { createApp, createSSRApp, h } from 'vue';
 import { initiateApplication, setLayout } from '~/app/helpers';
 import type { DefineComponent } from 'vue';
 
-import.meta.glob(['../../resources/favicon/**']);
+import.meta.glob(['../resources/favicon/**']);
 
 const appName = import.meta.env.VITE_APP_NAME || 'RomainLanz';
 
@@ -22,8 +22,8 @@ void createInertiaApp({
 
 	resolve: async (name) => {
 		const page = await resolvePageComponent(
-			`../pages/${name}.vue`,
-			import.meta.glob<DefineComponent>('../pages/**/*.vue')
+			`./pages/${name}.vue`,
+			import.meta.glob<DefineComponent>('./pages/**/*.vue')
 		);
 
 		setLayout(name, page);

@@ -8,6 +8,6 @@ export default class PagesController {
 			return response.redirect().back();
 		}
 
-		return inertia.render('admin/pages/dashboard');
+		return inertia.render('admin/pages/dashboard', {});
 	}
 }

@@ -42,13 +42,10 @@ export default class MigrateFresh extends BaseCommand {
 	}
 
 	async run() {
-		const tables = await db
-			// @ts-expect-error - dynamic table name
+		const tables = await (db as any)
 			.selectFrom('information_schema.tables')
-			// @ts-expect-error - dynamic table name
-			.where('table_schema', '=', 'public')
-			// @ts-expect-error - dynamic table name
 			.select(['table_name'])
+			.where('table_schema', '=', 'public')
 			.execute();
 
 		for (const table of tables) {

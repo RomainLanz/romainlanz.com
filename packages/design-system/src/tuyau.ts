@@ -1,9 +1,9 @@
 /// <reference path="../../../apps/romainlanz.com/adonisrc.ts" />
 
-import { createTuyau } from '@tuyau/client';
-import { api } from 'romainlanz.com/api';
+import { registry } from '@rlanz/site/registry';
+import { createTuyau } from '@tuyau/core/client';
 
 export const tuyau = createTuyau({
-	api,
+	registry,
 	baseUrl: 'http://romainlanz.localhost:3333',
 });

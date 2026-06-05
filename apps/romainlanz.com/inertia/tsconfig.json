@@ -5,8 +5,9 @@
 		"baseUrl": ".",
 		"module": "ESNext",
 		"paths": {
-			"~/*": ["./*"]
+			"~/*": ["./*"],
+			"@generated/*": ["../.adonisjs/*"]
 		}
 	},
-	"include": ["./**/*.ts", "./**/*.vue"]
+	"include": ["./**/*.ts", "./**/*.vue", "../.adonisjs/client/**/*.ts", "../.adonisjs/server/**/*.ts"]
 }

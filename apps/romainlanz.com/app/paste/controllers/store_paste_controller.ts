@@ -12,7 +12,7 @@ import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()
 export default class StorePasteController {
-	static #validator = vine.compile(
+	static validator = vine.compile(
 		vine.object({
 			lang: vine.string().in(bundledLanguagesInfo.map((lang) => lang.id)),
 			content: vine.string(),
@@ -28,7 +28,7 @@ export default class StorePasteController {
 	}
 
 	async execute({ request, response }: HttpContext) {
-		const payload = await request.validateUsing(StorePasteController.#validator);
+		const payload = await request.validateUsing(StorePasteController.validator);
 
 		const ghl = await codeToHtml(payload.content, {
 			lang: payload.lang,
@@ -49,8 +49,6 @@ export default class StorePasteController {
 			userId: undefined,
 		});
 
-		return response.redirect().toRoute('pastes.show', [paste.getIdentifier().toString()], {
-			domain: 'paste.romainlanz.localhost',
-		});
+		return response.redirect().toPath(`http://paste.romainlanz.localhost/${paste.getIdentifier().toString()}`);
 	}
 }

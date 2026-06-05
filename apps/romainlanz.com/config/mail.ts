@@ -14,12 +14,12 @@ const mailConfig = defineConfig({
 	mailers: {
 		smtp: transports.smtp({
 			host: env.get('SMTP_HOST'),
-			port: env.get('SMTP_PORT'),
+			port: Number(env.get('SMTP_PORT')),
 		}),
 
 		brevo: transports.brevo({
 			baseUrl: 'https://api.brevo.com/v3',
-			key: env.get('BREVO_API_KEY'),
+			key: env.get('BREVO_API_KEY') ?? '',
 		}),
 	},
 });

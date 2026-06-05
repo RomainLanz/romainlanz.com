@@ -11,7 +11,7 @@ export class CurrentUserViewModel {
 
 	serialize() {
 		if (!this.user) {
-			return null;
+			return undefined;
 		}
 
 		return {

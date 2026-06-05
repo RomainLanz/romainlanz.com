@@ -11,9 +11,9 @@
 		vm: LandingViewModelSerialized;
 	}>();
 
-	const contactUrl = client.$url('pages.contact');
-	const aboutUrl = client.$url('pages.about');
-	const allArticlesUrl = client.$url('articles.index');
+	const contactUrl = client.urlFor('pages.contact');
+	const aboutUrl = client.urlFor('pages.about');
+	const allArticlesUrl = client.urlFor('articles.index');
 </script>
 
 <template>

@@ -11,7 +11,7 @@
 	import { usePageErrors } from '~/composables/use_page_errors';
 
 	const open = ref(false);
-	const loginUrl = client.$url('auth.login');
+	const loginUrl = client.urlFor('auth.login');
 
 	const errors = usePageErrors();
 	const [parent] = useAutoAnimate();

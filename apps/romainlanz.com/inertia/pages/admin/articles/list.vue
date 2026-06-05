@@ -14,7 +14,7 @@
 
 	usePageTitle('Articles');
 
-	const newArticleUrl = client.$url('admin.articles.create');
+	const newArticleUrl = client.urlFor('admin.articles.create');
 
 	const headers = [
 		{
@@ -45,11 +45,11 @@
 	});
 
 	function computeShowUrl(slug: string) {
-		return client.$url('articles.show', { params: { slug } });
+		return client.urlFor('articles.show', { params: { slug } });
 	}
 
 	function computeEditUrl(id: string) {
-		return client.$url('admin.articles.edit', { params: { id } });
+		return client.urlFor('admin.articles.edit', { params: { id } });
 	}
 </script>
 

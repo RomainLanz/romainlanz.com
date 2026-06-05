@@ -6,5 +6,6 @@
 		"types": ["hot-hook/import-meta"],
 		"outDir": "./build"
 	},
-	"exclude": ["node_modules", "./resources/ts/env.d.ts"]
+	"exclude": ["node_modules", "./resources/ts/env.d.ts", "./inertia"],
+	"references": [{ "path": "./tsconfig.inertia.json" }]
 }

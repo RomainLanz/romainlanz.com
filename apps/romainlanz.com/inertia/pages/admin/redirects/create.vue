@@ -14,7 +14,7 @@
 	});
 
 	function handleSubmit() {
-		const url = client.$url('admin.redirects.store');
+		const url = client.urlFor('admin.redirects.store');
 
 		form.post(url, {});
 	}

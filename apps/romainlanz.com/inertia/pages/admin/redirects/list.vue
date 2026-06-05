@@ -11,7 +11,7 @@
 
 	usePageTitle('Redirections');
 
-	const newRedirectUrl = client.$url('admin.redirects.create');
+	const newRedirectUrl = client.urlFor('admin.redirects.create');
 
 	const headers = [
 		{

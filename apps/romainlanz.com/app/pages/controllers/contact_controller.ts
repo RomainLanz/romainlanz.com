@@ -12,7 +12,7 @@ export default class ContactController {
 	);
 
 	render({ inertia }: HttpContext) {
-		return inertia.render('contact');
+		return inertia.render('contact', {});
 	}
 
 	async execute({ session, request, response }: HttpContext) {

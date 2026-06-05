@@ -6,14 +6,14 @@
 | Since, we cannot run TypeScript source code using "node" binary, we need
 | a JavaScript entrypoint to run ace commands.
 |
-| This file runs "bin/console.ts" file as a child process and uses "ts-node/esm"
+| This file runs "bin/console.ts" file as a child process and uses "ts-exec"
 | loader to run TypeScript code.
 |
 | Executing this file is same as running the following command.
-| "node --loader=ts-node/esm bin/console.js"
+| "node --import=@poppinss/ts-exec bin/console.js"
 |
 */
 
-import 'ts-node-maintained/register/esm';
+import '@poppinss/ts-exec';
 
 await import('./bin/console.js');
