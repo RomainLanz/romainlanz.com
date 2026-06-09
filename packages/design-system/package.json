@@ -48,9 +48,6 @@
 	"dependencies": {
 		"@ark-ui/vue": "patch:@ark-ui/vue@npm%3A4.6.0#~/.yarn/patches/@ark-ui-vue-npm-4.6.0-941a23b559.patch",
 		"@inertiajs/vue3": "catalog:",
-		"@rlanz/rpc": "workspace:*",
-		"@rlanz/site": "workspace:*",
-		"@tuyau/core": "catalog:",
 		"tailwind-variants": "^1.0.0",
 		"vue": "catalog:"
 	},

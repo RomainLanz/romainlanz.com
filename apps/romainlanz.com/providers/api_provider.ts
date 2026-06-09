@@ -1,15 +1,26 @@
 import { HttpContext } from '@adonisjs/core/http';
 import { BaseSerializer } from '@adonisjs/core/transformers';
-import { type SimplePaginatorMetaKeys } from '@adonisjs/lucid/types/querybuilder';
+
+type ApiPaginatorMetaData = {
+	total: string;
+	perPage: string;
+	currentPage: string;
+	lastPage: string;
+	firstPage: string;
+	firstPageUrl: string;
+	lastPageUrl: string;
+	nextPageUrl: string;
+	previousPageUrl: string;
+};
 
 /**
  * Custom serializer for API responses that ensures consistent JSON structure
  * across all API endpoints. Wraps response data in a 'data' property and handles
- * pagination metadata for Lucid ORM query results.
+ * pagination metadata for paginated API results.
  */
 class ApiSerializer extends BaseSerializer<{
 	Wrap: 'data';
-	PaginationMetaData: SimplePaginatorMetaKeys;
+	PaginationMetaData: ApiPaginatorMetaData;
 }> {
 	/**
 	 * Wraps all serialized data under this key in the response object.
@@ -19,13 +30,13 @@ class ApiSerializer extends BaseSerializer<{
 
 	/**
 	 * Validates and defines pagination metadata structure for paginated responses.
-	 * Ensures that pagination info from Lucid queries is properly formatted.
+	 * Ensures that pagination info is properly formatted.
 	 *
-	 * @throws Error if metadata doesn't match Lucid's pagination structure
+	 * @throws Error if metadata doesn't match the expected pagination structure
 	 */
-	definePaginationMetaData(metaData: unknown): SimplePaginatorMetaKeys {
+	definePaginationMetaData(metaData: unknown): ApiPaginatorMetaData {
 		if (!this.isLucidPaginatorMetaData(metaData)) {
-			throw new Error('Invalid pagination metadata. Expected metadata to contain Lucid pagination keys');
+			throw new Error('Invalid pagination metadata. Expected metadata to contain pagination keys');
 		}
 		return metaData;
 	}

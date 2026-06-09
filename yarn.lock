@@ -2825,11 +2825,8 @@ __metadata:
     "@ark-ui/vue": "patch:@ark-ui/vue@npm%3A4.6.0#~/.yarn/patches/@ark-ui-vue-npm-4.6.0-941a23b559.patch"
     "@chromatic-com/storybook": "npm:^4.0.0"
     "@inertiajs/vue3": "catalog:"
-    "@rlanz/rpc": "workspace:*"
-    "@rlanz/site": "workspace:*"
     "@storybook/vue3": "npm:^9.0.6"
     "@storybook/vue3-vite": "npm:^9.0.6"
-    "@tuyau/core": "catalog:"
     "@vitejs/plugin-vue": "catalog:"
     "@vitejs/plugin-vue-jsx": "npm:^4.2.0"
     prettier: "npm:^3.5.3"
@@ -2843,16 +2840,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@rlanz/rpc@workspace:*, @rlanz/rpc@workspace:packages/rpc":
-  version: 0.0.0-use.local
-  resolution: "@rlanz/rpc@workspace:packages/rpc"
-  dependencies:
-    "@rlanz/site": "workspace:*"
-    "@tuyau/core": "catalog:"
-  languageName: unknown
-  linkType: soft
-
-"@rlanz/site@workspace:*, @rlanz/site@workspace:apps/romainlanz.com":
+"@rlanz/site@workspace:apps/romainlanz.com":
   version: 0.0.0-use.local
   resolution: "@rlanz/site@workspace:apps/romainlanz.com"
   dependencies:
@@ -2877,7 +2865,6 @@ __metadata:
     "@poppinss/defer": "npm:^1.1.1"
     "@poppinss/ts-exec": "npm:^1.4.4"
     "@rlanz/design-system": "workspace:*"
-    "@rlanz/rpc": "workspace:*"
     "@shikijs/rehype": "npm:^3.6.0"
     "@shikijs/transformers": "npm:^3.6.0"
     "@tuyau/core": "catalog:"

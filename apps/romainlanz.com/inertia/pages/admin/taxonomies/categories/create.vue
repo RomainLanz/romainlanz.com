@@ -3,7 +3,7 @@
 	import Button from '@rlanz/design-system/button';
 	import Field from '@rlanz/design-system/field';
 	import Panel from '@rlanz/design-system/panel';
-	import { client } from '@rlanz/rpc/client';
+	import { client } from '~/client';
 	import { usePageTitle } from '~/composables/use_page_title';
 
 	usePageTitle('Créer une catégorie');

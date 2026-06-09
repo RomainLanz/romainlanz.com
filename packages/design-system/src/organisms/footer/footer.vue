@@ -1,19 +1,21 @@
 <script lang="ts" setup>
 	import { Link } from '@inertiajs/vue3';
-	import { client } from '@rlanz/rpc/client';
 	import Logo from '../../atoms/logo/logo.vue';
 	import FooterSection from './footer_section.vue';
 	import SocialNetwork from './social_network.vue';
 
-	const contactUrl = client.urlFor('pages.contact');
-	const aboutUrl = client.urlFor('pages.about');
+	defineProps<{
+		aboutHref: string;
+		contactHref: string;
+		homeHref: string;
+	}>();
 </script>
 
 <template>
 	<footer class="isolate mt-10 border-t-2 border-gray-800 bg-yellow-200 py-12 text-sm">
 		<div class="m-auto max-w-7xl px-4">
 			<div class="flex justify-between">
-				<Link class="hidden sm:block" href="/">
+				<Link class="hidden sm:block" :href="homeHref">
 					<Logo monochrome />
 				</Link>
 
@@ -52,10 +54,10 @@
 							</a>
 						</li>
 						<li>
-							<Link :href="contactUrl" prefetch>Contact</Link>
+							<Link :href="contactHref" prefetch>Contact</Link>
 						</li>
 						<li>
-							<Link :href="aboutUrl" prefetch>À Propos</Link>
+							<Link :href="aboutHref" prefetch>À Propos</Link>
 						</li>
 					</ul>
 				</FooterSection>

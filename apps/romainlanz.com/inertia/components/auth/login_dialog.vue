@@ -5,7 +5,7 @@
 	import Button from '@rlanz/design-system/button';
 	import Dialog from '@rlanz/design-system/dialog';
 	import Icon from '@rlanz/design-system/icon';
-	import { client } from '@rlanz/rpc/client';
+	import { client } from '~/client';
 	import { ref } from 'vue';
 	import LoginForm from '~/components/auth/login_form.vue';
 	import { usePageErrors } from '~/composables/use_page_errors';

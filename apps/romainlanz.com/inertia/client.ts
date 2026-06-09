@@ -1,7 +1,9 @@
-import { registry } from '@rlanz/site/registry';
+import { registry } from '@generated/registry';
 import { createTuyau } from '@tuyau/core/client';
 
 export const client = createTuyau({
+	baseUrl: '/',
 	registry,
-	baseUrl: globalThis.RomainLanz.appUrl,
 });
+
+export const urlFor = client.urlFor;

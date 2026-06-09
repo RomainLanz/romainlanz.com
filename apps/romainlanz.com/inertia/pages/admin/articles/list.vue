@@ -3,8 +3,8 @@
 	import Button from '@rlanz/design-system/button';
 	import ReferenceLink from '@rlanz/design-system/reference-link';
 	import Table from '@rlanz/design-system/table';
-	import { client } from '@rlanz/rpc/client';
 	import { computed } from 'vue';
+	import { client } from '~/client';
 	import { usePageTitle } from '~/composables/use_page_title';
 	import type { AllArticleViewModelSerialized } from '#admin/articles/view_models/all_article_view_model';
 
@@ -45,11 +45,11 @@
 	});
 
 	function computeShowUrl(slug: string) {
-		return client.urlFor('articles.show', { params: { slug } });
+		return client.urlFor('articles.show', { slug });
 	}
 
 	function computeEditUrl(id: string) {
-		return client.urlFor('admin.articles.edit', { params: { id } });
+		return client.urlFor('admin.articles.edit', { id });
 	}
 </script>
 

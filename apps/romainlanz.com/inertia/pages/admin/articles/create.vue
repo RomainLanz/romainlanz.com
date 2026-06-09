@@ -4,7 +4,7 @@
 	import Field from '@rlanz/design-system/field';
 	import FieldSelect from '@rlanz/design-system/field-select';
 	import Panel from '@rlanz/design-system/panel';
-	import { client } from '@rlanz/rpc/client';
+	import { client } from '~/client';
 	import { computed, ref } from 'vue';
 	import { usePageTitle } from '~/composables/use_page_title';
 

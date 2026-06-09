@@ -3,7 +3,7 @@
 	import AlertNote from '@rlanz/design-system/alert-note';
 	import Button from '@rlanz/design-system/button';
 	import Field from '@rlanz/design-system/field';
-	import { client } from '@rlanz/rpc/client';
+	import { client } from '~/client';
 	import { usePageProps } from '~/composables/use_page_props';
 
 	const pageProps = usePageProps();

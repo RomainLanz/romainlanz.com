@@ -6,6 +6,8 @@
 	import UserActionMenu, { type UserActionMenuProps } from '../../molecules/user_action_menu/user_action_menu.vue';
 
 	defineProps<{
+		adminHref?: string;
+		homeHref?: string;
 		title?: string | null;
 		user?: UserActionMenuProps['user'] | null;
 	}>();
@@ -17,7 +19,7 @@
 			<div class="flex items-center gap-4">
 				<h1 v-if="title" class="text-5xl text-gray-800">{{ title }}</h1>
 
-				<Link v-else class="flex items-center gap-2" href="/">
+				<Link v-else class="flex items-center gap-2" :href="homeHref ?? '/'">
 					<Logo />
 					<span class="hidden text-xl text-gray-800 font-bold xs:block">Romain Lanz</span>
 				</Link>
@@ -31,7 +33,7 @@
 				<!-- User is connected -->
 				<template v-if="user">
 					<div class="flex items-center gap-3">
-						<UserActionMenu :user="user" />
+						<UserActionMenu :admin-href="adminHref" :user="user" />
 					</div>
 				</template>
 

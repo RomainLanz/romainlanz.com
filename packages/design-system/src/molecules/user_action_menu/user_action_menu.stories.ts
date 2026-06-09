@@ -18,8 +18,9 @@ export const Base: Story = {
 			isAdmin: true,
 		},
 	},
-	args: {
-		user: {
+		args: {
+			adminHref: '#',
+			user: {
 			name: 'Romain Lanz',
 			avatarUrl: 'https://avatars.githubusercontent.com/u/2793951?v=4',
 			isAdmin: true,

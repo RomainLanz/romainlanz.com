@@ -24,6 +24,7 @@ export const Connected: Story = {
 		},
 	},
 	args: {
+		adminHref: '#',
 		user: {
 			name: 'Romain Lanz',
 			avatarUrl: 'https://avatars.githubusercontent.com/u/2793951?v=4',

@@ -9,7 +9,7 @@
 	import Field from '@rlanz/design-system/field';
 	import FieldSelect from '@rlanz/design-system/field-select';
 	import Panel from '@rlanz/design-system/panel';
-	import { client } from '@rlanz/rpc/client';
+	import { client } from '~/client';
 	import { computed, ref } from 'vue';
 	import { usePageTitle } from '~/composables/use_page_title';
 
@@ -40,7 +40,7 @@
 	const category = ref<string[]>([article!.category_id]);
 
 	function handleSubmit() {
-		const url = client.urlFor('admin.articles.update', { params: { id: article!.id } });
+		const url = client.urlFor('admin.articles.update', { id: article!.id });
 
 		form.categoryId = category.value?.[0];
 

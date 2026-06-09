@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 	import { Link } from '@inertiajs/vue3';
-	import { client } from '@rlanz/rpc/client';
 	import Illustration from '../../atoms/illustration/illustration.vue';
 	import type { IllustrationName } from '../../atoms/illustration/illustration_name.js';
 
 	const { activeCategory = null } = defineProps<{
+		allHref: string;
 		allArticlesCount: number;
 		activeCategory?: string | null;
 		categories: Array<{
@@ -14,12 +14,8 @@
 			illustrationName: IllustrationName;
 			articleCount: number;
 		}>;
+		categoryHref: (category: { slug: string }) => string;
 	}>();
-
-	const allUrl = client.urlFor('articles.index');
-	function computeCategoryUrl(category: { slug: string }) {
-		return client.urlFor('articles.index', { query: { category: category.slug } });
-	}
 </script>
 
 <template>
@@ -31,7 +27,7 @@
 				'border-gray-800 hover:shadow-small': activeCategory === null,
 			}"
 		>
-			<Link class="flex items-center gap-3 px-4 py-3 text-lg" :href="allUrl">
+			<Link class="flex items-center gap-3 px-4 py-3 text-lg" :href="allHref">
 				<div class="grid w-10 place-items-center">
 					<Illustration class="h-10" name="all" />
 				</div>
@@ -55,7 +51,7 @@
 				'border-gray-800 hover:shadow-small': activeCategory === category.slug,
 			}"
 		>
-			<Link class="flex items-center gap-3 px-4 py-3 text-lg" :href="computeCategoryUrl(category)">
+			<Link class="flex items-center gap-3 px-4 py-3 text-lg" :href="categoryHref(category)">
 				<div class="grid w-10 place-items-center">
 					<Illustration class="h-10" :name="category.illustrationName" />
 				</div>

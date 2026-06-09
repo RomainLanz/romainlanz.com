@@ -2,11 +2,16 @@
 	import Footer from '@rlanz/design-system/footer';
 	import TopBar from '@rlanz/design-system/top-bar';
 	import Sidebar from '~/components/admin/sidebar.vue';
+	import { client } from '~/client';
 	import { useCurrentUser } from '~/composables/use_current_user';
 	import { usePageTitle } from '~/composables/use_page_title';
 
 	const pageTitle = usePageTitle();
 	const currentUser = useCurrentUser();
+	const aboutUrl = client.urlFor('pages.about');
+	const adminUrl = client.urlFor('admin.pages.dashboard');
+	const contactUrl = client.urlFor('pages.contact');
+	const homeUrl = client.urlFor('pages.landing');
 </script>
 
 <template>
@@ -16,7 +21,7 @@
 		<div class="w-0 flex flex-1 flex-col">
 			<main class="relative z-0 flex-grow-1 px-8 focus:outline-none">
 				<div class="space-y-8">
-					<TopBar :title="pageTitle" :user="currentUser" />
+					<TopBar :admin-href="adminUrl" :home-href="homeUrl" :title="pageTitle" :user="currentUser" />
 
 					<div class="mx-auto max-w-full pb-4">
 						<slot />
@@ -24,7 +29,7 @@
 				</div>
 			</main>
 
-			<Footer />
+			<Footer :about-href="aboutUrl" :contact-href="contactUrl" :home-href="homeUrl" />
 		</div>
 	</div>
 </template>

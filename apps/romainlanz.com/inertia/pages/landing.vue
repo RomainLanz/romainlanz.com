@@ -4,16 +4,20 @@
 	import Button from '@rlanz/design-system/button';
 	import Hero from '@rlanz/design-system/hero';
 	import Link from '@rlanz/design-system/link';
-	import { client } from '@rlanz/rpc/client';
+	import { client } from '~/client';
 	import type { LandingViewModelSerialized } from '#pages/view_models/landing_view_model';
 
 	defineProps<{
 		vm: LandingViewModelSerialized;
 	}>();
 
-	const contactUrl = client.urlFor('pages.contact');
-	const aboutUrl = client.urlFor('pages.about');
 	const allArticlesUrl = client.urlFor('articles.index');
+	const aboutUrl = client.urlFor('pages.about');
+	const contactUrl = client.urlFor('pages.contact');
+
+	function computeArticleHref(slug: string) {
+		return client.urlFor('articles.show', { slug });
+	}
 </script>
 
 <template>
@@ -38,8 +42,8 @@
 				<ArticleCard
 					v-if="vm.articles[0]"
 					:key="vm.articles[0].id"
+					:href="computeArticleHref(vm.articles[0].slug)"
 					:title="vm.articles[0].title"
-					:slug="vm.articles[0].slug"
 					:date="vm.articles[0].publishedAtHuman"
 					:datetime="vm.articles[0].publishedAt"
 					:excerpt="vm.articles[0].summary"
@@ -49,8 +53,8 @@
 				<ArticleCard
 					v-if="vm.articles[2]"
 					:key="vm.articles[2].id"
+					:href="computeArticleHref(vm.articles[2].slug)"
 					:title="vm.articles[2].title"
-					:slug="vm.articles[2].slug"
 					:date="vm.articles[2].publishedAtHuman"
 					:datetime="vm.articles[2].publishedAt"
 					:excerpt="vm.articles[2].summary"
@@ -61,8 +65,8 @@
 				<ArticleCard
 					v-if="vm.articles[1]"
 					:key="vm.articles[1].id"
+					:href="computeArticleHref(vm.articles[1].slug)"
 					:title="vm.articles[1].title"
-					:slug="vm.articles[1].slug"
 					:date="vm.articles[1].publishedAtHuman"
 					:datetime="vm.articles[1].publishedAt"
 					:excerpt="vm.articles[1].summary"
@@ -72,8 +76,8 @@
 				<ArticleCard
 					v-if="vm.articles[3]"
 					:key="vm.articles[3].id"
+					:href="computeArticleHref(vm.articles[3].slug)"
 					:title="vm.articles[3].title"
-					:slug="vm.articles[3].slug"
 					:date="vm.articles[3].publishedAtHuman"
 					:datetime="vm.articles[3].publishedAt"
 					:excerpt="vm.articles[3].summary"

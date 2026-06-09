@@ -5,6 +5,7 @@ const meta = {
 	component: CategoryListing,
 	title: 'Molecules/CategoryListing',
 	args: {
+		allHref: '#',
 		allArticlesCount: 24,
 		activeCategory: null,
 		categories: [
@@ -22,7 +23,8 @@ const meta = {
 				illustrationName: 'javascript',
 				articleCount: 2,
 			},
-		],
+			],
+		categoryHref: () => '#',
 	},
 } satisfies Meta<typeof CategoryListing>;
 

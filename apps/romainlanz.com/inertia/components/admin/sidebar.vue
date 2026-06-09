@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 	import { Link } from '@inertiajs/vue3';
 	import Logo from '@rlanz/design-system/logo';
-	import { client } from '@rlanz/rpc/client';
+	import { client } from '~/client';
 
 	const articleIndexUrl = client.urlFor('admin.articles.index');
 	const redirectIndexUrl = client.urlFor('admin.redirects.index');

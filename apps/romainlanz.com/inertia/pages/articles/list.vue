@@ -3,7 +3,7 @@
 	import ArticleCard from '@rlanz/design-system/article-card';
 	import CategoryListing from '@rlanz/design-system/category-listing';
 	import Pagination from '@rlanz/design-system/pagination';
-	import { client } from '@rlanz/rpc/client';
+	import { client } from '~/client';
 	import type { ArticleListViewModelSerialized } from '#articles/view_models/article_list_view_model';
 
 	const {
@@ -22,10 +22,18 @@
 		vm.categories.find((category) => category.slug === activeCategory)?.articleCount ?? allArticlesCount;
 
 	function onPageChange(page: number) {
-		const url = client.urlFor('articles.index', { query: { page, category: activeCategory } });
+		const url = client.urlFor('articles.index', undefined, { qs: { page, category: activeCategory } });
 		router.visit(url, {
 			preserveScroll: true,
 		});
+	}
+
+	function computeCategoryHref(category: { slug: string }) {
+		return client.urlFor('articles.index', undefined, { qs: { category: category.slug } });
+	}
+
+	function computeArticleHref(slug: string) {
+		return client.urlFor('articles.show', { slug });
 	}
 </script>
 
@@ -39,15 +47,21 @@
 			<aside class="col-span-1">
 				<h3 class="text-sm font-bold uppercase">Categories</h3>
 
-				<CategoryListing :active-category="activeCategory" :categories="vm.categories" :all-articles-count />
+				<CategoryListing
+					:active-category="activeCategory"
+					:categories="vm.categories"
+					:all-href="client.urlFor('articles.index')"
+					:all-articles-count
+					:category-href="computeCategoryHref"
+				/>
 			</aside>
 
 			<section class="col-span-2 flex flex-col gap-4">
 				<ArticleCard
 					v-for="article in vm.articles"
 					:key="article.id"
+					:href="computeArticleHref(article.slug)"
 					:title="article.title"
-					:slug="article.slug"
 					:date="article.publishedAtHuman"
 					:datetime="article.publishedAt"
 					:excerpt="article.summary"

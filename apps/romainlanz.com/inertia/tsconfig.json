@@ -6,7 +6,7 @@
 		"module": "ESNext",
 		"paths": {
 			"~/*": ["./*"],
-			"@generated/*": ["../.adonisjs/*"]
+			"@generated/*": ["../.adonisjs/client/*"]
 		}
 	},
 	"include": ["./**/*.ts", "./**/*.vue", "../.adonisjs/client/**/*.ts", "../.adonisjs/server/**/*.ts"]

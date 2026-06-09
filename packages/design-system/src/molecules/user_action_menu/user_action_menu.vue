@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-	import { client } from '@rlanz/rpc/client';
 	import Avatar from '../../atoms/avatar/avatar.vue';
 	import Button from '../../atoms/button/button.vue';
 	import Dropdown, { type MenuAction } from '../../atoms/dropdown/dropdown.vue';
@@ -11,10 +10,10 @@
 			avatarUrl: string;
 			isAdmin: boolean;
 		};
+		adminHref?: string;
 	}
 
-	const { user } = defineProps<UserActionMenuProps>();
-	const adminUrl = client.urlFor('admin.pages.dashboard');
+	const { adminHref, user } = defineProps<UserActionMenuProps>();
 
 	const actions = [
 		{
@@ -28,7 +27,7 @@
 			enabled: user.isAdmin,
 			label: 'Administration',
 			code: 'admin',
-			href: adminUrl,
+			href: adminHref,
 		},
 	] satisfies MenuAction[];
 </script>

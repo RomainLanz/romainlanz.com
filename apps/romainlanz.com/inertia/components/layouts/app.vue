@@ -2,10 +2,15 @@
 	import Footer from '@rlanz/design-system/footer';
 	import TopBar from '@rlanz/design-system/top-bar';
 	import LoginDialog from '~/components/auth/login_dialog.vue';
+	import { client } from '~/client';
 	import LoadFragment from '~/components/load_fragment.vue';
 	import { useCurrentUser } from '~/composables/use_current_user';
 
 	const currentUser = useCurrentUser();
+	const aboutUrl = client.urlFor('pages.about');
+	const adminUrl = client.urlFor('admin.pages.dashboard');
+	const contactUrl = client.urlFor('pages.contact');
+	const homeUrl = client.urlFor('pages.landing');
 
 	// const openNewsletterDialog = ref(false);
 	// const form = useForm({
@@ -18,7 +23,7 @@
 </script>
 
 <template>
-	<TopBar :user="currentUser">
+	<TopBar :admin-href="adminUrl" :home-href="homeUrl" :user="currentUser">
 		<template #after-logo>
 			<LoadFragment source="/live/status" />
 		</template>
@@ -32,7 +37,7 @@
 		<slot />
 	</main>
 
-	<Footer>
+	<Footer :about-href="aboutUrl" :contact-href="contactUrl" :home-href="homeUrl">
 		<!--		<template #newsletter> -->
 		<!--			<NewsletterForm -->
 		<!--				v-model:open="openNewsletterDialog" -->

@@ -1,13 +1,11 @@
 <script lang="ts" setup>
 	import { Link } from '@inertiajs/vue3';
-	import { client } from '@rlanz/rpc/client';
-	import { computed } from 'vue';
 	import Tag from '../../atoms/tag/tag.vue';
 	import type { TagProps } from '../../atoms/tag/tag.vue';
 
-	const { slug } = defineProps<
+	const { href } = defineProps<
 		{
-			slug: string;
+			href: string;
 			title: string;
 			date: string;
 			datetime: string;
@@ -15,14 +13,10 @@
 			tags?: Array<{ name: string; color: TagProps['color'] }>;
 		} & ({ readingTime: number } | { thumbnailUrl: string; videoLength: string })
 	>();
-
-	const articleUrl = computed(() => {
-		return client.urlFor('articles.show', { params: { slug } });
-	});
 </script>
 
 <template>
-	<Link :href="articleUrl" prefetch>
+	<Link :href prefetch>
 		<article
 			class="isolate flex flex-col gap-4 border-2 border-gray-800 rounded-md border-solid bg-white p-6 text-gray-800 shadow-small transition-colors hover:bg-yellow-100"
 		>
