@@ -20,6 +20,10 @@ _Avoid_: Post, blog post, publication
 The primary editorial grouping for Articles. An Article belongs to at most one Category, and a Category represents a stable topic area rather than a free-form label.
 _Avoid_: Tag, taxonomy, topic
 
+**Tag**:
+A secondary editorial marker for Articles. An Article can have multiple Tags, and a Tag represents a precise, filterable cross-cutting subject rather than the Article's primary editorial grouping.
+_Avoid_: Category, topic, label
+
 **Newsletter Subscriber**:
 A person who asked to receive updates from the Personal Platform by email.
 _Avoid_: Lead, contact, user
@@ -68,6 +72,9 @@ _Avoid_: Link, shortcut, alias, URL shortener
 
 **Dev**: Should this written recap be an Article?
 **Domain**: No, if it exists because of a Lesson, it is Lesson Notes. Articles stand on their own.
+
+**Dev**: Is TypeScript a Category or a Tag?
+**Domain**: It can be a Tag when it refines Articles across several Categories. A Category is the Article's primary editorial grouping.
 
 **Dev**: What do we call a small Course without Chapters?
 **Domain**: Still a Course. Chapters are optional; Series is not part of the language.

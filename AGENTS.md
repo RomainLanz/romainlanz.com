@@ -15,3 +15,17 @@ This is the `romainlanz.com` monorepo for the AdonisJS + Inertia/Vue site and sh
 - Run `yarn lint`, `yarn format`, and `yarn typecheck` before committing code.
 - Use Conventional Commits for commit messages: `type(scope): short description`.
 - Prefer scopes that match the touched feature or package, for example `fix(articles): ...`, `feat(auth): ...`, or `chore(design-system): ...`.
+
+## Agent skills
+
+### Issue tracker
+
+Issues are tracked in GitHub Issues for `RomainLanz/romainlanz.com`; GitHub-bound content should be written in French. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Use the default triage labels. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+This is a single-context repo with the domain glossary in `CONTEXT.md` and ADRs in `docs/adr/` when needed. See `docs/agents/domain.md`.
