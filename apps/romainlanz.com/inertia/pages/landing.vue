@@ -2,9 +2,9 @@
 	import { Head } from '@inertiajs/vue3';
 	import ArticleCard from '@rlanz/design-system/article-card';
 	import Button from '@rlanz/design-system/button';
-	import Hero from '@rlanz/design-system/hero';
 	import Link from '@rlanz/design-system/link';
 	import { client } from '~/client';
+	import LandingHero from '~/components/landing/landing_hero.vue';
 	import type { LandingViewModelSerialized } from '#pages/view_models/landing_view_model';
 
 	defineProps<{
@@ -23,12 +23,12 @@
 <template>
 	<Head title="Apprenez le JavaScript, TypeScript et Node.js" />
 
-	<Hero>
+	<LandingHero>
 		<template #actions>
 			<Button :href="contactUrl" color="violet">Contact</Button>
 			<Button :href="aboutUrl" color="cyan">À propos</Button>
 		</template>
-	</Hero>
+	</LandingHero>
 
 	<section class="m-auto max-w-7xl px-4">
 		<div class="mb-10 flex items-baseline justify-between">

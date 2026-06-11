@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-	import Highlight from '../highlight/highlight.vue';
+	import Highlight from '@rlanz/design-system/highlight';
 	import heroImage from './hero.svg';
 </script>
 
