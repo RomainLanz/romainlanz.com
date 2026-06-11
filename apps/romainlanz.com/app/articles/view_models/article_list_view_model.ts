@@ -7,7 +7,7 @@ export type ArticleListViewModelSerialized = ReturnType<ArticleListViewModel['se
 export class ArticleListViewModel {
 	constructor(
 		private articles: Article[],
-		private categories: Category[]
+		private categories: Category[],
 	) {}
 
 	static fromDomain(articles: Article[], categories: Category[]) {

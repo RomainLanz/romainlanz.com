@@ -19,7 +19,7 @@
 					red: colors.red['300'],
 					lime: colors.lime['300'],
 					violet: colors.violet['300'],
-				}
+				},
 	);
 </script>
 

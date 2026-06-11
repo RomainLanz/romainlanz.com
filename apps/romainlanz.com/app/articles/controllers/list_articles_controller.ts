@@ -8,7 +8,7 @@ import type { HttpContext } from '@adonisjs/core/http';
 export default class ListArticlesController {
 	constructor(
 		private articleRepository: ArticleRepository,
-		private categoryRepository: CategoryRepository
+		private categoryRepository: CategoryRepository,
 	) {}
 
 	async render({ request, inertia }: HttpContext) {

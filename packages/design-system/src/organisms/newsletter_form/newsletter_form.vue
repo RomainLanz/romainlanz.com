@@ -20,7 +20,7 @@
 </script>
 
 <template>
-	<div class="w-min flex flex-col gap-10">
+	<div class="flex w-min flex-col gap-10">
 		<p>Abonne-toi pour recevoir les dernières tendances et ressources pour ta veille technique.</p>
 
 		<div class="flex gap-4">

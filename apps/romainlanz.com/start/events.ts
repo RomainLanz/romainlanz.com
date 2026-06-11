@@ -15,6 +15,6 @@ emitter.on('http:request_completed', function ({ ctx, duration }) {
 	}
 
 	logger.info(
-		`[HTTP] ${string.prettyHrTime(duration)} - ${ctx.response.getStatus()} - ${ctx.request.method()} ${ctx.request.url()}`
+		`[HTTP] ${string.prettyHrTime(duration)} - ${ctx.response.getStatus()} - ${ctx.request.method()} ${ctx.request.url()}`,
 	);
 });

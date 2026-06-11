@@ -1,5 +1,5 @@
-import app from '@adonisjs/core/services/app';
 import { randomUUID } from 'node:crypto';
+import app from '@adonisjs/core/services/app';
 import type { HttpContext } from '@adonisjs/core/http';
 
 export default class UploadImageController {

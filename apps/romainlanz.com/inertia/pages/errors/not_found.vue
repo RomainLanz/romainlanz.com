@@ -12,7 +12,7 @@
 		:error-code="404"
 	>
 		<template #actions>
-			<Button href="/" color="cyan"> Retourner à l'accueil </Button>
+			<Button href="/" color="cyan">Retourner à l'accueil</Button>
 		</template>
 	</Error>
 </template>

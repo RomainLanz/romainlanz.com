@@ -23,7 +23,7 @@ void createInertiaApp({
 	resolve: async (name) => {
 		const page = await resolvePageComponent(
 			`./pages/${name}.vue`,
-			import.meta.glob<DefineComponent>('./pages/**/*.vue')
+			import.meta.glob<DefineComponent>('./pages/**/*.vue'),
 		);
 
 		setLayout(name, page);

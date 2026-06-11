@@ -52,7 +52,7 @@
 
 			<SelectControl>
 				<SelectTrigger
-					class="w-full flex cursor-pointer items-center gap-2 border-2 border-gray-800 rounded-lg border-solid bg-transparent px-4 py-2 transition-colors disabled:cursor-not-allowed hover:bg-yellow-100 placeholder:text-gray-600 placeholder:font-bold"
+					class="flex w-full cursor-pointer items-center gap-2 rounded-lg border-2 border-solid border-gray-800 bg-transparent px-4 py-2 transition-colors placeholder:font-bold placeholder:text-gray-600 hover:bg-yellow-100 disabled:cursor-not-allowed"
 					:class="{
 						'justify-between': placeholder,
 						'justify-end': !placeholder,
@@ -68,12 +68,12 @@
 			<ClientOnly>
 				<Teleport to="body">
 					<SelectPositioner>
-						<SelectContent class="min-w-48 border-2 border-gray-800 rounded-lg border-solid bg-white p-2 shadow-small">
+						<SelectContent class="shadow-small min-w-48 rounded-lg border-2 border-solid border-gray-800 bg-white p-2">
 							<SelectItemGroup>
 								<SelectItem
 									v-for="item in collection.items"
 									:key="item.value"
-									class="flex cursor-pointer items-center justify-between rounded-ms px-2 py-0.5 transition-colors duration-200 hover:bg-yellow-300"
+									class="rounded-ms flex cursor-pointer items-center justify-between px-2 py-0.5 transition-colors duration-200 hover:bg-yellow-300"
 									:item="item"
 								>
 									<SelectItemText>{{ item.label }}</SelectItemText>

@@ -17,13 +17,13 @@ export default class UpdateArticleController {
 			slug: vine.string().minLength(3),
 			// TODO: Validate that the category exists
 			categoryId: vine.string().uuid(),
-		})
+		}),
 	);
 
 	constructor(
 		private repository: ArticleRepository,
 		private categoryRepository: CategoryRepository,
-		private markdownCompiler: MarkdownCompiler
+		private markdownCompiler: MarkdownCompiler,
 	) {}
 
 	async render({ bouncer, params, inertia }: HttpContext) {
@@ -44,7 +44,7 @@ export default class UpdateArticleController {
 		await bouncer.with(ArticlePolicy).allows('update');
 
 		const { title, summary, slug, markdownContent, categoryId } = await request.validateUsing(
-			UpdateArticleController.validator
+			UpdateArticleController.validator,
 		);
 
 		const markdownHtml = await this.markdownCompiler.toHtml(markdownContent);

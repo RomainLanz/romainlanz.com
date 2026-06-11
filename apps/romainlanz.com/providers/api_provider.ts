@@ -54,7 +54,7 @@ const serialize = Object.assign(
 		withoutWrapping(this: HttpContext, ...[data, resolver]: Parameters<ApiSerializer['serializeWithoutWrapping']>) {
 			return serializer.serializeWithoutWrapping(data, resolver ?? this.containerResolver);
 		},
-	}
+	},
 ) as ApiSerializer['serialize'] & { withoutWrapping: ApiSerializer['serializeWithoutWrapping'] };
 
 /**

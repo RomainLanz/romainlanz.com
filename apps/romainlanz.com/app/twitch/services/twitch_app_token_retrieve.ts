@@ -9,7 +9,7 @@ export class TwitchAppTokenRetrieve {
 			access_token: vine.string(),
 			expires_in: vine.number(),
 			token_type: vine.string(),
-		})
+		}),
 	);
 
 	async get() {
@@ -35,7 +35,7 @@ export class TwitchAppTokenRetrieve {
 			},
 			{
 				ttl: 2_147_483_646,
-			}
+			},
 		);
 
 		return new Secret(token);

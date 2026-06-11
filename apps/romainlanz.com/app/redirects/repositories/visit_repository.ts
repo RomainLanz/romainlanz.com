@@ -16,7 +16,7 @@ export class VisitRepository {
 			.onConflict((builder) =>
 				builder.column('unique_hash').doUpdateSet({
 					count: sql`redirect_visits.count + 1`,
-				})
+				}),
 			)
 			.execute();
 	}

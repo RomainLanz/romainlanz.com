@@ -10,6 +10,8 @@ export default class ListRedirectsController {
 	async render({ inertia }: HttpContext) {
 		const redirects = await this.repository.all();
 
-		return inertia.render('admin/redirects/list', { vm: AllRedirectViewModel.fromDomain(redirects).serialize() });
+		return inertia.render('admin/redirects/list', {
+			vm: AllRedirectViewModel.fromDomain(redirects).serialize(),
+		});
 	}
 }

@@ -12,7 +12,7 @@
 	<section class="m-auto my-38 max-w-7xl px-4">
 		<div class="flex gap-29">
 			<div class="flex flex-col justify-center gap-6">
-				<h1 class="text-4xl lg:text-5xl sm:text-6xl">{{ title }}</h1>
+				<h1 class="text-4xl sm:text-6xl lg:text-5xl">{{ title }}</h1>
 
 				<p>
 					{{ description }}

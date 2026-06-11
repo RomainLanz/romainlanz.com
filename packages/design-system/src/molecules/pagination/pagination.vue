@@ -54,7 +54,7 @@
 					</Button>
 				</PaginationItem>
 
-				<PaginationEllipsis v-else :key="`e${index}`" :index="index"> &#8230; </PaginationEllipsis>
+				<PaginationEllipsis v-else :key="`e${index}`" :index="index">&#8230;</PaginationEllipsis>
 			</template>
 		</PaginationContext>
 

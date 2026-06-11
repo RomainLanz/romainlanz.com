@@ -22,7 +22,7 @@ export class ComputeVisitHashService {
 			{
 				// TODO: Make it work like a crontab
 				ttl: '24h',
-			}
+			},
 		);
 	}
 }

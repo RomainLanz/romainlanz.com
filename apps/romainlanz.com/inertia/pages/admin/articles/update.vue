@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { InferPageProps } from '@adonisjs/inertia/types';
 	import type UpdateArticleController from '#admin/articles/controllers/update_article_controller';
+	import type { InferPageProps } from '@adonisjs/inertia/types';
 </script>
 
 <script lang="ts" setup>
@@ -9,8 +9,8 @@
 	import Field from '@rlanz/design-system/field';
 	import FieldSelect from '@rlanz/design-system/field-select';
 	import Panel from '@rlanz/design-system/panel';
-	import { client } from '~/client';
 	import { computed, ref } from 'vue';
+	import { client } from '~/client';
 	import { usePageTitle } from '~/composables/use_page_title';
 
 	export interface Props {

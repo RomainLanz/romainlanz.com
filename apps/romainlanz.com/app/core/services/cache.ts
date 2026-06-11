@@ -18,7 +18,7 @@ export const cache = new BentoCache({
 					autoCreateTable: false,
 					tableName: 'cache',
 					connection: db,
-				})
+				}),
 			),
 	},
 });

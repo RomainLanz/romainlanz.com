@@ -8,7 +8,7 @@ export default class ContactController {
 			name: vine.string().trim(),
 			email: vine.string().email(),
 			message: vine.string().trim(),
-		})
+		}),
 	);
 
 	render({ inertia }: HttpContext) {
@@ -25,7 +25,7 @@ export default class ContactController {
 				.replyTo(payload.email, payload.name)
 				.subject('Nouveau message depuis formulaire de contact')
 				.html(
-					`Nom: ${payload.name}<br>Email: ${payload.email}<br>Message:<br>${payload.message.replaceAll('\n', '<br>')}`
+					`Nom: ${payload.name}<br>Email: ${payload.email}<br>Message:<br>${payload.message.replaceAll('\n', '<br>')}`,
 				);
 		});
 

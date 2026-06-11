@@ -18,7 +18,7 @@
 <template>
 	<Link :href prefetch>
 		<article
-			class="isolate flex flex-col gap-4 border-2 border-gray-800 rounded-md border-solid bg-white p-6 text-gray-800 shadow-small transition-colors hover:bg-yellow-100"
+			class="shadow-small isolate flex flex-col gap-4 rounded-md border-2 border-solid border-gray-800 bg-white p-6 text-gray-800 transition-colors hover:bg-yellow-100"
 		>
 			<header>
 				<time class="relative text-xs" :class="$style.time" :datetime>

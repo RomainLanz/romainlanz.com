@@ -1,7 +1,7 @@
+import BaseInertiaMiddleware from '@adonisjs/inertia/inertia_middleware';
 import { CurrentUserViewModel } from '#auth/view_models/current_user_view_model';
 import type { HttpContext } from '@adonisjs/core/http';
 import type { NextFn } from '@adonisjs/core/types/http';
-import BaseInertiaMiddleware from '@adonisjs/inertia/inertia_middleware';
 import type { InferSharedProps } from '@adonisjs/inertia/types';
 
 export default class InertiaMiddleware extends BaseInertiaMiddleware {

@@ -1,23 +1,10 @@
 {
 	"name": "@rlanz/site",
-	"type": "module",
 	"version": "0.0.0",
 	"private": true,
 	"license": "UNLICENSED",
-	"exports": {
-		"./api": "./.adonisjs/index.ts",
-		"./data": "./.adonisjs/client/data.d.ts",
-		"./registry": "./.adonisjs/client/registry/index.ts"
-	},
+	"type": "module",
 	"types": "./adonisrc.ts",
-	"scripts": {
-		"start": "node bin/server.js",
-		"build": "node ace build",
-		"dev": "node ace serve --hmr",
-		"test": "node ace test",
-		"typecheck": "tsc --noEmit",
-		"kysely:codegen": "kysely-codegen --out-file=types/db.ts"
-	},
 	"imports": {
 		"#admin/*": "./app/admin/*.js",
 		"#app/*": "./app/*.js",
@@ -40,6 +27,19 @@
 		"#twitch/*": "./app/twitch/*.js",
 		"#types/*": "./types/*.js",
 		"#views/*": "./resources/views/*.js"
+	},
+	"exports": {
+		"./api": "./.adonisjs/index.ts",
+		"./data": "./.adonisjs/client/data.d.ts",
+		"./registry": "./.adonisjs/client/registry/index.ts"
+	},
+	"scripts": {
+		"start": "node bin/server.js",
+		"build": "node ace build",
+		"dev": "node ace serve --hmr",
+		"test": "node ace test",
+		"typecheck": "tsc --noEmit",
+		"kysely:codegen": "kysely-codegen --out-file=types/db.ts"
 	},
 	"dependencies": {
 		"@adonisjs/auth": "^10.1.0",
@@ -104,13 +104,13 @@
 		"vite": "catalog:",
 		"youch": "^4.1.1"
 	},
+	"volta": {
+		"extends": "../../package.json"
+	},
 	"hotHook": {
 		"boundaries": [
 			"./app/**/controllers/**/*.ts",
 			"./app/**/middleware/**/*.ts"
 		]
-	},
-	"volta": {
-		"extends": "../../package.json"
 	}
 }

@@ -15,7 +15,7 @@ export default class ProcessRedirectController {
 		private readonly redirectRepository: RedirectRepository,
 		private readonly visitRepository: VisitRepository,
 		private readonly timeService: TimeServiceContract,
-		private readonly computeVisitHashService: ComputeVisitHashService
+		private readonly computeVisitHashService: ComputeVisitHashService,
 	) {}
 
 	async execute({ params, request, response }: HttpContext) {

@@ -9,7 +9,7 @@ export default class ComputeOgImageControllers {
 		vine.object({
 			title: vine.string().trim(),
 			subtitle: vine.string().trim(),
-		})
+		}),
 	);
 
 	constructor(private readonly ogImageGeneratorService: OgImageGeneratorService) {}

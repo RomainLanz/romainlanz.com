@@ -5,23 +5,23 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  color: theme('colors.gray.800')
+	box-sizing: border-box;
+	color: theme('colors.gray.800');
 }
 
 * {
-  margin: 0;
+	margin: 0;
 }
 
 html,
 body {
-  height: 100%;
+	height: 100%;
 }
 
 body {
-  @apply font-sans bg-off-white;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+	@apply bg-off-white font-sans;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
 }
 
 img,
@@ -29,15 +29,15 @@ picture,
 video,
 canvas,
 svg {
-  display: block;
-  max-width: 100%;
+	display: block;
+	max-width: 100%;
 }
 
 input,
 button,
 textarea,
 select {
-  font: inherit;
+	font: inherit;
 }
 
 p,
@@ -47,53 +47,58 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
-  overflow-wrap: break-word;
+	font-weight: 400;
+	overflow-wrap: break-word;
 }
 
 h1 {
-  font-size: 3.5rem;
-  line-height: 64px;
+	font-size: 3.5rem;
+	line-height: 64px;
 }
 
 h2 {
-  font-size: 2.75rem;
-  line-height: 52px;
+	font-size: 2.75rem;
+	line-height: 52px;
 }
 
 h3 {
-  font-size: 2.25rem;
-  line-height: 44px;
+	font-size: 2.25rem;
+	line-height: 44px;
 }
 
 h4 {
-  font-size: 1.75rem;
-  line-height: 36px;
+	font-size: 1.75rem;
+	line-height: 36px;
 }
 
 h5 {
-  font-size: 1.5rem;
-  line-height: 32px;
+	font-size: 1.5rem;
+	line-height: 32px;
 }
 
 h6 {
-  font-size: 1rem;
-  line-height: 22px;
+	font-size: 1rem;
+	line-height: 22px;
 }
 
 p {
-  text-wrap: pretty;
+	text-wrap: pretty;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  text-wrap: balance;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
 }
 
 #app {
-  isolation: isolate;
+	isolation: isolate;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }

@@ -17,13 +17,13 @@ export default class StoreArticleController {
 			markdownContent: vine.string().minLength(3),
 			// TODO: Validate that the category exists
 			categoryId: vine.string().uuid(),
-		})
+		}),
 	);
 
 	constructor(
 		private repository: ArticleRepository,
 		private categoryRepository: CategoryRepository,
-		private markdownCompiler: MarkdownCompiler
+		private markdownCompiler: MarkdownCompiler,
 	) {}
 
 	async render({ bouncer, inertia }: HttpContext) {
@@ -40,7 +40,7 @@ export default class StoreArticleController {
 		await bouncer.with(ArticlePolicy).allows('create');
 
 		const { title, summary, markdownContent, categoryId } = await request.validateUsing(
-			StoreArticleController.validator
+			StoreArticleController.validator,
 		);
 
 		// const slug = string.slug(title).toLocaleLowerCase();

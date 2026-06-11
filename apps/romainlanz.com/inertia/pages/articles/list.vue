@@ -22,7 +22,9 @@
 		vm.categories.find((category) => category.slug === activeCategory)?.articleCount ?? allArticlesCount;
 
 	function onPageChange(page: number) {
-		const url = client.urlFor('articles.index', undefined, { qs: { page, category: activeCategory } });
+		const url = client.urlFor('articles.index', undefined, {
+			qs: { page, category: activeCategory },
+		});
 		router.visit(url, {
 			preserveScroll: true,
 		});
@@ -41,9 +43,9 @@
 	<Head title="Tous les articles" />
 
 	<div class="mx-auto max-w-7xl p-4">
-		<h1 class="mb-15 mt-27 border-b-2 border-gray-900 border-b-solid pb-6">Tous les articles</h1>
+		<h1 class="border-b-solid mt-27 mb-15 border-b-2 border-gray-900 pb-6">Tous les articles</h1>
 
-		<div class="grid gap-6 lg:cols-3">
+		<div class="lg:cols-3 grid gap-6">
 			<aside class="col-span-1">
 				<h3 class="text-sm font-bold uppercase">Categories</h3>
 

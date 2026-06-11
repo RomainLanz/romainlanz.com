@@ -11,7 +11,7 @@
 	import { toaster } from './toaster.ts';
 
 	const toastClasses = tv({
-		base: 'bg-off-white rounded-lg order-2 border-solid border-gray-800 shadow-small py-3 px-5 min-w-96',
+		base: 'bg-off-white shadow-small order-2 min-w-96 rounded-lg border-solid border-gray-800 px-5 py-3',
 	});
 </script>
 

@@ -23,7 +23,7 @@ const meta = {
 				illustrationName: 'javascript',
 				articleCount: 2,
 			},
-			],
+		],
 		categoryHref: () => '#',
 	},
 } satisfies Meta<typeof CategoryListing>;

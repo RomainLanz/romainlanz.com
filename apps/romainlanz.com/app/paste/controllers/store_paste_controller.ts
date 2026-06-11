@@ -16,7 +16,7 @@ export default class StorePasteController {
 		vine.object({
 			lang: vine.string().in(bundledLanguagesInfo.map((lang) => lang.id)),
 			content: vine.string(),
-		})
+		}),
 	);
 
 	constructor(private pasteRepository: PasteRepository) {}

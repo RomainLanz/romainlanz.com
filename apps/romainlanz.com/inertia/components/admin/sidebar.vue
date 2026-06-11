@@ -9,37 +9,37 @@
 </script>
 
 <template>
-	<div class="min-h-full flex">
+	<div class="flex min-h-full">
 		<div class="flex flex-shrink-0">
 			<div
-				class="group/item relative w-72 flex flex-grow flex-col border-0 border-r-2 border-gray-800 border-solid bg-white pb-4 pt-5 transition-all"
+				class="group/item relative flex w-72 flex-grow flex-col border-0 border-r-2 border-solid border-gray-800 bg-white pt-5 pb-4 transition-all"
 				:style="{ scrollbarGutter: 'stable' }"
 			>
 				<div class="sticky top-0">
 					<Link href="/" class="my-10 ml-2 flex flex-shrink-0 items-center gap-2 px-4">
 						<Logo />
-						<span class="hidden text-xl text-gray-800 font-bold xs:block">Romain Lanz</span>
+						<span class="xs:block hidden text-xl font-bold text-gray-800">Romain Lanz</span>
 					</Link>
 
 					<div class="mt-5 flex flex-grow flex-col">
 						<nav class="flex flex-1 flex-col justify-between gap-2 px-2" aria-label="Sidebar">
 							<div class="space-y-2">
 								<Link
-									class="w-full flex items-center rounded-md py-2 pl-2 pr-1 text-gray-600 hover:bg-yellow-300 hover:text-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+									class="flex w-full items-center rounded-md py-2 pr-1 pl-2 text-gray-600 hover:bg-yellow-300 hover:text-yellow-900 focus:ring-2 focus:ring-yellow-500 focus:outline-none"
 									:href="articleIndexUrl"
 								>
 									Articles
 								</Link>
 
 								<Link
-									class="w-full flex items-center rounded-md py-2 pl-2 pr-1 text-gray-600 hover:bg-yellow-300 hover:text-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+									class="flex w-full items-center rounded-md py-2 pr-1 pl-2 text-gray-600 hover:bg-yellow-300 hover:text-yellow-900 focus:ring-2 focus:ring-yellow-500 focus:outline-none"
 									:href="redirectIndexUrl"
 								>
 									Redirections
 								</Link>
 
 								<Link
-									class="w-full flex items-center rounded-md py-2 pl-2 pr-1 text-gray-600 hover:bg-yellow-300 hover:text-yellow-900 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+									class="flex w-full items-center rounded-md py-2 pr-1 pl-2 text-gray-600 hover:bg-yellow-300 hover:text-yellow-900 focus:ring-2 focus:ring-yellow-500 focus:outline-none"
 									:href="taxonomyIndexUrl"
 								>
 									Taxonomies

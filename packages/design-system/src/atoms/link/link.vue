@@ -9,7 +9,7 @@
 
 <template>
 	<Link
-		class="relative text-xs text-gray-800 font-bold tracking-wider uppercase"
+		class="relative text-xs font-bold tracking-wider text-gray-800 uppercase"
 		:class="$style.linkHover"
 		:href="href"
 		:prefetch="prefetch"

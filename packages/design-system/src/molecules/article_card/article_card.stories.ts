@@ -10,10 +10,10 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-	export const Base: Story = {
-		args: {
-			href: '#',
-			title: 'Article Title',
+export const Base: Story = {
+	args: {
+		href: '#',
+		title: 'Article Title',
 		date: '3 sept. 2024',
 		datetime: '2024-09-03T00:00:00Z',
 		excerpt:

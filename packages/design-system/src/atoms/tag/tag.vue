@@ -8,7 +8,7 @@
 	}>();
 
 	const tag = tv({
-		base: 'bg-white border border-solid border-gray-800 rounded-ms text-gray-800 tracking-wider text-xs uppercase py-1.5 px-2',
+		base: 'rounded-ms border border-solid border-gray-800 bg-white px-2 py-1.5 text-xs tracking-wider text-gray-800 uppercase',
 
 		variants: {
 			color: {
@@ -21,7 +21,7 @@
 
 			type: {
 				span: '',
-				link: 'cursor-pointer hover:shadow-tiny transition-shadow duration-200 transition-ease-in-out',
+				link: 'hover:shadow-tiny transition-ease-in-out cursor-pointer transition-shadow duration-200',
 			},
 		},
 

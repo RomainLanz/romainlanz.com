@@ -55,8 +55,18 @@ export default class Seed extends BaseCommand {
 					slug: 'productivity',
 					illustration_name: 'productivity',
 				},
-				{ id: CategoryIdentifier.generate().toString(), name: 'React', slug: 'react', illustration_name: 'react' },
-				{ id: CategoryIdentifier.generate().toString(), name: 'VueJS', slug: 'vuejs', illustration_name: 'vuejs' },
+				{
+					id: CategoryIdentifier.generate().toString(),
+					name: 'React',
+					slug: 'react',
+					illustration_name: 'react',
+				},
+				{
+					id: CategoryIdentifier.generate().toString(),
+					name: 'VueJS',
+					slug: 'vuejs',
+					illustration_name: 'vuejs',
+				},
 			])
 			.execute();
 	}

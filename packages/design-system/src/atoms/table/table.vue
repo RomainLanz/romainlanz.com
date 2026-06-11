@@ -21,14 +21,14 @@
 </script>
 
 <template>
-	<div class="border-2 border-gray-800 rounded-lg border-solid">
-		<table class="w-full border-collapse border-spacing-none overflow-hidden rounded-lg border-none shadow-sm">
+	<div class="rounded-lg border-2 border-solid border-gray-800">
+		<table class="border-spacing-none w-full border-collapse overflow-hidden rounded-lg border-none shadow-sm">
 			<thead class="border-none bg-white">
 				<tr>
 					<th
 						v-for="header in headers"
 						:key="header.key"
-						class="border-collapse border-1 border-gray-800 border-solid px-4 py-3 text-base"
+						class="border-collapse border-1 border-solid border-gray-800 px-4 py-3 text-base"
 						:style="{ width: header.width, textAlign: header.align }"
 					>
 						{{ header.label }}
@@ -40,7 +40,7 @@
 					<td
 						v-for="header in headers"
 						:key="header.key"
-						class="border-collapse border-1 border-gray-800 border-solid px-4 py-3 text-base"
+						class="border-collapse border-1 border-solid border-gray-800 px-4 py-3 text-base"
 						:style="{ width: header.width, textAlign: header.align }"
 					>
 						<template v-if="header.cell">

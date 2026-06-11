@@ -1,8 +1,8 @@
 {
 	"name": "@rlanz/design-system",
-	"type": "module",
 	"private": true,
 	"license": "UNLICENSED",
+	"type": "module",
 	"exports": {
 		"./tokens": "./src/tokens.ts",
 		"./avatar": "./src/atoms/avatar/avatar.vue",
@@ -57,7 +57,6 @@
 		"@storybook/vue3-vite": "^9.0.6",
 		"@vitejs/plugin-vue": "catalog:",
 		"@vitejs/plugin-vue-jsx": "^4.2.0",
-		"prettier": "^3.5.3",
 		"storybook": "^9.0.6",
 		"typescript": "catalog:",
 		"unocss": "catalog:",

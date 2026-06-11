@@ -9,26 +9,26 @@
 
 	const alert = tv({
 		slots: {
-			base: 'flex items-start bg-transparent rounded-lg border-2 border-solid border-gray-800 text-gray-800 gap-2 py-3 px-4',
-			icon: 'text-gray-600 shrink-0 size-[20px] pt-[2px]',
+			base: 'flex items-start gap-2 rounded-lg border-2 border-solid border-gray-800 bg-transparent px-4 py-3 text-gray-800',
+			icon: 'size-[20px] shrink-0 pt-[2px] text-gray-600',
 		},
 
 		variants: {
 			type: {
 				info: {
-					base: 'bg-cyan-100 border-cyan-800 text-cyan-800',
+					base: 'border-cyan-800 bg-cyan-100 text-cyan-800',
 					icon: 'text-cyan-600',
 				},
 				success: {
-					base: 'bg-lime-100 border-lime-800 text-lime-800',
+					base: 'border-lime-800 bg-lime-100 text-lime-800',
 					icon: 'text-lime-600',
 				},
 				warning: {
-					base: 'bg-yellow-200 border-yellow-800 text-yellow-800',
+					base: 'border-yellow-800 bg-yellow-200 text-yellow-800',
 					icon: 'text-yellow-600',
 				},
 				danger: {
-					base: 'bg-red-100 border-red-800 text-red-800',
+					base: 'border-red-800 bg-red-100 text-red-800',
 					icon: 'text-red-600',
 				},
 			},

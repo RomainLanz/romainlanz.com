@@ -26,7 +26,7 @@
 			:is="inputComponent"
 			v-bind="$attrs"
 			v-model="model"
-			class="resize-y border-2 border-gray-800 rounded-lg border-solid bg-transparent px-4 py-2 disabled:cursor-not-allowed placeholder:text-gray-600 placeholder:font-bold"
+			class="resize-y rounded-lg border-2 border-solid border-gray-800 bg-transparent px-4 py-2 placeholder:font-bold placeholder:text-gray-600 disabled:cursor-not-allowed"
 			:autoresize="true"
 			:type
 		/>

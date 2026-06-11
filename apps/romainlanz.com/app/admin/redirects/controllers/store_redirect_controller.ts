@@ -11,7 +11,7 @@ export default class StoreRedirectController {
 		vine.object({
 			destination: vine.string().maxLength(150),
 			slug: vine.string().maxLength(150),
-		})
+		}),
 	);
 
 	constructor(private repository: RedirectRepository) {}

@@ -5,7 +5,7 @@ export class BrevoService {
 		const response = await fetch('https://api.brevo.com/v3/contacts/doubleOptinConfirmation', {
 			method: 'POST',
 			headers: {
-				'Accept': 'application/json',
+				Accept: 'application/json',
 				'Content-Type': 'application/json',
 				'api-key': env.get('BREVO_API_KEY') || '',
 			},

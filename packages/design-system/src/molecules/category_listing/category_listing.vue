@@ -19,12 +19,12 @@
 </script>
 
 <template>
-	<ul class="m-0 flex flex-col flex-wrap list-none p-0">
+	<ul class="m-0 flex list-none flex-col flex-wrap p-0">
 		<li
-			class="w-[300px] border-2 rounded-lg border-solid transition-all hover:bg-yellow-300"
+			class="w-[300px] rounded-lg border-2 border-solid transition-all hover:bg-yellow-300"
 			:class="{
 				'border-transparent': activeCategory !== null,
-				'border-gray-800 hover:shadow-small': activeCategory === null,
+				'hover:shadow-small border-gray-800': activeCategory === null,
 			}"
 		>
 			<Link class="flex items-center gap-3 px-4 py-3 text-lg" :href="allHref">
@@ -35,7 +35,7 @@
 				<span>All</span>
 
 				<span
-					class="grid h-[20px] min-w-[20px] place-items-center border border-gray-800 rounded-md border-solid bg-yellow-100 px-1 text-xs"
+					class="grid h-[20px] min-w-[20px] place-items-center rounded-md border border-solid border-gray-800 bg-yellow-100 px-1 text-xs"
 				>
 					{{ allArticlesCount }}
 				</span>
@@ -45,10 +45,10 @@
 		<li
 			v-for="category in categories"
 			:key="category.id"
-			class="w-[300px] border-2 rounded-lg border-solid transition-all hover:bg-yellow-300"
+			class="w-[300px] rounded-lg border-2 border-solid transition-all hover:bg-yellow-300"
 			:class="{
 				'border-transparent': activeCategory !== category.slug,
-				'border-gray-800 hover:shadow-small': activeCategory === category.slug,
+				'hover:shadow-small border-gray-800': activeCategory === category.slug,
 			}"
 		>
 			<Link class="flex items-center gap-3 px-4 py-3 text-lg" :href="categoryHref(category)">
@@ -59,7 +59,7 @@
 				<span>{{ category.name }}</span>
 
 				<span
-					class="grid h-[20px] min-w-[20px] place-items-center border border-gray-800 rounded-md border-solid bg-yellow-100 px-1 text-xs"
+					class="grid h-[20px] min-w-[20px] place-items-center rounded-md border border-solid border-gray-800 bg-yellow-100 px-1 text-xs"
 				>
 					{{ category.articleCount }}
 				</span>

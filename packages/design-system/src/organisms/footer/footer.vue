@@ -20,7 +20,7 @@
 				</Link>
 
 				<FooterSection title="Réseau&nbsp;sociaux">
-					<ul class="flex flex-col list-none gap-1 pl-0 text-sm">
+					<ul class="flex list-none flex-col gap-1 pl-0 text-sm">
 						<li>
 							<SocialNetwork name="Discord" link="https://discord.gg/hcFa6Za6z8" />
 						</li>
@@ -43,7 +43,7 @@
 				</FooterSection>
 
 				<FooterSection title="Navigation">
-					<ul class="flex flex-col list-none gap-1 pl-0 text-sm">
+					<ul class="flex list-none flex-col gap-1 pl-0 text-sm">
 						<li>
 							<a
 								href="https://analytics.romainlanz.com/share/xbQs4BqwTC6h9mtK/romainlanz.com"
@@ -63,12 +63,12 @@
 				</FooterSection>
 
 				<FooterSection title="Partenaires">
-					<ul class="flex flex-col list-none gap-1 pl-0 text-sm">
+					<ul class="flex list-none flex-col gap-1 pl-0 text-sm">
 						<li>
-							<a href="https://hetzner.cloud/?ref=Qkd3MiGZUIgB" rel="sponsored"> Hetzner </a>
+							<a href="https://hetzner.cloud/?ref=Qkd3MiGZUIgB" rel="sponsored">Hetzner</a>
 						</li>
 						<li>
-							<a href="https://app.codecrafters.io/join?via=RomainLanz" rel="sponsored"> CodeCrafters </a>
+							<a href="https://app.codecrafters.io/join?via=RomainLanz" rel="sponsored">CodeCrafters</a>
 						</li>
 					</ul>
 				</FooterSection>
@@ -78,7 +78,7 @@
 				<!--				</FooterSection> -->
 			</div>
 
-			<hr class="my-12 h-1px border-none bg-gray-800" />
+			<hr class="h-1px my-12 border-none bg-gray-800" />
 
 			<section class="flex justify-between">
 				<!--				<Link href="#">Mentions légales</Link> -->

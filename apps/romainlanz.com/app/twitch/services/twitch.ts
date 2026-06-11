@@ -13,7 +13,7 @@ export class Twitch {
 
 			const response = await fetch('https://api.twitch.tv/helix/streams?user_login=romainlanz', {
 				headers: {
-					'Authorization': `Bearer ${token.release()}`,
+					Authorization: `Bearer ${token.release()}`,
 					'Client-ID': env.get('TWITCH_CLIENT_ID'),
 				},
 			});

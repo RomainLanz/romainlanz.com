@@ -4,8 +4,8 @@
 	import Field from '@rlanz/design-system/field';
 	import FieldSelect from '@rlanz/design-system/field-select';
 	import Panel from '@rlanz/design-system/panel';
-	import { client } from '~/client';
 	import { computed, ref } from 'vue';
+	import { client } from '~/client';
 	import { usePageTitle } from '~/composables/use_page_title';
 
 	const { categories } = defineProps<{

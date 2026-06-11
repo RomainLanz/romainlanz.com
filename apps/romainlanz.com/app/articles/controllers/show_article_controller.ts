@@ -11,7 +11,7 @@ import type { HttpContext } from '@adonisjs/core/http';
 export default class ShowArticleController {
 	constructor(
 		private readonly repository: ArticleRepository,
-		private readonly timeService: TimeServiceContract
+		private readonly timeService: TimeServiceContract,
 	) {}
 
 	async render({ auth, params, inertia }: HttpContext) {

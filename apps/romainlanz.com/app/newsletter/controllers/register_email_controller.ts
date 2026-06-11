@@ -8,7 +8,7 @@ export default class RegisterEmailController {
 	static validator = vine.compile(
 		vine.object({
 			email: vine.string().email().trim().maxLength(255).toLowerCase(),
-		})
+		}),
 	);
 
 	constructor(private readonly brevoService: BrevoService) {}

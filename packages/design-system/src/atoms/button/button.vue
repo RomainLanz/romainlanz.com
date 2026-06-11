@@ -17,7 +17,7 @@
 	}>();
 
 	const button = tv({
-		base: 'inline-block flex items-center justify-center cursor-pointer text-base font-bold bg-off-white hover:bg-yellow-100 rounded-lg transition-colors',
+		base: 'bg-off-white flex inline-block cursor-pointer items-center justify-center rounded-lg text-base font-bold transition-colors hover:bg-yellow-100',
 
 		variants: {
 			color: {
@@ -29,14 +29,14 @@
 			},
 
 			size: {
-				extraSmall: 'py-1 px-4',
-				small: 'py-2 px-3',
-				medium: 'py-3 px-5',
+				extraSmall: 'px-4 py-1',
+				small: 'px-3 py-2',
+				medium: 'px-5 py-3',
 			},
 
 			flat: {
 				true: 'border-0 shadow-none',
-				false: 'border-2 border-solid border-gray-800 shadow-small',
+				false: 'shadow-small border-2 border-solid border-gray-800',
 			},
 
 			disabled: {

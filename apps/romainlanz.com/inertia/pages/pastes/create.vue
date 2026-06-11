@@ -18,7 +18,9 @@
 
 		<form @submit.prevent="handleSubmit">
 			<select v-model="form.lang">
-				<option v-for="lang in bundledLanguages" :key="lang.id" :value="lang.id">{{ lang.name }}</option>
+				<option v-for="lang in bundledLanguages" :key="lang.id" :value="lang.id">
+					{{ lang.name }}
+				</option>
 			</select>
 
 			<textarea v-model="form.content"></textarea>

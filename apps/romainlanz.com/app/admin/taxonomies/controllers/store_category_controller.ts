@@ -6,7 +6,7 @@ export default class StoreCategoryController {
 		vine.object({
 			name: vine.string().trim(),
 			slug: vine.string().trim(),
-		})
+		}),
 	);
 
 	render({ inertia }: HttpContext) {

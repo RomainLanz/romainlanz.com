@@ -23,7 +23,7 @@
 		componentProps.value = response.props;
 		component.value = await resolvePageComponent(
 			`../fragments/${response.component}.vue`,
-			import.meta.glob('../fragments/**/*.vue')
+			import.meta.glob('../fragments/**/*.vue'),
 		).then((c: any) => markRaw(c.default));
 	});
 </script>

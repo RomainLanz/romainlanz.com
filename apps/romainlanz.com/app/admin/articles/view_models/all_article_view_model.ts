@@ -6,7 +6,7 @@ export type AllArticleViewModelSerialized = ReturnType<AllArticleViewModel['seri
 export class AllArticleViewModel {
 	constructor(
 		private articles: Article[],
-		private now: DateTime
+		private now: DateTime,
 	) {}
 
 	static fromDomain(articles: Article[], now: DateTime) {

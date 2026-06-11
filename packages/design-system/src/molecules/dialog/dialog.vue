@@ -37,13 +37,13 @@
 			</DialogTrigger>
 
 			<Teleport to="body">
-				<DialogBackdrop v-if="backdrop" class="fixed inset-0 bg-dark opacity-50" />
+				<DialogBackdrop v-if="backdrop" class="bg-dark fixed inset-0 opacity-50" />
 
 				<DialogPositioner class="fixed inset-0 w-screen overflow-y-auto">
-					<div class="min-h-full flex items-end justify-center p-4 sm:items-center sm:p-0">
+					<div class="flex min-h-full items-end justify-center p-4 sm:items-center sm:p-0">
 						<DialogContent as-child>
 							<div
-								class="max-w-2xl w-full border-2 border-gray-800 rounded-2xl border-solid bg-off-white p-6 shadow-small"
+								class="bg-off-white shadow-small w-full max-w-2xl rounded-2xl border-2 border-solid border-gray-800 p-6"
 							>
 								<div class="flex items-start justify-between">
 									<DialogTitle class="mb-4 text-4xl">{{ title }}</DialogTitle>
