@@ -37,7 +37,7 @@
 	"dependencies": {
 		"@adonisjs/auth": "^9.4.0",
 		"@adonisjs/bouncer": "^3.1.5",
-		"@adonisjs/core": "^6.18.0",
+		"@adonisjs/core": "^7.0.0",
 		"@adonisjs/i18n": "^2.2.0",
 		"@adonisjs/inertia": "^3.1.1",
 		"@adonisjs/mail": "^9.2.2",
