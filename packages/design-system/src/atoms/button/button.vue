@@ -17,7 +17,7 @@
 	}>();
 
 	const button = tv({
-		base: 'bg-off-white flex inline-block cursor-pointer items-center justify-center rounded-lg text-base font-bold transition-colors hover:bg-yellow-100',
+		base: 'bg-off-white flex cursor-pointer items-center justify-center rounded-lg text-base font-bold transition-colors hover:bg-yellow-100',
 
 		variants: {
 			color: {

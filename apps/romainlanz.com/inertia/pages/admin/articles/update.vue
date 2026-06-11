@@ -63,7 +63,7 @@
 				:error-message="form.errors.categoryId"
 			/>
 
-			<Field v-model="form.markdownContent" class="min-h-6xl" label="Contenu" type="textarea"></Field>
+			<Field v-model="form.markdownContent" class="min-h-[72rem]" label="Contenu" type="textarea"></Field>
 
 			<div>
 				<Button color="violet" type="submit">Mettre à jour</Button>

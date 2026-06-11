@@ -1,7 +1,7 @@
 import inertia from '@adonisjs/inertia/vite';
 import AdonisJS from '@adonisjs/vite/client';
+import TailwindCSS from '@tailwindcss/vite';
 import Vue from '@vitejs/plugin-vue';
-import UnoCSS from 'unocss/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
@@ -9,7 +9,7 @@ export default defineConfig({
 		inertia({ ssr: { enabled: true, entrypoint: 'inertia/ssr.ts' } }),
 		Vue(),
 		AdonisJS({ entrypoints: ['inertia/app.ts'], reload: ['resources/views/**/*.edge'] }),
-		UnoCSS(),
+		TailwindCSS(),
 	],
 
 	resolve: {

@@ -40,7 +40,7 @@
 
 <style module>
 	.time:before {
-		background-color: theme('colors.yellow.500');
+		background-color: var(--color-yellow-500);
 		content: '';
 		height: 6px;
 		bottom: 4px;

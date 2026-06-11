@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<a
-			class="rounded-ms transition-ease-in-out hover:shadow-tiny flex cursor-pointer items-center gap-1.5 border border-solid border-violet-800 bg-violet-200 px-2 py-1.5 text-xs tracking-wider text-violet-800 uppercase transition-shadow duration-200"
+			class="rounded-ms hover:shadow-tiny flex cursor-pointer items-center gap-1.5 border border-solid border-violet-800 bg-violet-200 px-2 py-1.5 text-xs tracking-wider text-violet-800 uppercase transition-shadow duration-200 ease-in-out"
 			href="https://twitch.tv/romainlanz"
 			rel="nofollow"
 		>

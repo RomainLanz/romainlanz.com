@@ -106,7 +106,8 @@
 <style module>
 	.content {
 		p > a {
-			--at-apply: underline cursor-pointer;
+			cursor: pointer;
+			text-decoration-line: underline;
 		}
 	}
 </style>

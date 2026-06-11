@@ -41,7 +41,7 @@
 		@page-change="onPageChange"
 	>
 		<PaginationPrevTrigger v-if="activePage !== 1" as-child>
-			<Button class="aspect-ratio-square" size="small" :flat="true">
+			<Button class="aspect-square" size="small" :flat="true">
 				<Icon name="chevron-right" class="rotate-180" />
 			</Button>
 		</PaginationPrevTrigger>
@@ -49,7 +49,7 @@
 		<PaginationContext v-slot="pagination">
 			<template v-for="(page, index) in pagination.pages">
 				<PaginationItem v-if="page.type === 'page'" :key="index" :value="page.value" :type="page.type" as-child>
-					<Button class="aspect-ratio-square !text-lg" size="small" :flat="page.value !== activePage">
+					<Button class="aspect-square !text-lg" size="small" :flat="page.value !== activePage">
 						{{ page.value }}
 					</Button>
 				</PaginationItem>
@@ -59,7 +59,7 @@
 		</PaginationContext>
 
 		<PaginationNextTrigger v-if="activePage !== count" as-child>
-			<Button class="aspect-ratio-square" size="small" :flat="true">
+			<Button class="aspect-square" size="small" :flat="true">
 				<Icon name="chevron-right" />
 			</Button>
 		</PaginationNextTrigger>

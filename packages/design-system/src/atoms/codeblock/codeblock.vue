@@ -34,7 +34,7 @@
 				</button>
 			</div>
 
-			<div class="border-b-solid flex grow items-center justify-end gap-2 border-b-2 border-gray-800 px-5">
+			<div class="flex grow items-center justify-end gap-2 border-b-2 border-solid border-gray-800 px-5">
 				<div class="size-3 rounded-full border-2 border-solid border-gray-800 bg-cyan-300"></div>
 				<div class="size-3 rounded-full border-2 border-solid border-gray-800 bg-yellow-300"></div>
 				<div class="size-3 rounded-full border-2 border-solid border-gray-800 bg-red-300"></div>

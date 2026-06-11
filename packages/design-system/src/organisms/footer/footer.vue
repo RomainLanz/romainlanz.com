@@ -78,7 +78,7 @@
 				<!--				</FooterSection> -->
 			</div>
 
-			<hr class="h-1px my-12 border-none bg-gray-800" />
+			<hr class="my-12 h-px border-none bg-gray-800" />
 
 			<section class="flex justify-between">
 				<!--				<Link href="#">Mentions légales</Link> -->

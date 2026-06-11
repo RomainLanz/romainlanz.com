@@ -97,40 +97,45 @@
 			width: calc(100% + 48px);
 
 			:global(&.add) {
-				--at-apply: important-bg-lime-300;
+				background-color: var(--color-lime-300) !important;
 				--shiki-dark-bg: transparent;
 			}
 
 			:global(&.remove) {
-				--at-apply: important-bg-red-300;
+				background-color: var(--color-red-300) !important;
 				--shiki-dark-bg: transparent;
 				opacity: 0.7;
 			}
 
 			@media (prefers-color-scheme: dark) {
 				:global(&.add) {
-					--at-apply: important-bg-lime-800;
+					background-color: var(--color-lime-800) !important;
 				}
 
 				:global(&.remove) {
-					--at-apply: important-bg-red-800;
+					background-color: var(--color-red-800) !important;
 				}
 			}
 		}
 
 		& > pre {
-			--at-apply: border-2 border-solid border-gray-800 bg-yellow-100 rounded-lg shadow-small;
+			background-color: var(--color-yellow-100);
+			border: 2px solid var(--color-gray-800);
+			border-radius: var(--radius-lg);
+			box-shadow: var(--shadow-small);
 			margin-bottom: 1.5rem;
 			margin-top: 1rem;
 		}
 
 		& > blockquote {
-			--at-apply: text-gray-500;
+			color: var(--color-gray-500);
 		}
 
 		li code,
 		p code {
-			--at-apply: text-yellow-900 bg-yellow-400 rounded;
+			background-color: var(--color-yellow-400);
+			border-radius: 0.25rem;
+			color: var(--color-yellow-900);
 			display: inline-block;
 			font-size: 1rem;
 			padding: 0 0.25rem;

@@ -1,104 +1,178 @@
-/*
-  Josh's Custom CSS Reset
-  https://www.joshwcomeau.com/css/custom-css-reset/
-*/
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-	color: theme('colors.gray.800');
+@import url('https://fonts.bunny.net/css?family=atkinson-hyperlegible:400,700');
+@import 'tailwindcss';
+
+@source '../';
+
+@theme {
+	--color-off-white: #fffdf7;
+	--color-gray-50: #f8fafc;
+	--color-gray-100: #f1f5f9;
+	--color-gray-200: #e2e8f0;
+	--color-gray-300: #cbd5e1;
+	--color-gray-400: #94a3b8;
+	--color-gray-500: #64748b;
+	--color-gray-600: #475569;
+	--color-gray-700: #334155;
+	--color-gray-800: #1e293b;
+	--color-gray-900: #0f172a;
+	--color-cyan-100: #eaf4f9;
+	--color-cyan-200: #d4ecf8;
+	--color-cyan-300: #c7e6f8;
+	--color-cyan-400: #a9dbf7;
+	--color-cyan-500: #93d2f6;
+	--color-cyan-600: #6abff4;
+	--color-cyan-700: #4b7f9b;
+	--color-cyan-800: #27566d;
+	--color-cyan-900: #032c3f;
+	--color-violet-100: #f0eaf9;
+	--color-violet-200: #e3d4f8;
+	--color-violet-300: #dec6ff;
+	--color-violet-400: #caa9f7;
+	--color-violet-500: #bd93f6;
+	--color-violet-600: #946fc8;
+	--color-violet-700: #6c4b9b;
+	--color-violet-800: #43276d;
+	--color-violet-900: #1a033f;
+	--color-red-100: #f9eaea;
+	--color-red-200: #f8d4d4;
+	--color-red-300: #f8bfbf;
+	--color-red-400: #f7a9a9;
+	--color-red-500: #f69393;
+	--color-red-600: #c86f6f;
+	--color-red-700: #9b4b4b;
+	--color-red-800: #6d2727;
+	--color-red-900: #3f0303;
+	--color-yellow-100: #faf6ea;
+	--color-yellow-200: #fbf3df;
+	--color-yellow-300: #f8eac7;
+	--color-yellow-400: #f6e1ac;
+	--color-yellow-500: #f6da93;
+	--color-yellow-600: #c9af6f;
+	--color-yellow-700: #9b844a;
+	--color-yellow-800: #6e5a26;
+	--color-yellow-900: #402f02;
+	--color-lime-100: #faf6ea;
+	--color-lime-200: #e1f6d4;
+	--color-lime-300: #c8f5be;
+	--color-lime-400: #aef5a8;
+	--color-lime-500: #95f492;
+	--color-lime-600: #71c76e;
+	--color-lime-700: #4e9a4a;
+	--color-lime-800: #2a6c27;
+	--color-lime-900: #063f03;
+	--shadow-tiny: 2px 2px 0 #1e293b;
+	--shadow-small: 4px 4px 0 #1e293b;
+	--shadow-medium: 8px 8px 0 #1e293b;
+	--shadow-large: 12px 12px 0 #1e293b;
+	--radius-ms: 0.25rem;
+	--breakpoint-xs: 375px;
+	--font-sans: 'Atkinson Hyperlegible', sans-serif;
+	--font-mono: mononoki, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
 }
 
-* {
-	margin: 0;
-}
+@layer base {
+	/*
+	  Josh's Custom CSS Reset
+	  https://www.joshwcomeau.com/css/custom-css-reset/
+	*/
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		color: var(--color-gray-800);
+	}
 
-html,
-body {
-	height: 100%;
-}
+	* {
+		margin: 0;
+	}
 
-body {
-	@apply bg-off-white font-sans;
-	line-height: 1.5;
-	-webkit-font-smoothing: antialiased;
-}
+	html,
+	body {
+		height: 100%;
+	}
 
-img,
-picture,
-video,
-canvas,
-svg {
-	display: block;
-	max-width: 100%;
-}
+	body {
+		@apply bg-off-white font-sans;
+		line-height: 1.5;
+		-webkit-font-smoothing: antialiased;
+	}
 
-input,
-button,
-textarea,
-select {
-	font: inherit;
-}
+	img,
+	picture,
+	video,
+	canvas,
+	svg {
+		display: block;
+		max-width: 100%;
+	}
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-weight: 400;
-	overflow-wrap: break-word;
-}
+	input,
+	button,
+	textarea,
+	select {
+		font: inherit;
+	}
 
-h1 {
-	font-size: 3.5rem;
-	line-height: 64px;
-}
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: 400;
+		overflow-wrap: break-word;
+	}
 
-h2 {
-	font-size: 2.75rem;
-	line-height: 52px;
-}
+	h1 {
+		font-size: 3.5rem;
+		line-height: 64px;
+	}
 
-h3 {
-	font-size: 2.25rem;
-	line-height: 44px;
-}
+	h2 {
+		font-size: 2.75rem;
+		line-height: 52px;
+	}
 
-h4 {
-	font-size: 1.75rem;
-	line-height: 36px;
-}
+	h3 {
+		font-size: 2.25rem;
+		line-height: 44px;
+	}
 
-h5 {
-	font-size: 1.5rem;
-	line-height: 32px;
-}
+	h4 {
+		font-size: 1.75rem;
+		line-height: 36px;
+	}
 
-h6 {
-	font-size: 1rem;
-	line-height: 22px;
-}
+	h5 {
+		font-size: 1.5rem;
+		line-height: 32px;
+	}
 
-p {
-	text-wrap: pretty;
-}
+	h6 {
+		font-size: 1rem;
+		line-height: 22px;
+	}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	text-wrap: balance;
-}
+	p {
+		text-wrap: pretty;
+	}
 
-#app {
-	isolation: isolate;
-}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		text-wrap: balance;
+	}
 
-a {
-	color: inherit;
-	text-decoration: none;
+	#app {
+		isolation: isolate;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
 }

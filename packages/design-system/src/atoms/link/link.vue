@@ -20,7 +20,7 @@
 
 <style module>
 	.linkHover:hover:before {
-		background-color: theme('colors.yellow.400');
+		background-color: var(--color-yellow-400);
 		content: '';
 		height: 7px;
 		bottom: 1px;

@@ -15,11 +15,11 @@
 </script>
 
 <template>
-	<div class="flex min-h-full flex-grow-1 bg-yellow-100">
+	<div class="flex min-h-full grow bg-yellow-100">
 		<Sidebar />
 
 		<div class="flex w-0 flex-1 flex-col">
-			<main class="relative z-0 flex-grow-1 px-8 focus:outline-none">
+			<main class="relative z-0 grow px-8 focus:outline-none">
 				<div class="space-y-8">
 					<TopBar :admin-href="adminUrl" :home-href="homeUrl" :title="pageTitle" :user="currentUser" />
 

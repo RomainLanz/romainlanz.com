@@ -43,7 +43,7 @@
 	<Head title="Tous les articles" />
 
 	<div class="mx-auto max-w-7xl p-4">
-		<h1 class="border-b-solid mt-27 mb-15 border-b-2 border-gray-900 pb-6">Tous les articles</h1>
+		<h1 class="mt-27 mb-15 border-b-2 border-solid border-gray-900 pb-6">Tous les articles</h1>
 
 		<div class="lg:cols-3 grid gap-6">
 			<aside class="col-span-1">

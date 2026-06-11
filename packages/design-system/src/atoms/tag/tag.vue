@@ -21,7 +21,7 @@
 
 			type: {
 				span: '',
-				link: 'hover:shadow-tiny transition-ease-in-out cursor-pointer transition-shadow duration-200',
+				link: 'hover:shadow-tiny cursor-pointer transition-shadow duration-200 ease-in-out',
 			},
 		},
 
