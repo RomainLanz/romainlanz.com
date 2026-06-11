@@ -2,7 +2,7 @@
 	import Field from '../../molecules/field/field.vue';
 	import NewsletterConfirmationDialog from './newsletter_confirmation_dialog.vue';
 
-	const { loading = false, errorMessage = null } = defineProps<{
+	const { loading = false, errorMessage } = defineProps<{
 		loading?: boolean;
 		errorMessage?: string;
 	}>();

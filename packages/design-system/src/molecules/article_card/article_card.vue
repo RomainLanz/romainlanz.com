@@ -10,8 +10,9 @@
 			date: string;
 			datetime: string;
 			excerpt: string;
+			readingTime: number;
 			tags?: Array<{ name: string; color: TagProps['color'] }>;
-		} & ({ readingTime: number } | { thumbnailUrl: string; videoLength: string })
+		}
 	>();
 </script>
 

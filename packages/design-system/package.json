@@ -43,7 +43,8 @@
 		"dev": "vite",
 		"build:storybook": "storybook build",
 		"preview": "vite preview",
-		"storybook": "storybook dev -p 6006"
+		"storybook": "storybook dev -p 6006",
+		"typecheck": "vue-tsc -b"
 	},
 	"dependencies": {
 		"@ark-ui/vue": "patch:@ark-ui/vue@npm%3A4.6.0#~/.yarn/patches/@ark-ui-vue-npm-4.6.0-941a23b559.patch",

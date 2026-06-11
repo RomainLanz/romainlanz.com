@@ -3,7 +3,6 @@ import Table from './table.vue';
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 const meta = {
-	component: Table,
 	title: 'Atoms/Table',
 	args: {
 		headers: [
@@ -33,7 +32,7 @@ const meta = {
 			},
 		],
 	},
-} satisfies Meta<typeof Table>;
+} satisfies Meta;
 
 export default meta;
 

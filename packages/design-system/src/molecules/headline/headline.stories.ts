@@ -20,7 +20,8 @@ type Story = StoryObj<typeof meta>;
 export const Base: Story = {
 	args: {
 		title: 'Twitter Cropping Vertical Video the right way!',
-		publishedAt: new Date('1994-04-03'),
+		publishedAt: '3 avr. 1994',
+		publishedAtDatetime: '1994-04-03T00:00:00Z',
 		category: 'design-pattern',
 		readingTime: 5,
 		tags: [{ name: 'JavaScript', color: 'yellow' }],

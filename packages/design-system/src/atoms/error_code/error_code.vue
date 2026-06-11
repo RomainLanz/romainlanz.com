@@ -1,6 +1,6 @@
 <script lang="ts">
 	export const ManagedErrorCode = [401, 403, 404, 500, 503];
-	export type ManagedErrorCode = (typeof ErrorCode)[number];
+	export type ManagedErrorCode = (typeof ManagedErrorCode)[number];
 </script>
 
 <script lang="ts" setup>

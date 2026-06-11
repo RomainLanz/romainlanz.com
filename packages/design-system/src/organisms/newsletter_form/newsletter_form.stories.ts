@@ -17,18 +17,21 @@ type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
 	args: {
+		email: '',
 		open: false,
 	},
 };
 
 export const AlreadyOpen: Story = {
 	args: {
+		email: 'hello@romainlanz.com',
 		open: true,
 	},
 };
 
 export const AlreadyOpenWithError: Story = {
 	args: {
+		email: 'hello@romainlanz.com',
 		open: true,
 		errorMessage: 'Incorrect email',
 	},
