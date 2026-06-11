@@ -1,17 +1,15 @@
+import { preview } from '../../../.storybook/preview';
 import Avatar from './avatar.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: Avatar,
 	title: 'Atoms/Avatar',
-} satisfies Meta<typeof Avatar>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {
+export const Base = meta.story({
 	args: {
 		url: 'https://avatars.githubusercontent.com/u/2793951?v=4',
 	},
-};
+});

@@ -1,33 +1,35 @@
+import { preview } from '../../../.storybook/preview';
 import Tag from './tag.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const argTypes = {
+	color: {
+		options: ['cyan', 'violet', 'red', 'yellow', 'lime'],
+	},
+	default: {
+		type: 'string',
+	},
+} as const;
+
+const args = {
+	default: 'Database',
+};
+
+const meta = preview.meta({
 	component: Tag,
 	title: 'Atoms/Tag',
-} satisfies Meta<typeof Tag>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+export const Base = meta.story({
+	argTypes,
+	args,
+});
 
-export const Base: Story = {
-	argTypes: {
-		color: {
-			options: ['cyan', 'violet', 'red', 'yellow', 'lime'],
-		},
-		default: {
-			type: 'string',
-		},
-	},
+export const Link = meta.story({
+	argTypes,
 	args: {
-		default: 'Database',
-	},
-};
-
-export const Link: Story = {
-	argTypes: Base.argTypes,
-	args: {
-		...Base.args,
+		...args,
 		href: 'https://romainlanz.com',
 	},
-};
+});

@@ -1,8 +1,8 @@
+import { preview } from '../../../.storybook/preview';
 import Button from '../../atoms/button/button.vue';
 import Dialog from './dialog.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: Dialog,
 	title: 'Molecules/Dialog',
 	args: {
@@ -26,10 +26,8 @@ const meta = {
       </Dialog>
     `,
 	}),
-} satisfies Meta<typeof Dialog>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {};
+export const Base = meta.story();

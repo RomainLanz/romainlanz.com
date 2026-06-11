@@ -1,17 +1,15 @@
+import { preview } from '../../../.storybook/preview';
 import Panel from './panel.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: Panel,
 	title: 'Atoms/Panel',
-} satisfies Meta<typeof Panel>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {
+export const Base = meta.story({
 	args: {
 		default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc',
 	},
-};
+});

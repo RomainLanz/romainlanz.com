@@ -1,22 +1,20 @@
+import { preview } from '../../../.storybook/preview';
 import Footer from './footer.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: Footer,
 	title: 'Organisms/Footer',
 	parameters: {
 		layout: 'padded',
 	},
-} as Meta<typeof Footer>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {
+export const Base = meta.story({
 	args: {
 		aboutHref: '#',
 		contactHref: '#',
 		homeHref: '#',
 	},
-};
+});

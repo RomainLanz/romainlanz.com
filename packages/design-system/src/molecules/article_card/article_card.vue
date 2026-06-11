@@ -3,17 +3,15 @@
 	import Tag from '../../atoms/tag/tag.vue';
 	import type { TagProps } from '../../atoms/tag/tag.vue';
 
-	const { href } = defineProps<
-		{
-			href: string;
-			title: string;
-			date: string;
-			datetime: string;
-			excerpt: string;
-			readingTime: number;
-			tags?: Array<{ name: string; color: TagProps['color'] }>;
-		}
-	>();
+	const { href } = defineProps<{
+		href: string;
+		title: string;
+		date: string;
+		datetime: string;
+		excerpt: string;
+		readingTime: number;
+		tags?: Array<{ name: string; color: TagProps['color'] }>;
+	}>();
 </script>
 
 <template>

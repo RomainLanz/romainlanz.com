@@ -1,7 +1,7 @@
+import { preview } from '../../../.storybook/preview';
 import ErrorCode, { ManagedErrorCode } from './error_code.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: ErrorCode,
 	title: 'Atoms/ErrorCode',
 	args: {
@@ -12,10 +12,8 @@ const meta = {
 			options: ManagedErrorCode,
 		},
 	},
-} as Meta<typeof ErrorCode>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {};
+export const Base = meta.story();

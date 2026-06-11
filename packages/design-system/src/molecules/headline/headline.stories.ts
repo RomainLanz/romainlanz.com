@@ -1,8 +1,8 @@
+import { preview } from '../../../.storybook/preview';
 import { IllustrationName } from '../../atoms/illustration/illustration_name.js';
 import Headline from './headline.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: Headline,
 	title: 'Molecules/Headline',
 
@@ -11,13 +11,11 @@ const meta = {
 			options: IllustrationName,
 		},
 	},
-} satisfies Meta<typeof Headline>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {
+export const Base = meta.story({
 	args: {
 		title: 'Twitter Cropping Vertical Video the right way!',
 		publishedAt: '3 avr. 1994',
@@ -26,4 +24,4 @@ export const Base: Story = {
 		readingTime: 5,
 		tags: [{ name: 'JavaScript', color: 'yellow' }],
 	},
-};
+});

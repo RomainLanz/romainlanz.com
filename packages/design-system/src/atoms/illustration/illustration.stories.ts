@@ -1,8 +1,8 @@
+import { preview } from '../../../.storybook/preview';
 import Illustration from './illustration.vue';
 import { IllustrationName } from './illustration_name.js';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: Illustration,
 	title: 'Atoms/Illustration',
 	argTypes: {
@@ -10,14 +10,12 @@ const meta = {
 			options: IllustrationName,
 		},
 	},
-} satisfies Meta<typeof Illustration>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {
+export const Base = meta.story({
 	args: {
 		name: 'adonis',
 	},
-};
+});

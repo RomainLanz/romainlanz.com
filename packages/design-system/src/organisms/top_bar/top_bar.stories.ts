@@ -1,21 +1,19 @@
+import { preview } from '../../../.storybook/preview';
 import TopBar from './top_bar.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: TopBar,
 	title: 'Organisms/TopBar',
 	parameters: {
 		layout: 'padded',
 	},
-} satisfies Meta<typeof TopBar>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+export const Base = meta.story();
 
-export const Base: Story = {};
-
-export const Connected: Story = {
+export const Connected = meta.story({
 	argTypes: {
 		user: {
 			name: 'Romain Lanz',
@@ -31,4 +29,4 @@ export const Connected: Story = {
 			isAdmin: true,
 		},
 	},
-};
+});

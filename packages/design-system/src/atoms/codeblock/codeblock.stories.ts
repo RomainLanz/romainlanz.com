@@ -1,7 +1,7 @@
+import { preview } from '../../../.storybook/preview';
 import Codeblock from './codeblock.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: Codeblock,
 	title: 'Atoms/Codeblock',
 	args: {
@@ -23,10 +23,8 @@ const meta = {
       </Codeblock>
     `,
 	}),
-} satisfies Meta<typeof Codeblock>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {};
+export const Base = meta.story();

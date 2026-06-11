@@ -1,35 +1,36 @@
+import { preview } from '../../../.storybook/preview';
 import CategoryListing from './category_listing.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const args = {
+	allHref: '#',
+	allArticlesCount: 24,
+	activeCategory: null,
+	categories: [
+		{
+			id: '2',
+			name: 'Productivity',
+			slug: 'productivity',
+			illustrationName: 'productivity' as const,
+			articleCount: 16,
+		},
+		{
+			id: '3',
+			name: 'JavaScript',
+			slug: 'javascript',
+			illustrationName: 'javascript' as const,
+			articleCount: 2,
+		},
+	],
+	categoryHref: () => '#',
+};
+
+const meta = preview.meta({
 	component: CategoryListing,
 	title: 'Molecules/CategoryListing',
-	args: {
-		allHref: '#',
-		allArticlesCount: 24,
-		activeCategory: null,
-		categories: [
-			{
-				id: '2',
-				name: 'Productivity',
-				slug: 'productivity',
-				illustrationName: 'productivity',
-				articleCount: 16,
-			},
-			{
-				id: '3',
-				name: 'JavaScript',
-				slug: 'javascript',
-				illustrationName: 'javascript',
-				articleCount: 2,
-			},
-		],
-		categoryHref: () => '#',
-	},
-} satisfies Meta<typeof CategoryListing>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {};
+export const Base = meta.story({
+	args,
+});

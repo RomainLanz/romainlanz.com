@@ -1,8 +1,8 @@
+import { preview } from '../../../.storybook/preview';
 import Button from '../../atoms/button/button.vue';
 import Table from './table.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	title: 'Atoms/Table',
 	args: {
 		headers: [
@@ -32,15 +32,13 @@ const meta = {
 			},
 		],
 	},
-} satisfies Meta;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+export const Base = meta.story();
 
-export const Base: Story = {};
-
-export const WithSlot: Story = {
+export const WithSlot = meta.story({
 	args: {
 		headers: [
 			{
@@ -88,9 +86,9 @@ export const WithSlot: Story = {
       </Table>
     `,
 	}),
-};
+});
 
-export const WithCustomWidth: Story = {
+export const WithCustomWidth = meta.story({
 	args: {
 		headers: [
 			{
@@ -126,4 +124,4 @@ export const WithCustomWidth: Story = {
 			},
 		],
 	},
-};
+});

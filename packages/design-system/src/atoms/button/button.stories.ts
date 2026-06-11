@@ -1,47 +1,49 @@
+import { preview } from '../../../.storybook/preview';
 import Button from './button.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const argTypes = {
+	color: {
+		options: ['cyan', 'violet', 'red', 'yellow', 'lime'],
+	},
+	size: {
+		options: ['small', 'medium'],
+	},
+	flat: {
+		control: 'boolean',
+	},
+	default: {
+		type: 'string',
+	},
+} as const;
+
+const args = {
+	default: 'Click me',
+};
+
+const meta = preview.meta({
 	component: Button,
 	title: 'Atoms/Button',
-} satisfies Meta<typeof Button>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+export const Base = meta.story({
+	argTypes,
+	args,
+});
 
-export const Base: Story = {
-	argTypes: {
-		color: {
-			options: ['cyan', 'violet', 'red', 'yellow', 'lime'],
-		},
-		size: {
-			options: ['small', 'medium'],
-		},
-		flat: {
-			control: 'boolean',
-		},
-		default: {
-			type: 'string',
-		},
-	},
+export const Flat = meta.story({
+	argTypes,
 	args: {
-		default: 'Click me',
-	},
-};
-
-export const Flat: Story = {
-	argTypes: Base.argTypes,
-	args: {
-		...Base.args,
+		...args,
 		flat: true,
 	},
-};
+});
 
-export const Link: Story = {
-	argTypes: Base.argTypes,
+export const Link = meta.story({
+	argTypes,
 	args: {
-		...Base.args,
+		...args,
 		href: 'https://romainlanz.com',
 	},
-};
+});

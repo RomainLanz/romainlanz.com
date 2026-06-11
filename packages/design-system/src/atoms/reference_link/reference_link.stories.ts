@@ -1,7 +1,7 @@
+import { preview } from '../../../.storybook/preview';
 import ReferenceLink from './reference_link.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: ReferenceLink,
 	title: 'Atoms/Reference Link',
 	argTypes: {
@@ -12,10 +12,8 @@ const meta = {
 	args: {
 		href: '#',
 	},
-} satisfies Meta<typeof ReferenceLink>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {};
+export const Base = meta.story();

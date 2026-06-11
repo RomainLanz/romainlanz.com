@@ -1,16 +1,14 @@
+import { preview } from '../../../.storybook/preview';
 import UserActionMenu from './user_action_menu.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: UserActionMenu,
 	title: 'Molecules/UserActionMenu',
-} satisfies Meta<typeof UserActionMenu>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {
+export const Base = meta.story({
 	argTypes: {
 		user: {
 			name: 'Romain Lanz',
@@ -26,4 +24,4 @@ export const Base: Story = {
 			isAdmin: true,
 		},
 	},
-};
+});

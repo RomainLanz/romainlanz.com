@@ -1,16 +1,14 @@
+import { preview } from '../../../.storybook/preview';
 import ArticleCard from './article_card.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: ArticleCard,
 	title: 'Molecules/Article Card',
-} as Meta<typeof ArticleCard>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {
+export const Base = meta.story({
 	args: {
 		href: '#',
 		title: 'Article Title',
@@ -21,4 +19,4 @@ export const Base: Story = {
 		readingTime: 5,
 		tags: [{ name: 'JavaScript', color: 'yellow' }],
 	},
-};
+});

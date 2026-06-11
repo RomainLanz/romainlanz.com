@@ -1,8 +1,8 @@
+import { preview } from '../../../.storybook/preview';
 import Button from '../button/button.vue';
 import Dropdown from './dropdown.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: Dropdown,
 	title: 'Atoms/Dropdown',
 	render: (args) => ({
@@ -17,13 +17,11 @@ const meta = {
       </Dropdown>
     `,
 	}),
-} satisfies Meta<typeof Dropdown>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {
+export const Base = meta.story({
 	args: {
 		actions: [
 			{
@@ -42,4 +40,4 @@ export const Base: Story = {
 			},
 		],
 	},
-};
+});

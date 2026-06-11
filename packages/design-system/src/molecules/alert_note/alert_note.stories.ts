@@ -1,7 +1,7 @@
+import { preview } from '../../../.storybook/preview';
 import AlertNote from './alert_note.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: AlertNote,
 	title: 'Molecules/AlertNote',
 	argTypes: {
@@ -12,28 +12,26 @@ const meta = {
 			type: 'string',
 		},
 	},
-} satisfies Meta<typeof AlertNote>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {
+export const Base = meta.story({
 	args: {
 		type: 'info',
 		default: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.',
 	},
-};
+});
 
-export const WithLongText: Story = {
+export const WithLongText = meta.story({
 	args: {
 		type: 'info',
 		default:
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.',
 	},
-};
+});
 
-export const WithTwoParagraph: Story = {
+export const WithTwoParagraph = meta.story({
 	args: {
 		type: 'info',
 	},
@@ -49,4 +47,4 @@ export const WithTwoParagraph: Story = {
       </AlertNote>
     `,
 	}),
-};
+});

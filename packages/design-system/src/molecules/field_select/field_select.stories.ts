@@ -1,7 +1,7 @@
+import { preview } from '../../../.storybook/preview';
 import FieldSelect from './field_select.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: FieldSelect,
 	title: 'Molecules/FieldSelect',
 	args: {
@@ -25,10 +25,8 @@ const meta = {
 			type: 'string',
 		},
 	},
-} satisfies Meta<typeof FieldSelect>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {};
+export const Base = meta.story();

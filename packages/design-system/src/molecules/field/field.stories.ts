@@ -1,7 +1,7 @@
+import { preview } from '../../../.storybook/preview';
 import Field from './field.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: Field,
 	title: 'Molecules/Field',
 	argTypes: {
@@ -15,34 +15,32 @@ const meta = {
 			type: 'string',
 		},
 	},
-} satisfies Meta<typeof Field>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+export const Base = meta.story();
 
-export const Base: Story = {};
-
-export const Textarea: Story = {
+export const Textarea = meta.story({
 	args: {
 		type: 'textarea',
 	},
-};
+});
 
-export const WithLabel: Story = {
+export const WithLabel = meta.story({
 	args: {
 		label: 'Label',
 	},
-};
+});
 
-export const WithErrorMessage: Story = {
+export const WithErrorMessage = meta.story({
 	args: {
 		errorMessage: 'Error message',
 	},
-};
+});
 
-export const WithHelpMessage: Story = {
+export const WithHelpMessage = meta.story({
 	args: {
 		helpMessage: 'Help message',
 	},
-};
+});

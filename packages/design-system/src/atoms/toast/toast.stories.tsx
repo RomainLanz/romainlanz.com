@@ -1,27 +1,21 @@
+import { h } from 'vue';
+import { preview } from '../../../.storybook/preview';
 import Button from '../button/button.vue';
 import { toaster } from './toaster.ts';
 import Toaster from './toaster.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { h } from 'vue';
 
-const meta = {
+const meta = preview.meta({
 	component: Toaster,
 	title: 'Atoms/Toast',
-} satisfies Meta<typeof Toaster>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {
+export const Base = meta.story({
 	render: (args) => (
 		<>
-			{h(
-				Button,
-				{ onClick: () => toaster.create({ title: 'Hello', description: 'World' }) },
-				() => 'Create Toast'
-			)}
+			{h(Button, { onClick: () => toaster.create({ title: 'Hello', description: 'World' }) }, () => 'Create Toast')}
 			<Toaster {...args} />
 		</>
 	),
-};
+});

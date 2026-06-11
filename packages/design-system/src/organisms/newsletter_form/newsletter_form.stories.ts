@@ -1,7 +1,7 @@
+import { preview } from '../../../.storybook/preview';
 import NewsletterForm from './newsletter_form.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const meta = preview.meta({
 	component: NewsletterForm,
 	title: 'Organisms/NewsletterForm',
 	argTypes: {
@@ -9,30 +9,28 @@ const meta = {
 		loading: { control: 'boolean' },
 		errorMessage: { control: 'text' },
 	},
-} satisfies Meta<typeof NewsletterForm>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Base: Story = {
+export const Base = meta.story({
 	args: {
 		email: '',
 		open: false,
 	},
-};
+});
 
-export const AlreadyOpen: Story = {
+export const AlreadyOpen = meta.story({
 	args: {
 		email: 'hello@romainlanz.com',
 		open: true,
 	},
-};
+});
 
-export const AlreadyOpenWithError: Story = {
+export const AlreadyOpenWithError = meta.story({
 	args: {
 		email: 'hello@romainlanz.com',
 		open: true,
 		errorMessage: 'Incorrect email',
 	},
-};
+});

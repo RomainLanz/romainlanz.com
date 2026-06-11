@@ -17,6 +17,7 @@ public/uploads
 npm-debug.log
 yarn-error.log
 *storybook.log
+storybook-static
 .yarn/*
 !.yarn/patches
 !.yarn/plugins

@@ -1,29 +1,29 @@
+import { preview } from '../../../.storybook/preview';
 import Logo from './logo.vue';
-import type { Meta, StoryObj } from '@storybook/vue3';
 
-const meta = {
+const argTypes = {
+	monochrome: {
+		type: 'boolean',
+	},
+} as const;
+
+const meta = preview.meta({
 	component: Logo,
 	title: 'Atoms/Logo',
-} satisfies Meta<typeof Logo>;
+});
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
-export const Colorful: Story = {
-	argTypes: {
-		monochrome: {
-			type: 'boolean',
-		},
-	},
+export const Colorful = meta.story({
+	argTypes,
 	args: {
 		monochrome: false,
 	},
-};
+});
 
-export const Monochrome: Story = {
-	argTypes: Colorful.argTypes,
+export const Monochrome = meta.story({
+	argTypes,
 	args: {
 		monochrome: true,
 	},
-};
+});
