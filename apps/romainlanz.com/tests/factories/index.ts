@@ -1,5 +1,7 @@
+import { tagColors } from '@rlanz/design-system/tag-color';
 import { ArticleStatus } from '#articles/enums/article_status';
 import { UserRole } from '#auth/enums/user_role';
+import { generateSlug } from '#core/slug';
 import { KyselyFactory, defineFactory, resolveRelation } from './factory.js';
 import type { FactoryRelationValue } from './factory.js';
 
@@ -28,11 +30,16 @@ export const CategoryFactory = defineFactory('categories', ({ faker }) => ({
 	illustration_name: 'code',
 }));
 
-export const TagFactory = defineFactory('tags', ({ faker }) => ({
-	id: faker.string.uuid(),
-	name: faker.word.noun(),
-	color: faker.color.rgb(),
-}));
+export const TagFactory = defineFactory('tags', ({ faker, sequence }) => {
+	const name = faker.word.words({ count: { min: 1, max: 2 } });
+
+	return {
+		id: faker.string.uuid(),
+		name,
+		slug: generateSlug(`${name} ${sequence}`),
+		color: faker.helpers.arrayElement(tagColors),
+	};
+});
 
 export const ArticleFactory = defineFactory('articles', async ({ faker, sequence }) => {
 	const title = faker.lorem.sentence({ min: 3, max: 6 });

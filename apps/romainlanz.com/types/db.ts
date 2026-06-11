@@ -82,6 +82,7 @@ export interface Tags {
   color: string;
   id: string;
   name: string;
+  slug: string;
 }
 
 export interface Users {
