@@ -1,9 +1,10 @@
 import { inject } from '@adonisjs/core';
 import vine from '@vinejs/vine';
 import { ArticlePolicy } from '#admin/articles/policies/article_policy';
+import { GetArticleForUpdateQuery } from '#admin/articles/queries/get_article_for_update_query';
 import { ArticleRepository } from '#articles/repositories/article_repository';
 import { MarkdownCompiler } from '#articles/services/markdown_compiler';
-import { CategoryRepository } from '#taxonomies/repositories/category_repository';
+import { ListCategoriesQuery } from '#taxonomies/queries/list_categories_query';
 import { AllCategoryViewModel } from '#taxonomies/view_models/all_category_view_model';
 import type { HttpContext } from '@adonisjs/core/http';
 
@@ -22,7 +23,8 @@ export default class UpdateArticleController {
 
 	constructor(
 		private repository: ArticleRepository,
-		private categoryRepository: CategoryRepository,
+		private getArticleForUpdate: GetArticleForUpdateQuery,
+		private listCategories: ListCategoriesQuery,
 		private markdownCompiler: MarkdownCompiler,
 	) {}
 
@@ -30,8 +32,8 @@ export default class UpdateArticleController {
 		await bouncer.with(ArticlePolicy).allows('update');
 
 		const [article, categories] = await Promise.all([
-			this.repository.findById(params.id),
-			this.categoryRepository.all(),
+			this.getArticleForUpdate.execute(params.id),
+			this.listCategories.execute(),
 		]);
 
 		return inertia.render('admin/articles/update', {

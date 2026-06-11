@@ -3,25 +3,8 @@ import { Category } from '#taxonomies/domain/category';
 import { CategoryIdentifier } from '#taxonomies/domain/category_identifier';
 import type { IllustrationName } from '@rlanz/design-system/illustration-name';
 
-export class CategoryRepository {
-	async all() {
-		const categoryRecords = await db
-			.selectFrom('categories')
-			.select(['id', 'name', 'slug', 'illustration_name'])
-			.orderBy('name')
-			.execute();
-
-		return categoryRecords.map((categoryRecord) => {
-			return Category.create({
-				id: CategoryIdentifier.fromString(categoryRecord.id),
-				name: categoryRecord.name,
-				slug: categoryRecord.slug,
-				illustrationName: categoryRecord.illustration_name as IllustrationName,
-			});
-		});
-	}
-
-	async countWithArticles() {
+export class ListCategoriesWithPublishedArticlesQuery {
+	async execute() {
 		const categoryRecords = await db
 			.selectFrom('categories')
 			.leftJoin('articles', 'categories.id', 'articles.category_id')
@@ -47,20 +30,6 @@ export class CategoryRepository {
 				illustrationName: categoryRecord.illustration_name as IllustrationName,
 				articleCount: Number(categoryRecord.articles_count),
 			});
-		});
-	}
-
-	async findBySlug(slug: string) {
-		const categoryRecord = await db
-			.selectFrom('categories')
-			.select(['id', 'name', 'slug'])
-			.where('slug', '=', slug)
-			.executeTakeFirstOrThrow();
-
-		return Category.create({
-			id: CategoryIdentifier.fromString(categoryRecord.id),
-			name: categoryRecord.name,
-			slug: categoryRecord.slug,
 		});
 	}
 }
