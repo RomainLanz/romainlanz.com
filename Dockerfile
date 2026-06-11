@@ -25,7 +25,9 @@ RUN node ace build --ignore-ts-errors
 
 # Production stage
 FROM base
+ARG APP_VERSION=dev
 ENV NODE_ENV=production
+ENV APP_VERSION=${APP_VERSION}
 ENV FONTCONFIG_PATH=/etc/fonts
 COPY --from=production-deps /app/node_modules /app/node_modules
 COPY --from=build /app/apps/romainlanz.com/build /app
