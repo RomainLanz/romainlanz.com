@@ -26,6 +26,7 @@
 		"#taxonomies/*": "./app/taxonomies/*.js",
 		"#twitch/*": "./app/twitch/*.js",
 		"#types/*": "./types/*.js",
+		"#tests/*": "./tests/*.js",
 		"#views/*": "./resources/views/*.js"
 	},
 	"exports": {
@@ -86,6 +87,7 @@
 	"devDependencies": {
 		"@adonisjs/assembler": "^8.4.0",
 		"@adonisjs/tsconfig": "^2.0.0",
+		"@faker-js/faker": "^10.4.0",
 		"@japa/assert": "^4.0.1",
 		"@japa/plugin-adonisjs": "^5.2.0",
 		"@japa/runner": "^4.2.0",

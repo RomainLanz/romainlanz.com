@@ -1701,6 +1701,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@faker-js/faker@npm:^10.4.0":
+  version: 10.4.0
+  resolution: "@faker-js/faker@npm:10.4.0"
+  checksum: 10c0/29f15e46f91757d654f6f42ac8313ac4aebb6591e2ebae7fdd8d36d5017490327ea67be37cff06d18303db54abf468524bcc7e4b1de53be4eb884c1f71d571c1
+  languageName: node
+  linkType: hard
+
 "@floating-ui/core@npm:^1.6.0":
   version: 1.6.8
   resolution: "@floating-ui/core@npm:1.6.8"
@@ -2853,6 +2860,7 @@ __metadata:
     "@adonisjs/static": "npm:^2.0.1"
     "@adonisjs/tsconfig": "npm:^2.0.0"
     "@adonisjs/vite": "npm:^5.1.1"
+    "@faker-js/faker": "npm:^10.4.0"
     "@formkit/auto-animate": "npm:^0.8.2"
     "@inertiajs/vue3": "catalog:"
     "@japa/assert": "npm:^4.0.1"
