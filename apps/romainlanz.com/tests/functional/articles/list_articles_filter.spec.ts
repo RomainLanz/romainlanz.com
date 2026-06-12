@@ -62,7 +62,7 @@ test.group('List articles filters', (group) => {
 		fixture.assertArticleTitles(assert, props, ['Adonis article']);
 		assert.equal(props.activeCategory, null);
 		assert.equal(props.activeTag, 'adonis');
-		assert.equal(props.categoryListingAllArticlesCount, 1);
+		assert.equal(props.categoryListingAllArticlesCount, 2);
 		assert.equal(props.paginationArticlesCount, 1);
 	});
 
@@ -82,7 +82,7 @@ test.group('List articles filters', (group) => {
 		fixture.assertArticleTitles(assert, props, ['Backend Adonis']);
 		assert.equal(props.activeCategory, 'backend');
 		assert.equal(props.activeTag, 'adonis');
-		assert.equal(props.categoryListingAllArticlesCount, 2);
+		assert.equal(props.categoryListingAllArticlesCount, 3);
 		assert.equal(props.paginationArticlesCount, 1);
 	});
 
@@ -115,7 +115,7 @@ test.group('List articles filters', (group) => {
 		assert.equal(props.activeCategory, 'backend');
 		assert.equal(props.activeTag, 'adonis');
 		assert.equal(props.activePage, 2);
-		assert.equal(props.categoryListingAllArticlesCount, 6);
+		assert.equal(props.categoryListingAllArticlesCount, 7);
 		assert.equal(props.paginationArticlesCount, 5);
 	});
 

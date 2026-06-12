@@ -31,9 +31,9 @@ export default class ListArticlesController {
 
 		const paginationArticlesCountPromise = this.countPublishedArticles.execute({ categorySlug, tagSlug });
 		const categoryListingAllArticlesCountPromise =
-			categorySlug === null
+			categorySlug === null && tagSlug === null
 				? paginationArticlesCountPromise
-				: this.countPublishedArticles.execute({ categorySlug: null, tagSlug });
+				: this.countPublishedArticles.execute({ categorySlug: null, tagSlug: null });
 
 		const [articles, categories, categoryListingAllArticlesCount, paginationArticlesCount] = await Promise.all([
 			this.listPublishedArticles.execute({ page, perPage: 4, categorySlug, tagSlug }),
