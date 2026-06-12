@@ -5,9 +5,11 @@ import './css/reset.css';
 import '~/custom_elements/alert_note';
 import '~/custom_elements/codeblock';
 import { resolvePageComponent } from '@adonisjs/inertia/helpers';
+import { TuyauProvider } from '@adonisjs/inertia/vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { createApp, createSSRApp, h } from 'vue';
 import { initiateApplication, setLayout } from '~/app/helpers';
+import { client } from '~/client';
 import type { DefineComponent } from 'vue';
 
 import.meta.glob(['../resources/favicon/**']);
@@ -31,10 +33,11 @@ void createInertiaApp({
 	},
 
 	setup({ el, App, props, plugin }) {
+		const render = () => h(TuyauProvider, { client }, () => h(App, props));
 		const app =
 			props.initialPage.component.includes('admin') || props.initialPage.component.includes('pastes')
-				? createApp({ render: () => h(App, props) })
-				: createSSRApp({ render: () => h(App, props) });
+				? createApp({ render })
+				: createSSRApp({ render });
 
 		initiateApplication(app, plugin).mount(el);
 	},

@@ -1,7 +1,9 @@
+import { TuyauProvider } from '@adonisjs/inertia/vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { renderToString } from '@vue/server-renderer';
 import { createSSRApp, h, type DefineComponent } from 'vue';
 import { initiateApplication, setLayout } from '~/app/helpers';
+import { client } from '~/client';
 
 export default function render(page: any) {
 	return createInertiaApp({
@@ -17,7 +19,9 @@ export default function render(page: any) {
 		},
 
 		setup({ App, props, plugin }) {
-			const app = createSSRApp({ render: () => h(App, props) });
+			const app = createSSRApp({
+				render: () => h(TuyauProvider, { client }, () => h(App, props)),
+			});
 
 			return initiateApplication(app, plugin);
 		},
