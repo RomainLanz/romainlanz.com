@@ -118,4 +118,19 @@ test.group('List articles filters', (group) => {
 		assert.equal(props.categoryListingAllArticlesCount, 6);
 		assert.equal(props.paginationArticlesCount, 5);
 	});
+
+	test('category navigation clears the active tag filter', async ({ client, assert }) => {
+		const backend = await fixture.givenCategory({ name: 'Backend', slug: 'backend' });
+		const adonis = await fixture.givenTag({ name: 'Adonis', slug: 'adonis', color: 'cyan' });
+		await fixture.givenPublishedArticles([
+			{ title: 'Backend Adonis', slug: 'backend-adonis', category: backend, tags: adonis },
+		]);
+
+		const response = await client.get('/articles').qs({ tag: 'adonis' });
+
+		response.assertStatus(200);
+		assert.include(response.text(), '/articles?category=backend');
+		assert.notInclude(response.text(), 'href="/articles?category=backend&amp;tag=adonis"');
+		assert.notInclude(response.text(), 'href="/articles?tag=adonis&amp;category=backend"');
+	});
 });

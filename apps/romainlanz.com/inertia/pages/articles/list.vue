@@ -34,11 +34,11 @@
 	}
 
 	function computeAllCategoriesHref() {
-		return client.urlFor('articles.index', undefined, { qs: { tag: activeTag } });
+		return client.urlFor('articles.index');
 	}
 
 	function computeCategoryHref(category: { slug: string }) {
-		return client.urlFor('articles.index', undefined, { qs: { category: category.slug, tag: activeTag } });
+		return client.urlFor('articles.index', undefined, { qs: { category: category.slug } });
 	}
 
 	function computeArticleHref(slug: string) {
