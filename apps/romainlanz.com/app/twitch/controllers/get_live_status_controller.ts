@@ -7,7 +7,7 @@ export default class GetLiveStatusController {
 	constructor(private twitch: Twitch) {}
 
 	async render({ inertia }: HttpContext) {
-		const isLive = await this.twitch.getLiveStatus();
+		const isLive = await this.twitch.getLiveStatus().catch(() => false);
 
 		return inertia.render('twitch/live_status', { isLive });
 	}
