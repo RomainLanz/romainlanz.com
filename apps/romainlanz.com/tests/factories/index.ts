@@ -23,12 +23,16 @@ export const AdminFactory = UserFactory.merge({
 	role: UserRole.Admin,
 });
 
-export const CategoryFactory = defineFactory('categories', ({ faker }) => ({
-	id: faker.string.uuid(),
-	name: faker.commerce.department(),
-	slug: faker.helpers.slugify(faker.commerce.department()).toLowerCase(),
-	illustration_name: 'code',
-}));
+export const CategoryFactory = defineFactory('categories', ({ faker, sequence }) => {
+	const name = `${faker.commerce.department()} ${sequence}`;
+
+	return {
+		id: faker.string.uuid(),
+		name,
+		slug: generateSlug(name),
+		illustration_name: 'code',
+	};
+});
 
 export const TagFactory = defineFactory('tags', ({ faker, sequence }) => {
 	const name = faker.word.words({ count: { min: 1, max: 2 } });
