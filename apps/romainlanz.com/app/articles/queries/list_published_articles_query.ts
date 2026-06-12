@@ -1,19 +1,23 @@
+import { inject } from '@adonisjs/core';
 import { DateTime } from 'luxon';
 import { Article } from '#articles/domain/article';
 import { ArticleIdentifier } from '#articles/domain/article_identifier';
-import { db } from '#core/services/db';
+import { PublishedArticlesQueryBuilder } from '#articles/queries/published_articles_query_builder';
 
 interface ListPublishedArticlesQueryInput {
 	page: number;
 	perPage: number;
 	categorySlug: string | null;
+	tagSlug: string | null;
 }
 
+@inject()
 export class ListPublishedArticlesQuery {
+	constructor(private publishedArticlesQueryBuilder: PublishedArticlesQueryBuilder) {}
+
 	async execute(input: ListPublishedArticlesQueryInput) {
-		const articleRecords = await db
-			.selectFrom('articles')
-			.leftJoin('categories', 'articles.category_id', 'categories.id')
+		const articleRecords = await this.publishedArticlesQueryBuilder
+			.build(input)
 			.select([
 				'articles.id',
 				'articles.title',
@@ -23,11 +27,6 @@ export class ListPublishedArticlesQuery {
 				'articles.reading_time',
 			])
 			.orderBy('articles.published_at', 'desc')
-			.where('articles.published_at', 'is not', null)
-			.where('articles.published_at', '<=', new Date())
-			.$if(input.categorySlug !== null, (builder) => {
-				return builder.where('categories.slug', '=', input.categorySlug!);
-			})
 			.offset((input.page - 1) * input.perPage)
 			.limit(input.perPage)
 			.execute();

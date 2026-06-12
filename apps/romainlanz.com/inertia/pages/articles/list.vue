@@ -8,30 +8,37 @@
 
 	const {
 		activeCategory,
+		activeTag,
 		activePage = 1,
-		allArticlesCount,
+		categoryListingAllArticlesCount,
+		paginationArticlesCount,
 		vm,
 	} = defineProps<{
 		activeCategory: string | null;
+		activeTag: string | null;
 		activePage: number;
-		allArticlesCount: number;
+		categoryListingAllArticlesCount: number;
+		paginationArticlesCount: number;
 		vm: ArticleListViewModelSerialized;
 	}>();
 
-	const paginationCount =
-		vm.categories.find((category) => category.slug === activeCategory)?.articleCount ?? allArticlesCount;
+	const paginationCount = paginationArticlesCount;
 
 	function onPageChange(page: number) {
 		const url = client.urlFor('articles.index', undefined, {
-			qs: { page, category: activeCategory },
+			qs: { page, category: activeCategory, tag: activeTag },
 		});
 		router.visit(url, {
 			preserveScroll: true,
 		});
 	}
 
+	function computeAllCategoriesHref() {
+		return client.urlFor('articles.index', undefined, { qs: { tag: activeTag } });
+	}
+
 	function computeCategoryHref(category: { slug: string }) {
-		return client.urlFor('articles.index', undefined, { qs: { category: category.slug } });
+		return client.urlFor('articles.index', undefined, { qs: { category: category.slug, tag: activeTag } });
 	}
 
 	function computeArticleHref(slug: string) {
@@ -52,8 +59,8 @@
 				<CategoryListing
 					:active-category="activeCategory"
 					:categories="vm.categories"
-					:all-href="client.urlFor('articles.index')"
-					:all-articles-count
+					:all-href="computeAllCategoriesHref()"
+					:all-articles-count="categoryListingAllArticlesCount"
 					:category-href="computeCategoryHref"
 				/>
 			</aside>

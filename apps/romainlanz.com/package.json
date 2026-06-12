@@ -88,6 +88,7 @@
 		"@adonisjs/assembler": "^8.4.0",
 		"@adonisjs/tsconfig": "^2.0.0",
 		"@faker-js/faker": "^10.4.0",
+		"@japa/api-client": "^3.2.1",
 		"@japa/assert": "^4.0.1",
 		"@japa/plugin-adonisjs": "^5.2.0",
 		"@japa/runner": "^4.2.0",
