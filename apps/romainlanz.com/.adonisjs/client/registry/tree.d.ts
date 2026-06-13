@@ -31,6 +31,10 @@ export interface ApiDefinition {
         create: typeof routes['admin.taxonomies.categories.create']
         store: typeof routes['admin.taxonomies.categories.store']
       }
+      tags: {
+        create: typeof routes['admin.taxonomies.tags.create']
+        store: typeof routes['admin.taxonomies.tags.store']
+      }
     }
   }
   pages: {

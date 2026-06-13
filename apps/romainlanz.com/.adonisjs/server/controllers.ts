@@ -7,9 +7,9 @@ export const controllers = {
   admin: {
     articles: {
       ListArticles: () => import('#app/admin/articles/controllers/list_articles_controller'),
+      PreviewOgImage: () => import('#app/admin/articles/controllers/preview_og_image_controller'),
       StoreArticle: () => import('#app/admin/articles/controllers/store_article_controller'),
       UpdateArticle: () => import('#app/admin/articles/controllers/update_article_controller'),
-      PreviewOgImage: () => import('#app/admin/articles/controllers/preview_og_image_controller'),
     },
     pages: {
       Pages: () => import('#app/admin/pages/controllers/pages_controller'),
@@ -22,6 +22,7 @@ export const controllers = {
     taxonomies: {
       ListTaxonomies: () => import('#app/admin/taxonomies/controllers/list_taxonomies_controller'),
       StoreCategory: () => import('#app/admin/taxonomies/controllers/store_category_controller'),
+      StoreTag: () => import('#app/admin/taxonomies/controllers/store_tag_controller'),
     },
   },
   articles: {

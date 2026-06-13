@@ -19,6 +19,8 @@ export type ScannedRoutes = {
     'admin.taxonomies.index': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.categories.create': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.categories.store': { paramsTuple?: []; params?: {} }
+    'admin.taxonomies.tags.create': { paramsTuple?: []; params?: {} }
+    'admin.taxonomies.tags.store': { paramsTuple?: []; params?: {} }
     'pages.landing': { paramsTuple?: []; params?: {} }
     'articles.index': { paramsTuple?: []; params?: {} }
     'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
@@ -45,6 +47,7 @@ export type ScannedRoutes = {
     'admin.redirects.create': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.index': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.categories.create': { paramsTuple?: []; params?: {} }
+    'admin.taxonomies.tags.create': { paramsTuple?: []; params?: {} }
     'pages.landing': { paramsTuple?: []; params?: {} }
     'articles.index': { paramsTuple?: []; params?: {} }
     'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
@@ -66,6 +69,7 @@ export type ScannedRoutes = {
     'admin.redirects.create': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.index': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.categories.create': { paramsTuple?: []; params?: {} }
+    'admin.taxonomies.tags.create': { paramsTuple?: []; params?: {} }
     'pages.landing': { paramsTuple?: []; params?: {} }
     'articles.index': { paramsTuple?: []; params?: {} }
     'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
@@ -80,6 +84,7 @@ export type ScannedRoutes = {
     'admin.articles.store': { paramsTuple?: []; params?: {} }
     'admin.redirects.store': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.categories.store': { paramsTuple?: []; params?: {} }
+    'admin.taxonomies.tags.store': { paramsTuple?: []; params?: {} }
     'pages.contact.store': { paramsTuple?: []; params?: {} }
     'auth.login': { paramsTuple?: []; params?: {} }
     'api.assets.store': { paramsTuple?: []; params?: {} }
