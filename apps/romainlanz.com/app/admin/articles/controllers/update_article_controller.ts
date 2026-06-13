@@ -1,6 +1,7 @@
 import { inject } from '@adonisjs/core';
 import vine from '@vinejs/vine';
 import { ArticlePolicy } from '#admin/articles/policies/article_policy';
+import { parsePublishedAt } from '#admin/articles/published_at';
 import { GetArticleForUpdateQuery } from '#admin/articles/queries/get_article_for_update_query';
 import { ArticleRepository } from '#articles/repositories/article_repository';
 import { MarkdownCompiler } from '#articles/services/markdown_compiler';
@@ -16,6 +17,7 @@ export default class UpdateArticleController {
 			summary: vine.string().minLength(3).maxLength(255),
 			markdownContent: vine.string().minLength(3),
 			slug: vine.string().minLength(3),
+			publishedAt: vine.string().optional(),
 			// TODO: Validate that the category exists
 			categoryId: vine.string().uuid(),
 		}),
@@ -45,7 +47,7 @@ export default class UpdateArticleController {
 	async execute({ bouncer, request, response }: HttpContext) {
 		await bouncer.with(ArticlePolicy).allows('update');
 
-		const { title, summary, slug, markdownContent, categoryId } = await request.validateUsing(
+		const { title, summary, slug, markdownContent, publishedAt, categoryId } = await request.validateUsing(
 			UpdateArticleController.validator,
 		);
 
@@ -59,6 +61,7 @@ export default class UpdateArticleController {
 			contentHtml: markdownHtml.toString(),
 			contentMarkdown: markdownContent,
 			readingTime: Math.ceil((markdownContent.split(' ').length || 0) / 238),
+			publishedAt: parsePublishedAt(publishedAt),
 			categoryId,
 		});
 

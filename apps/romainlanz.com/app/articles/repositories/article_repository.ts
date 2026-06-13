@@ -8,6 +8,7 @@ interface StoreArticleDTO {
 	contentHtml: string;
 	contentMarkdown: string;
 	readingTime: number;
+	publishedAt: Date | null;
 	categoryId: string;
 }
 
@@ -19,6 +20,7 @@ interface UpdateArticleDTO {
 	contentHtml: string;
 	contentMarkdown: string;
 	readingTime: number;
+	publishedAt: Date | null;
 	categoryId: string;
 }
 
@@ -35,6 +37,7 @@ export class ArticleRepository {
 				content_html: payload.contentHtml,
 				content_markdown: payload.contentMarkdown,
 				reading_time: payload.readingTime,
+				published_at: payload.publishedAt,
 				category_id: payload.categoryId,
 			})
 			.execute();
@@ -50,6 +53,7 @@ export class ArticleRepository {
 				content_html: payload.contentHtml,
 				content_markdown: payload.contentMarkdown,
 				reading_time: payload.readingTime,
+				published_at: payload.publishedAt,
 				category_id: payload.categoryId,
 			})
 			.where('id', '=', payload.id)

@@ -19,6 +19,7 @@
 		title: '',
 		summary: '',
 		markdownContent: '',
+		publishedAt: '',
 		categoryId: '',
 	});
 
@@ -45,6 +46,12 @@
 		<form class="flex flex-col gap-3" @submit.prevent="handleSubmit">
 			<Field v-model="form.title" label="Titre" type="text" :error-message="form.errors.title" />
 			<Field v-model="form.summary" label="Résumé" type="text" :error-message="form.errors.summary" />
+			<Field
+				v-model="form.publishedAt"
+				label="Date de publication"
+				type="datetime-local"
+				:error-message="form.errors.publishedAt"
+			/>
 
 			<FieldSelect
 				v-model="category"
