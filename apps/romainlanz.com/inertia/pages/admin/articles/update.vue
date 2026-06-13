@@ -11,6 +11,7 @@
 	import Panel from '@rlanz/design-system/panel';
 	import { computed, ref } from 'vue';
 	import { client } from '~/client';
+	import MarkdownEditor from '~/components/admin/articles/markdown_editor.vue';
 	import { usePageTitle } from '~/composables/use_page_title';
 
 	export interface Props {
@@ -63,7 +64,7 @@
 				:error-message="form.errors.categoryId"
 			/>
 
-			<Field v-model="form.markdownContent" class="min-h-[72rem]" label="Contenu" type="textarea"></Field>
+			<MarkdownEditor v-model="form.markdownContent" label="Contenu" :error-message="form.errors.markdownContent" />
 
 			<div>
 				<Button color="violet" type="submit">Mettre à jour</Button>

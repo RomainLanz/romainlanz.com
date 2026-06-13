@@ -6,6 +6,7 @@
 	import Panel from '@rlanz/design-system/panel';
 	import { computed, ref } from 'vue';
 	import { client } from '~/client';
+	import MarkdownEditor from '~/components/admin/articles/markdown_editor.vue';
 	import { usePageTitle } from '~/composables/use_page_title';
 
 	const { categories } = defineProps<{
@@ -40,7 +41,7 @@
 </script>
 
 <template>
-	<Panel>
+	<Panel class="bg-white">
 		<form class="flex flex-col gap-3" @submit.prevent="handleSubmit">
 			<Field v-model="form.title" label="Titre" type="text" :error-message="form.errors.title" />
 			<Field v-model="form.summary" label="Résumé" type="text" :error-message="form.errors.summary" />
@@ -53,11 +54,7 @@
 				:error-message="form.errors.categoryId"
 			/>
 
-			<textarea
-				v-model="form.markdownContent"
-				class="h-64 w-full"
-				:class="{ 'border-red-500': form.errors.markdownContent }"
-			></textarea>
+			<MarkdownEditor v-model="form.markdownContent" label="Contenu" :error-message="form.errors.markdownContent" />
 
 			<div>
 				<Button color="violet" type="submit">Créer</Button>
