@@ -7,6 +7,7 @@
 	import remarkRehype from 'remark-rehype';
 	import { unified } from 'unified';
 	import { computed, ref } from 'vue';
+	import ArticleContent from '~/components/articles/article_content.vue';
 
 	const { errorMessage, label } = defineProps<{
 		errorMessage?: string;
@@ -94,7 +95,7 @@
 					Aperçu
 				</div>
 
-				<div v-if="preview.html" :class="$style.content" v-html="preview.html"></div>
+				<ArticleContent v-if="preview.html" :html="preview.html" preview />
 				<div v-else-if="preview.error" class="px-4 py-3 text-red-500">{{ preview.error }}</div>
 				<div v-else class="px-4 py-3 text-gray-500">Aperçu vide</div>
 			</div>
@@ -105,76 +106,3 @@
 		</FieldErrorText>
 	</FieldRoot>
 </template>
-
-<style module>
-	.content {
-		font-size: 1rem;
-		line-height: 1.625rem;
-		max-height: 44rem;
-		overflow: auto;
-		padding: 0.75rem 1rem;
-	}
-
-	.content > * {
-		margin-block: 1rem;
-	}
-
-	.content a {
-		cursor: pointer;
-		text-decoration: underline;
-	}
-
-	.content pre {
-		background-color: var(--color-yellow-100);
-		border: 2px solid var(--color-gray-800);
-		border-radius: var(--radius-lg);
-		box-shadow: var(--shadow-small);
-		font-size: 0.875rem;
-		overflow: auto;
-		padding: 1rem 1.5rem;
-	}
-
-	.content blockquote {
-		border-left: 0.25rem solid var(--color-yellow-400);
-		color: var(--color-gray-500);
-		padding-left: 1rem;
-	}
-
-	.content li code,
-	.content p code {
-		background-color: var(--color-yellow-400);
-		border-radius: 0.25rem;
-		color: var(--color-yellow-900);
-		display: inline-block;
-		font-size: 0.925rem;
-		padding: 0 0.25rem;
-	}
-
-	.content ul,
-	.content ol {
-		padding-left: 1.5rem;
-	}
-
-	.content ul {
-		list-style: disc;
-	}
-
-	.content ol {
-		list-style: decimal;
-	}
-
-	.content h2 {
-		font-size: 2rem;
-		margin-top: 2rem;
-	}
-
-	.content h3 {
-		font-size: 1.5rem;
-		margin-top: 1.5rem;
-	}
-
-	.content h4 {
-		font-size: 1.25rem;
-		margin-top: 1.25rem;
-	}
-</style>
