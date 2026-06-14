@@ -1,5 +1,5 @@
 import { inject } from '@adonisjs/core';
-import { AllRedirectViewModel } from '#admin/redirects/view_models/all_redirect_view_model';
+import AdminRedirectIndexTransformer from '#admin/redirects/transformers/admin_redirect_index_transformer';
 import { RedirectRepository } from '#redirects/repositories/redirect_repository';
 import type { HttpContext } from '@adonisjs/core/http';
 
@@ -11,7 +11,7 @@ export default class ListRedirectsController {
 		const redirects = await this.repository.all();
 
 		return inertia.render('admin/redirects/list', {
-			vm: AllRedirectViewModel.fromDomain(redirects).serialize(),
+			vm: AdminRedirectIndexTransformer.transform({ redirects }),
 		});
 	}
 }

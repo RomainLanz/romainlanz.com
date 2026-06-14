@@ -1,12 +1,12 @@
 <script lang="ts" setup>
+	import { Data } from '@generated/data';
 	import Button from '@rlanz/design-system/button';
 	import Table from '@rlanz/design-system/table';
 	import { client } from '~/client';
 	import { usePageTitle } from '~/composables/use_page_title';
-	import type { AllRedirectViewModelSerialized } from '#admin/redirects/view_models/all_redirect_view_model';
 
 	const { vm } = defineProps<{
-		vm: AllRedirectViewModelSerialized;
+		vm: Data.Admin.Redirects.AdminRedirectIndex;
 	}>();
 
 	usePageTitle('Redirections');

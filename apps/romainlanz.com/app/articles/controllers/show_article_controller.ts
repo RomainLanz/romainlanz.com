@@ -2,7 +2,7 @@ import { inject } from '@adonisjs/core';
 import config from '@adonisjs/core/services/config';
 import { urlFor } from '@adonisjs/core/services/url_builder';
 import { GetArticleBySlugQuery } from '#articles/queries/get_article_by_slug_query';
-import { ArticleViewModel } from '#articles/view_models/article_view_model';
+import ArticlePageTransformer from '#articles/transformers/article_page_transformer';
 import { TimeServiceContract } from '#core/contracts/time_service_contract';
 import { RecordNotFoundException } from '#core/exceptions/record_not_found_exception';
 import type { HttpContext } from '@adonisjs/core/http';
@@ -24,7 +24,7 @@ export default class ShowArticleController {
 		const ogImagePath = urlFor('articles.og', { slug: article.props.slug });
 
 		return inertia.render('articles/show', {
-			vm: ArticleViewModel.fromDomain(article).serialize(),
+			vm: ArticlePageTransformer.transform(article),
 			ogImageUrl: `${config.get('app.appUrl')}${ogImagePath}`,
 		});
 	}

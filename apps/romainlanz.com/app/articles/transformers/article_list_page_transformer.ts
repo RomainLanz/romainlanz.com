@@ -1,22 +1,17 @@
 import { assertExists } from '@adonisjs/core/helpers/assert';
+import { BaseTransformer } from '@adonisjs/core/transformers';
 import type { Article } from '#articles/domain/article';
 import type { Category } from '#taxonomies/domain/category';
 
-export type ArticleListViewModelSerialized = ReturnType<ArticleListViewModel['serialize']>;
+type ArticleListPage = {
+	articles: Article[];
+	categories: Category[];
+};
 
-export class ArticleListViewModel {
-	constructor(
-		private articles: Article[],
-		private categories: Category[],
-	) {}
-
-	static fromDomain(articles: Article[], categories: Category[]) {
-		return new this(articles, categories);
-	}
-
-	serialize() {
+export default class ArticleListPageTransformer extends BaseTransformer<ArticleListPage> {
+	toObject() {
 		return {
-			articles: this.articles.map((article) => {
+			articles: this.resource.articles.map((article) => {
 				assertExists(article.props.summary, 'Summary is required');
 				assertExists(article.props.publishedAt, 'Published at is required');
 
@@ -29,7 +24,7 @@ export class ArticleListViewModel {
 					publishedAt: article.props.publishedAt.set({ hour: 0, minute: 0, second: 0, millisecond: 0 }).toISO()!,
 				};
 			}),
-			categories: this.categories.map((category) => {
+			categories: this.resource.categories.map((category) => {
 				assertExists(category.props.illustrationName, 'Illustration name is required');
 
 				return {

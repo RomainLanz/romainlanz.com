@@ -1,17 +1,14 @@
+import { BaseTransformer } from '@adonisjs/core/transformers';
 import type { Article } from '#articles/domain/article';
 
-export type LandingViewModelSerialized = ReturnType<LandingViewModel['serialize']>;
+type LandingPage = {
+	articles: Article[];
+};
 
-export class LandingViewModel {
-	constructor(private articles: Article[]) {}
-
-	static fromDomain(articles: Article[]) {
-		return new this(articles);
-	}
-
-	serialize() {
+export default class LandingPageTransformer extends BaseTransformer<LandingPage> {
+	toObject() {
 		return {
-			articles: this.articles.map((article) => ({
+			articles: this.resource.articles.map((article) => ({
 				id: article.getIdentifier().toString(),
 				title: article.props.title,
 				summary: article.props.summary!,

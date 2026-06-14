@@ -6,7 +6,7 @@ import { GetArticleForUpdateQuery } from '#admin/articles/queries/get_article_fo
 import { ArticleRepository } from '#articles/repositories/article_repository';
 import { MarkdownCompiler } from '#articles/services/markdown_compiler';
 import { ListCategoriesQuery } from '#taxonomies/queries/list_categories_query';
-import { AllCategoryViewModel } from '#taxonomies/view_models/all_category_view_model';
+import CategoryOptionTransformer from '#taxonomies/transformers/category_option_transformer';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()
@@ -40,7 +40,7 @@ export default class UpdateArticleController {
 
 		return inertia.render('admin/articles/update', {
 			article,
-			categories: AllCategoryViewModel.fromDomain(categories).serialize(),
+			categories: CategoryOptionTransformer.transform(categories),
 		});
 	}
 

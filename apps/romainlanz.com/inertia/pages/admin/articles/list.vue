@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+	import { Data } from '@generated/data';
 	import { Link } from '@inertiajs/vue3';
 	import Button from '@rlanz/design-system/button';
 	import ReferenceLink from '@rlanz/design-system/reference-link';
@@ -6,10 +7,9 @@
 	import { computed } from 'vue';
 	import { client } from '~/client';
 	import { usePageTitle } from '~/composables/use_page_title';
-	import type { AllArticleViewModelSerialized } from '#admin/articles/view_models/all_article_view_model';
 
 	const { vm } = defineProps<{
-		vm: AllArticleViewModelSerialized;
+		vm: Data.Admin.Articles.AdminArticleIndex;
 	}>();
 
 	usePageTitle('Articles');

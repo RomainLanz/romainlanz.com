@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 	import { computed, onBeforeUnmount, ref, watch } from 'vue';
+	import { client } from '~/client';
 
 	const props = defineProps<{
 		title: string;
@@ -14,12 +15,12 @@
 			return '';
 		}
 
-		const search = new URLSearchParams({
-			title: props.title || 'Titre de l’article',
-			subtitle: props.summary || 'Résumé de l’article',
+		return client.urlFor('admin.og.preview', undefined, {
+			qs: {
+				title: props.title || 'Titre de l’article',
+				subtitle: props.summary || 'Résumé de l’article',
+			},
 		});
-
-		return `/admin/og/preview?${search.toString()}`;
 	});
 
 	watch(

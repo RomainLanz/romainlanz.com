@@ -1,12 +1,12 @@
 <script lang="ts" setup>
+	import { Data } from '@generated/data';
 	import { Head } from '@inertiajs/vue3';
 	import Headline from '@rlanz/design-system/headline';
 	import { computed } from 'vue';
 	import ArticleContent from '~/components/articles/article_content.vue';
-	import type { ArticleViewModelSerialized } from '#articles/view_models/article_view_model';
 
 	const { vm } = defineProps<{
-		vm: ArticleViewModelSerialized;
+		vm: Data.Articles.ArticlePage;
 		ogImageUrl: string;
 	}>();
 

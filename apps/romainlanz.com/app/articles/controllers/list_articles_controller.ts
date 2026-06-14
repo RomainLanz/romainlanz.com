@@ -1,7 +1,7 @@
 import { inject } from '@adonisjs/core';
 import { CountPublishedArticlesQuery } from '#articles/queries/count_published_articles_query';
 import { ListPublishedArticlesQuery } from '#articles/queries/list_published_articles_query';
-import { ArticleListViewModel } from '#articles/view_models/article_list_view_model';
+import ArticleListPageTransformer from '#articles/transformers/article_list_page_transformer';
 import { FindCategoryBySlugQuery } from '#taxonomies/queries/find_category_by_slug_query';
 import { FindTagBySlugQuery } from '#taxonomies/queries/find_tag_by_slug_query';
 import { ListCategoriesWithPublishedArticlesQuery } from '#taxonomies/queries/list_categories_with_published_articles_query';
@@ -48,7 +48,7 @@ export default class ListArticlesController {
 			activePage: page,
 			categoryListingAllArticlesCount,
 			paginationArticlesCount,
-			vm: ArticleListViewModel.fromDomain(articles, categories).serialize(),
+			vm: ArticleListPageTransformer.transform({ articles, categories }),
 		});
 	}
 }

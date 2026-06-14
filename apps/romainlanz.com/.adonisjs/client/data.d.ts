@@ -6,8 +6,71 @@
 /// <reference path="./manifest.d.ts" />
 import type { InferData, InferVariants } from '@adonisjs/core/types/transformers'
 import type { InferSharedProps } from '@adonisjs/inertia/types'
+import type ArticlesArticlePageTransformer from '#app/articles/transformers/article_page_transformer'
+import type ArticlesArticleListPageTransformer from '#app/articles/transformers/article_list_page_transformer'
+import type PagesLandingPageTransformer from '#app/pages/transformers/landing_page_transformer'
+import type PastePastePageTransformer from '#app/paste/transformers/paste_page_transformer'
+import type AdminArticlesAdminArticleIndexTransformer from '#app/admin/articles/transformers/admin_article_index_transformer'
+import type AdminRedirectsAdminRedirectIndexTransformer from '#app/admin/redirects/transformers/admin_redirect_index_transformer'
+import type AdminTaxonomiesAdminTaxonomyIndexTransformer from '#app/admin/taxonomies/transformers/admin_taxonomy_index_transformer'
+import type TaxonomiesCategoryOptionTransformer from '#app/taxonomies/transformers/category_option_transformer'
+import type AuthCurrentUserTransformer from '#app/auth/transformers/current_user_transformer'
 import type InertiaMiddleware from '#middleware/inertia_middleware'
 
 export namespace Data {
+  export namespace Articles {
+    export type ArticlePage = InferData<ArticlesArticlePageTransformer>
+    export namespace ArticlePage {
+      export type Variants = InferVariants<ArticlesArticlePageTransformer>
+    }
+    export type ArticleListPage = InferData<ArticlesArticleListPageTransformer>
+    export namespace ArticleListPage {
+      export type Variants = InferVariants<ArticlesArticleListPageTransformer>
+    }
+  }
+  export namespace Pages {
+    export type LandingPage = InferData<PagesLandingPageTransformer>
+    export namespace LandingPage {
+      export type Variants = InferVariants<PagesLandingPageTransformer>
+    }
+  }
+  export namespace Paste {
+    export type PastePage = InferData<PastePastePageTransformer>
+    export namespace PastePage {
+      export type Variants = InferVariants<PastePastePageTransformer>
+    }
+  }
+  export namespace Admin {
+    export namespace Articles {
+      export type AdminArticleIndex = InferData<AdminArticlesAdminArticleIndexTransformer>
+      export namespace AdminArticleIndex {
+        export type Variants = InferVariants<AdminArticlesAdminArticleIndexTransformer>
+      }
+    }
+    export namespace Redirects {
+      export type AdminRedirectIndex = InferData<AdminRedirectsAdminRedirectIndexTransformer>
+      export namespace AdminRedirectIndex {
+        export type Variants = InferVariants<AdminRedirectsAdminRedirectIndexTransformer>
+      }
+    }
+    export namespace Taxonomies {
+      export type AdminTaxonomyIndex = InferData<AdminTaxonomiesAdminTaxonomyIndexTransformer>
+      export namespace AdminTaxonomyIndex {
+        export type Variants = InferVariants<AdminTaxonomiesAdminTaxonomyIndexTransformer>
+      }
+    }
+  }
+  export namespace Taxonomies {
+    export type CategoryOption = InferData<TaxonomiesCategoryOptionTransformer>
+    export namespace CategoryOption {
+      export type Variants = InferVariants<TaxonomiesCategoryOptionTransformer>
+    }
+  }
+  export namespace Auth {
+    export type CurrentUser = InferData<AuthCurrentUserTransformer>
+    export namespace CurrentUser {
+      export type Variants = InferVariants<AuthCurrentUserTransformer>
+    }
+  }
   export type SharedProps = InferSharedProps<InertiaMiddleware>
 }

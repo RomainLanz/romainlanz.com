@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+	import { Data } from '@generated/data';
 	import { useForm } from '@inertiajs/vue3';
 	import Button from '@rlanz/design-system/button';
 	import Field from '@rlanz/design-system/field';
@@ -11,7 +12,7 @@
 	import { usePageTitle } from '~/composables/use_page_title';
 
 	const { categories } = defineProps<{
-		categories: any[];
+		categories: Data.Taxonomies.CategoryOption[];
 	}>();
 
 	usePageTitle('Écrire un article');

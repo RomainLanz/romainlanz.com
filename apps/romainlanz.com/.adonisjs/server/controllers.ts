@@ -9,6 +9,7 @@ export const controllers = {
       ListArticles: () => import('#app/admin/articles/controllers/list_articles_controller'),
       StoreArticle: () => import('#app/admin/articles/controllers/store_article_controller'),
       UpdateArticle: () => import('#app/admin/articles/controllers/update_article_controller'),
+      PreviewOgImage: () => import('#app/admin/articles/controllers/preview_og_image_controller'),
     },
     pages: {
       Pages: () => import('#app/admin/pages/controllers/pages_controller'),
@@ -52,8 +53,5 @@ export const controllers = {
   },
   twitch: {
     GetLiveStatus: () => import('#app/twitch/controllers/get_live_status_controller'),
-  },
-  common: {
-    ComputeOgImage: () => import('#app/common/controllers/compute_og_image_controller'),
   },
 }

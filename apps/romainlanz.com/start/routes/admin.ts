@@ -6,6 +6,7 @@ const {
 	admin: {
 		articles: {
 			ListArticles: ListArticlesController,
+			PreviewOgImage: PreviewOgImageController,
 			StoreArticle: StoreArticleController,
 			UpdateArticle: UpdateArticleController,
 		},
@@ -17,13 +18,12 @@ const {
 		},
 		taxonomies: { ListTaxonomies: ListTaxonomiesController, StoreCategory: StoreCategoryController },
 	},
-	common: { ComputeOgImage: ComputeOgImageController },
 } = controllers;
 
 router
 	.group(() => {
 		router.get('dashboard', [PagesController, 'dashboard']).as('pages.dashboard');
-		router.get('og/preview', [ComputeOgImageController, 'execute']).as('og.preview');
+		router.get('og/preview', [PreviewOgImageController, 'execute']).as('og.preview');
 		router.get('articles', [ListArticlesController, 'render']).as('articles.index');
 		router.get('articles/create', [StoreArticleController, 'render']).as('articles.create');
 		router.post('articles', [StoreArticleController, 'execute']).as('articles.store');

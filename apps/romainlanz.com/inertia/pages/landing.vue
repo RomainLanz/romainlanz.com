@@ -1,14 +1,14 @@
 <script setup lang="ts">
+	import { Data } from '@generated/data';
 	import { Head } from '@inertiajs/vue3';
 	import ArticleCard from '@rlanz/design-system/article-card';
 	import Button from '@rlanz/design-system/button';
 	import Link from '@rlanz/design-system/link';
 	import { client } from '~/client';
 	import LandingHero from '~/components/landing/landing_hero.vue';
-	import type { LandingViewModelSerialized } from '#pages/view_models/landing_view_model';
 
 	defineProps<{
-		vm: LandingViewModelSerialized;
+		vm: Data.Pages.LandingPage;
 	}>();
 
 	const allArticlesUrl = client.urlFor('articles.index');

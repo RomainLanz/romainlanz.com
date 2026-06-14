@@ -1,10 +1,10 @@
 <script lang="ts" setup>
+	import { Data } from '@generated/data';
 	import { Head, router } from '@inertiajs/vue3';
 	import ArticleCard from '@rlanz/design-system/article-card';
 	import CategoryListing from '@rlanz/design-system/category-listing';
 	import Pagination from '@rlanz/design-system/pagination';
 	import { client } from '~/client';
-	import type { ArticleListViewModelSerialized } from '#articles/view_models/article_list_view_model';
 
 	const {
 		activeCategory,
@@ -19,7 +19,7 @@
 		activePage: number;
 		categoryListingAllArticlesCount: number;
 		paginationArticlesCount: number;
-		vm: ArticleListViewModelSerialized;
+		vm: Data.Articles.ArticleListPage;
 	}>();
 
 	const paginationCount = paginationArticlesCount;

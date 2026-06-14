@@ -1,6 +1,6 @@
 import { inject } from '@adonisjs/core';
 import { PasteRepository } from '#paste/repositories/paste_repository';
-import { PasteViewModel } from '#paste/view_models/paste_view_model';
+import PastePageTransformer from '#paste/transformers/paste_page_transformer';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()
@@ -11,7 +11,7 @@ export default class ShowPasteController {
 		const paste = await this.pasteRepository.findById(params.id);
 
 		return inertia.render('pastes/show', {
-			vm: PasteViewModel.fromDomain(paste).serialize(),
+			vm: PastePageTransformer.transform(paste),
 		});
 	}
 }

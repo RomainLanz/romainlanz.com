@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-	import type { PasteViewModelSerialized } from '#paste/view_models/paste_view_model';
+	import { Data } from '@generated/data';
 
 	defineProps<{
-		vm: PasteViewModelSerialized;
+		vm: Data.Paste.PastePage;
 	}>();
 </script>
 

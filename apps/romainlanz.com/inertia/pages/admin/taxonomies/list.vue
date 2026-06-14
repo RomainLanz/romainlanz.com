@@ -1,10 +1,10 @@
 <script lang="ts" setup>
+	import { Data } from '@generated/data';
 	import CategoryTable from '~/components/admin/taxonomies/category_table.vue';
 	import { usePageTitle } from '~/composables/use_page_title';
-	import type { AllTaxonomiesViewModelSerialized } from '#admin/taxonomies/view_models/all_taxonomies_view_model';
 
 	const { vm } = defineProps<{
-		vm: AllTaxonomiesViewModelSerialized;
+		vm: Data.Admin.Taxonomies.AdminTaxonomyIndex;
 	}>();
 
 	usePageTitle('Taxonomy');
