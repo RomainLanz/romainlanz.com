@@ -698,65 +698,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ark-ui/vue@patch:@ark-ui/vue@npm%3A4.6.0#~/.yarn/patches/@ark-ui-vue-npm-4.6.0-941a23b559.patch":
-  version: 4.6.0
-  resolution: "@ark-ui/vue@patch:@ark-ui/vue@npm%3A4.6.0#~/.yarn/patches/@ark-ui-vue-npm-4.6.0-941a23b559.patch::version=4.6.0&hash=9b5cda"
-  dependencies:
-    "@internationalized/date": "npm:3.6.0"
-    "@zag-js/accordion": "npm:0.79.1"
-    "@zag-js/anatomy": "npm:0.79.1"
-    "@zag-js/auto-resize": "npm:0.79.1"
-    "@zag-js/avatar": "npm:0.79.1"
-    "@zag-js/carousel": "npm:0.79.1"
-    "@zag-js/checkbox": "npm:0.79.1"
-    "@zag-js/clipboard": "npm:0.79.1"
-    "@zag-js/collapsible": "npm:0.79.1"
-    "@zag-js/collection": "npm:0.79.1"
-    "@zag-js/color-picker": "npm:0.79.1"
-    "@zag-js/combobox": "npm:0.79.1"
-    "@zag-js/date-picker": "npm:0.79.1"
-    "@zag-js/dialog": "npm:0.79.1"
-    "@zag-js/dom-query": "npm:0.79.1"
-    "@zag-js/editable": "npm:0.79.1"
-    "@zag-js/file-upload": "npm:0.79.1"
-    "@zag-js/file-utils": "npm:0.79.1"
-    "@zag-js/highlight-word": "npm:0.79.1"
-    "@zag-js/hover-card": "npm:0.79.1"
-    "@zag-js/i18n-utils": "npm:0.79.1"
-    "@zag-js/menu": "npm:0.79.1"
-    "@zag-js/number-input": "npm:0.79.1"
-    "@zag-js/pagination": "npm:0.79.1"
-    "@zag-js/pin-input": "npm:0.79.1"
-    "@zag-js/popover": "npm:0.79.1"
-    "@zag-js/presence": "npm:0.79.1"
-    "@zag-js/progress": "npm:0.79.1"
-    "@zag-js/qr-code": "npm:0.79.1"
-    "@zag-js/radio-group": "npm:0.79.1"
-    "@zag-js/rating-group": "npm:0.79.1"
-    "@zag-js/select": "npm:0.79.1"
-    "@zag-js/signature-pad": "npm:0.79.1"
-    "@zag-js/slider": "npm:0.79.1"
-    "@zag-js/splitter": "npm:0.79.1"
-    "@zag-js/steps": "npm:0.79.1"
-    "@zag-js/store": "npm:0.79.1"
-    "@zag-js/switch": "npm:0.79.1"
-    "@zag-js/tabs": "npm:0.79.1"
-    "@zag-js/tags-input": "npm:0.79.1"
-    "@zag-js/time-picker": "npm:0.79.1"
-    "@zag-js/timer": "npm:0.79.1"
-    "@zag-js/toast": "npm:0.79.1"
-    "@zag-js/toggle-group": "npm:0.79.1"
-    "@zag-js/tooltip": "npm:0.79.1"
-    "@zag-js/tree-view": "npm:0.79.1"
-    "@zag-js/types": "npm:0.79.1"
-    "@zag-js/utils": "npm:0.79.1"
-    "@zag-js/vue": "npm:0.79.1"
-  peerDependencies:
-    vue: ">=3.5.0"
-  checksum: 10c0/ae88a9db1d9deb60f82811d6b651054a51922d406fe9e50d8ec1b5d87fa31d48e3d246b67f028af2bc3da456b46ac820fd77e595412ed3eb130f74410e381278
-  languageName: node
-  linkType: hard
-
 "@arr/every@npm:^1.0.0":
   version: 1.0.1
   resolution: "@arr/every@npm:1.0.1"
@@ -5372,7 +5313,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@rlanz/design-system@workspace:packages/design-system"
   dependencies:
-    "@ark-ui/vue": "patch:@ark-ui/vue@npm%3A4.6.0#~/.yarn/patches/@ark-ui-vue-npm-4.6.0-941a23b559.patch"
+    "@ark-ui/vue": "npm:4.6.0"
     "@chromatic-com/storybook": "npm:^5.2.1"
     "@inertiajs/vue3": "catalog:"
     "@storybook/vue3": "npm:^10.4.2"
@@ -5430,7 +5371,7 @@ __metadata:
     "@vinejs/vine": "npm:^4.4.0"
     "@vitejs/plugin-vue": "catalog:"
     "@vue/server-renderer": "catalog:"
-    bentocache: "patch:bentocache@npm%3A1.0.0-beta.9#~/.yarn/patches/bentocache-npm-1.0.0-beta.9-c4ad06f897.patch"
+    bentocache: "npm:1.0.0-beta.9"
     dlv: "npm:^1.1.3"
     edge.js: "npm:^6.5.1"
     hastscript: "npm:^9.0.1"
@@ -8259,39 +8200,6 @@ __metadata:
     orchid-orm:
       optional: true
   checksum: 10c0/f609cb204314d31689e6a82daa0c60dfed1f8b8c672a648a6449c52b27df31e2ddafbb3dd62b9fc22726dffb0c66927855e98c0f5b9f4664fa98f7989978a58d
-  languageName: node
-  linkType: hard
-
-"bentocache@patch:bentocache@npm%3A1.0.0-beta.9#~/.yarn/patches/bentocache-npm-1.0.0-beta.9-c4ad06f897.patch":
-  version: 1.0.0-beta.9
-  resolution: "bentocache@patch:bentocache@npm%3A1.0.0-beta.9#~/.yarn/patches/bentocache-npm-1.0.0-beta.9-c4ad06f897.patch::version=1.0.0-beta.9&hash=a584f7"
-  dependencies:
-    "@boringnode/bus": "npm:^0.6.0"
-    "@poppinss/utils": "npm:^6.7.3"
-    async-mutex: "npm:^0.5.0"
-    chunkify: "npm:^5.0.0"
-    hexoid: "npm:^1.0.0"
-    lru-cache: "npm:^10.2.2"
-    p-timeout: "npm:^6.1.2"
-    typescript-log: "npm:^2.0.0"
-  peerDependencies:
-    "@aws-sdk/client-dynamodb": ^3.438.0
-    ioredis: ^5.3.2
-    knex: ^3.0.1
-    kysely: ^0.27.3
-    orchid-orm: ^1.24.0
-  peerDependenciesMeta:
-    "@aws-sdk/client-dynamodb":
-      optional: true
-    ioredis:
-      optional: true
-    knex:
-      optional: true
-    kysely:
-      optional: true
-    orchid-orm:
-      optional: true
-  checksum: 10c0/447c31f5a92949a4a1f9b9c006732597f792bb8d70c59909a57d0b45c0dc18b2f5cfd78645af87ec69be451e38bbad6006568dfbff0b32551e4a483d95feea70
   languageName: node
   linkType: hard
 

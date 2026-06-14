@@ -47,7 +47,7 @@
 		"typecheck": "vue-tsc -b"
 	},
 	"dependencies": {
-		"@ark-ui/vue": "patch:@ark-ui/vue@npm%3A4.6.0#~/.yarn/patches/@ark-ui-vue-npm-4.6.0-941a23b559.patch",
+		"@ark-ui/vue": "4.6.0",
 		"@inertiajs/vue3": "catalog:",
 		"tailwind-variants": "^1.0.0",
 		"vue": "catalog:"
