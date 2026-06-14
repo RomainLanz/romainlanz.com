@@ -1,5 +1,5 @@
 import { hash, randomBytes } from 'node:crypto';
-import { cache } from '#core/services/cache';
+import cache from '@adonisjs/cache/services/main';
 
 interface ComputeVisitHashServiceParams {
 	ipAddressRaw: string;
@@ -14,15 +14,12 @@ export class ComputeVisitHashService {
 	}
 
 	#getDayToken(): Promise<string> {
-		return cache.getOrSet(
-			'visit_hash_day_token',
-			() => {
+		return cache.getOrSet({
+			key: 'visit_hash_day_token',
+			ttl: '24h',
+			factory: () => {
 				return randomBytes(32).toString('hex');
 			},
-			{
-				// TODO: Make it work like a crontab
-				ttl: '24h',
-			},
-		);
+		});
 	}
 }
