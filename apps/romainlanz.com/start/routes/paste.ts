@@ -1,9 +1,9 @@
 import router from '@adonisjs/core/services/router';
+import { controllers } from '#generated/controllers';
 
-// region Controller's Imports
-const ShowPasteController = () => import('#paste/controllers/show_paste_controller');
-const StorePasteController = () => import('#paste/controllers/store_paste_controller');
-// endregion
+const {
+	paste: { ShowPaste: ShowPasteController, StorePaste: StorePasteController },
+} = controllers;
 
 router
 	.group(() => {

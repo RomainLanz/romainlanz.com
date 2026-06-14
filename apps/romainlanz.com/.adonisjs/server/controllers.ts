@@ -53,4 +53,7 @@ export const controllers = {
   twitch: {
     GetLiveStatus: () => import('#app/twitch/controllers/get_live_status_controller'),
   },
+  common: {
+    ComputeOgImage: () => import('#app/common/controllers/compute_og_image_controller'),
+  },
 }

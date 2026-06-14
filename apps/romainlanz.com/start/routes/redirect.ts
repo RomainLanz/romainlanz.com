@@ -1,8 +1,9 @@
 import router from '@adonisjs/core/services/router';
+import { controllers } from '#generated/controllers';
 import env from '#start/env';
 
-// region Controller's Imports
-const ProcessRedirectController = () => import('#redirects/controllers/process_redirect_controller');
-// endregion
+const {
+	redirects: { ProcessRedirect: ProcessRedirectController },
+} = controllers;
 
 router.get('*', [ProcessRedirectController, 'execute']).domain(env.get('REDIRECT_DOMAIN'));

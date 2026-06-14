@@ -1,23 +1,29 @@
 import router from '@adonisjs/core/services/router';
+import { controllers } from '#generated/controllers';
 import { middleware } from '#start/kernel';
 
-// region Controller's Imports
-const DeleteRedirectController = () => import('#admin/redirects/controllers/delete_redirect_controller');
-const ComputeOgImageControllers = () => import('#common/controllers/compute_og_image_controllers');
-const ListArticlesController = () => import('#admin/articles/controllers/list_articles_controller');
-const ListTaxonomiesController = () => import('#admin/taxonomies/controllers/list_taxonomies_controller');
-const ListRedirectsController = () => import('#admin/redirects/controllers/list_redirects_controller');
-const PagesController = () => import('#admin/pages/controllers/pages_controller');
-const StoreArticleController = () => import('#admin/articles/controllers/store_article_controller');
-const StoreCategoryController = () => import('#admin/taxonomies/controllers/store_category_controller');
-const StoreRedirectController = () => import('#admin/redirects/controllers/store_redirect_controller');
-const UpdateArticleController = () => import('#admin/articles/controllers/update_article_controller');
-// endregion
+const {
+	admin: {
+		articles: {
+			ListArticles: ListArticlesController,
+			StoreArticle: StoreArticleController,
+			UpdateArticle: UpdateArticleController,
+		},
+		pages: { Pages: PagesController },
+		redirects: {
+			DeleteRedirect: DeleteRedirectController,
+			ListRedirects: ListRedirectsController,
+			StoreRedirect: StoreRedirectController,
+		},
+		taxonomies: { ListTaxonomies: ListTaxonomiesController, StoreCategory: StoreCategoryController },
+	},
+	common: { ComputeOgImage: ComputeOgImageController },
+} = controllers;
 
 router
 	.group(() => {
 		router.get('dashboard', [PagesController, 'dashboard']).as('pages.dashboard');
-		router.get('og/preview', [ComputeOgImageControllers, 'execute']).as('og.preview');
+		router.get('og/preview', [ComputeOgImageController, 'execute']).as('og.preview');
 		router.get('articles', [ListArticlesController, 'render']).as('articles.index');
 		router.get('articles/create', [StoreArticleController, 'render']).as('articles.create');
 		router.post('articles', [StoreArticleController, 'execute']).as('articles.store');

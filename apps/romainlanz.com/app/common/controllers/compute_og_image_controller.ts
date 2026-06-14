@@ -5,7 +5,7 @@ import { OgImageGeneratorService } from '#common/services/og_image_generator_ser
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()
-export default class ComputeOgImageControllers {
+export default class ComputeOgImageController {
 	static validator = vine.compile(
 		vine.object({
 			title: vine.string().trim(),
@@ -17,7 +17,7 @@ export default class ComputeOgImageControllers {
 
 	async execute({ bouncer, request, response }: HttpContext) {
 		await bouncer.with(ArticlePolicy).allows('update');
-		const { title, subtitle } = await request.validateUsing(ComputeOgImageControllers.validator);
+		const { title, subtitle } = await request.validateUsing(ComputeOgImageController.validator);
 
 		const image = await this.ogImageGeneratorService.generate(title, subtitle);
 

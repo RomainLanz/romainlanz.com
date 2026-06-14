@@ -1,7 +1,8 @@
 import router from '@adonisjs/core/services/router';
+import { controllers } from '#generated/controllers';
 
-// region Controller's Imports
-const GetLiveStatusController = () => import('#twitch/controllers/get_live_status_controller');
-// endregion
+const {
+	twitch: { GetLiveStatus: GetLiveStatusController },
+} = controllers;
 
 router.get('/live/status', [GetLiveStatusController, 'render']).as('live.status');

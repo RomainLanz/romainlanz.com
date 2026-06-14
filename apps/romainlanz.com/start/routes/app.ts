@@ -1,18 +1,16 @@
 import router from '@adonisjs/core/services/router';
+import { controllers } from '#generated/controllers';
 import { middleware } from '#start/kernel';
 
-// region Controller's Imports
-const AboutController = () => import('#pages/controllers/about_controller');
-// const ConfirmEmailController = () => import('#newsletter/controllers/confirm_email_controller');
-const ContactController = () => import('#pages/controllers/contact_controller');
-const LandingController = () => import('#pages/controllers/landing_controller');
-const ListArticlesController = () => import('#articles/controllers/list_articles_controller');
-const LoginController = () => import('#auth/controllers/login_controller');
-const LogoutController = () => import('#auth/controllers/logout_controller');
-// const RegisterEmailController = () => import('#newsletter/controllers/register_email_controller');
-const ShowArticleController = () => import('#articles/controllers/show_article_controller');
-const ShowArticleOgImageController = () => import('#articles/controllers/show_article_og_image_controller');
-// endregion
+const {
+	articles: {
+		ListArticles: ListArticlesController,
+		ShowArticle: ShowArticleController,
+		ShowArticleOgImage: ShowArticleOgImageController,
+	},
+	auth: { Login: LoginController, Logout: LogoutController },
+	pages: { About: AboutController, Contact: ContactController, Landing: LandingController },
+} = controllers;
 
 router.get('health', () => ({ uptime: Math.ceil(process.uptime()) }));
 
