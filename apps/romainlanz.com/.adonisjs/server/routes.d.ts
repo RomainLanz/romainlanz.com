@@ -4,14 +4,21 @@ type ParamValue = string | number | bigint | boolean
 
 export type ScannedRoutes = {
   ALL: {
+    'articles.index': { paramsTuple?: []; params?: {} }
+    'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
+    'articles.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
+    'pages.landing': { paramsTuple?: []; params?: {} }
+    'pages.contact': { paramsTuple?: []; params?: {} }
+    'pages.contact.store': { paramsTuple?: []; params?: {} }
+    'pages.about': { paramsTuple?: []; params?: {} }
     'live.status': { paramsTuple?: []; params?: {} }
-    'admin.pages.dashboard': { paramsTuple?: []; params?: {} }
     'admin.og.preview': { paramsTuple?: []; params?: {} }
     'admin.articles.index': { paramsTuple?: []; params?: {} }
     'admin.articles.create': { paramsTuple?: []; params?: {} }
     'admin.articles.store': { paramsTuple?: []; params?: {} }
     'admin.articles.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'admin.articles.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'admin.pages.dashboard': { paramsTuple?: []; params?: {} }
     'admin.redirects.index': { paramsTuple?: []; params?: {} }
     'admin.redirects.create': { paramsTuple?: []; params?: {} }
     'admin.redirects.store': { paramsTuple?: []; params?: {} }
@@ -19,13 +26,6 @@ export type ScannedRoutes = {
     'admin.taxonomies.index': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.categories.create': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.categories.store': { paramsTuple?: []; params?: {} }
-    'pages.landing': { paramsTuple?: []; params?: {} }
-    'articles.index': { paramsTuple?: []; params?: {} }
-    'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
-    'articles.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
-    'pages.contact': { paramsTuple?: []; params?: {} }
-    'pages.contact.store': { paramsTuple?: []; params?: {} }
-    'pages.about': { paramsTuple?: []; params?: {} }
     'auth.login': { paramsTuple?: []; params?: {} }
     'auth.logout': { paramsTuple?: []; params?: {} }
     'api.assets.store': { paramsTuple?: []; params?: {} }
@@ -35,52 +35,52 @@ export type ScannedRoutes = {
     'process_redirect.execute': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
   }
   GET: {
+    'articles.index': { paramsTuple?: []; params?: {} }
+    'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
+    'articles.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
+    'pages.landing': { paramsTuple?: []; params?: {} }
+    'pages.contact': { paramsTuple?: []; params?: {} }
+    'pages.about': { paramsTuple?: []; params?: {} }
     'live.status': { paramsTuple?: []; params?: {} }
-    'admin.pages.dashboard': { paramsTuple?: []; params?: {} }
     'admin.og.preview': { paramsTuple?: []; params?: {} }
     'admin.articles.index': { paramsTuple?: []; params?: {} }
     'admin.articles.create': { paramsTuple?: []; params?: {} }
     'admin.articles.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'admin.pages.dashboard': { paramsTuple?: []; params?: {} }
     'admin.redirects.index': { paramsTuple?: []; params?: {} }
     'admin.redirects.create': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.index': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.categories.create': { paramsTuple?: []; params?: {} }
-    'pages.landing': { paramsTuple?: []; params?: {} }
-    'articles.index': { paramsTuple?: []; params?: {} }
-    'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
-    'articles.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
-    'pages.contact': { paramsTuple?: []; params?: {} }
-    'pages.about': { paramsTuple?: []; params?: {} }
     'pastes.create': { paramsTuple?: []; params?: {} }
     'pastes.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'process_redirect.execute': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
   }
   HEAD: {
+    'articles.index': { paramsTuple?: []; params?: {} }
+    'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
+    'articles.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
+    'pages.landing': { paramsTuple?: []; params?: {} }
+    'pages.contact': { paramsTuple?: []; params?: {} }
+    'pages.about': { paramsTuple?: []; params?: {} }
     'live.status': { paramsTuple?: []; params?: {} }
-    'admin.pages.dashboard': { paramsTuple?: []; params?: {} }
     'admin.og.preview': { paramsTuple?: []; params?: {} }
     'admin.articles.index': { paramsTuple?: []; params?: {} }
     'admin.articles.create': { paramsTuple?: []; params?: {} }
     'admin.articles.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'admin.pages.dashboard': { paramsTuple?: []; params?: {} }
     'admin.redirects.index': { paramsTuple?: []; params?: {} }
     'admin.redirects.create': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.index': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.categories.create': { paramsTuple?: []; params?: {} }
-    'pages.landing': { paramsTuple?: []; params?: {} }
-    'articles.index': { paramsTuple?: []; params?: {} }
-    'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
-    'articles.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
-    'pages.contact': { paramsTuple?: []; params?: {} }
-    'pages.about': { paramsTuple?: []; params?: {} }
     'pastes.create': { paramsTuple?: []; params?: {} }
     'pastes.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'process_redirect.execute': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
   }
   POST: {
+    'pages.contact.store': { paramsTuple?: []; params?: {} }
     'admin.articles.store': { paramsTuple?: []; params?: {} }
     'admin.redirects.store': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.categories.store': { paramsTuple?: []; params?: {} }
-    'pages.contact.store': { paramsTuple?: []; params?: {} }
     'auth.login': { paramsTuple?: []; params?: {} }
     'api.assets.store': { paramsTuple?: []; params?: {} }
     'pastes.store': { paramsTuple?: []; params?: {} }
