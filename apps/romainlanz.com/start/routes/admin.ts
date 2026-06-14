@@ -3,6 +3,7 @@ import { middleware } from '#start/kernel';
 
 // region Controller's Imports
 const DeleteRedirectController = () => import('#admin/redirects/controllers/delete_redirect_controller');
+const ComputeOgImageControllers = () => import('#common/controllers/compute_og_image_controllers');
 const ListArticlesController = () => import('#admin/articles/controllers/list_articles_controller');
 const ListTaxonomiesController = () => import('#admin/taxonomies/controllers/list_taxonomies_controller');
 const ListRedirectsController = () => import('#admin/redirects/controllers/list_redirects_controller');
@@ -16,6 +17,7 @@ const UpdateArticleController = () => import('#admin/articles/controllers/update
 router
 	.group(() => {
 		router.get('dashboard', [PagesController, 'dashboard']).as('pages.dashboard');
+		router.get('og/preview', [ComputeOgImageControllers, 'execute']).as('og.preview');
 		router.get('articles', [ListArticlesController, 'render']).as('articles.index');
 		router.get('articles/create', [StoreArticleController, 'render']).as('articles.create');
 		router.post('articles', [StoreArticleController, 'execute']).as('articles.store');

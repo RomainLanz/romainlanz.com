@@ -1,5 +1,6 @@
 import { inject } from '@adonisjs/core';
 import vine from '@vinejs/vine';
+import { ArticlePolicy } from '#admin/articles/policies/article_policy';
 import { OgImageGeneratorService } from '#common/services/og_image_generator_service';
 import type { HttpContext } from '@adonisjs/core/http';
 
@@ -14,15 +15,12 @@ export default class ComputeOgImageControllers {
 
 	constructor(private readonly ogImageGeneratorService: OgImageGeneratorService) {}
 
-	async execute({ request, response }: HttpContext) {
-		if (!request.hasValidSignature()) {
-			return response.unauthorized();
-		}
-
+	async execute({ bouncer, request, response }: HttpContext) {
+		await bouncer.with(ArticlePolicy).allows('update');
 		const { title, subtitle } = await request.validateUsing(ComputeOgImageControllers.validator);
 
 		const image = await this.ogImageGeneratorService.generate(title, subtitle);
 
-		return response.header('Content-Type', 'image/png').stream(image);
+		return response.header('Content-Type', 'image/png').header('Cache-Control', 'no-store').stream(image);
 	}
 }

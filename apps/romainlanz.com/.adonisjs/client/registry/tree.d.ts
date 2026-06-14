@@ -9,6 +9,9 @@ export interface ApiDefinition {
     pages: {
       dashboard: typeof routes['admin.pages.dashboard']
     }
+    og: {
+      preview: typeof routes['admin.og.preview']
+    }
     articles: {
       index: typeof routes['admin.articles.index']
       create: typeof routes['admin.articles.create']
@@ -30,9 +33,6 @@ export interface ApiDefinition {
       }
     }
   }
-  og: {
-    compute: typeof routes['og.compute']
-  }
   pages: {
     landing: typeof routes['pages.landing']
     contact: typeof routes['pages.contact'] & {
@@ -42,6 +42,7 @@ export interface ApiDefinition {
   }
   articles: {
     index: typeof routes['articles.index']
+    og: typeof routes['articles.og']
     show: typeof routes['articles.show']
   }
   auth: {

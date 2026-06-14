@@ -26,6 +26,7 @@ export const controllers = {
   articles: {
     ListArticles: () => import('#app/articles/controllers/list_articles_controller'),
     ShowArticle: () => import('#app/articles/controllers/show_article_controller'),
+    ShowArticleOgImage: () => import('#app/articles/controllers/show_article_og_image_controller'),
   },
   auth: {
     Login: () => import('#app/auth/controllers/login_controller'),

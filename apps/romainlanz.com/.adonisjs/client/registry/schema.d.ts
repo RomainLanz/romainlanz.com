@@ -31,6 +31,18 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#admin/pages/controllers/pages_controller').default['dashboard']>>>
     }
   }
+  'admin.og.preview': {
+    methods: ["GET","HEAD"]
+    pattern: '/admin/og/preview'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: ExtractQueryForGet<InferInput<(typeof import('#common/controllers/compute_og_image_controllers').default)['validator']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#common/controllers/compute_og_image_controllers').default['execute']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#common/controllers/compute_og_image_controllers').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
   'admin.articles.index': {
     methods: ["GET","HEAD"]
     pattern: '/admin/articles'
@@ -175,18 +187,6 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#admin/taxonomies/controllers/store_category_controller').default['execute']>>>
     }
   }
-  'og.compute': {
-    methods: ["GET","HEAD"]
-    pattern: '/og/compute'
-    types: {
-      body: {}
-      paramsTuple: []
-      params: {}
-      query: ExtractQueryForGet<InferInput<(typeof import('#common/controllers/compute_og_image_controllers').default)['validator']>>
-      response: ExtractResponse<Awaited<ReturnType<import('#common/controllers/compute_og_image_controllers').default['execute']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#common/controllers/compute_og_image_controllers').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
-    }
-  }
   'pages.landing': {
     methods: ["GET","HEAD"]
     pattern: '/'
@@ -209,6 +209,18 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#articles/controllers/list_articles_controller').default['render']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#articles/controllers/list_articles_controller').default['render']>>>
+    }
+  }
+  'articles.og': {
+    methods: ["GET","HEAD"]
+    pattern: '/articles/:slug/og.png'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { slug: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#articles/controllers/show_article_og_image_controller').default['render']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#articles/controllers/show_article_og_image_controller').default['render']>>>
     }
   }
   'articles.show': {

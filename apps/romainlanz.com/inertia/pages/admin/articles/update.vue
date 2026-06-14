@@ -12,6 +12,7 @@
 	import { computed, ref } from 'vue';
 	import { client } from '~/client';
 	import MarkdownEditor from '~/components/admin/articles/markdown_editor.vue';
+	import OgImagePreview from '~/components/admin/articles/og_image_preview.vue';
 	import { toDatetimeLocalInputValue } from '~/components/admin/articles/published_at';
 	import { usePageTitle } from '~/composables/use_page_title';
 
@@ -56,6 +57,7 @@
 		<form class="flex flex-col gap-3" @submit.prevent="handleSubmit">
 			<Field v-model="form.title" label="Titre" type="text" :error-message="form.errors.title" />
 			<Field v-model="form.summary" label="Résumé" type="text" :error-message="form.errors.summary" />
+			<OgImagePreview :title="form.title" :summary="form.summary" />
 			<Field v-model="form.slug" label="Slug" type="text" :error-message="form.errors.slug" />
 			<Field
 				v-model="form.publishedAt"

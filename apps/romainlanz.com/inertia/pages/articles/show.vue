@@ -21,10 +21,8 @@
 		<meta property="og:title" :content="vm.article.title" />
 		<meta property="og:description" :content="escapedSummary" />
 		<meta property="og:image" :content="ogImageUrl" />
-
-		<meta name="og:title" :content="vm.article.title" />
-		<meta name="og:description" :content="escapedSummary" />
-		<meta name="og:image" :content="ogImageUrl" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta property="twitter:domain" content="romainlanz.com" />

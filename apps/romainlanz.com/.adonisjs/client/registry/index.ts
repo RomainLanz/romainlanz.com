@@ -18,6 +18,12 @@ const routes = {
     tokens: [{"old":"/admin/dashboard","type":0,"val":"admin","end":""},{"old":"/admin/dashboard","type":0,"val":"dashboard","end":""}],
     types: placeholder as Registry['admin.pages.dashboard']['types'],
   },
+  'admin.og.preview': {
+    methods: ["GET","HEAD"],
+    pattern: '/admin/og/preview',
+    tokens: [{"old":"/admin/og/preview","type":0,"val":"admin","end":""},{"old":"/admin/og/preview","type":0,"val":"og","end":""},{"old":"/admin/og/preview","type":0,"val":"preview","end":""}],
+    types: placeholder as Registry['admin.og.preview']['types'],
+  },
   'admin.articles.index': {
     methods: ["GET","HEAD"],
     pattern: '/admin/articles',
@@ -90,12 +96,6 @@ const routes = {
     tokens: [{"old":"/admin/taxonomies/categories","type":0,"val":"admin","end":""},{"old":"/admin/taxonomies/categories","type":0,"val":"taxonomies","end":""},{"old":"/admin/taxonomies/categories","type":0,"val":"categories","end":""}],
     types: placeholder as Registry['admin.taxonomies.categories.store']['types'],
   },
-  'og.compute': {
-    methods: ["GET","HEAD"],
-    pattern: '/og/compute',
-    tokens: [{"old":"/og/compute","type":0,"val":"og","end":""},{"old":"/og/compute","type":0,"val":"compute","end":""}],
-    types: placeholder as Registry['og.compute']['types'],
-  },
   'pages.landing': {
     methods: ["GET","HEAD"],
     pattern: '/',
@@ -107,6 +107,12 @@ const routes = {
     pattern: '/articles',
     tokens: [{"old":"/articles","type":0,"val":"articles","end":""}],
     types: placeholder as Registry['articles.index']['types'],
+  },
+  'articles.og': {
+    methods: ["GET","HEAD"],
+    pattern: '/articles/:slug/og.png',
+    tokens: [{"old":"/articles/:slug/og.png","type":0,"val":"articles","end":""},{"old":"/articles/:slug/og.png","type":1,"val":"slug","end":""},{"old":"/articles/:slug/og.png","type":0,"val":"og.png","end":""}],
+    types: placeholder as Registry['articles.og']['types'],
   },
   'articles.show': {
     methods: ["GET","HEAD"],
