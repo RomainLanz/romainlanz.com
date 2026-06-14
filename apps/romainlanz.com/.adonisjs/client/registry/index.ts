@@ -24,6 +24,12 @@ const routes = {
     tokens: [{"old":"/articles/:slug","type":0,"val":"articles","end":""},{"old":"/articles/:slug","type":1,"val":"slug","end":""}],
     types: placeholder as Registry['articles.show']['types'],
   },
+  'healthz': {
+    methods: ["GET","HEAD"],
+    pattern: '/healthz',
+    tokens: [{"old":"/healthz","type":0,"val":"healthz","end":""}],
+    types: placeholder as Registry['healthz']['types'],
+  },
   'pages.landing': {
     methods: ["GET","HEAD"],
     pattern: '/',

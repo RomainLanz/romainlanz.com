@@ -1,6 +1,7 @@
 import '#admin/routes';
 import '#articles/routes';
 import '#auth/routes';
+import '#core/routes';
 import '#media/routes';
 import '#pages/routes';
 import '#paste/routes';

@@ -33,6 +33,9 @@ export const controllers = {
     Login: () => import('#app/auth/controllers/login_controller'),
     Logout: () => import('#app/auth/controllers/logout_controller'),
   },
+  core: {
+    HealthChecks: () => import('#app/core/controllers/health_checks_controller'),
+  },
   media: {
     UploadImage: () => import('#app/media/controllers/upload_image_controller'),
   },

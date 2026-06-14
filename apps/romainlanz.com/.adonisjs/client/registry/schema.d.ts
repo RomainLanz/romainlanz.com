@@ -43,6 +43,18 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/articles/controllers/show_article_controller').default['render']>>>
     }
   }
+  'healthz': {
+    methods: ["GET","HEAD"]
+    pattern: '/healthz'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#core/controllers/health_checks_controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#core/controllers/health_checks_controller').default['handle']>>>
+    }
+  }
   'pages.landing': {
     methods: ["GET","HEAD"]
     pattern: '/'

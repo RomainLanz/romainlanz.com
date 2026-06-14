@@ -7,6 +7,7 @@ export type ScannedRoutes = {
     'articles.index': { paramsTuple?: []; params?: {} }
     'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
     'articles.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
+    'healthz': { paramsTuple?: []; params?: {} }
     'pages.landing': { paramsTuple?: []; params?: {} }
     'pages.contact': { paramsTuple?: []; params?: {} }
     'pages.contact.store': { paramsTuple?: []; params?: {} }
@@ -38,6 +39,7 @@ export type ScannedRoutes = {
     'articles.index': { paramsTuple?: []; params?: {} }
     'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
     'articles.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
+    'healthz': { paramsTuple?: []; params?: {} }
     'pages.landing': { paramsTuple?: []; params?: {} }
     'pages.contact': { paramsTuple?: []; params?: {} }
     'pages.about': { paramsTuple?: []; params?: {} }
@@ -59,6 +61,7 @@ export type ScannedRoutes = {
     'articles.index': { paramsTuple?: []; params?: {} }
     'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
     'articles.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
+    'healthz': { paramsTuple?: []; params?: {} }
     'pages.landing': { paramsTuple?: []; params?: {} }
     'pages.contact': { paramsTuple?: []; params?: {} }
     'pages.about': { paramsTuple?: []; params?: {} }

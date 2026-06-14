@@ -26,6 +26,7 @@ export default await Env.create(new URL('../', import.meta.url), {
 	APP_NAME: Env.schema.string(),
 	APP_ENV: Env.schema.enum(['development', 'staging', 'production'] as const),
 	MONOCLE_API_KEY: Env.schema.string.optional(),
+	HEALTH_CHECK_SECRET: Env.schema.string.optional(),
 
 	// Session
 	SESSION_DRIVER: Env.schema.enum(['cookie', 'memory'] as const),

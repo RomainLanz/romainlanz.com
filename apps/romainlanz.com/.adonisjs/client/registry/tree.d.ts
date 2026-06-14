@@ -7,6 +7,7 @@ export interface ApiDefinition {
     og: typeof routes['articles.og']
     show: typeof routes['articles.show']
   }
+  healthz: typeof routes['healthz']
   pages: {
     landing: typeof routes['pages.landing']
     contact: typeof routes['pages.contact'] & {
