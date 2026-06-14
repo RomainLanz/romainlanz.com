@@ -52,8 +52,8 @@
 	<div class="mx-auto max-w-7xl p-4">
 		<h1 class="mt-27 mb-15 border-b-2 border-solid border-gray-900 pb-6">Tous les articles</h1>
 
-		<div class="lg:cols-3 grid gap-6">
-			<aside class="col-span-1">
+		<div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+			<aside class="lg:col-span-1">
 				<h3 class="text-sm font-bold uppercase">Categories</h3>
 
 				<CategoryListing
@@ -65,7 +65,7 @@
 				/>
 			</aside>
 
-			<section class="col-span-2 flex flex-col gap-4">
+			<section class="flex flex-col gap-4 lg:col-span-2">
 				<ArticleCard
 					v-for="article in vm.articles"
 					:key="article.id"
