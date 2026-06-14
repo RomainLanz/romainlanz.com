@@ -55,6 +55,7 @@ export default defineConfig({
 		() => import('@adonisjs/mail/mail_provider'),
 		() => import('@adonisjs/inertia/inertia_provider'),
 		() => import('./providers/api_provider.js'),
+		() => import('@monocle.sh/adonisjs-agent/monocle_provider'),
 	],
 
 	preloads: [

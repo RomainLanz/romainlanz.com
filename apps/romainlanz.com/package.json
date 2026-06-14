@@ -56,6 +56,7 @@
 		"@adonisjs/vite": "^5.1.1",
 		"@formkit/auto-animate": "^0.8.2",
 		"@inertiajs/vue3": "catalog:",
+		"@monocle.sh/adonisjs-agent": "^1.4.1",
 		"@poppinss/defer": "^1.1.1",
 		"@rlanz/design-system": "workspace:*",
 		"@shikijs/rehype": "^3.6.0",
