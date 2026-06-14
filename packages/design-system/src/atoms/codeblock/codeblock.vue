@@ -28,6 +28,7 @@
 						'border-b-gray-800 bg-yellow-300': activeTab !== tab,
 						'border-b-yellow-100 bg-yellow-100': activeTab === tab,
 					}"
+					type="button"
 					@click="activeTab = tab"
 				>
 					{{ tab }}
