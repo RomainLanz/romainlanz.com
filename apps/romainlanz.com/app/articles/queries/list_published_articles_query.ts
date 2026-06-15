@@ -3,6 +3,10 @@ import { DateTime } from 'luxon';
 import { Article } from '#articles/domain/article';
 import { ArticleIdentifier } from '#articles/domain/article_identifier';
 import { PublishedArticlesQueryBuilder } from '#articles/queries/published_articles_query_builder';
+import { db } from '#core/services/db';
+import { Tag } from '#taxonomies/domain/tag';
+import { parseTagColor } from '#taxonomies/domain/tag_color';
+import { TagIdentifier } from '#taxonomies/domain/tag_identifier';
 
 interface ListPublishedArticlesQueryInput {
 	page: number;
@@ -31,6 +35,34 @@ export class ListPublishedArticlesQuery {
 			.limit(input.perPage)
 			.execute();
 
+		const articleIds = articleRecords.map((article) => article.id);
+		const tagRecords =
+			articleIds.length > 0
+				? await db
+						.selectFrom('tag_articles')
+						.innerJoin('tags', 'tag_articles.tag_id', 'tags.id')
+						.select(['tag_articles.article_id', 'tags.id', 'tags.name', 'tags.slug', 'tags.color'])
+						.where('tag_articles.article_id', 'in', articleIds)
+						.orderBy('tags.name')
+						.execute()
+				: [];
+
+		const tagsByArticleId = new Map<string, Tag[]>();
+		for (const tagRecord of tagRecords) {
+			const tags = tagsByArticleId.get(tagRecord.article_id) ?? [];
+
+			tags.push(
+				Tag.create({
+					id: TagIdentifier.fromString(tagRecord.id),
+					name: tagRecord.name,
+					slug: tagRecord.slug,
+					color: parseTagColor(tagRecord.color),
+				}),
+			);
+
+			tagsByArticleId.set(tagRecord.article_id, tags);
+		}
+
 		return articleRecords.map((article) => {
 			return Article.create({
 				id: ArticleIdentifier.fromString(article.id),
@@ -40,6 +72,7 @@ export class ListPublishedArticlesQuery {
 				summary: article.summary,
 				readingTime: article.reading_time,
 				content: null,
+				tags: tagsByArticleId.get(article.id) ?? [],
 			});
 		});
 	}

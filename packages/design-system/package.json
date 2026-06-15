@@ -24,7 +24,10 @@
 		"./reference-link": "./src/atoms/reference_link/reference_link.vue",
 		"./table": "./src/atoms/table/table.vue",
 		"./tag": "./src/atoms/tag/tag.vue",
-		"./tag-color": "./src/atoms/tag/tag_color.ts",
+		"./tag-color": {
+			"types": "./src/atoms/tag/tag_color.d.ts",
+			"default": "./src/atoms/tag/tag_color.js"
+		},
 		"./toaster": "./src/atoms/toast/index.ts",
 		"./alert-note": "./src/molecules/alert_note/alert_note.vue",
 		"./article-card": "./src/molecules/article_card/article_card.vue",

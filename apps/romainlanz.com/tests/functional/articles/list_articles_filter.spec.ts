@@ -32,6 +32,27 @@ test.group('List articles filters', (group) => {
 		assert.equal(props.paginationArticlesCount, 2);
 	});
 
+	test('lists published articles with their tags', async ({ client, assert }) => {
+		const adonis = await fixture.givenTag({ name: 'Adonis', slug: 'adonis', color: 'cyan' });
+		const vue = await fixture.givenTag({ name: 'Vue', slug: 'vue', color: 'lime' });
+		await fixture.givenPublishedArticles([{ title: 'Tagged article', slug: 'tagged-article', tags: [vue, adonis] }]);
+
+		const props = await fixture.visitArticles(client);
+
+		assert.deepEqual(props.vm.articles[0].tags, [
+			{
+				name: 'Adonis',
+				slug: 'adonis',
+				color: 'cyan',
+			},
+			{
+				name: 'Vue',
+				slug: 'vue',
+				color: 'lime',
+			},
+		]);
+	});
+
 	test('filters published articles by category', async ({ client, assert }) => {
 		const backend = await fixture.givenCategory({ name: 'Backend', slug: 'backend' });
 		const frontend = await fixture.givenCategory({ name: 'Frontend', slug: 'frontend' });

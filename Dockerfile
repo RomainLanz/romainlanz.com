@@ -30,6 +30,8 @@ ENV NODE_ENV=production
 ENV APP_VERSION=${APP_VERSION}
 ENV FONTCONFIG_PATH=/etc/fonts
 COPY --from=production-deps /app/node_modules /app/node_modules
+COPY --from=installer /app/packages/design-system/package.json /app/packages/design-system/package.json
+COPY --from=installer /app/packages/design-system/src/atoms/tag/tag_color.js /app/packages/design-system/src/atoms/tag/tag_color.js
 COPY --from=build /app/apps/romainlanz.com/build /app
 EXPOSE 8080
 CMD ["node", "./bin/server.js"]

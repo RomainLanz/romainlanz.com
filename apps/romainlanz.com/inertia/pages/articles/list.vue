@@ -75,6 +75,7 @@
 					:datetime="article.publishedAt"
 					:excerpt="article.summary"
 					:reading-time="5"
+					:tags="article.tags"
 				/>
 
 				<Pagination :active-page="activePage" :count="paginationCount" @page-change="onPageChange" />

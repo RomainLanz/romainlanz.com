@@ -14,7 +14,11 @@ type ArticleListPageProps = {
 	categoryListingAllArticlesCount: number;
 	paginationArticlesCount: number;
 	vm: {
-		articles: Array<{ title: string; slug: string }>;
+		articles: Array<{
+			title: string;
+			slug: string;
+			tags: Array<{ name: string; slug: string; color: string }>;
+		}>;
 	};
 };
 
