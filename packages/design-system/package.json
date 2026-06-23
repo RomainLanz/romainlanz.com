@@ -61,7 +61,7 @@
 		"@storybook/vue3-vite": "^10.4.2",
 		"@tailwindcss/vite": "catalog:",
 		"@vitejs/plugin-vue": "catalog:",
-		"@vitejs/plugin-vue-jsx": "^4.2.0",
+		"@vitejs/plugin-vue-jsx": "^5.1.6",
 		"storybook": "^10.4.2",
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
