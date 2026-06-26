@@ -1,13 +1,8 @@
 <script lang="ts" setup>
 	import { FieldErrorText, FieldLabel, FieldRoot } from '@ark-ui/vue/field';
-	import rehypeRaw from 'rehype-raw';
-	import rehypeStringify from 'rehype-stringify';
-	import remarkGfm from 'remark-gfm';
-	import remarkParse from 'remark-parse';
-	import remarkRehype from 'remark-rehype';
-	import { unified } from 'unified';
 	import { computed, ref } from 'vue';
 	import ArticleContent from '~/components/articles/article_content.vue';
+	import { createMarkdownProcessor } from '../../../../shared/markdown/processor';
 
 	const { errorMessage, label } = defineProps<{
 		errorMessage?: string;
@@ -17,12 +12,7 @@
 	const model = defineModel<string>({ required: true });
 	const activePanel = ref<'write' | 'preview'>('write');
 
-	const processor = unified()
-		.use(remarkParse)
-		.use(remarkGfm)
-		.use(remarkRehype, { allowDangerousHtml: true })
-		.use(rehypeRaw)
-		.use(rehypeStringify);
+	const processor = createMarkdownProcessor();
 
 	const preview = computed(() => {
 		if (!model.value.trim()) {

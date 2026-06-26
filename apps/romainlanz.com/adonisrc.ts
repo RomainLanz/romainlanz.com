@@ -33,6 +33,7 @@ export default defineConfig({
 		() => import('@adonisjs/core/commands'),
 		() => import('@adonisjs/bouncer/commands'),
 		() => import('@adonisjs/mail/commands'),
+		() => import('@adonisjs/cache/commands'),
 	],
 
 	providers: [
@@ -54,7 +55,9 @@ export default defineConfig({
 		() => import('@adonisjs/bouncer/bouncer_provider'),
 		() => import('@adonisjs/mail/mail_provider'),
 		() => import('@adonisjs/inertia/inertia_provider'),
+		() => import('@adonisjs/cache/cache_provider'),
 		() => import('./providers/api_provider.js'),
+		() => import('@monocle.sh/adonisjs-agent/monocle_provider'),
 	],
 
 	preloads: [

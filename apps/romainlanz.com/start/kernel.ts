@@ -40,6 +40,7 @@ server.use([
  * requests with a registered route.
  */
 router.use([
+	() => import('@monocle.sh/adonisjs-agent/monocle_middleware'),
 	() => import('@adonisjs/core/bodyparser_middleware'),
 	() => import('@adonisjs/shield/shield_middleware'),
 	() => import('#core/middleware/detect_user_locale_middleware'),

@@ -38,6 +38,10 @@ jobs:
       LOG_LEVEL: silent
       APP_KEY: zKXHe-Ahdb7aPK1ylAJlRgTefktEaACi
       APP_URL: http://localhost:3333
+      APP_NAME: romainlanz.com
+      APP_ENV: development
+      APP_VERSION: ci
+      MONOCLE_API_KEY: ''
       REDIRECT_DOMAIN: redirect.localhost
       SESSION_DRIVER: memory
       DB_HOST: 127.0.0.1

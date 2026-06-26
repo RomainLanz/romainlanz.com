@@ -6,17 +6,59 @@ import type { ApiDefinition } from './tree.d.ts'
 const placeholder: any = {}
 
 const routes = {
+  'articles.index': {
+    methods: ["GET","HEAD"],
+    pattern: '/articles',
+    tokens: [{"old":"/articles","type":0,"val":"articles","end":""}],
+    types: placeholder as Registry['articles.index']['types'],
+  },
+  'articles.og': {
+    methods: ["GET","HEAD"],
+    pattern: '/articles/:slug/og.png',
+    tokens: [{"old":"/articles/:slug/og.png","type":0,"val":"articles","end":""},{"old":"/articles/:slug/og.png","type":1,"val":"slug","end":""},{"old":"/articles/:slug/og.png","type":0,"val":"og.png","end":""}],
+    types: placeholder as Registry['articles.og']['types'],
+  },
+  'articles.show': {
+    methods: ["GET","HEAD"],
+    pattern: '/articles/:slug',
+    tokens: [{"old":"/articles/:slug","type":0,"val":"articles","end":""},{"old":"/articles/:slug","type":1,"val":"slug","end":""}],
+    types: placeholder as Registry['articles.show']['types'],
+  },
+  'healthz': {
+    methods: ["GET","HEAD"],
+    pattern: '/healthz',
+    tokens: [{"old":"/healthz","type":0,"val":"healthz","end":""}],
+    types: placeholder as Registry['healthz']['types'],
+  },
+  'pages.landing': {
+    methods: ["GET","HEAD"],
+    pattern: '/',
+    tokens: [{"old":"/","type":0,"val":"/","end":""}],
+    types: placeholder as Registry['pages.landing']['types'],
+  },
+  'pages.contact': {
+    methods: ["GET","HEAD"],
+    pattern: '/contact',
+    tokens: [{"old":"/contact","type":0,"val":"contact","end":""}],
+    types: placeholder as Registry['pages.contact']['types'],
+  },
+  'pages.contact.store': {
+    methods: ["POST"],
+    pattern: '/contact',
+    tokens: [{"old":"/contact","type":0,"val":"contact","end":""}],
+    types: placeholder as Registry['pages.contact.store']['types'],
+  },
+  'pages.about': {
+    methods: ["GET","HEAD"],
+    pattern: '/a-propos',
+    tokens: [{"old":"/a-propos","type":0,"val":"a-propos","end":""}],
+    types: placeholder as Registry['pages.about']['types'],
+  },
   'live.status': {
     methods: ["GET","HEAD"],
     pattern: '/live/status',
     tokens: [{"old":"/live/status","type":0,"val":"live","end":""},{"old":"/live/status","type":0,"val":"status","end":""}],
     types: placeholder as Registry['live.status']['types'],
-  },
-  'admin.pages.dashboard': {
-    methods: ["GET","HEAD"],
-    pattern: '/admin/dashboard',
-    tokens: [{"old":"/admin/dashboard","type":0,"val":"admin","end":""},{"old":"/admin/dashboard","type":0,"val":"dashboard","end":""}],
-    types: placeholder as Registry['admin.pages.dashboard']['types'],
   },
   'admin.og.preview': {
     methods: ["GET","HEAD"],
@@ -53,6 +95,12 @@ const routes = {
     pattern: '/admin/articles/:id',
     tokens: [{"old":"/admin/articles/:id","type":0,"val":"admin","end":""},{"old":"/admin/articles/:id","type":0,"val":"articles","end":""},{"old":"/admin/articles/:id","type":1,"val":"id","end":""}],
     types: placeholder as Registry['admin.articles.update']['types'],
+  },
+  'admin.pages.dashboard': {
+    methods: ["GET","HEAD"],
+    pattern: '/admin/dashboard',
+    tokens: [{"old":"/admin/dashboard","type":0,"val":"admin","end":""},{"old":"/admin/dashboard","type":0,"val":"dashboard","end":""}],
+    types: placeholder as Registry['admin.pages.dashboard']['types'],
   },
   'admin.redirects.index': {
     methods: ["GET","HEAD"],
@@ -107,48 +155,6 @@ const routes = {
     pattern: '/admin/taxonomies/tags',
     tokens: [{"old":"/admin/taxonomies/tags","type":0,"val":"admin","end":""},{"old":"/admin/taxonomies/tags","type":0,"val":"taxonomies","end":""},{"old":"/admin/taxonomies/tags","type":0,"val":"tags","end":""}],
     types: placeholder as Registry['admin.taxonomies.tags.store']['types'],
-  },
-  'pages.landing': {
-    methods: ["GET","HEAD"],
-    pattern: '/',
-    tokens: [{"old":"/","type":0,"val":"/","end":""}],
-    types: placeholder as Registry['pages.landing']['types'],
-  },
-  'articles.index': {
-    methods: ["GET","HEAD"],
-    pattern: '/articles',
-    tokens: [{"old":"/articles","type":0,"val":"articles","end":""}],
-    types: placeholder as Registry['articles.index']['types'],
-  },
-  'articles.og': {
-    methods: ["GET","HEAD"],
-    pattern: '/articles/:slug/og.png',
-    tokens: [{"old":"/articles/:slug/og.png","type":0,"val":"articles","end":""},{"old":"/articles/:slug/og.png","type":1,"val":"slug","end":""},{"old":"/articles/:slug/og.png","type":0,"val":"og.png","end":""}],
-    types: placeholder as Registry['articles.og']['types'],
-  },
-  'articles.show': {
-    methods: ["GET","HEAD"],
-    pattern: '/articles/:slug',
-    tokens: [{"old":"/articles/:slug","type":0,"val":"articles","end":""},{"old":"/articles/:slug","type":1,"val":"slug","end":""}],
-    types: placeholder as Registry['articles.show']['types'],
-  },
-  'pages.contact': {
-    methods: ["GET","HEAD"],
-    pattern: '/contact',
-    tokens: [{"old":"/contact","type":0,"val":"contact","end":""}],
-    types: placeholder as Registry['pages.contact']['types'],
-  },
-  'pages.contact.store': {
-    methods: ["POST"],
-    pattern: '/contact',
-    tokens: [{"old":"/contact","type":0,"val":"contact","end":""}],
-    types: placeholder as Registry['pages.contact.store']['types'],
-  },
-  'pages.about': {
-    methods: ["GET","HEAD"],
-    pattern: '/a-propos',
-    tokens: [{"old":"/a-propos","type":0,"val":"a-propos","end":""}],
-    types: placeholder as Registry['pages.about']['types'],
   },
   'auth.login': {
     methods: ["POST"],

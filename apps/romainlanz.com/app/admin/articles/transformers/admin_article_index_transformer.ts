@@ -9,12 +9,14 @@ type AdminArticleIndex = {
 
 export default class AdminArticleIndexTransformer extends BaseTransformer<AdminArticleIndex> {
 	toObject() {
-		return this.resource.articles.map((article) => ({
-			id: article.getIdentifier().toString(),
-			title: article.props.title,
-			slug: article.props.slug,
-			isPublished: article.isPublished(this.resource.now),
-			publishedAtHuman: article.props.publishedAt?.toFormat('ff') || 'Non publié',
-		}));
+		return {
+			articles: this.resource.articles.map((article) => ({
+				id: article.getIdentifier().toString(),
+				title: article.props.title,
+				slug: article.props.slug,
+				isPublished: article.isPublished(this.resource.now),
+				publishedAtHuman: article.props.publishedAt?.toFormat('ff') || 'Non publié',
+			})),
+		};
 	}
 }

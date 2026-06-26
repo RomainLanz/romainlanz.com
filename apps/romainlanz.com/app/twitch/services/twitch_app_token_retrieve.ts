@@ -1,6 +1,6 @@
+import cache from '@adonisjs/cache/services/main';
 import { Secret } from '@adonisjs/core/helpers';
 import vine from '@vinejs/vine';
-import { cache } from '#core/services/cache';
 import env from '#start/env';
 
 export class TwitchAppTokenRetrieve {
@@ -13,9 +13,10 @@ export class TwitchAppTokenRetrieve {
 	);
 
 	async get() {
-		const token = await cache.getOrSet(
-			'twitch_app_token',
-			async () => {
+		const token = await cache.getOrSet({
+			key: 'twitch_app_token',
+			ttl: 2_147_483_646,
+			factory: async () => {
 				const response = await fetch('https://id.twitch.tv/oauth2/token', {
 					method: 'POST',
 					body: JSON.stringify({
@@ -33,10 +34,7 @@ export class TwitchAppTokenRetrieve {
 
 				return data.access_token;
 			},
-			{
-				ttl: 2_147_483_646,
-			},
-		);
+		});
 
 		return new Secret(token);
 	}

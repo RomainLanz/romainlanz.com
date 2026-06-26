@@ -2,13 +2,23 @@
 import type { routes } from './index.ts'
 
 export interface ApiDefinition {
+  articles: {
+    index: typeof routes['articles.index']
+    og: typeof routes['articles.og']
+    show: typeof routes['articles.show']
+  }
+  healthz: typeof routes['healthz']
+  pages: {
+    landing: typeof routes['pages.landing']
+    contact: typeof routes['pages.contact'] & {
+      store: typeof routes['pages.contact.store']
+    }
+    about: typeof routes['pages.about']
+  }
   live: {
     status: typeof routes['live.status']
   }
   admin: {
-    pages: {
-      dashboard: typeof routes['admin.pages.dashboard']
-    }
     og: {
       preview: typeof routes['admin.og.preview']
     }
@@ -18,6 +28,9 @@ export interface ApiDefinition {
       store: typeof routes['admin.articles.store']
       edit: typeof routes['admin.articles.edit']
       update: typeof routes['admin.articles.update']
+    }
+    pages: {
+      dashboard: typeof routes['admin.pages.dashboard']
     }
     redirects: {
       index: typeof routes['admin.redirects.index']
@@ -36,18 +49,6 @@ export interface ApiDefinition {
         store: typeof routes['admin.taxonomies.tags.store']
       }
     }
-  }
-  pages: {
-    landing: typeof routes['pages.landing']
-    contact: typeof routes['pages.contact'] & {
-      store: typeof routes['pages.contact.store']
-    }
-    about: typeof routes['pages.about']
-  }
-  articles: {
-    index: typeof routes['articles.index']
-    og: typeof routes['articles.og']
-    show: typeof routes['articles.show']
   }
   auth: {
     login: typeof routes['auth.login']

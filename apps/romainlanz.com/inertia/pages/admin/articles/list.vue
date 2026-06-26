@@ -36,7 +36,7 @@
 	];
 
 	const items = computed(() => {
-		return vm.map((article) => ({
+		return vm.articles.map((article) => ({
 			id: article.id,
 			title: article.title,
 			slug: article.slug,
