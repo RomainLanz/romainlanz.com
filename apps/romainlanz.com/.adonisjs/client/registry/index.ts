@@ -144,6 +144,18 @@ const routes = {
     tokens: [{"old":"/admin/taxonomies/categories","type":0,"val":"admin","end":""},{"old":"/admin/taxonomies/categories","type":0,"val":"taxonomies","end":""},{"old":"/admin/taxonomies/categories","type":0,"val":"categories","end":""}],
     types: placeholder as Registry['admin.taxonomies.categories.store']['types'],
   },
+  'admin.taxonomies.tags.create': {
+    methods: ["GET","HEAD"],
+    pattern: '/admin/taxonomies/tags/create',
+    tokens: [{"old":"/admin/taxonomies/tags/create","type":0,"val":"admin","end":""},{"old":"/admin/taxonomies/tags/create","type":0,"val":"taxonomies","end":""},{"old":"/admin/taxonomies/tags/create","type":0,"val":"tags","end":""},{"old":"/admin/taxonomies/tags/create","type":0,"val":"create","end":""}],
+    types: placeholder as Registry['admin.taxonomies.tags.create']['types'],
+  },
+  'admin.taxonomies.tags.store': {
+    methods: ["POST"],
+    pattern: '/admin/taxonomies/tags',
+    tokens: [{"old":"/admin/taxonomies/tags","type":0,"val":"admin","end":""},{"old":"/admin/taxonomies/tags","type":0,"val":"taxonomies","end":""},{"old":"/admin/taxonomies/tags","type":0,"val":"tags","end":""}],
+    types: placeholder as Registry['admin.taxonomies.tags.store']['types'],
+  },
   'auth.login': {
     methods: ["POST"],
     pattern: '/login',

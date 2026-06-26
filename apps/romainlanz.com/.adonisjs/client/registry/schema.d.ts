@@ -283,6 +283,30 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_category_controller').default['execute']>>>
     }
   }
+  'admin.taxonomies.tags.create': {
+    methods: ["GET","HEAD"]
+    pattern: '/admin/taxonomies/tags/create'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_tag_controller').default['render']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_tag_controller').default['render']>>>
+    }
+  }
+  'admin.taxonomies.tags.store': {
+    methods: ["POST"]
+    pattern: '/admin/taxonomies/tags'
+    types: {
+      body: ExtractBody<InferInput<(typeof import('#app/admin/taxonomies/controllers/store_tag_controller').default)['validator']>>
+      paramsTuple: []
+      params: {}
+      query: ExtractQuery<InferInput<(typeof import('#app/admin/taxonomies/controllers/store_tag_controller').default)['validator']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_tag_controller').default['execute']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_tag_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
   'auth.login': {
     methods: ["POST"]
     pattern: '/login'

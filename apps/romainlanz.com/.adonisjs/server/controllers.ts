@@ -22,6 +22,7 @@ export const controllers = {
     taxonomies: {
       ListTaxonomies: () => import('#app/admin/taxonomies/controllers/list_taxonomies_controller'),
       StoreCategory: () => import('#app/admin/taxonomies/controllers/store_category_controller'),
+      StoreTag: () => import('#app/admin/taxonomies/controllers/store_tag_controller'),
     },
   },
   articles: {
