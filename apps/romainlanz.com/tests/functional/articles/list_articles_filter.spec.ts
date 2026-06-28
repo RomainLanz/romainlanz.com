@@ -41,11 +41,13 @@ test.group('List articles filters', (group) => {
 
 		assert.deepEqual(props.vm.articles[0].tags, [
 			{
+				id: adonis.id,
 				name: 'Adonis',
 				slug: 'adonis',
 				color: 'cyan',
 			},
 			{
+				id: vue.id,
 				name: 'Vue',
 				slug: 'vue',
 				color: 'lime',

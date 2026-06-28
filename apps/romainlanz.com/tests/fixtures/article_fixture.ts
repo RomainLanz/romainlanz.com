@@ -17,7 +17,7 @@ type ArticleListPageProps = {
 		articles: Array<{
 			title: string;
 			slug: string;
-			tags: Array<{ name: string; slug: string; color: string }>;
+			tags: Array<{ id: string; name: string; slug: string; color: string }>;
 		}>;
 	};
 };
