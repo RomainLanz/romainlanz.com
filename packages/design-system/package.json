@@ -57,16 +57,16 @@
 	},
 	"devDependencies": {
 		"@chromatic-com/storybook": "^5.2.1",
-		"@storybook/vue3": "^10.4.2",
-		"@storybook/vue3-vite": "^10.4.2",
+		"@storybook/vue3": "^10.4.6",
+		"@storybook/vue3-vite": "^10.4.6",
 		"@tailwindcss/vite": "catalog:",
 		"@vitejs/plugin-vue": "catalog:",
 		"@vitejs/plugin-vue-jsx": "^4.2.0",
-		"storybook": "^10.4.2",
+		"storybook": "^10.4.6",
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
 		"vite": "catalog:",
-		"vue-tsc": "^2.2.10"
+		"vue-tsc": "^2.2.12"
 	},
 	"volta": {
 		"extends": "../../package.json"
