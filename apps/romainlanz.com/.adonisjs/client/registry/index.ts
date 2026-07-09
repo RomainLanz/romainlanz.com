@@ -54,6 +54,12 @@ const routes = {
     tokens: [{"old":"/a-propos","type":0,"val":"a-propos","end":""}],
     types: placeholder as Registry['pages.about']['types'],
   },
+  'pages.partners': {
+    methods: ["GET","HEAD"],
+    pattern: '/partenaires',
+    tokens: [{"old":"/partenaires","type":0,"val":"partenaires","end":""}],
+    types: placeholder as Registry['pages.partners']['types'],
+  },
   'live.status': {
     methods: ["GET","HEAD"],
     pattern: '/live/status',

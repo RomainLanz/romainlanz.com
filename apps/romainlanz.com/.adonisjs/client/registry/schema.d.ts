@@ -103,6 +103,18 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/pages/controllers/about_controller').default['render']>>>
     }
   }
+  'pages.partners': {
+    methods: ["GET","HEAD"]
+    pattern: '/partenaires'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#app/pages/controllers/partners_controller').default['render']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/pages/controllers/partners_controller').default['render']>>>
+    }
+  }
   'live.status': {
     methods: ["GET","HEAD"]
     pattern: '/live/status'

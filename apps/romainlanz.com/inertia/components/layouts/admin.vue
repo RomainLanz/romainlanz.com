@@ -12,6 +12,7 @@
 	const adminUrl = client.urlFor('admin.pages.dashboard');
 	const contactUrl = client.urlFor('pages.contact');
 	const homeUrl = client.urlFor('pages.landing');
+	const partnersUrl = client.urlFor('pages.partners');
 </script>
 
 <template>
@@ -29,7 +30,7 @@
 				</div>
 			</main>
 
-			<Footer :about-href="aboutUrl" :contact-href="contactUrl" :home-href="homeUrl" />
+			<Footer :about-href="aboutUrl" :contact-href="contactUrl" :home-href="homeUrl" :partners-href="partnersUrl" />
 		</div>
 	</div>
 </template>

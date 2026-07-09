@@ -26,6 +26,7 @@ declare module '@adonisjs/inertia/types' {
     'errors/server_error': ExtractProps<(typeof import('../../inertia/pages/errors/server_error.vue'))['default']>
     'errors/unauthorized': ExtractProps<(typeof import('../../inertia/pages/errors/unauthorized.vue'))['default']>
     'landing': ExtractProps<(typeof import('../../inertia/pages/landing.vue'))['default']>
+    'partners': ExtractProps<(typeof import('../../inertia/pages/partners.vue'))['default']>
     'pastes/create': ExtractProps<(typeof import('../../inertia/pages/pastes/create.vue'))['default']>
     'pastes/show': ExtractProps<(typeof import('../../inertia/pages/pastes/show.vue'))['default']>
   }

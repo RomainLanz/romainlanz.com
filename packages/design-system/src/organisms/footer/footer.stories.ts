@@ -16,5 +16,6 @@ export const Base = meta.story({
 		aboutHref: '#',
 		contactHref: '#',
 		homeHref: '#',
+		partnersHref: '#',
 	},
 });

@@ -14,6 +14,7 @@ export interface ApiDefinition {
       store: typeof routes['pages.contact.store']
     }
     about: typeof routes['pages.about']
+    partners: typeof routes['pages.partners']
   }
   live: {
     status: typeof routes['live.status']

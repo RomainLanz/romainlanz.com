@@ -8,6 +8,7 @@
 		aboutHref: string;
 		contactHref: string;
 		homeHref: string;
+		partnersHref: string;
 	}>();
 </script>
 
@@ -65,10 +66,13 @@
 				<FooterSection title="Partenaires">
 					<ul class="flex list-none flex-col gap-1 pl-0 text-sm">
 						<li>
-							<a href="https://hetzner.cloud/?ref=Qkd3MiGZUIgB" rel="sponsored">Hetzner</a>
+							<Link :href="partnersHref" prefetch>Mes partenaires</Link>
 						</li>
 						<li>
-							<a href="https://app.codecrafters.io/join?via=RomainLanz" rel="sponsored">CodeCrafters</a>
+							<a href="https://go.getproton.me/SH1vL" rel="sponsored">Proton AG</a>
+						</li>
+						<li>
+							<a href="https://www.infomaniak.com/goto/fr/home?utm_term=6a44107438c4d" rel="sponsored">Infomaniak</a>
 						</li>
 					</ul>
 				</FooterSection>

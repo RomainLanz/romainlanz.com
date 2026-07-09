@@ -46,6 +46,7 @@ export const controllers = {
     About: () => import('#app/pages/controllers/about_controller'),
     Contact: () => import('#app/pages/controllers/contact_controller'),
     Landing: () => import('#app/pages/controllers/landing_controller'),
+    Partners: () => import('#app/pages/controllers/partners_controller'),
   },
   paste: {
     ShowPaste: () => import('#app/paste/controllers/show_paste_controller'),
