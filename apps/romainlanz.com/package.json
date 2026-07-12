@@ -98,7 +98,7 @@
 		"@tailwindcss/vite": "catalog:",
 		"@types/dlv": "^1.1.5",
 		"@types/luxon": "^3.6.2",
-		"@types/mjml": "^4.7.4",
+		"@types/mjml": "^5.0.0",
 		"@types/node": "^24",
 		"@types/pg": "^8.15.4",
 		"@vitejs/plugin-vue": "catalog:",
