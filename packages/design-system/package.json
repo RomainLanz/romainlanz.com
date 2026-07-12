@@ -52,7 +52,7 @@
 	"dependencies": {
 		"@ark-ui/vue": "5.37.2",
 		"@inertiajs/vue3": "catalog:",
-		"tailwind-variants": "^1.0.0",
+		"tailwind-variants": "^3.2.2",
 		"vue": "catalog:"
 	},
 	"devDependencies": {
