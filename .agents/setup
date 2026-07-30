@@ -73,9 +73,11 @@ else
 	sudo -u postgres psql -v ON_ERROR_STOP=1 -c "ALTER ROLE root WITH LOGIN PASSWORD 'root'" >/dev/null
 fi
 
-if ! sudo -u postgres psql -tAc "SELECT 1 FROM pg_database WHERE datname = 'romainlanz'" | grep -q 1; then
-	sudo -u postgres createdb --owner=root romainlanz
-fi
+for database in romainlanz romainlanz_test; do
+	if ! sudo -u postgres psql -tAc "SELECT 1 FROM pg_database WHERE datname = '$database'" | grep -q 1; then
+		sudo -u postgres createdb --owner=root "$database"
+	fi
+done
 
 echo "==> Creating the local application environment"
 app_env="$app_root/.env"

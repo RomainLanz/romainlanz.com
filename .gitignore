@@ -8,6 +8,7 @@ tmp
 .env.local
 .env.production.local
 .env.development.local
+!apps/romainlanz.com/.env.test
 
 # Frontend assets compiled code & Uploads
 public/assets
