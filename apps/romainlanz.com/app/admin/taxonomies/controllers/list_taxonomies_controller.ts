@@ -1,4 +1,5 @@
 import { inject } from '@adonisjs/core';
+import { TaxonomyPolicy } from '#admin/taxonomies/policies/taxonomy_policy';
 import AdminTaxonomyIndexTransformer from '#admin/taxonomies/transformers/admin_taxonomy_index_transformer';
 import { ListCategoriesQuery } from '#taxonomies/queries/list_categories_query';
 import { ListTagsQuery } from '#taxonomies/queries/list_tags_query';
@@ -11,7 +12,9 @@ export default class ListTaxonomiesController {
 		private readonly listTags: ListTagsQuery,
 	) {}
 
-	async render({ inertia }: HttpContext) {
+	async render({ bouncer, inertia }: HttpContext) {
+		await bouncer.with(TaxonomyPolicy).authorize('manage');
+
 		const categories = await this.listCategories.execute();
 		const tags = await this.listTags.execute();
 

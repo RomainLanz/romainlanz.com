@@ -1,6 +1,7 @@
 import { UserRepository } from '#auth/repositories/user_repository';
+import { db } from '#core/services/db';
 import { FindTagBySlugQuery } from '#taxonomies/queries/find_tag_by_slug_query';
-import { AdminFactory, TagFactory } from '#tests/factories/index';
+import { AdminFactory, TagFactory, UserFactory } from '#tests/factories/index';
 import { DatabaseFixture } from '#tests/fixtures/database_fixture';
 import type { FactoryInsert } from '#tests/factories/index';
 import type { ApiClient } from '@japa/api-client';
@@ -23,6 +24,17 @@ export class AdminTagFixture extends DatabaseFixture {
 
 	givenTag(input: Partial<FactoryInsert<'tags'>> = {}) {
 		return TagFactory.create(input);
+	}
+
+	async givenUser() {
+		const userRecord = await UserFactory.create();
+		const user = await this.#userRepository.findUserByEmail(userRecord.email);
+
+		if (!user) {
+			throw new Error('User was not created');
+		}
+
+		return user;
 	}
 
 	async visitTaxonomiesAsAdmin(client: ApiClient) {
@@ -61,6 +73,12 @@ export class AdminTagFixture extends DatabaseFixture {
 			},
 			expected,
 		);
+	}
+
+	async thenTagShouldNotExist(slug: string) {
+		const tag = await db.selectFrom('tags').selectAll().where('slug', '=', slug).executeTakeFirst();
+
+		this.assert.isUndefined(tag);
 	}
 
 	private async createAdmin() {

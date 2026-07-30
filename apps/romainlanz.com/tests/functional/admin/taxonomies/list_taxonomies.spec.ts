@@ -9,6 +9,13 @@ test.group('Admin taxonomy listing', (group) => {
 		await fixture.resetDatabase();
 	});
 
+	test('forbids a regular user from listing taxonomies', async ({ client }) => {
+		const user = await fixture.givenUser();
+		const response = await client.get('/admin/taxonomies').loginAs(user);
+
+		response.assertStatus(403);
+	});
+
 	test('lists Tags with their admin fields', async ({ client, assert }) => {
 		await fixture.givenTag({ name: 'Adonis JS', slug: 'adonis', color: 'cyan' });
 		await fixture.givenTag({ name: 'Vue JS', slug: 'vue', color: 'lime' });

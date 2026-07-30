@@ -9,6 +9,20 @@ test.group('Admin tag creation', (group) => {
 		await fixture.resetDatabase();
 	});
 
+	test('forbids a regular user from creating a Tag', async ({ client }) => {
+		const user = await fixture.givenUser();
+		const response = await client
+			.post('/admin/taxonomies/tags')
+			.loginAs(user)
+			.withCsrfToken()
+			.redirects(0)
+			.header('accept', 'application/json')
+			.form({ name: 'Vue JS', color: 'cyan' });
+
+		response.assertStatus(403);
+		await fixture.thenTagShouldNotExist('vue-js');
+	});
+
 	test('creates a Tag with a custom slug and a controlled color', async ({ client }) => {
 		const response = await fixture.createTagAsAdmin(client, {
 			name: 'Vue JS',

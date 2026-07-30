@@ -1,0 +1,8 @@
+import { BasePolicy } from '@adonisjs/bouncer';
+import type { User } from '#auth/domain/user';
+
+export class TaxonomyPolicy extends BasePolicy {
+	manage(user: User) {
+		return user.isAdmin();
+	}
+}
