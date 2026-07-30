@@ -1,5 +1,5 @@
 import { Entity } from '#core/domain/entity';
-import type { CategoryIdentifier } from './category_identifier.js';
+import type { CategoryIdentifier } from '#taxonomies/domain/category_identifier';
 import type { IllustrationName } from '@rlanz/design-system/illustration-name';
 
 interface Properties {

@@ -1,5 +1,5 @@
 import { Entity } from '#core/domain/entity';
-import type { TagIdentifier } from './tag_identifier.js';
+import type { TagIdentifier } from '#taxonomies/domain/tag_identifier';
 import type { TagColor } from '@rlanz/design-system/tag-color';
 
 interface Properties {

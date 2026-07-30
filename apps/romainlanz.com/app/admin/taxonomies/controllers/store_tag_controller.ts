@@ -2,11 +2,8 @@ import { inject } from '@adonisjs/core';
 import { tagColors } from '@rlanz/design-system/tag-color';
 import vine from '@vinejs/vine';
 import { TaxonomyPolicy } from '#admin/taxonomies/policies/taxonomy_policy';
-import {
-	TagNameAlreadyExistsError,
-	TagRepository,
-	TagSlugAlreadyExistsError,
-} from '#taxonomies/repositories/tag_repository';
+import { CreateTag } from '#taxonomies/actions/create_tag';
+import { TagNameAlreadyExistsError, TagSlugAlreadyExistsError } from '#taxonomies/repositories/tag_repository';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()
@@ -22,7 +19,7 @@ export default class StoreTagController {
 		}),
 	);
 
-	constructor(private readonly repository: TagRepository) {}
+	constructor(private readonly createTag: CreateTag) {}
 
 	async render({ bouncer, inertia }: HttpContext) {
 		await bouncer.with(TaxonomyPolicy).authorize('manage');
@@ -36,7 +33,7 @@ export default class StoreTagController {
 		const payload = await request.validateUsing(StoreTagController.validator);
 
 		try {
-			await this.repository.create(payload);
+			await this.createTag.execute(payload);
 		} catch (error) {
 			if (error instanceof TagNameAlreadyExistsError) {
 				session.flash('inputErrorsBag', {

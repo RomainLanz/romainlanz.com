@@ -3,11 +3,11 @@ import vine from '@vinejs/vine';
 import { ArticlePolicy } from '#admin/articles/policies/article_policy';
 import { GetArticleForUpdateQuery } from '#admin/articles/queries/get_article_for_update_query';
 import { tagIdsValidator } from '#admin/articles/tag_ids_validator';
+import CategoryOptionTransformer from '#app/taxonomies/transformers/category_option_transformer';
+import TagOptionTransformer from '#app/taxonomies/transformers/tag_option_transformer';
 import { UpdateArticle } from '#articles/actions/update_article';
 import { ListCategoriesQuery } from '#taxonomies/queries/list_categories_query';
 import { ListTagsQuery } from '#taxonomies/queries/list_tags_query';
-import CategoryOptionTransformer from '#taxonomies/transformers/category_option_transformer';
-import TagOptionTransformer from '#taxonomies/transformers/tag_option_transformer';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()

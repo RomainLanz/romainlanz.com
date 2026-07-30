@@ -23,7 +23,7 @@
 		"#database/*": "./database/*.js",
 		"#start/*": "./start/*.js",
 		"#config/*": "./config/*.js",
-		"#taxonomies/*": "./app/taxonomies/*.js",
+		"#taxonomies/*": "./src/taxonomies/*.js",
 		"#twitch/*": "./app/twitch/*.js",
 		"#types/*": "./types/*.js",
 		"#tests/*": "./tests/*.js",
