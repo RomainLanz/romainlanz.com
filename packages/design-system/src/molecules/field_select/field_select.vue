@@ -26,12 +26,17 @@
 		disabled?: boolean;
 	}
 
-	const { errorMessage, items } = defineProps<{
+	const {
+		errorMessage,
+		items,
+		multiple = false,
+	} = defineProps<{
 		label?: string;
 		items: FieldSelectItem[];
 		placeholder?: string;
 		errorMessage?: string;
 		helpMessage?: string;
+		multiple?: boolean;
 	}>();
 
 	const model = defineModel<any>();
@@ -45,7 +50,7 @@
 
 <template>
 	<FieldRoot class="flex flex-col gap-1" :invalid>
-		<SelectRoot v-model="model" :collection="collection">
+		<SelectRoot v-model="model" :collection="collection" :multiple>
 			<SelectLabel v-if="label" class="text-gray-800">
 				{{ label }}
 			</SelectLabel>

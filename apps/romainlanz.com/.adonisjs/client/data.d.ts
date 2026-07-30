@@ -15,6 +15,7 @@ import type AuthCurrentUserTransformer from '#app/auth/transformers/current_user
 import type PagesLandingPageTransformer from '#app/pages/transformers/landing_page_transformer'
 import type PastePastePageTransformer from '#app/paste/transformers/paste_page_transformer'
 import type TaxonomiesCategoryOptionTransformer from '#app/taxonomies/transformers/category_option_transformer'
+import type TaxonomiesTagOptionTransformer from '#app/taxonomies/transformers/tag_option_transformer'
 import type InertiaMiddleware from '#middleware/inertia_middleware'
 
 export namespace Data {
@@ -70,6 +71,10 @@ export namespace Data {
     export type CategoryOption = InferData<TaxonomiesCategoryOptionTransformer>
     export namespace CategoryOption {
       export type Variants = InferVariants<TaxonomiesCategoryOptionTransformer>
+    }
+    export type TagOption = InferData<TaxonomiesTagOptionTransformer>
+    export namespace TagOption {
+      export type Variants = InferVariants<TaxonomiesTagOptionTransformer>
     }
   }
   export type SharedProps = InferSharedProps<InertiaMiddleware>

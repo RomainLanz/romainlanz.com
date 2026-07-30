@@ -3,10 +3,13 @@ import vine from '@vinejs/vine';
 import { ArticlePolicy } from '#admin/articles/policies/article_policy';
 import { parsePublishedAt } from '#admin/articles/published_at';
 import { GetArticleForUpdateQuery } from '#admin/articles/queries/get_article_for_update_query';
+import { tagIdsValidator } from '#admin/articles/tag_ids_validator';
 import { ArticleRepository } from '#articles/repositories/article_repository';
 import { MarkdownCompiler } from '#articles/services/markdown_compiler';
 import { ListCategoriesQuery } from '#taxonomies/queries/list_categories_query';
+import { ListTagsQuery } from '#taxonomies/queries/list_tags_query';
 import CategoryOptionTransformer from '#taxonomies/transformers/category_option_transformer';
+import TagOptionTransformer from '#taxonomies/transformers/tag_option_transformer';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()
@@ -20,6 +23,7 @@ export default class UpdateArticleController {
 			publishedAt: vine.string().optional(),
 			// TODO: Validate that the category exists
 			categoryId: vine.string().uuid(),
+			tagIds: tagIdsValidator,
 		}),
 	);
 
@@ -27,29 +31,38 @@ export default class UpdateArticleController {
 		private repository: ArticleRepository,
 		private getArticleForUpdate: GetArticleForUpdateQuery,
 		private listCategories: ListCategoriesQuery,
+		private listTags: ListTagsQuery,
 		private markdownCompiler: MarkdownCompiler,
 	) {}
 
 	async render({ bouncer, params, inertia }: HttpContext) {
 		await bouncer.with(ArticlePolicy).allows('update');
 
-		const [article, categories] = await Promise.all([
+		const [article, categories, tags] = await Promise.all([
 			this.getArticleForUpdate.execute(params.id),
 			this.listCategories.execute(),
+			this.listTags.execute(),
 		]);
 
 		return inertia.render('admin/articles/update', {
 			article,
 			categories: CategoryOptionTransformer.transform(categories),
+			tags: TagOptionTransformer.transform(tags),
 		});
 	}
 
 	async execute({ bouncer, request, response }: HttpContext) {
 		await bouncer.with(ArticlePolicy).allows('update');
 
-		const { title, summary, slug, markdownContent, publishedAt, categoryId } = await request.validateUsing(
-			UpdateArticleController.validator,
-		);
+		const {
+			title,
+			summary,
+			slug,
+			markdownContent,
+			publishedAt,
+			categoryId,
+			tagIds = [],
+		} = await request.validateUsing(UpdateArticleController.validator);
 
 		const markdownHtml = await this.markdownCompiler.toHtml(markdownContent);
 
@@ -63,6 +76,7 @@ export default class UpdateArticleController {
 			readingTime: Math.ceil((markdownContent.split(' ').length || 0) / 238),
 			publishedAt: parsePublishedAt(publishedAt),
 			categoryId,
+			tagIds,
 		});
 
 		return response.redirect().toRoute('admin.articles.index');

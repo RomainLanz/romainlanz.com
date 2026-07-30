@@ -11,8 +11,9 @@
 	import OgImagePreview from '~/components/admin/articles/og_image_preview.vue';
 	import { usePageTitle } from '~/composables/use_page_title';
 
-	const { categories } = defineProps<{
+	const { categories, tags } = defineProps<{
 		categories: Data.Taxonomies.CategoryOption[];
+		tags: Data.Taxonomies.TagOption[];
 	}>();
 
 	usePageTitle('Écrire un article');
@@ -23,21 +24,28 @@
 		markdownContent: '',
 		publishedAt: '',
 		categoryId: '',
+		tagIds: [] as string[],
 	});
 
-	const items = computed(() => {
+	const categoryItems = computed(() => {
 		return categories.map((category) => ({
 			value: category.id,
 			label: category.name,
 		}));
 	});
+	const tagItems = computed(() => tags.map((tag) => ({ value: tag.id, label: tag.name })));
+	const tagIdsError = computed(
+		() => Object.entries(form.errors).find(([field]) => field === 'tagIds' || field.startsWith('tagIds.'))?.[1],
+	);
 
 	const category = ref<string[]>();
+	const selectedTags = ref<string[]>([]);
 
 	function handleSubmit() {
 		const url = client.urlFor('admin.articles.store');
 
 		form.categoryId = category.value?.[0];
+		form.tagIds = selectedTags.value;
 
 		form.post(url, {});
 	}
@@ -60,8 +68,16 @@
 				v-model="category"
 				label="Catégorie"
 				placeholder="Choisir une catégorie"
-				:items
+				:items="categoryItems"
 				:error-message="form.errors.categoryId"
+			/>
+			<FieldSelect
+				v-model="selectedTags"
+				label="Tags"
+				placeholder="Choisir des Tags"
+				:items="tagItems"
+				multiple
+				:error-message="tagIdsError"
 			/>
 
 			<MarkdownEditor v-model="form.markdownContent" label="Contenu" :error-message="form.errors.markdownContent" />

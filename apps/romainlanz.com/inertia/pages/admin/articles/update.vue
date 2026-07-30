@@ -19,9 +19,10 @@
 	export interface Props {
 		article: InferPageProps<UpdateArticleController, 'render'>['article'];
 		categories: InferPageProps<UpdateArticleController, 'render'>['categories'];
+		tags: InferPageProps<UpdateArticleController, 'render'>['tags'];
 	}
 
-	const { article, categories } = defineProps<Props>();
+	const { article, categories, tags } = defineProps<Props>();
 
 	usePageTitle('Modifier un article');
 
@@ -32,21 +33,28 @@
 		markdownContent: article!.content_markdown,
 		publishedAt: toDatetimeLocalInputValue(article!.published_at),
 		categoryId: article!.category_id,
+		tagIds: article!.tag_ids,
 	});
 
-	const items = computed(() => {
+	const categoryItems = computed(() => {
 		return categories.map((category) => ({
 			value: category.id,
 			label: category.name,
 		}));
 	});
+	const tagItems = computed(() => tags.map((tag) => ({ value: tag.id, label: tag.name })));
+	const tagIdsError = computed(
+		() => Object.entries(form.errors).find(([field]) => field === 'tagIds' || field.startsWith('tagIds.'))?.[1],
+	);
 
 	const category = ref<string[]>([article!.category_id]);
+	const selectedTags = ref<string[]>(article!.tag_ids);
 
 	function handleSubmit() {
 		const url = client.urlFor('admin.articles.update', { id: article!.id });
 
 		form.categoryId = category.value?.[0];
+		form.tagIds = selectedTags.value;
 
 		form.put(url, {});
 	}
@@ -70,8 +78,16 @@
 				v-model="category"
 				label="Catégorie"
 				placeholder="Choisir une catégorie"
-				:items
+				:items="categoryItems"
 				:error-message="form.errors.categoryId"
+			/>
+			<FieldSelect
+				v-model="selectedTags"
+				label="Tags"
+				placeholder="Choisir des Tags"
+				:items="tagItems"
+				multiple
+				:error-message="tagIdsError"
 			/>
 
 			<MarkdownEditor v-model="form.markdownContent" label="Contenu" :error-message="form.errors.markdownContent" />
