@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 	import { Data } from '@generated/data';
-	import { Head, router } from '@inertiajs/vue3';
+	import { Head, Link, router } from '@inertiajs/vue3';
 	import ArticleCard from '@rlanz/design-system/article-card';
 	import CategoryListing from '@rlanz/design-system/category-listing';
 	import Pagination from '@rlanz/design-system/pagination';
+	import Tag from '@rlanz/design-system/tag';
 	import { client } from '~/client';
 
 	const {
@@ -41,6 +42,16 @@
 		return client.urlFor('articles.index', undefined, { qs: { category: category.slug } });
 	}
 
+	function computeAllTagsHref() {
+		return client.urlFor('articles.index', undefined, { qs: { category: activeCategory } });
+	}
+
+	function computeTagHref(tag: { slug: string }) {
+		return client.urlFor('articles.index', undefined, {
+			qs: { category: activeCategory, tag: tag.slug },
+		});
+	}
+
 	function computeArticleHref(slug: string) {
 		return client.urlFor('articles.show', { slug });
 	}
@@ -67,6 +78,25 @@
 					:all-articles-count="categoryListingAllArticlesCount"
 					:category-href="computeCategoryHref"
 				/>
+
+				<h3 class="mt-12 mb-4 text-sm font-bold uppercase">Tags</h3>
+
+				<div class="flex flex-wrap gap-3">
+					<Link :href="computeAllTagsHref()" :aria-current="activeTag === null ? 'page' : undefined">
+						<Tag :class="{ 'shadow-tiny': activeTag === null }">Any</Tag>
+					</Link>
+
+					<Link
+						v-for="tag in vm.tags"
+						:key="tag.id"
+						:href="computeTagHref(tag)"
+						:aria-current="activeTag === tag.slug ? 'page' : undefined"
+					>
+						<Tag :color="tag.color" :class="{ 'shadow-tiny': activeTag === tag.slug }">
+							{{ tag.name }}
+						</Tag>
+					</Link>
+				</div>
 			</aside>
 
 			<section class="flex flex-col gap-4 lg:col-span-2">

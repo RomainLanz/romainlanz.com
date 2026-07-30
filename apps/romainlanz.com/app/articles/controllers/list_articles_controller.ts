@@ -5,6 +5,7 @@ import ArticleListPageTransformer from '#articles/transformers/article_list_page
 import { FindCategoryBySlugQuery } from '#taxonomies/queries/find_category_by_slug_query';
 import { FindTagBySlugQuery } from '#taxonomies/queries/find_tag_by_slug_query';
 import { ListCategoriesWithPublishedArticlesQuery } from '#taxonomies/queries/list_categories_with_published_articles_query';
+import { ListTagsQuery } from '#taxonomies/queries/list_tags_query';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()
@@ -15,6 +16,7 @@ export default class ListArticlesController {
 		private findCategoryBySlug: FindCategoryBySlugQuery,
 		private findTagBySlug: FindTagBySlugQuery,
 		private listCategoriesWithPublishedArticles: ListCategoriesWithPublishedArticlesQuery,
+		private listTags: ListTagsQuery,
 	) {}
 
 	async render({ request, inertia }: HttpContext) {
@@ -35,9 +37,10 @@ export default class ListArticlesController {
 				? paginationArticlesCountPromise
 				: this.countPublishedArticles.execute({ categorySlug: null, tagSlug: null });
 
-		const [articles, categories, categoryListingAllArticlesCount, paginationArticlesCount] = await Promise.all([
+		const [articles, categories, tags, categoryListingAllArticlesCount, paginationArticlesCount] = await Promise.all([
 			this.listPublishedArticles.execute({ page, perPage: 4, categorySlug, tagSlug }),
 			this.listCategoriesWithPublishedArticles.execute(),
+			this.listTags.execute(),
 			categoryListingAllArticlesCountPromise,
 			paginationArticlesCountPromise,
 		]);
@@ -48,7 +51,7 @@ export default class ListArticlesController {
 			activePage: page,
 			categoryListingAllArticlesCount,
 			paginationArticlesCount,
-			vm: ArticleListPageTransformer.transform({ articles, categories }),
+			vm: ArticleListPageTransformer.transform({ articles, categories, tags }),
 		});
 	}
 }

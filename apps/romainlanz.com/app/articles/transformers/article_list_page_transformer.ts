@@ -2,10 +2,12 @@ import { assertExists } from '@adonisjs/core/helpers/assert';
 import { BaseTransformer } from '@adonisjs/core/transformers';
 import type { Article } from '#articles/domain/article';
 import type { Category } from '#taxonomies/domain/category';
+import type { Tag } from '#taxonomies/domain/tag';
 
 type ArticleListPage = {
 	articles: Article[];
 	categories: Category[];
+	tags: Tag[];
 };
 
 export default class ArticleListPageTransformer extends BaseTransformer<ArticleListPage> {
@@ -41,6 +43,12 @@ export default class ArticleListPageTransformer extends BaseTransformer<ArticleL
 					articleCount: category.props.articleCount || 0,
 				};
 			}),
+			tags: this.resource.tags.map((tag) => ({
+				id: tag.getIdentifier().toString(),
+				name: tag.props.name,
+				slug: tag.props.slug,
+				color: tag.props.color,
+			})),
 		};
 	}
 }

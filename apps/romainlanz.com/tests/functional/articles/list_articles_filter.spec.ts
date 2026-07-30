@@ -55,6 +55,18 @@ test.group('List articles filters', (group) => {
 		]);
 	});
 
+	test('lists available tags for the filters', async ({ client, assert }) => {
+		const vue = await fixture.givenTag({ name: 'Vue', slug: 'vue', color: 'lime' });
+		const adonis = await fixture.givenTag({ name: 'Adonis', slug: 'adonis', color: 'cyan' });
+
+		const props = await fixture.visitArticles(client);
+
+		assert.deepEqual(props.vm.tags, [
+			{ id: adonis.id, name: 'Adonis', slug: 'adonis', color: 'cyan' },
+			{ id: vue.id, name: 'Vue', slug: 'vue', color: 'lime' },
+		]);
+	});
+
 	test('filters published articles by category', async ({ client, assert }) => {
 		const backend = await fixture.givenCategory({ name: 'Backend', slug: 'backend' });
 		const frontend = await fixture.givenCategory({ name: 'Frontend', slug: 'frontend' });
@@ -155,5 +167,19 @@ test.group('List articles filters', (group) => {
 		assert.include(response.text(), '/articles?category=backend');
 		assert.notInclude(response.text(), 'href="/articles?category=backend&amp;tag=adonis"');
 		assert.notInclude(response.text(), 'href="/articles?tag=adonis&amp;category=backend"');
+	});
+
+	test('tag navigation keeps the active category filter', async ({ client, assert }) => {
+		const backend = await fixture.givenCategory({ name: 'Backend', slug: 'backend' });
+		const adonis = await fixture.givenTag({ name: 'Adonis', slug: 'adonis', color: 'cyan' });
+		await fixture.givenPublishedArticles([
+			{ title: 'Backend Adonis', slug: 'backend-adonis', category: backend, tags: adonis },
+		]);
+
+		const response = await client.get('/articles').qs({ category: 'backend', tag: 'adonis' });
+
+		response.assertStatus(200);
+		assert.include(response.text(), 'href="/articles?category=backend"');
+		assert.include(response.text(), 'href="/articles?category=backend&amp;tag=adonis"');
 	});
 });
