@@ -9,7 +9,7 @@
 		publishedAt: string;
 		publishedAtDatetime?: string;
 		readingTime: number;
-		tags?: Array<{ name: string; color: TagProps['color'] }>;
+		tags?: Array<{ name: string; color: TagProps['color']; href?: string }>;
 	}>();
 </script>
 
@@ -28,7 +28,7 @@
 
 		<div class="flex items-center gap-3">
 			<template v-if="tags">
-				<Tag v-for="tag in tags" :key="tag.name" :color="tag.color">
+				<Tag v-for="tag in tags" :key="tag.name" :color="tag.color" :href="tag.href">
 					{{ tag.name }}
 				</Tag>
 			</template>

@@ -17,6 +17,12 @@ export default class ArticlePageTransformer extends BaseTransformer<Article> {
 				}),
 				publishedAt: this.resource.props.publishedAt!.set({ hour: 0, minute: 0, second: 0, millisecond: 0 }).toISO()!,
 				readingTime: this.resource.props.readingTime,
+				tags: (this.resource.props.tags ?? []).map((tag) => ({
+					id: tag.getIdentifier().toString(),
+					name: tag.props.name,
+					slug: tag.props.slug,
+					color: tag.props.color,
+				})),
 			},
 			category: {
 				id: this.resource.props.category!.getIdentifier().toString(),

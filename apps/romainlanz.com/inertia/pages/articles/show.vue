@@ -3,6 +3,7 @@
 	import { Head } from '@inertiajs/vue3';
 	import Headline from '@rlanz/design-system/headline';
 	import { computed } from 'vue';
+	import { client } from '~/client';
 	import ArticleContent from '~/components/articles/article_content.vue';
 
 	const { vm } = defineProps<{
@@ -11,6 +12,10 @@
 	}>();
 
 	const escapedSummary = computed(() => vm.article.summary.replaceAll('"', '&quot;'));
+
+	function computeTagHref(slug: string) {
+		return client.urlFor('articles.index', undefined, { qs: { tag: slug } });
+	}
 </script>
 
 <template>
@@ -39,6 +44,7 @@
 				:published-at="vm.article.publishedAtHuman"
 				:published-at-datetime="vm.article.publishedAt"
 				:reading-time="vm.article.readingTime"
+				:tags="vm.article.tags.map((tag) => ({ ...tag, href: computeTagHref(tag.slug) }))"
 			/>
 
 			<ArticleContent :html="vm.article.content" />

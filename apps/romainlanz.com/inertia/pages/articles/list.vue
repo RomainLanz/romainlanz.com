@@ -44,6 +44,10 @@
 	function computeArticleHref(slug: string) {
 		return client.urlFor('articles.show', { slug });
 	}
+
+	function computeTagHref(slug: string) {
+		return client.urlFor('articles.index', undefined, { qs: { tag: slug } });
+	}
 </script>
 
 <template>
@@ -75,7 +79,7 @@
 					:datetime="article.publishedAt"
 					:excerpt="article.summary"
 					:reading-time="5"
-					:tags="article.tags"
+					:tags="article.tags.map((tag) => ({ ...tag, href: computeTagHref(tag.slug) }))"
 				/>
 
 				<Pagination :active-page="activePage" :count="paginationCount" @page-change="onPageChange" />

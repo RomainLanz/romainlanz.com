@@ -44,6 +44,7 @@
 	<Component
 		v-bind="$attrs"
 		:is="spanOrLink"
+		:href="props.href"
 		:class="
 			tag({
 				color: props.color,

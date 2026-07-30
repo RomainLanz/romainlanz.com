@@ -16,6 +16,12 @@ export default class LandingPageTransformer extends BaseTransformer<LandingPage>
 				publishedAtHuman: article.props.publishedAt!.toFormat('DD'),
 				publishedAt: article.props.publishedAt!.set({ hour: 0, minute: 0, second: 0, millisecond: 0 }).toISO(),
 				readingTime: article.props.readingTime,
+				tags: (article.props.tags ?? []).map((tag) => ({
+					id: tag.getIdentifier().toString(),
+					name: tag.props.name,
+					slug: tag.props.slug,
+					color: tag.props.color,
+				})),
 			})),
 		};
 	}

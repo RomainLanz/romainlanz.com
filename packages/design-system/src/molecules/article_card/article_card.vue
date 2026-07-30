@@ -10,38 +10,38 @@
 		datetime: string;
 		excerpt: string;
 		readingTime: number;
-		tags?: Array<{ name: string; color: TagProps['color'] }>;
+		tags?: Array<{ name: string; color: TagProps['color']; href?: string }>;
 	}>();
 </script>
 
 <template>
-	<Link :href prefetch>
-		<article
-			class="shadow-small isolate flex flex-col gap-4 rounded-md border-2 border-solid border-gray-800 bg-white p-6 text-gray-800 transition-colors hover:bg-yellow-100"
-		>
-			<header>
-				<time class="relative text-xs" :class="$style.time" :datetime>
-					{{ date }}
-				</time>
+	<article
+		class="shadow-small group relative isolate flex flex-col gap-4 rounded-md border-2 border-solid border-gray-800 bg-white p-6 text-gray-800 transition-colors hover:bg-yellow-100"
+	>
+		<Link class="absolute inset-0" :href prefetch :aria-label="title" />
 
-				<h2 class="text-2xl">{{ title }}</h2>
-			</header>
+		<header class="pointer-events-none">
+			<time class="relative text-xs" :class="$style.time" :datetime>
+				{{ date }}
+			</time>
 
-			<p class="text-lg">
-				{{ excerpt }}
-			</p>
+			<h2 class="text-2xl">{{ title }}</h2>
+		</header>
 
-			<div class="flex items-center gap-3">
-				<template v-if="tags">
-					<Tag v-for="tag in tags" :key="tag.name" :color="tag.color">
-						{{ tag.name }}
-					</Tag>
-				</template>
+		<p class="pointer-events-none text-lg">
+			{{ excerpt }}
+		</p>
 
-				<span class="text-xs uppercase">{{ readingTime }}mn de lecture</span>
-			</div>
-		</article>
-	</Link>
+		<div class="pointer-events-none relative flex items-center gap-3">
+			<template v-if="tags">
+				<Tag v-for="tag in tags" :key="tag.name" class="pointer-events-auto" :color="tag.color" :href="tag.href">
+					{{ tag.name }}
+				</Tag>
+			</template>
+
+			<span class="text-xs uppercase">{{ readingTime }}mn de lecture</span>
+		</div>
+	</article>
 </template>
 
 <style module>

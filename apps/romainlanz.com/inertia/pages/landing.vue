@@ -18,6 +18,10 @@
 	function computeArticleHref(slug: string) {
 		return client.urlFor('articles.show', { slug });
 	}
+
+	function computeTagHref(slug: string) {
+		return client.urlFor('articles.index', undefined, { qs: { tag: slug } });
+	}
 </script>
 
 <template>
@@ -48,6 +52,7 @@
 					:datetime="vm.articles[0].publishedAt"
 					:excerpt="vm.articles[0].summary"
 					:reading-time="vm.articles[0].readingTime"
+					:tags="vm.articles[0].tags.map((tag) => ({ ...tag, href: computeTagHref(tag.slug) }))"
 				/>
 
 				<ArticleCard
@@ -59,6 +64,7 @@
 					:datetime="vm.articles[2].publishedAt"
 					:excerpt="vm.articles[2].summary"
 					:reading-time="vm.articles[2].readingTime"
+					:tags="vm.articles[2].tags.map((tag) => ({ ...tag, href: computeTagHref(tag.slug) }))"
 				/>
 			</div>
 			<div class="flex flex-col gap-6 lg:w-1/2">
@@ -71,6 +77,7 @@
 					:datetime="vm.articles[1].publishedAt"
 					:excerpt="vm.articles[1].summary"
 					:reading-time="vm.articles[1].readingTime"
+					:tags="vm.articles[1].tags.map((tag) => ({ ...tag, href: computeTagHref(tag.slug) }))"
 				/>
 
 				<ArticleCard
@@ -82,6 +89,7 @@
 					:datetime="vm.articles[3].publishedAt"
 					:excerpt="vm.articles[3].summary"
 					:reading-time="vm.articles[3].readingTime"
+					:tags="vm.articles[3].tags.map((tag) => ({ ...tag, href: computeTagHref(tag.slug) }))"
 				/>
 			</div>
 		</div>

@@ -5,6 +5,9 @@ import { RecordNotFoundException } from '#core/exceptions/record_not_found_excep
 import { db } from '#core/services/db';
 import { Category } from '#taxonomies/domain/category';
 import { CategoryIdentifier } from '#taxonomies/domain/category_identifier';
+import { Tag } from '#taxonomies/domain/tag';
+import { parseTagColor } from '#taxonomies/domain/tag_color';
+import { TagIdentifier } from '#taxonomies/domain/tag_identifier';
 import type { IllustrationName } from '@rlanz/design-system/illustration-name';
 
 export class GetArticleBySlugQuery {
@@ -32,6 +35,14 @@ export class GetArticleBySlugQuery {
 			throw new RecordNotFoundException();
 		}
 
+		const tagRecords = await db
+			.selectFrom('tag_articles')
+			.innerJoin('tags', 'tag_articles.tag_id', 'tags.id')
+			.select(['tags.id', 'tags.name', 'tags.slug', 'tags.color'])
+			.where('tag_articles.article_id', '=', articleRecord.id)
+			.orderBy('tags.name')
+			.execute();
+
 		return Article.create({
 			id: ArticleIdentifier.fromString(articleRecord.id),
 			title: articleRecord.title,
@@ -46,6 +57,14 @@ export class GetArticleBySlugQuery {
 				slug: articleRecord.category_slug!,
 				illustrationName: articleRecord.category_illustration_name as IllustrationName,
 			}),
+			tags: tagRecords.map((tag) =>
+				Tag.create({
+					id: TagIdentifier.fromString(tag.id),
+					name: tag.name,
+					slug: tag.slug,
+					color: parseTagColor(tag.color),
+				}),
+			),
 		});
 	}
 }
