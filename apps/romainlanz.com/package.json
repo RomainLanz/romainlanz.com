@@ -8,7 +8,7 @@
 	"imports": {
 		"#admin/*": "./app/admin/*.js",
 		"#app/*": "./app/*.js",
-		"#articles/*": "./app/articles/*.js",
+		"#articles/*": "./src/articles/*.js",
 		"#auth/*": "./app/auth/*.js",
 		"#common/*": "./app/common/*.js",
 		"#core/*": "./app/core/*.js",

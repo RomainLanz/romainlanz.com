@@ -1,5 +1,5 @@
 import '#admin/routes';
-import '#articles/routes';
+import '#app/articles/routes';
 import '#auth/routes';
 import '#core/routes';
 import '#media/routes';

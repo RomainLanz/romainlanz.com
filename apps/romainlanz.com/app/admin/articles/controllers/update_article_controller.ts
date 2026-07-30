@@ -1,11 +1,9 @@
 import { inject } from '@adonisjs/core';
 import vine from '@vinejs/vine';
 import { ArticlePolicy } from '#admin/articles/policies/article_policy';
-import { parsePublishedAt } from '#admin/articles/published_at';
 import { GetArticleForUpdateQuery } from '#admin/articles/queries/get_article_for_update_query';
 import { tagIdsValidator } from '#admin/articles/tag_ids_validator';
-import { ArticleRepository } from '#articles/repositories/article_repository';
-import { MarkdownCompiler } from '#articles/services/markdown_compiler';
+import { UpdateArticle } from '#articles/actions/update_article';
 import { ListCategoriesQuery } from '#taxonomies/queries/list_categories_query';
 import { ListTagsQuery } from '#taxonomies/queries/list_tags_query';
 import CategoryOptionTransformer from '#taxonomies/transformers/category_option_transformer';
@@ -28,11 +26,10 @@ export default class UpdateArticleController {
 	);
 
 	constructor(
-		private repository: ArticleRepository,
+		private updateArticle: UpdateArticle,
 		private getArticleForUpdate: GetArticleForUpdateQuery,
 		private listCategories: ListCategoriesQuery,
 		private listTags: ListTagsQuery,
-		private markdownCompiler: MarkdownCompiler,
 	) {}
 
 	async render({ bouncer, params, inertia }: HttpContext) {
@@ -64,17 +61,13 @@ export default class UpdateArticleController {
 			tagIds = [],
 		} = await request.validateUsing(UpdateArticleController.validator);
 
-		const markdownHtml = await this.markdownCompiler.toHtml(markdownContent);
-
-		await this.repository.update({
+		await this.updateArticle.execute({
 			id: request.param('id')!,
 			title,
 			summary,
 			slug,
-			contentHtml: markdownHtml.toString(),
-			contentMarkdown: markdownContent,
-			readingTime: Math.ceil((markdownContent.split(' ').length || 0) / 238),
-			publishedAt: parsePublishedAt(publishedAt),
+			markdownContent,
+			publishedAt,
 			categoryId,
 			tagIds,
 		});

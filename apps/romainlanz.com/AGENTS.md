@@ -7,5 +7,5 @@ This package is the AdonisJS application for `romainlanz.com`, with Inertia/Vue 
 ## Package Expectations
 
 - Use `yarn workspace @rlanz/site` when running package-specific scripts from the repository root.
-- Keep server-side application code under `app/`, route/startup wiring under `start/`, and Inertia UI under `inertia/`.
+- Keep server-side delivery code under `app/`, application/domain code under `src/`, route/startup wiring under `start/`, and Inertia UI under `inertia/`.
 - Run `yarn workspace @rlanz/site typecheck` after changes that touch this package.

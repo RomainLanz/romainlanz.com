@@ -1,11 +1,8 @@
 import { inject } from '@adonisjs/core';
-import string from '@adonisjs/core/helpers/string';
 import vine from '@vinejs/vine';
 import { ArticlePolicy } from '#admin/articles/policies/article_policy';
-import { parsePublishedAt } from '#admin/articles/published_at';
 import { tagIdsValidator } from '#admin/articles/tag_ids_validator';
-import { ArticleRepository } from '#articles/repositories/article_repository';
-import { MarkdownCompiler } from '#articles/services/markdown_compiler';
+import { CreateArticle } from '#articles/actions/create_article';
 import { ListCategoriesQuery } from '#taxonomies/queries/list_categories_query';
 import { ListTagsQuery } from '#taxonomies/queries/list_tags_query';
 import CategoryOptionTransformer from '#taxonomies/transformers/category_option_transformer';
@@ -27,10 +24,9 @@ export default class StoreArticleController {
 	);
 
 	constructor(
-		private repository: ArticleRepository,
+		private createArticle: CreateArticle,
 		private listCategories: ListCategoriesQuery,
 		private listTags: ListTagsQuery,
-		private markdownCompiler: MarkdownCompiler,
 	) {}
 
 	async render({ bouncer, inertia }: HttpContext) {
@@ -56,17 +52,11 @@ export default class StoreArticleController {
 			tagIds = [],
 		} = await request.validateUsing(StoreArticleController.validator);
 
-		// const slug = string.slug(title).toLocaleLowerCase();
-		const markdownHtml = await this.markdownCompiler.toHtml(markdownContent);
-
-		await this.repository.create({
+		await this.createArticle.execute({
 			title,
 			summary,
-			contentHtml: markdownHtml.toString(),
-			contentMarkdown: markdownContent,
-			readingTime: Math.ceil((markdownContent.split(' ').length || 0) / 238),
-			publishedAt: parsePublishedAt(publishedAt),
-			slug: string.slug(title).toLocaleLowerCase(),
+			markdownContent,
+			publishedAt,
 			categoryId,
 			tagIds,
 		});
