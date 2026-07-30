@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "==> Checking PostgreSQL"
+if ! pg_isready -q; then
+	sudo pg_ctlcluster 18 main start
+fi
+
+pg_isready -q
+echo "==> Orb resume complete"

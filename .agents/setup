@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+app_root="$repo_root/apps/romainlanz.com"
+mise_bin="$HOME/.local/bin/mise"
+
+echo "==> Installing the repository toolchain"
+if [[ ! -x "$mise_bin" ]]; then
+	curl --proto '=https' --tlsv1.2 -sSf https://mise.run | sh
+fi
+
+profile_marker="# romainlanz.com mise environment"
+if ! grep -Fqx "$profile_marker" "$HOME/.bash_profile" 2>/dev/null; then
+	cat >> "$HOME/.bash_profile" <<EOF
+
+$profile_marker
+if [[ "\${PWD:-}" == "$repo_root" && -x "$mise_bin" ]]; then
+	eval "\$("$mise_bin" activate bash)"
+fi
+EOF
+fi
+
+"$mise_bin" install
+"$mise_bin" exec -- corepack enable
+"$mise_bin" exec -- yarn install --immutable
+
+echo "==> Configuring PostgreSQL"
+if ! dpkg-query -W -f='${Status}' postgresql-18 2>/dev/null | grep -Fq 'install ok installed'; then
+	sudo apt-get update
+	DEBIAN_FRONTEND=noninteractive sudo apt-get install -y postgresql-18
+fi
+
+postgres_config=/etc/postgresql/18/main/conf.d/amp-orb.conf
+if [[ ! -f "$postgres_config" ]]; then
+	sudo tee "$postgres_config" >/dev/null <<'EOF'
+# Favor speed over durability in this ephemeral development database.
+fsync = off
+full_page_writes = off
+synchronous_commit = off
+EOF
+fi
+
+sudo pg_ctlcluster 18 main start || true
+if ! pg_isready -q; then
+	echo "PostgreSQL failed to become ready" >&2
+	exit 1
+fi
+
+if ! sudo -u postgres psql -tAc "SELECT 1 FROM pg_roles WHERE rolname = 'root'" | grep -q 1; then
+	sudo -u postgres psql -v ON_ERROR_STOP=1 -c "CREATE ROLE root LOGIN PASSWORD 'root'"
+else
+	sudo -u postgres psql -v ON_ERROR_STOP=1 -c "ALTER ROLE root WITH LOGIN PASSWORD 'root'" >/dev/null
+fi
+
+if ! sudo -u postgres psql -tAc "SELECT 1 FROM pg_database WHERE datname = 'romainlanz'" | grep -q 1; then
+	sudo -u postgres createdb --owner=root romainlanz
+fi
+
+echo "==> Creating the local application environment"
+app_env="$app_root/.env"
+if [[ ! -f "$app_env" ]]; then
+	cp -- "$app_root/.env.example" "$app_env"
+fi
+
+if grep -Fqx 'APP_KEY=' "$app_env"; then
+	app_key="$(openssl rand -base64 32 | tr -d '\n')"
+	sed -i "s|^APP_KEY=$|APP_KEY=$app_key|" "$app_env"
+fi
+
+sed -i \
+	-e 's/^TWITCH_CLIENT_ID=$/TWITCH_CLIENT_ID=orb-client-id/' \
+	-e 's/^TWITCH_CLIENT_SECRET=$/TWITCH_CLIENT_SECRET=orb-client-secret/' \
+	"$app_env"
+
+echo "==> Running database migrations"
+"$mise_bin" exec -- yarn workspace @rlanz/site exec node ace migrate
+
+echo "==> Orb setup complete"
