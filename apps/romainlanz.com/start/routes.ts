@@ -1,9 +1,9 @@
 import '#admin/routes';
 import '#app/articles/routes';
+import '#app/redirects/routes';
 import '#auth/routes';
 import '#core/routes';
 import '#media/routes';
 import '#pages/routes';
 import '#paste/routes';
 import '#twitch/routes';
-import '#redirects/routes';

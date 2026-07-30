@@ -1,8 +1,6 @@
 import { inject } from '@adonisjs/core';
 import vine from '@vinejs/vine';
-import { Redirect } from '#redirects/domain/redirect';
-import { RedirectIdentifier } from '#redirects/domain/redirect_identifier';
-import { RedirectRepository } from '#redirects/repositories/redirect_repository';
+import { CreateRedirect } from '#redirects/actions/create_redirect';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()
@@ -14,7 +12,7 @@ export default class StoreRedirectController {
 		}),
 	);
 
-	constructor(private repository: RedirectRepository) {}
+	constructor(private createRedirect: CreateRedirect) {}
 
 	render({ inertia }: HttpContext) {
 		return inertia.render('admin/redirects/create', {});
@@ -23,13 +21,10 @@ export default class StoreRedirectController {
 	async execute({ request, response }: HttpContext) {
 		const payload = await request.validateUsing(StoreRedirectController.validator);
 
-		const redirect = Redirect.create({
-			id: RedirectIdentifier.generate(),
+		await this.createRedirect.execute({
 			destination: payload.destination,
 			slug: payload.slug,
 		});
-
-		await this.repository.create(redirect);
 
 		return response.redirect().toRoute('admin.redirects.index');
 	}

@@ -17,7 +17,7 @@
 		"#newsletter/*": "./app/newsletter/*.js",
 		"#pages/*": "./app/pages/*.js",
 		"#paste/*": "./app/paste/*.js",
-		"#redirects/*": "./app/redirects/*.js",
+		"#redirects/*": "./src/redirects/*.js",
 		"#generated/*": "./.adonisjs/server/*.js",
 		"#transformers/*": "./app/transformers/*.js",
 		"#database/*": "./database/*.js",
