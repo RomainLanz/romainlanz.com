@@ -98,4 +98,15 @@ sed -i \
 echo "==> Running database migrations"
 "$mise_bin" exec -- yarn workspace @rlanz/site exec node ace migrate
 
+echo "==> Creating the local administrator"
+"$mise_bin" exec -- yarn workspace @rlanz/site exec node ace create:user \
+	--name='Orb Admin' \
+	--email='admin@romainlanz.test' \
+	--password='password' \
+	--role=2 \
+	--update
+
+echo "    Email: admin@romainlanz.test"
+echo "    Password: password"
+
 echo "==> Orb setup complete"
