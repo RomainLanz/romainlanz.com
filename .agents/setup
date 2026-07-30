@@ -25,6 +25,26 @@ fi
 "$mise_bin" exec -- corepack enable
 "$mise_bin" exec -- yarn install --immutable
 
+echo "==> Installing Mailpit"
+if ! command -v mailpit >/dev/null 2>&1; then
+	mailpit_version=v1.30.6
+	case "$(dpkg --print-architecture)" in
+		amd64) mailpit_arch=amd64 ;;
+		arm64) mailpit_arch=arm64 ;;
+		*)
+			echo "Unsupported Mailpit architecture: $(dpkg --print-architecture)" >&2
+			exit 1
+			;;
+	esac
+
+	mailpit_archive="$(mktemp)"
+	curl --proto '=https' --tlsv1.2 -sSfL \
+		"https://github.com/axllent/mailpit/releases/download/$mailpit_version/mailpit-linux-$mailpit_arch.tar.gz" \
+		-o "$mailpit_archive"
+	sudo tar -xzf "$mailpit_archive" -C /usr/local/bin mailpit
+	rm -f "$mailpit_archive"
+fi
+
 echo "==> Configuring PostgreSQL"
 if ! dpkg-query -W -f='${Status}' postgresql-18 2>/dev/null | grep -Fq 'install ok installed'; then
 	sudo apt-get update

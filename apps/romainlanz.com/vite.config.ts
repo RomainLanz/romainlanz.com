@@ -11,6 +11,9 @@ export default defineConfig({
 		AdonisJS({ entrypoints: ['inertia/app.ts'], reload: ['resources/views/**/*.edge'] }),
 		TailwindCSS(),
 	],
+	server: {
+		allowedHosts: ['.e2b.app', '.onamp.dev'],
+	},
 
 	resolve: {
 		alias: {

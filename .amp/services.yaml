@@ -1,0 +1,16 @@
+services:
+  web:
+    command: >-
+      HOST=0.0.0.0
+      APP_URL="$PUBLIC_URL"
+      ~/.local/bin/mise exec -- yarn dev
+    portal:
+      title: romainlanz.com
+      description: Application AdonisJS en développement
+  mailpit:
+    command: >-
+      MP_API_CORS="$(printf '%s' "$PUBLIC_URL" | cut -d/ -f3)"
+      mailpit --listen "0.0.0.0:$PORT" --smtp 0.0.0.0:1025
+    portal:
+      title: Mailpit
+      description: Emails envoyés par l'application
