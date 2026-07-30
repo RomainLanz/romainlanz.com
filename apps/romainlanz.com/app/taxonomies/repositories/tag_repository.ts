@@ -8,6 +8,7 @@ import { TagIdentifier } from '#taxonomies/domain/tag_identifier';
 interface CreateTagDTO {
 	name: string;
 	color: string;
+	slug?: string;
 }
 
 interface UpdateTagDTO {
@@ -16,14 +17,18 @@ interface UpdateTagDTO {
 	color: string;
 }
 
+export class TagNameAlreadyExistsError extends Error {}
+export class TagSlugAlreadyExistsError extends Error {}
+
 export class TagRepository {
 	async create(payload: CreateTagDTO) {
 		const color = parseTagColor(payload.color);
-		const baseSlug = generateSlug(payload.name) || 'tag';
+		const customSlug = payload.slug?.trim() || undefined;
+		const baseSlug = customSlug || generateSlug(payload.name) || 'tag';
 		let suffix = 1;
 
 		while (true) {
-			const slug = suffix === 1 ? baseSlug : `${baseSlug}-${suffix}`;
+			const slug = customSlug || (suffix === 1 ? baseSlug : `${baseSlug}-${suffix}`);
 			const id = TagIdentifier.generate();
 
 			try {
@@ -36,20 +41,29 @@ export class TagRepository {
 						color,
 					})
 					.execute();
-
-				return Tag.create({
-					id,
-					name: payload.name,
-					slug,
-					color,
-				});
 			} catch (error) {
+				if (isUniqueConstraintViolation(error, 'tags_name_key')) {
+					throw new TagNameAlreadyExistsError();
+				}
+
 				if (!isTagSlugUniqueConstraintViolation(error)) {
 					throw error;
 				}
 
+				if (customSlug) {
+					throw new TagSlugAlreadyExistsError();
+				}
+
 				suffix += 1;
+				continue;
 			}
+
+			return Tag.create({
+				id,
+				name: payload.name,
+				slug,
+				color,
+			});
 		}
 	}
 
@@ -84,12 +98,16 @@ export class TagRepository {
 }
 
 function isTagSlugUniqueConstraintViolation(error: unknown) {
+	return isUniqueConstraintViolation(error, 'tags_slug_unique');
+}
+
+function isUniqueConstraintViolation(error: unknown, constraint: string) {
 	return (
 		typeof error === 'object' &&
 		error !== null &&
 		'code' in error &&
 		error.code === '23505' &&
 		'constraint' in error &&
-		error.constraint === 'tags_slug_unique'
+		error.constraint === constraint
 	);
 }
