@@ -16,7 +16,7 @@
 		"#middleware/*": "./app/middleware/*.js",
 		"#newsletter/*": "./app/newsletter/*.js",
 		"#pages/*": "./app/pages/*.js",
-		"#paste/*": "./app/paste/*.js",
+		"#paste/*": "./src/paste/*.js",
 		"#redirects/*": "./src/redirects/*.js",
 		"#generated/*": "./.adonisjs/server/*.js",
 		"#transformers/*": "./app/transformers/*.js",

@@ -1,6 +1,6 @@
 import { inject } from '@adonisjs/core';
+import PastePageTransformer from '#app/paste/transformers/paste_page_transformer';
 import { PasteRepository } from '#paste/repositories/paste_repository';
-import PastePageTransformer from '#paste/transformers/paste_page_transformer';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()

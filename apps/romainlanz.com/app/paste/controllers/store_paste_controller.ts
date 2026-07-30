@@ -1,13 +1,7 @@
 import { inject } from '@adonisjs/core';
-import {
-	transformerMetaHighlight,
-	transformerNotationDiff,
-	transformerNotationFocus,
-	transformerNotationHighlight,
-} from '@shikijs/transformers';
 import vine from '@vinejs/vine';
-import { codeToHtml, bundledLanguagesInfo } from 'shiki';
-import { PasteRepository } from '#paste/repositories/paste_repository';
+import { bundledLanguagesInfo } from 'shiki';
+import { CreatePaste } from '#paste/actions/create_paste';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()
@@ -19,7 +13,7 @@ export default class StorePasteController {
 		}),
 	);
 
-	constructor(private pasteRepository: PasteRepository) {}
+	constructor(private createPaste: CreatePaste) {}
 
 	render({ inertia }: HttpContext) {
 		return inertia.render('pastes/create', {
@@ -30,22 +24,9 @@ export default class StorePasteController {
 	async execute({ request, response }: HttpContext) {
 		const payload = await request.validateUsing(StorePasteController.validator);
 
-		const ghl = await codeToHtml(payload.content, {
+		const paste = await this.createPaste.execute({
+			content: payload.content,
 			lang: payload.lang,
-			themes: {
-				light: 'catppuccin-latte', //'rose-pine-dawn',
-				dark: 'catppuccin-mocha', //'rose-pine-moon',
-			},
-			transformers: [
-				transformerNotationDiff(),
-				transformerNotationHighlight(),
-				transformerNotationFocus(),
-				transformerMetaHighlight(),
-			],
-		});
-
-		const paste = await this.pasteRepository.create({
-			content: ghl,
 			userId: undefined,
 		});
 
