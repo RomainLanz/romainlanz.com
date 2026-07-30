@@ -15,6 +15,7 @@ This is the `romainlanz.com` monorepo for the AdonisJS + Inertia/Vue site and sh
 
 - Run `yarn lint`, `yarn format`, and `yarn typecheck` before committing code.
 - Use Conventional Commits for commit messages: `type(scope): short description`.
+- Write commit subjects and bodies in English. The French-language requirement applies only to GitHub-bound content.
 - Prefer scopes that match the touched feature or package, for example `fix(articles): ...`, `feat(auth): ...`, or `chore(design-system): ...`.
 
 ## Agent skills
