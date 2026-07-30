@@ -37,7 +37,7 @@ async function createArticle(client: ApiClient, categoryId: string, tagIds: stri
 		.withCsrfToken()
 		.redirects(0)
 		.header('referer', '/admin/articles/create')
-		.form(articlePayload(categoryId, tagIds));
+		.json(articlePayload(categoryId, tagIds));
 }
 
 async function updateArticle(client: ApiClient, article: FactoryRow<'articles'>, categoryId: string, tagIds: string[]) {
@@ -49,7 +49,7 @@ async function updateArticle(client: ApiClient, article: FactoryRow<'articles'>,
 		.withCsrfToken()
 		.redirects(0)
 		.header('referer', `/admin/articles/${article.id}/edit`)
-		.form({
+		.json({
 			...articlePayload(categoryId, tagIds),
 			slug: article.slug,
 		});
@@ -76,7 +76,8 @@ test.group('Admin article Tags', (group) => {
 		const category = await CategoryFactory.create();
 		const response = await createArticle(client, category.id);
 
-		response.assertRedirectsTo('/admin/articles');
+		response.assertStatus(302);
+		response.assertHeader('location', '/admin/articles');
 		assert.deepEqual(await findArticleTagIds('Article sur AdonisJS'), []);
 	});
 
@@ -85,7 +86,8 @@ test.group('Admin article Tags', (group) => {
 		const tag = await TagFactory.create();
 		const response = await createArticle(client, category.id, [tag.id]);
 
-		response.assertRedirectsTo('/admin/articles');
+		response.assertStatus(302);
+		response.assertHeader('location', '/admin/articles');
 		assert.deepEqual(await findArticleTagIds('Article sur AdonisJS'), [tag.id]);
 	});
 
@@ -98,7 +100,8 @@ test.group('Admin article Tags', (group) => {
 			tags.map(({ id }) => id),
 		);
 
-		response.assertRedirectsTo('/admin/articles');
+		response.assertStatus(302);
+		response.assertHeader('location', '/admin/articles');
 		assert.deepEqual(await findArticleTagIds('Article sur AdonisJS'), tags.map(({ id }) => id).sort());
 	});
 
@@ -127,7 +130,8 @@ test.group('Admin article Tags', (group) => {
 		const article = await ArticleFactory.for('category', category).with('tags', tags).create();
 		const response = await updateArticle(client, article, category.id, []);
 
-		response.assertRedirectsTo('/admin/articles');
+		response.assertStatus(302);
+		response.assertHeader('location', '/admin/articles');
 		assert.deepEqual(await findArticleTagIds('Article sur AdonisJS'), []);
 	});
 
@@ -142,7 +146,8 @@ test.group('Admin article Tags', (group) => {
 			tags.map(({ id }) => id),
 		);
 
-		response.assertRedirectsTo('/admin/articles');
+		response.assertStatus(302);
+		response.assertHeader('location', '/admin/articles');
 		assert.deepEqual(await findArticleTagIds('Article sur AdonisJS'), tags.map(({ id }) => id).sort());
 	});
 
@@ -150,7 +155,8 @@ test.group('Admin article Tags', (group) => {
 		const category = await CategoryFactory.create();
 		const response = await createArticle(client, category.id, ['7a28e15e-f122-4fa6-aaf2-64fc5d6b8d02']);
 
-		response.assertRedirectsTo('/admin/articles/create');
+		response.assertStatus(302);
+		response.assertHeader('location', '/admin/articles/create');
 		response.assertFlashMessage('inputErrorsBag', {
 			'tagIds.0': ['Le Tag sélectionné n’existe pas.'],
 		});
@@ -165,7 +171,8 @@ test.group('Admin article Tags', (group) => {
 		const article = await ArticleFactory.for('category', category).with('tags', tag).create();
 		const response = await updateArticle(client, article, category.id, ['7a28e15e-f122-4fa6-aaf2-64fc5d6b8d02']);
 
-		response.assertRedirectsTo(`/admin/articles/${article.id}/edit`);
+		response.assertStatus(302);
+		response.assertHeader('location', `/admin/articles/${article.id}/edit`);
 		response.assertFlashMessage('inputErrorsBag', {
 			'tagIds.0': ['Le Tag sélectionné n’existe pas.'],
 		});

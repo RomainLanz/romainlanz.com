@@ -46,7 +46,7 @@
 		return client.urlFor('articles.index', undefined, { qs: { category: activeCategory } });
 	}
 
-	function computeTagHref(tag: { slug: string }) {
+	function computeFilterTagHref(tag: { slug: string }) {
 		return client.urlFor('articles.index', undefined, {
 			qs: { category: activeCategory, tag: tag.slug },
 		});
@@ -56,7 +56,7 @@
 		return client.urlFor('articles.show', { slug });
 	}
 
-	function computeTagHref(slug: string) {
+	function computeArticleTagHref(slug: string) {
 		return client.urlFor('articles.index', undefined, { qs: { tag: slug } });
 	}
 </script>
@@ -89,7 +89,7 @@
 					<Link
 						v-for="tag in vm.tags"
 						:key="tag.id"
-						:href="computeTagHref(tag)"
+						:href="computeFilterTagHref(tag)"
 						:aria-current="activeTag === tag.slug ? 'page' : undefined"
 					>
 						<Tag :color="tag.color" :class="{ 'shadow-tiny': activeTag === tag.slug }">
@@ -109,7 +109,7 @@
 					:datetime="article.publishedAt"
 					:excerpt="article.summary"
 					:reading-time="5"
-					:tags="article.tags.map((tag) => ({ ...tag, href: computeTagHref(tag.slug) }))"
+					:tags="article.tags.map((tag) => ({ ...tag, href: computeArticleTagHref(tag.slug) }))"
 				/>
 
 				<Pagination :active-page="activePage" :count="paginationCount" @page-change="onPageChange" />
