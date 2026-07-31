@@ -1,5 +1,5 @@
-import { UserRepository } from '#auth/repositories/user_repository';
 import { db } from '#core/services/db';
+import { UserRepository } from '#identity/repositories/user_repository';
 import { FindTagBySlugQuery } from '#taxonomies/queries/find_tag_by_slug_query';
 import { AdminFactory, TagFactory, UserFactory } from '#tests/factories/index';
 import { DatabaseFixture } from '#tests/fixtures/database_fixture';

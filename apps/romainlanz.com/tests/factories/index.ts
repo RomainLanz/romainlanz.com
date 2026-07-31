@@ -1,7 +1,7 @@
 import { tagColors } from '@rlanz/design-system/tag-color';
 import { ArticleStatus } from '#articles/enums/article_status';
-import { UserRole } from '#auth/enums/user_role';
 import { generateSlug } from '#core/slug';
+import { UserRole } from '#identity/enums/user_role';
 import { KyselyFactory, defineFactory, resolveRelation } from './factory.js';
 import type { FactoryRelationValue } from './factory.js';
 

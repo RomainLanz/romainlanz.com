@@ -1,7 +1,7 @@
-import { User } from '#auth/domain/user';
-import { UserIdentifier } from '#auth/domain/user_identifier';
-import { UserRole } from '#auth/enums/user_role';
 import { db } from '#core/services/db';
+import { User } from '#identity/domain/user';
+import { UserIdentifier } from '#identity/domain/user_identifier';
+import { UserRole } from '#identity/enums/user_role';
 
 export class UserRepository {
 	async findUserByEmail(email: string) {

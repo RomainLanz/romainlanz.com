@@ -1,4 +1,4 @@
-import { UserRole } from '#auth/enums/user_role';
+import { UserRole } from '#identity/enums/user_role';
 import type { Kysely } from 'kysely';
 
 export async function up(db: Kysely<any>): Promise<void> {

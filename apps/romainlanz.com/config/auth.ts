@@ -9,7 +9,7 @@ const authConfig = defineConfig({
 		web: sessionGuard({
 			useRememberMeTokens: false,
 			provider: configProvider.create(async () => {
-				const { SessionKyselyUserProvider } = await import('#auth/session_user_provider');
+				const { SessionKyselyUserProvider } = await import('#app/auth/session_user_provider');
 				return new SessionKyselyUserProvider();
 			}),
 		}),

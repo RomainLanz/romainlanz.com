@@ -1,6 +1,6 @@
 import { test } from '@japa/runner';
-import { UserRepository } from '#auth/repositories/user_repository';
 import { db } from '#core/services/db';
+import { UserRepository } from '#identity/repositories/user_repository';
 import { migrateDatabase, truncateDatabase } from '#tests/database_test_utils';
 import { AdminFactory, RedirectFactory } from '#tests/factories/index';
 

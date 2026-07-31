@@ -1,5 +1,5 @@
 import { BaseTransformer } from '@adonisjs/core/transformers';
-import type { User } from '#auth/domain/user';
+import type { User } from '#identity/domain/user';
 
 export default class CurrentUserTransformer extends BaseTransformer<User> {
 	toObject() {

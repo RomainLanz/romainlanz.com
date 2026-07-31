@@ -1,5 +1,5 @@
 import { Entity } from '#core/domain/entity';
-import type { UserIdentifier } from '#auth/domain/user_identifier';
+import type { UserIdentifier } from '#identity/domain/user_identifier';
 
 interface Properties {
 	id: UserIdentifier;

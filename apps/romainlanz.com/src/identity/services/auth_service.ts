@@ -1,6 +1,6 @@
 import { inject } from '@adonisjs/core';
 import hash from '@adonisjs/core/services/hash';
-import { UserRepository } from '#auth/repositories/user_repository';
+import { UserRepository } from '#identity/repositories/user_repository';
 
 @inject()
 export class AuthService {

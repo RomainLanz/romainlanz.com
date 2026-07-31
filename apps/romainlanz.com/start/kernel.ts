@@ -31,7 +31,7 @@ server.use([
 	() => import('@adonisjs/vite/vite_middleware'),
 	() => import('@adonisjs/session/session_middleware'),
 	() => import('@adonisjs/auth/initialize_auth_middleware'),
-	() => import('#auth/middleware/silent_auth_middleware'),
+	() => import('#app/auth/middleware/silent_auth_middleware'),
 	() => import('#middleware/inertia_middleware'),
 ]);
 
@@ -52,6 +52,6 @@ router.use([
  * the routes or the routes group.
  */
 export const middleware = router.named({
-	auth: () => import('#auth/middleware/auth_middleware'),
-	guest: () => import('#auth/middleware/guest_middleware'),
+	auth: () => import('#app/auth/middleware/auth_middleware'),
+	guest: () => import('#app/auth/middleware/guest_middleware'),
 });
