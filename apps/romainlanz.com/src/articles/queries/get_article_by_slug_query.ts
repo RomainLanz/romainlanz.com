@@ -2,7 +2,7 @@ import { DateTime } from 'luxon';
 import { RecordNotFoundException } from '#app/core/exceptions/record_not_found_exception';
 import { Article } from '#articles/domain/article';
 import { ArticleIdentifier } from '#articles/domain/article_identifier';
-import { db } from '#core/services/db';
+import { db } from '#shared/services/db';
 import { Category } from '#taxonomies/domain/category';
 import { CategoryIdentifier } from '#taxonomies/domain/category_identifier';
 import { Tag } from '#taxonomies/domain/tag';

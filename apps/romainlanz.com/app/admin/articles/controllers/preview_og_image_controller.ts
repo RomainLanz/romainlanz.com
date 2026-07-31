@@ -1,7 +1,7 @@
 import { inject } from '@adonisjs/core';
 import vine from '@vinejs/vine';
 import { ArticlePolicy } from '#admin/articles/policies/article_policy';
-import { OgImageGeneratorService } from '#common/services/og_image_generator_service';
+import { OgImageGeneratorService } from '#shared/services/og_image_generator_service';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()

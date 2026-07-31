@@ -1,12 +1,12 @@
 import app from '@adonisjs/core/services/app';
 import { DateTime } from 'luxon';
-import { TimeFreezeService } from '#common/services/time_freeze_service';
 import { TimeServiceContract } from '#core/contracts/time_service_contract';
 import { CreateRedirect } from '#redirects/actions/create_redirect';
 import { TrackRedirectVisit } from '#redirects/actions/track_redirect_visit';
 import { RedirectRepository } from '#redirects/repositories/redirect_repository';
 import { VisitRepository } from '#redirects/repositories/visit_repository';
 import { ComputeVisitHashService } from '#redirects/services/compute_visit_hash_service';
+import { TimeFreezeService } from '#shared/services/time_freeze_service';
 import type { Redirect } from '#redirects/domain/redirect';
 import type { RedirectIdentifier } from '#redirects/domain/redirect_identifier';
 import type { Visit } from '#redirects/domain/visit';

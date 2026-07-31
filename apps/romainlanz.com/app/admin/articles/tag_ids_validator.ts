@@ -1,5 +1,5 @@
 import vine from '@vinejs/vine';
-import { db } from '#core/services/db';
+import { db } from '#shared/services/db';
 
 const tagExists = vine.createRule(
 	async (value, _, field) => {

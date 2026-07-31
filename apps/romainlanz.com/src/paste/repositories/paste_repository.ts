@@ -1,6 +1,6 @@
-import { db } from '#core/services/db';
 import { Paste } from '#paste/domain/paste';
 import { PasteIdentifier } from '#paste/domain/paste_identifier';
+import { db } from '#shared/services/db';
 
 export class PasteRepository {
 	async findById(id: string) {

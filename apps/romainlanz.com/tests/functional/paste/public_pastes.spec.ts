@@ -1,5 +1,5 @@
 import { test } from '@japa/runner';
-import { db } from '#core/services/db';
+import { db } from '#shared/services/db';
 import { migrateDatabase, truncateDatabase } from '#tests/database_test_utils';
 import { PasteFactory } from '#tests/factories/index';
 

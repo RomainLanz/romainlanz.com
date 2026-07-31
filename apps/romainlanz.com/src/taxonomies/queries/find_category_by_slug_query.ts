@@ -1,4 +1,4 @@
-import { db } from '#core/services/db';
+import { db } from '#shared/services/db';
 import { Category } from '#taxonomies/domain/category';
 import { CategoryIdentifier } from '#taxonomies/domain/category_identifier';
 

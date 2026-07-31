@@ -1,8 +1,8 @@
 import { inject } from '@adonisjs/core';
 import { assertExists } from '@adonisjs/core/helpers/assert';
-import { defer } from '#core/services/defer';
 import { TrackRedirectVisit } from '#redirects/actions/track_redirect_visit';
 import { RedirectRepository } from '#redirects/repositories/redirect_repository';
+import { defer } from '#shared/services/defer';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()

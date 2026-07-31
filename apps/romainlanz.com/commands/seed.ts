@@ -1,5 +1,5 @@
 import { BaseCommand } from '@adonisjs/core/ace';
-import { db } from '#core/services/db';
+import { db } from '#shared/services/db';
 import { CategoryIdentifier } from '#taxonomies/domain/category_identifier';
 import type { CommandOptions } from '@adonisjs/core/types/ace';
 

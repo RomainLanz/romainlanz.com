@@ -1,4 +1,4 @@
-import { db } from '#core/services/db';
+import { db } from '#shared/services/db';
 
 export class GetArticleForUpdateQuery {
 	async execute(id: string) {

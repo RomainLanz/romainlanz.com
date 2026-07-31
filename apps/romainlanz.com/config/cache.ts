@@ -1,5 +1,5 @@
 import { defineConfig, drivers, store } from '@adonisjs/cache';
-import { db } from '#core/services/db';
+import { db } from '#shared/services/db';
 import type { InferStores } from '@adonisjs/cache/types';
 
 const cacheConfig = defineConfig({

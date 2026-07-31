@@ -1,8 +1,8 @@
 import { BaseCommand, flags } from '@adonisjs/core/ace';
 import hash from '@adonisjs/core/services/hash';
-import { db } from '#core/services/db';
 import { UserIdentifier } from '#identity/domain/user_identifier';
 import { UserRole } from '#identity/enums/user_role';
+import { db } from '#shared/services/db';
 import type { CommandOptions } from '@adonisjs/core/types/ace';
 
 export default class CreateUser extends BaseCommand {

@@ -1,5 +1,5 @@
 import { faker, type Faker } from '@faker-js/faker';
-import { db as defaultDb } from '#core/services/db';
+import { db as defaultDb } from '#shared/services/db';
 import type { DB } from '#types/db';
 import type { Insertable, Kysely, Selectable } from 'kysely';
 

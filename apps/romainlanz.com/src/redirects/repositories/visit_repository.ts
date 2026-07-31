@@ -1,5 +1,5 @@
 import { sql } from 'kysely';
-import { db } from '#core/services/db';
+import { db } from '#shared/services/db';
 import type { Visit } from '#redirects/domain/visit';
 
 export class VisitRepository {

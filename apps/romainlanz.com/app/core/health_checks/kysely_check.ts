@@ -1,6 +1,6 @@
 import { BaseCheck, Result } from '@adonisjs/core/health';
 import { sql } from 'kysely';
-import { db } from '#core/services/db';
+import { db } from '#shared/services/db';
 import type { HealthCheckResult } from '@adonisjs/core/types/health';
 
 export class KyselyCheck extends BaseCheck {

@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 import { Article } from '#articles/domain/article';
 import { ArticleIdentifier } from '#articles/domain/article_identifier';
-import { db } from '#core/services/db';
+import { db } from '#shared/services/db';
 import { Tag } from '#taxonomies/domain/tag';
 import { parseTagColor } from '#taxonomies/domain/tag_color';
 import { TagIdentifier } from '#taxonomies/domain/tag_identifier';

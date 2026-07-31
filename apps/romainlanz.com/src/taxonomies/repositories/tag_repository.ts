@@ -1,6 +1,6 @@
 import { RecordNotFoundException } from '#app/core/exceptions/record_not_found_exception';
-import { db } from '#core/services/db';
 import { generateSlug } from '#core/slug';
+import { db } from '#shared/services/db';
 import { Tag } from '#taxonomies/domain/tag';
 import { parseTagColor } from '#taxonomies/domain/tag_color';
 import { TagIdentifier } from '#taxonomies/domain/tag_identifier';

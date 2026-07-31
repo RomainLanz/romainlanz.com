@@ -1,4 +1,4 @@
-import { db } from '#core/services/db';
+import { db } from '#shared/services/db';
 
 export interface PublishedArticlesFilters {
 	categorySlug: string | null;
