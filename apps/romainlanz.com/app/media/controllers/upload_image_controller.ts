@@ -1,8 +1,11 @@
-import { randomUUID } from 'node:crypto';
-import app from '@adonisjs/core/services/app';
+import { inject } from '@adonisjs/core';
+import { StoreImage } from '#media/actions/store_image';
 import type { HttpContext } from '@adonisjs/core/http';
 
+@inject()
 export default class UploadImageController {
+	constructor(private storeImage: StoreImage) {}
+
 	async handle({ auth, request, response }: HttpContext) {
 		const user = auth.getUserOrFail();
 
@@ -24,12 +27,8 @@ export default class UploadImageController {
 			return response.badRequest({ errors: image.errors });
 		}
 
-		const fileName = `${randomUUID()}.${image.extname}`;
+		const filePath = await this.storeImage.execute(image);
 
-		await image.move(app.makePath('public/uploads'), {
-			name: fileName,
-		});
-
-		return response.ok({ data: { filePath: `uploads/${fileName}` } });
+		return response.ok({ data: { filePath } });
 	}
 }

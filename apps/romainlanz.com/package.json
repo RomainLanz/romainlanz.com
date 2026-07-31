@@ -12,7 +12,7 @@
 		"#common/*": "./app/common/*.js",
 		"#core/*": "./app/core/*.js",
 		"#identity/*": "./src/identity/*.js",
-		"#media/*": "./app/media/*.js",
+		"#media/*": "./src/media/*.js",
 		"#middleware/*": "./app/middleware/*.js",
 		"#newsletter/*": "./src/newsletter/*.js",
 		"#pages/*": "./app/pages/*.js",
