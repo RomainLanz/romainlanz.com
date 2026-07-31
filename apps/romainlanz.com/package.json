@@ -14,7 +14,7 @@
 		"#identity/*": "./src/identity/*.js",
 		"#media/*": "./app/media/*.js",
 		"#middleware/*": "./app/middleware/*.js",
-		"#newsletter/*": "./app/newsletter/*.js",
+		"#newsletter/*": "./src/newsletter/*.js",
 		"#pages/*": "./app/pages/*.js",
 		"#paste/*": "./src/paste/*.js",
 		"#redirects/*": "./src/redirects/*.js",
