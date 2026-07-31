@@ -3,7 +3,7 @@ import path from 'node:path';
 import { BaseCommand } from '@adonisjs/core/ace';
 import ace from '@adonisjs/core/services/ace';
 import { Migrator } from 'kysely';
-import { FileMigrationProvider } from '#core/file_migration_provider';
+import { FileMigrationProvider } from '#app/core/file_migration_provider';
 import { db } from '#core/services/db';
 import type { CommandOptions } from '@adonisjs/core/types/ace';
 

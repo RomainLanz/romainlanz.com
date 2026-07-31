@@ -18,7 +18,7 @@ Settings.defaultLocale = 'fr';
  * The error handler is used to convert an exception
  * to HTTP response.
  */
-server.errorHandler(() => import('#core/exceptions/handler'));
+server.errorHandler(() => import('#app/core/exceptions/handler'));
 
 /**
  * The server middleware stack runs middleware on all the HTTP
@@ -26,7 +26,7 @@ server.errorHandler(() => import('#core/exceptions/handler'));
  * the request URL.
  */
 server.use([
-	() => import('#core/middleware/container_bindings_middleware'),
+	() => import('#app/core/middleware/container_bindings_middleware'),
 	() => import('@adonisjs/static/static_middleware'),
 	() => import('@adonisjs/vite/vite_middleware'),
 	() => import('@adonisjs/session/session_middleware'),
@@ -43,8 +43,8 @@ router.use([
 	() => import('@monocle.sh/adonisjs-agent/monocle_middleware'),
 	() => import('@adonisjs/core/bodyparser_middleware'),
 	() => import('@adonisjs/shield/shield_middleware'),
-	() => import('#core/middleware/detect_user_locale_middleware'),
-	() => import('#core/middleware/initialize_bouncer_middleware'),
+	() => import('#app/core/middleware/detect_user_locale_middleware'),
+	() => import('#app/core/middleware/initialize_bouncer_middleware'),
 ]);
 
 /**

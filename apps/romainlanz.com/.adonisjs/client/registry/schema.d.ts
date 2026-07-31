@@ -51,8 +51,8 @@ export interface Registry {
       paramsTuple: []
       params: {}
       query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#core/controllers/health_checks_controller').default['handle']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#core/controllers/health_checks_controller').default['handle']>>>
+      response: ExtractResponse<Awaited<ReturnType<import('#app/core/controllers/health_checks_controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/core/controllers/health_checks_controller').default['handle']>>>
     }
   }
   'pages.landing': {

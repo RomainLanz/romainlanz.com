@@ -4,6 +4,6 @@ import '#app/auth/routes';
 import '#app/media/routes';
 import '#app/paste/routes';
 import '#app/redirects/routes';
-import '#core/routes';
+import '#app/core/routes';
 import '#pages/routes';
 import '#app/twitch/routes';

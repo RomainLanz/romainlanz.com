@@ -10,7 +10,7 @@
 		"#app/*": "./app/*.js",
 		"#articles/*": "./src/articles/*.js",
 		"#common/*": "./app/common/*.js",
-		"#core/*": "./app/core/*.js",
+		"#core/*": "./src/core/*.js",
 		"#identity/*": "./src/identity/*.js",
 		"#media/*": "./src/media/*.js",
 		"#middleware/*": "./app/middleware/*.js",

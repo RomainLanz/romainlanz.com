@@ -1,6 +1,6 @@
 import { inject } from '@adonisjs/core';
+import { RecordNotFoundException } from '#app/core/exceptions/record_not_found_exception';
 import { TimeServiceContract } from '#core/contracts/time_service_contract';
-import { RecordNotFoundException } from '#core/exceptions/record_not_found_exception';
 import { db } from '#core/services/db';
 import { Redirect } from '#redirects/domain/redirect';
 import { RedirectIdentifier } from '#redirects/domain/redirect_identifier';

@@ -2,7 +2,7 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Migrator, sql } from 'kysely';
-import { FileMigrationProvider } from '#core/file_migration_provider';
+import { FileMigrationProvider } from '#app/core/file_migration_provider';
 import { db } from '#core/services/db';
 
 const migrationFolder = fileURLToPath(new URL('../database/migrations', import.meta.url));
