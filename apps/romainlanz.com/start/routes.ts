@@ -6,4 +6,4 @@ import '#app/redirects/routes';
 import '#core/routes';
 import '#media/routes';
 import '#pages/routes';
-import '#twitch/routes';
+import '#app/twitch/routes';
