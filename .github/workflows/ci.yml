@@ -56,7 +56,7 @@ jobs:
       SMTP_PORT: 1025
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -95,7 +95,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Log in to the Container Registry
         uses: docker/login-action@v3
