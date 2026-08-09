@@ -1,5 +1,6 @@
 import { inject } from '@adonisjs/core';
 import ArticleListPageTransformer from '#app/articles/transformers/article_list_page_transformer';
+import { RecordNotFoundException } from '#app/core/exceptions/record_not_found_exception';
 import { CountPublishedArticlesQuery } from '#articles/queries/count_published_articles_query';
 import { ListPublishedArticlesQuery } from '#articles/queries/list_published_articles_query';
 import { FindCategoryBySlugQuery } from '#taxonomies/queries/find_category_by_slug_query';
@@ -25,10 +26,36 @@ export default class ListArticlesController {
 		const tagSlug = request.input('tag', null);
 
 		if (categorySlug) {
-			await this.findCategoryBySlug.execute(categorySlug);
+			const category = await this.findCategoryBySlug.execute(categorySlug);
+
+			if (!category.ok) {
+				const errorType = category.error.type;
+
+				switch (errorType) {
+					case 'category_not_found':
+						throw new RecordNotFoundException();
+					default: {
+						const exhaustive: never = errorType;
+						return exhaustive;
+					}
+				}
+			}
 		}
 		if (tagSlug) {
-			await this.findTagBySlug.execute(tagSlug);
+			const tag = await this.findTagBySlug.execute(tagSlug);
+
+			if (!tag.ok) {
+				const errorType = tag.error.type;
+
+				switch (errorType) {
+					case 'tag_not_found':
+						throw new RecordNotFoundException();
+					default: {
+						const exhaustive: never = errorType;
+						return exhaustive;
+					}
+				}
+			}
 		}
 
 		const paginationArticlesCountPromise = this.countPublishedArticles.execute({ categorySlug, tagSlug });

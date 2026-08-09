@@ -4,7 +4,11 @@ import { db } from '#shared/services/db';
 
 export class PasteRepository {
 	async findById(id: string) {
-		const record = await db.selectFrom('pastes').select(['content']).where('id', '=', id).executeTakeFirstOrThrow();
+		const record = await db.selectFrom('pastes').select(['content']).where('id', '=', id).executeTakeFirst();
+
+		if (!record) {
+			return null;
+		}
 
 		return Paste.create({ id: PasteIdentifier.fromString(id), content: record.content });
 	}

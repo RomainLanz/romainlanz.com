@@ -1,8 +1,5 @@
 import { ExceptionHandler } from '@adonisjs/core/http';
 import app from '@adonisjs/core/services/app';
-import { RecordNotFoundException } from '#app/core/exceptions/record_not_found_exception';
-import { RecordNotFoundError } from '#core/errors/record_not_found_error';
-import type { HttpContext } from '@adonisjs/core/http';
 import type { StatusPageRange, StatusPageRenderer } from '@adonisjs/core/types/http';
 
 export default class HttpExceptionHandler extends ExceptionHandler {
@@ -29,30 +26,4 @@ export default class HttpExceptionHandler extends ExceptionHandler {
 		'404': (_error, { inertia }) => inertia.render('errors/not_found', {}),
 		'500..599': (error, { inertia }) => inertia.render('errors/server_error', { errorCode: error.status ?? 500 }),
 	};
-
-	/**
-	 * The method is used for handling errors and returning
-	 * response to the client
-	 */
-	async handle(error: unknown, ctx: HttpContext) {
-		if (error instanceof RecordNotFoundError) {
-			error = new RecordNotFoundException();
-		}
-
-		return super.handle(error, ctx);
-	}
-
-	/**
-	 * The method is used to report error to the logging service or
-	 * the a third party error monitoring service.
-	 *
-	 * @note You should not attempt to send a response from this method.
-	 */
-	async report(error: unknown, ctx: HttpContext) {
-		if (error instanceof RecordNotFoundError) {
-			error = new RecordNotFoundException();
-		}
-
-		return super.report(error, ctx);
-	}
 }

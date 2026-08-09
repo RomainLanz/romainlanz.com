@@ -127,6 +127,12 @@ test.group('List articles filters', (group) => {
 		response.assertStatus(404);
 	});
 
+	test('returns not found for an unknown category', async ({ client }) => {
+		const response = await client.get('/articles').qs({ category: 'unknown-category' }).withInertia();
+
+		response.assertStatus(404);
+	});
+
 	test('keeps category and tag filters while paginating', async ({ client, assert }) => {
 		const backend = await fixture.givenCategory({ name: 'Backend', slug: 'backend' });
 		const frontend = await fixture.givenCategory({ name: 'Frontend', slug: 'frontend' });

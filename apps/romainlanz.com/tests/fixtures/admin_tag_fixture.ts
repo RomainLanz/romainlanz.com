@@ -63,13 +63,17 @@ export class AdminTagFixture extends DatabaseFixture {
 	}
 
 	async thenTagShouldExist(slug: string, expected: Required<TagInput>) {
-		const tag = await this.#findTagBySlug.execute(slug);
+		const result = await this.#findTagBySlug.execute(slug);
+
+		if (!result.ok) {
+			throw new Error(`Expected Tag "${slug}" to exist`);
+		}
 
 		this.assert.deepEqual(
 			{
-				name: tag.props.name,
-				slug: tag.props.slug,
-				color: tag.props.color,
+				name: result.value.props.name,
+				slug: result.value.props.slug,
+				color: result.value.props.color,
 			},
 			expected,
 		);

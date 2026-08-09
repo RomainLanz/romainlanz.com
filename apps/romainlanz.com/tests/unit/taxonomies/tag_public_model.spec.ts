@@ -1,5 +1,6 @@
 import { test } from '@japa/runner';
-import { RecordNotFoundError } from '#core/errors/record_not_found_error';
+import { FindCategoryBySlugQuery } from '#taxonomies/queries/find_category_by_slug_query';
+import { FindTagBySlugQuery } from '#taxonomies/queries/find_tag_by_slug_query';
 import { TagRepository } from '#taxonomies/repositories/tag_repository';
 import { TagFixture } from '#tests/fixtures/tag_fixture';
 
@@ -66,16 +67,25 @@ test.group('Tag public model', (group) => {
 	test('rejects updating a Tag that does not exist', async ({ assert }) => {
 		const repository = new TagRepository();
 
-		try {
-			await repository.update({
-				id: '7a28e15e-f122-4fa6-aaf2-64fc5d6b8d02',
-				name: 'Missing Tag',
-				color: 'cyan',
-			});
-			assert.fail('Expected the missing Tag update to fail');
-		} catch (error) {
-			assert.instanceOf(error, RecordNotFoundError);
-		}
+		const result = await repository.update({
+			id: '7a28e15e-f122-4fa6-aaf2-64fc5d6b8d02',
+			name: 'Missing Tag',
+			color: 'cyan',
+		});
+
+		assert.isNull(result);
+	});
+
+	test('returns an explicit error when a Tag slug does not exist', async ({ assert }) => {
+		const result = await new FindTagBySlugQuery().execute('missing-tag');
+
+		assert.deepEqual(result, { ok: false, error: { type: 'tag_not_found' } });
+	});
+
+	test('returns an explicit error when a Category slug does not exist', async ({ assert }) => {
+		const result = await new FindCategoryBySlugQuery().execute('missing-category');
+
+		assert.deepEqual(result, { ok: false, error: { type: 'category_not_found' } });
 	});
 
 	test('lists tags with their public fields', async () => {

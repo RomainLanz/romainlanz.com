@@ -38,9 +38,11 @@ test.group('Auth service', (group) => {
 		});
 		const authService = await app.container.make(AuthService);
 
-		const user = await authService.attempt('romain@example.com', 'secret-password');
+		const result = await authService.attempt('romain@example.com', 'secret-password');
 
-		assert.strictEqual(user, repository.user);
+		assert.isTrue(result.ok);
+		if (!result.ok) return;
+		assert.strictEqual(result.value, repository.user);
 		assert.equal(repository.email, 'romain@example.com');
 	});
 
@@ -55,13 +57,19 @@ test.group('Auth service', (group) => {
 		});
 		const authService = await app.container.make(AuthService);
 
-		assert.isFalse(await authService.attempt('romain@example.com', 'invalid-password'));
+		assert.deepEqual(await authService.attempt('romain@example.com', 'invalid-password'), {
+			ok: false,
+			error: { type: 'invalid_credentials' },
+		});
 	});
 
 	test('rejects an unknown user', async ({ assert }) => {
 		const authService = await app.container.make(AuthService);
 
-		assert.isFalse(await authService.attempt('unknown@example.com', 'secret-password'));
+		assert.deepEqual(await authService.attempt('unknown@example.com', 'secret-password'), {
+			ok: false,
+			error: { type: 'invalid_credentials' },
+		});
 		assert.equal(repository.email, 'unknown@example.com');
 	});
 });

@@ -181,4 +181,13 @@ test.group('Admin article Tags', (group) => {
 			await db.selectFrom('articles').select('id').where('title', '=', 'Article sur AdonisJS').executeTakeFirst(),
 		);
 	});
+
+	test('returns not found when updating an Article that does not exist', async ({ client }) => {
+		const category = await CategoryFactory.create();
+		const missingArticle = await ArticleFactory.for('category', category).create();
+		await db.deleteFrom('articles').where('id', '=', missingArticle.id).execute();
+		const response = await updateArticle(client, missingArticle, category.id, []);
+
+		response.assertStatus(404);
+	});
 });

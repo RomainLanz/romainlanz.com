@@ -23,15 +23,27 @@ export class TagFixture extends DatabaseFixture {
 		});
 	}
 
-	whenICreateATag(attributes: TagAttributes) {
-		return this.#repository.create(attributes);
+	async whenICreateATag(attributes: TagAttributes) {
+		const result = await this.#repository.create(attributes);
+
+		if (!result.ok) {
+			throw new Error(`Could not create Tag: ${result.error.type}`);
+		}
+
+		return result.value;
 	}
 
-	whenIRenameTag(tag: Tag, attributes: TagAttributes) {
-		return this.#repository.update({
+	async whenIRenameTag(tag: Tag, attributes: TagAttributes) {
+		const updatedTag = await this.#repository.update({
 			id: tag.getIdentifier().toString(),
 			...attributes,
 		});
+
+		if (!updatedTag) {
+			throw new Error('Could not update Tag: Tag not found');
+		}
+
+		return updatedTag;
 	}
 
 	async whenIListTags() {
@@ -39,13 +51,17 @@ export class TagFixture extends DatabaseFixture {
 	}
 
 	async thenTagShouldExposePublicData(slug: string, expected: { name: string; slug: string; color: TagColor }) {
-		const tag = await this.#findTagBySlug.execute(slug);
+		const result = await this.#findTagBySlug.execute(slug);
+
+		if (!result.ok) {
+			throw new Error(`Expected Tag "${slug}" to exist`);
+		}
 
 		this.assert.deepEqual(
 			{
-				name: tag.props.name,
-				slug: tag.props.slug,
-				color: tag.props.color,
+				name: result.value.props.name,
+				slug: result.value.props.slug,
+				color: result.value.props.color,
 			},
 			expected,
 		);

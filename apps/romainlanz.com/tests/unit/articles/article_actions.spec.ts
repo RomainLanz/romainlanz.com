@@ -1,6 +1,8 @@
 import { test } from '@japa/runner';
 import { CreateArticle } from '#articles/actions/create_article';
 import { UpdateArticle } from '#articles/actions/update_article';
+import { GetArticleBySlugQuery } from '#articles/queries/get_article_by_slug_query';
+import { migrateDatabase, truncateDatabase } from '#tests/database_test_utils';
 import type { ArticleRepository } from '#articles/repositories/article_repository';
 import type { MarkdownCompiler } from '#articles/services/markdown_compiler';
 
@@ -70,15 +72,16 @@ test.group('Article actions', () => {
 		const repository = {
 			async update(value: UpdatePayload) {
 				payload = value;
+				return true;
 			},
-		} as ArticleRepository;
+		} as unknown as ArticleRepository;
 		const compiler = {
 			async toHtml() {
 				return { toString: () => '<p>Updated</p>' };
 			},
 		} as unknown as MarkdownCompiler;
 
-		await new UpdateArticle(repository, compiler).execute({
+		const result = await new UpdateArticle(repository, compiler).execute({
 			id: 'article-id',
 			title: 'Updated title',
 			summary: 'Updated summary',
@@ -94,5 +97,41 @@ test.group('Article actions', () => {
 		assert.equal(payload?.contentHtml, '<p>Updated</p>');
 		assert.equal(payload?.readingTime, 1);
 		assert.isNull(payload?.publishedAt);
+		assert.deepEqual(result, { ok: true, value: undefined });
+	});
+
+	test('returns an explicit error when the Article to update does not exist', async ({ assert }) => {
+		const repository = {
+			async update() {
+				return false;
+			},
+		} as unknown as ArticleRepository;
+		const compiler = {
+			async toHtml() {
+				return { toString: () => '<p>Updated</p>' };
+			},
+		} as unknown as MarkdownCompiler;
+
+		const result = await new UpdateArticle(repository, compiler).execute({
+			id: 'missing-article-id',
+			title: 'Updated title',
+			summary: 'Updated summary',
+			slug: 'custom-slug',
+			markdownContent: 'updated markdown',
+			publishedAt: undefined,
+			categoryId: 'category-id',
+			tagIds: [],
+		});
+
+		assert.deepEqual(result, { ok: false, error: { type: 'article_not_found' } });
+	});
+
+	test('returns an explicit error when an Article slug does not exist', async ({ assert }) => {
+		await migrateDatabase();
+		await truncateDatabase();
+
+		const result = await new GetArticleBySlugQuery().execute('missing-article');
+
+		assert.deepEqual(result, { ok: false, error: { type: 'article_not_found' } });
 	});
 });

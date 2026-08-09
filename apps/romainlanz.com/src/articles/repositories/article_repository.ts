@@ -58,7 +58,7 @@ export class ArticleRepository {
 
 	update(payload: UpdateArticleDTO) {
 		return db.transaction().execute(async (trx) => {
-			await trx
+			const result = await trx
 				.updateTable('articles')
 				.set({
 					title: payload.title,
@@ -71,7 +71,11 @@ export class ArticleRepository {
 					category_id: payload.categoryId,
 				})
 				.where('id', '=', payload.id)
-				.execute();
+				.executeTakeFirst();
+
+			if (result.numUpdatedRows === 0n) {
+				return false;
+			}
 
 			await trx.deleteFrom('tag_articles').where('article_id', '=', payload.id).execute();
 
@@ -81,6 +85,8 @@ export class ArticleRepository {
 					.values(payload.tagIds.map((tagId) => ({ article_id: payload.id, tag_id: tagId })))
 					.execute();
 			}
+
+			return true;
 		});
 	}
 }

@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 import { Article } from '#articles/domain/article';
 import { ArticleIdentifier } from '#articles/domain/article_identifier';
-import { RecordNotFoundError } from '#core/errors/record_not_found_error';
+import { err, ok, type Result } from '#core/result';
 import { db } from '#shared/services/db';
 import { Category } from '#taxonomies/domain/category';
 import { CategoryIdentifier } from '#taxonomies/domain/category_identifier';
@@ -10,8 +10,12 @@ import { parseTagColor } from '#taxonomies/domain/tag_color';
 import { TagIdentifier } from '#taxonomies/domain/tag_identifier';
 import type { IllustrationName } from '@rlanz/design-system/illustration-name';
 
+export type GetArticleBySlugError = {
+	type: 'article_not_found';
+};
+
 export class GetArticleBySlugQuery {
-	async execute(slug: string) {
+	async execute(slug: string): Promise<Result<Article, GetArticleBySlugError>> {
 		const articleRecord = await db
 			.selectFrom('articles')
 			.leftJoin('categories', 'articles.category_id', 'categories.id')
@@ -32,7 +36,7 @@ export class GetArticleBySlugQuery {
 			.executeTakeFirst();
 
 		if (!articleRecord) {
-			throw new RecordNotFoundError();
+			return err({ type: 'article_not_found' });
 		}
 
 		const tagRecords = await db
@@ -43,28 +47,30 @@ export class GetArticleBySlugQuery {
 			.orderBy('tags.name')
 			.execute();
 
-		return Article.create({
-			id: ArticleIdentifier.fromString(articleRecord.id),
-			title: articleRecord.title,
-			slug: articleRecord.slug,
-			content: articleRecord.content_html,
-			summary: articleRecord.summary,
-			publishedAt: DateTime.fromJSDate(articleRecord.published_at!),
-			readingTime: articleRecord.reading_time,
-			category: Category.create({
-				id: CategoryIdentifier.fromString(articleRecord.category_id!),
-				name: articleRecord.category_name!,
-				slug: articleRecord.category_slug!,
-				illustrationName: articleRecord.category_illustration_name as IllustrationName,
-			}),
-			tags: tagRecords.map((tag) =>
-				Tag.create({
-					id: TagIdentifier.fromString(tag.id),
-					name: tag.name,
-					slug: tag.slug,
-					color: parseTagColor(tag.color),
+		return ok(
+			Article.create({
+				id: ArticleIdentifier.fromString(articleRecord.id),
+				title: articleRecord.title,
+				slug: articleRecord.slug,
+				content: articleRecord.content_html,
+				summary: articleRecord.summary,
+				publishedAt: DateTime.fromJSDate(articleRecord.published_at!),
+				readingTime: articleRecord.reading_time,
+				category: Category.create({
+					id: CategoryIdentifier.fromString(articleRecord.category_id!),
+					name: articleRecord.category_name!,
+					slug: articleRecord.category_slug!,
+					illustrationName: articleRecord.category_illustration_name as IllustrationName,
 				}),
-			),
-		});
+				tags: tagRecords.map((tag) =>
+					Tag.create({
+						id: TagIdentifier.fromString(tag.id),
+						name: tag.name,
+						slug: tag.slug,
+						color: parseTagColor(tag.color),
+					}),
+				),
+			}),
+		);
 	}
 }

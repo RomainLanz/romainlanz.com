@@ -57,4 +57,10 @@ test.group('Public pastes', (group) => {
 			},
 		});
 	});
+
+	test('returns not found for an unknown paste', async ({ client }) => {
+		const response = await client.get('/7a28e15e-f122-4fa6-aaf2-64fc5d6b8d02').header('host', pasteHost).withInertia();
+
+		response.assertStatus(404);
+	});
 });

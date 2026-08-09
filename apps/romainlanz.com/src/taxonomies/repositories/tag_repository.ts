@@ -1,4 +1,4 @@
-import { RecordNotFoundError } from '#core/errors/record_not_found_error';
+import { err, ok, type Result } from '#core/result';
 import { generateSlug } from '#core/slug';
 import { db } from '#shared/services/db';
 import { Tag } from '#taxonomies/domain/tag';
@@ -17,11 +17,10 @@ interface UpdateTagDTO {
 	color: string;
 }
 
-export class TagNameAlreadyExistsError extends Error {}
-export class TagSlugAlreadyExistsError extends Error {}
+export type CreateTagRepositoryError = { type: 'tag_name_already_exists' } | { type: 'tag_slug_already_exists' };
 
 export class TagRepository {
-	async create(payload: CreateTagDTO) {
+	async create(payload: CreateTagDTO): Promise<Result<Tag, CreateTagRepositoryError>> {
 		const color = parseTagColor(payload.color);
 		const customSlug = payload.slug?.trim() || undefined;
 		const baseSlug = customSlug || generateSlug(payload.name) || 'tag';
@@ -43,7 +42,7 @@ export class TagRepository {
 					.execute();
 			} catch (error) {
 				if (isUniqueConstraintViolation(error, 'tags_name_key')) {
-					throw new TagNameAlreadyExistsError();
+					return err({ type: 'tag_name_already_exists' });
 				}
 
 				if (!isTagSlugUniqueConstraintViolation(error)) {
@@ -51,47 +50,44 @@ export class TagRepository {
 				}
 
 				if (customSlug) {
-					throw new TagSlugAlreadyExistsError();
+					return err({ type: 'tag_slug_already_exists' });
 				}
 
 				suffix += 1;
 				continue;
 			}
 
-			return Tag.create({
-				id,
-				name: payload.name,
-				slug,
-				color,
-			});
+			return ok(
+				Tag.create({
+					id,
+					name: payload.name,
+					slug,
+					color,
+				}),
+			);
 		}
 	}
 
-	async update(payload: UpdateTagDTO) {
+	async update(payload: UpdateTagDTO): Promise<Tag | null> {
 		const color = parseTagColor(payload.color);
-		const existingTag = await db
-			.selectFrom('tags')
-			.select(['id', 'slug'])
-			.where('id', '=', payload.id)
-			.executeTakeFirst();
-
-		if (!existingTag) {
-			throw new RecordNotFoundError();
-		}
-
-		await db
+		const updatedTag = await db
 			.updateTable('tags')
 			.set({
 				name: payload.name,
 				color,
 			})
 			.where('id', '=', payload.id)
-			.execute();
+			.returning(['id', 'slug'])
+			.executeTakeFirst();
+
+		if (!updatedTag) {
+			return null;
+		}
 
 		return Tag.create({
-			id: TagIdentifier.fromString(existingTag.id),
+			id: TagIdentifier.fromString(updatedTag.id),
 			name: payload.name,
-			slug: existingTag.slug,
+			slug: updatedTag.slug,
 			color,
 		});
 	}

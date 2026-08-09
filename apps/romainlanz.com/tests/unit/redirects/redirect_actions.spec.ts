@@ -1,5 +1,8 @@
+import app from '@adonisjs/core/services/app';
 import { test } from '@japa/runner';
 import { RedirectIdentifier } from '#redirects/domain/redirect_identifier';
+import { RedirectRepository } from '#redirects/repositories/redirect_repository';
+import { migrateDatabase, truncateDatabase } from '#tests/database_test_utils';
 import { RedirectActionsFixture } from '#tests/fixtures/redirect_actions_fixture';
 
 test.group('Redirect actions', (group) => {
@@ -45,5 +48,18 @@ test.group('Redirect actions', (group) => {
 		assert.strictEqual(savedVisit!.props.redirectId, redirectId);
 		assert.equal(savedVisit!.props.referer, 'https://example.com/source');
 		assert.equal(savedVisit!.props.uniqueHash, 'daily-visitor-hash');
+	});
+});
+
+test.group('Redirect repository', (group) => {
+	group.each.setup(async () => {
+		await migrateDatabase();
+		await truncateDatabase();
+	});
+
+	test('returns null when a Redirect slug does not exist', async ({ assert }) => {
+		const repository = await app.container.make(RedirectRepository);
+
+		assert.isNull(await repository.findBySlug('missing-redirect'));
 	});
 });

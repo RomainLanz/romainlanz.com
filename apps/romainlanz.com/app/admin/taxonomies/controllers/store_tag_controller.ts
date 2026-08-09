@@ -3,7 +3,6 @@ import { tagColors } from '@rlanz/design-system/tag-color';
 import vine from '@vinejs/vine';
 import { TaxonomyPolicy } from '#admin/taxonomies/policies/taxonomy_policy';
 import { CreateTag } from '#taxonomies/actions/create_tag';
-import { TagNameAlreadyExistsError, TagSlugAlreadyExistsError } from '#taxonomies/repositories/tag_repository';
 import type { HttpContext } from '@adonisjs/core/http';
 
 @inject()
@@ -31,20 +30,24 @@ export default class StoreTagController {
 		await bouncer.with(TaxonomyPolicy).authorize('manage');
 
 		const payload = await request.validateUsing(StoreTagController.validator);
+		const result = await this.createTag.execute(payload);
 
-		try {
-			await this.createTag.execute(payload);
-		} catch (error) {
-			if (error instanceof TagNameAlreadyExistsError) {
-				session.flash('inputErrorsBag', {
-					name: ['Ce nom est déjà utilisé.'],
-				});
-			} else if (error instanceof TagSlugAlreadyExistsError) {
-				session.flash('inputErrorsBag', {
-					slug: ['Ce slug est déjà utilisé.'],
-				});
-			} else {
-				throw error;
+		if (!result.ok) {
+			switch (result.error.type) {
+				case 'tag_name_already_exists':
+					session.flash('inputErrorsBag', {
+						name: ['Ce nom est déjà utilisé.'],
+					});
+					break;
+				case 'tag_slug_already_exists':
+					session.flash('inputErrorsBag', {
+						slug: ['Ce slug est déjà utilisé.'],
+					});
+					break;
+				default: {
+					const exhaustive: never = result.error;
+					return exhaustive;
+				}
 			}
 
 			return response.redirect().back();

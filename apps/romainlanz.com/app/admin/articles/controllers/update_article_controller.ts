@@ -3,6 +3,7 @@ import vine from '@vinejs/vine';
 import { ArticlePolicy } from '#admin/articles/policies/article_policy';
 import { GetArticleForUpdateQuery } from '#admin/articles/queries/get_article_for_update_query';
 import { tagIdsValidator } from '#admin/articles/tag_ids_validator';
+import { RecordNotFoundException } from '#app/core/exceptions/record_not_found_exception';
 import CategoryOptionTransformer from '#app/taxonomies/transformers/category_option_transformer';
 import TagOptionTransformer from '#app/taxonomies/transformers/tag_option_transformer';
 import { UpdateArticle } from '#articles/actions/update_article';
@@ -61,7 +62,7 @@ export default class UpdateArticleController {
 			tagIds = [],
 		} = await request.validateUsing(UpdateArticleController.validator);
 
-		await this.updateArticle.execute({
+		const result = await this.updateArticle.execute({
 			id: request.param('id')!,
 			title,
 			summary,
@@ -71,6 +72,19 @@ export default class UpdateArticleController {
 			categoryId,
 			tagIds,
 		});
+
+		if (!result.ok) {
+			const errorType = result.error.type;
+
+			switch (errorType) {
+				case 'article_not_found':
+					throw new RecordNotFoundException();
+				default: {
+					const exhaustive: never = errorType;
+					return exhaustive;
+				}
+			}
+		}
 
 		return response.redirect().toRoute('admin.articles.index');
 	}

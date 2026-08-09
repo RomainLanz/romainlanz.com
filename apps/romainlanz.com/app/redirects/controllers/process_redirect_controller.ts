@@ -1,5 +1,6 @@
 import { inject } from '@adonisjs/core';
 import { assertExists } from '@adonisjs/core/helpers/assert';
+import { RecordNotFoundException } from '#app/core/exceptions/record_not_found_exception';
 import { TrackRedirectVisit } from '#redirects/actions/track_redirect_visit';
 import { RedirectRepository } from '#redirects/repositories/redirect_repository';
 import { defer } from '#shared/services/defer';
@@ -14,6 +15,10 @@ export default class ProcessRedirectController {
 
 	async execute({ params, request, response }: HttpContext) {
 		const redirect = await this.redirectRepository.findBySlug(params['*']);
+
+		if (!redirect) {
+			throw new RecordNotFoundException();
+		}
 
 		defer.push(async () => {
 			const clientIp = request.header('CF-Connecting-IP', request.ip());

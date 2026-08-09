@@ -2,6 +2,7 @@ import { inject } from '@adonisjs/core';
 import { parsePublishedAt } from '#articles/actions/published_at';
 import { ArticleRepository } from '#articles/repositories/article_repository';
 import { MarkdownCompiler } from '#articles/services/markdown_compiler';
+import { err, ok, type Result } from '#core/result';
 
 interface UpdateArticleInput {
 	id: string;
@@ -14,6 +15,10 @@ interface UpdateArticleInput {
 	tagIds: string[];
 }
 
+export type UpdateArticleError = {
+	type: 'article_not_found';
+};
+
 @inject()
 export class UpdateArticle {
 	constructor(
@@ -21,10 +26,10 @@ export class UpdateArticle {
 		private markdownCompiler: MarkdownCompiler,
 	) {}
 
-	async execute(input: UpdateArticleInput) {
+	async execute(input: UpdateArticleInput): Promise<Result<void, UpdateArticleError>> {
 		const markdownHtml = await this.markdownCompiler.toHtml(input.markdownContent);
 
-		return this.repository.update({
+		const updated = await this.repository.update({
 			id: input.id,
 			title: input.title,
 			summary: input.summary,
@@ -36,5 +41,11 @@ export class UpdateArticle {
 			categoryId: input.categoryId,
 			tagIds: input.tagIds,
 		});
+
+		if (!updated) {
+			return err({ type: 'article_not_found' });
+		}
+
+		return ok(undefined);
 	}
 }

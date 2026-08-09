@@ -9,17 +9,27 @@ export default class LoginController {
 	async execute({ auth, request, response, session }: HttpContext) {
 		const { email, password } = request.all();
 
-		const user = await this.authService.attempt(email, password);
+		const result = await this.authService.attempt(email, password);
 
-		if (!user) {
-			session.flashErrors({
-				E_INVALID_CREDENTIALS: "Aucun compte n'a été trouvé avec les identifiants fournis.",
-			});
+		if (!result.ok) {
+			const errorType = result.error.type;
+
+			switch (errorType) {
+				case 'invalid_credentials':
+					session.flashErrors({
+						E_INVALID_CREDENTIALS: "Aucun compte n'a été trouvé avec les identifiants fournis.",
+					});
+					break;
+				default: {
+					const exhaustive: never = errorType;
+					return exhaustive;
+				}
+			}
 
 			return response.redirect().back();
 		}
 
-		await auth.use('web').login(user);
+		await auth.use('web').login(result.value);
 
 		return response.redirect().toPath('/');
 	}
