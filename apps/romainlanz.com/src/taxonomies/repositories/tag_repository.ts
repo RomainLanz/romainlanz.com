@@ -1,4 +1,4 @@
-import { RecordNotFoundException } from '#app/core/exceptions/record_not_found_exception';
+import { RecordNotFoundError } from '#core/errors/record_not_found_error';
 import { generateSlug } from '#core/slug';
 import { db } from '#shared/services/db';
 import { Tag } from '#taxonomies/domain/tag';
@@ -76,7 +76,7 @@ export class TagRepository {
 			.executeTakeFirst();
 
 		if (!existingTag) {
-			throw new RecordNotFoundException();
+			throw new RecordNotFoundError();
 		}
 
 		await db

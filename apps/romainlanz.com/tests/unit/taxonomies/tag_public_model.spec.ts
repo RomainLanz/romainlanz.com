@@ -1,4 +1,6 @@
 import { test } from '@japa/runner';
+import { RecordNotFoundError } from '#core/errors/record_not_found_error';
+import { TagRepository } from '#taxonomies/repositories/tag_repository';
 import { TagFixture } from '#tests/fixtures/tag_fixture';
 
 test.group('Tag public model', (group) => {
@@ -59,6 +61,21 @@ test.group('Tag public model', (group) => {
 			slug: 'adonis-js',
 			color: 'violet',
 		});
+	});
+
+	test('rejects updating a Tag that does not exist', async ({ assert }) => {
+		const repository = new TagRepository();
+
+		try {
+			await repository.update({
+				id: '7a28e15e-f122-4fa6-aaf2-64fc5d6b8d02',
+				name: 'Missing Tag',
+				color: 'cyan',
+			});
+			assert.fail('Expected the missing Tag update to fail');
+		} catch (error) {
+			assert.instanceOf(error, RecordNotFoundError);
+		}
 	});
 
 	test('lists tags with their public fields', async () => {

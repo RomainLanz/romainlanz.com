@@ -1,5 +1,7 @@
 import { ExceptionHandler } from '@adonisjs/core/http';
 import app from '@adonisjs/core/services/app';
+import { RecordNotFoundException } from '#app/core/exceptions/record_not_found_exception';
+import { RecordNotFoundError } from '#core/errors/record_not_found_error';
 import type { HttpContext } from '@adonisjs/core/http';
 import type { StatusPageRange, StatusPageRenderer } from '@adonisjs/core/types/http';
 
@@ -33,6 +35,10 @@ export default class HttpExceptionHandler extends ExceptionHandler {
 	 * response to the client
 	 */
 	async handle(error: unknown, ctx: HttpContext) {
+		if (error instanceof RecordNotFoundError) {
+			error = new RecordNotFoundException();
+		}
+
 		return super.handle(error, ctx);
 	}
 
@@ -43,6 +49,10 @@ export default class HttpExceptionHandler extends ExceptionHandler {
 	 * @note You should not attempt to send a response from this method.
 	 */
 	async report(error: unknown, ctx: HttpContext) {
+		if (error instanceof RecordNotFoundError) {
+			error = new RecordNotFoundException();
+		}
+
 		return super.report(error, ctx);
 	}
 }

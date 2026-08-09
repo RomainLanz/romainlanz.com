@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
-import { RecordNotFoundException } from '#app/core/exceptions/record_not_found_exception';
 import { Article } from '#articles/domain/article';
 import { ArticleIdentifier } from '#articles/domain/article_identifier';
+import { RecordNotFoundError } from '#core/errors/record_not_found_error';
 import { db } from '#shared/services/db';
 import { Category } from '#taxonomies/domain/category';
 import { CategoryIdentifier } from '#taxonomies/domain/category_identifier';
@@ -32,7 +32,7 @@ export class GetArticleBySlugQuery {
 			.executeTakeFirst();
 
 		if (!articleRecord) {
-			throw new RecordNotFoundException();
+			throw new RecordNotFoundError();
 		}
 
 		const tagRecords = await db

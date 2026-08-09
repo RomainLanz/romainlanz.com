@@ -1,4 +1,4 @@
-import { RecordNotFoundException } from '#app/core/exceptions/record_not_found_exception';
+import { RecordNotFoundError } from '#core/errors/record_not_found_error';
 import { db } from '#shared/services/db';
 import { Tag } from '#taxonomies/domain/tag';
 import { parseTagColor } from '#taxonomies/domain/tag_color';
@@ -13,7 +13,7 @@ export class FindTagBySlugQuery {
 			.executeTakeFirst();
 
 		if (!tagRecord) {
-			throw new RecordNotFoundException();
+			throw new RecordNotFoundError();
 		}
 
 		return Tag.create({
