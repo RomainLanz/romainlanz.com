@@ -18,6 +18,10 @@ type TaxonomiesPageProps = {
 	};
 };
 
+type UpdateTagPageProps = {
+	tag: { id: string; name: string; slug: string; color: string };
+};
+
 export class AdminTagFixture extends DatabaseFixture {
 	readonly #findTagBySlug = new FindTagBySlugQuery();
 	readonly #userRepository = new UserRepository();
@@ -54,6 +58,36 @@ export class AdminTagFixture extends DatabaseFixture {
 			.loginAs(admin)
 			.withCsrfToken()
 			.header('referer', '/admin/taxonomies/tags/create');
+
+		if (options.followRedirects === false) {
+			request.redirects(0);
+		}
+
+		return request.form(input);
+	}
+
+	async visitTagUpdateAsAdmin(client: ApiClient, id: string) {
+		const admin = await this.createAdmin();
+		const response = await client.get(`/admin/taxonomies/tags/${id}/edit`).loginAs(admin).withInertia();
+
+		response.assertStatus(200);
+		response.assertInertiaComponent('admin/taxonomies/tags/update');
+
+		return response.inertiaProps as UpdateTagPageProps;
+	}
+
+	async updateTagAsAdmin(
+		client: ApiClient,
+		id: string,
+		input: Required<TagInput>,
+		options: { followRedirects?: boolean } = {},
+	) {
+		const admin = await this.createAdmin();
+		const request = client
+			.put(`/admin/taxonomies/tags/${id}`)
+			.loginAs(admin)
+			.withCsrfToken()
+			.header('referer', `/admin/taxonomies/tags/${id}/edit`);
 
 		if (options.followRedirects === false) {
 			request.redirects(0);

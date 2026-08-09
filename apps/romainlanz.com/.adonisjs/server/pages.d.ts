@@ -19,6 +19,7 @@ declare module '@adonisjs/inertia/types' {
     'admin/taxonomies/categories/create': ExtractProps<(typeof import('../../inertia/pages/admin/taxonomies/categories/create.vue'))['default']>
     'admin/taxonomies/list': ExtractProps<(typeof import('../../inertia/pages/admin/taxonomies/list.vue'))['default']>
     'admin/taxonomies/tags/create': ExtractProps<(typeof import('../../inertia/pages/admin/taxonomies/tags/create.vue'))['default']>
+    'admin/taxonomies/tags/update': ExtractProps<(typeof import('../../inertia/pages/admin/taxonomies/tags/update.vue'))['default']>
     'articles/list': ExtractProps<(typeof import('../../inertia/pages/articles/list.vue'))['default']>
     'articles/show': ExtractProps<(typeof import('../../inertia/pages/articles/show.vue'))['default']>
     'contact': ExtractProps<(typeof import('../../inertia/pages/contact.vue'))['default']>

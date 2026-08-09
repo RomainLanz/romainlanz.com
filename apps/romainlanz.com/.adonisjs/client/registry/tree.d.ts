@@ -48,6 +48,8 @@ export interface ApiDefinition {
       tags: {
         create: typeof routes['admin.taxonomies.tags.create']
         store: typeof routes['admin.taxonomies.tags.store']
+        edit: typeof routes['admin.taxonomies.tags.edit']
+        update: typeof routes['admin.taxonomies.tags.update']
       }
     }
   }

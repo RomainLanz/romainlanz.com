@@ -57,7 +57,9 @@
 	}
 
 	function computeArticleTagHref(slug: string) {
-		return client.urlFor('articles.index', undefined, { qs: { tag: slug } });
+		return client.urlFor('articles.index', undefined, {
+			qs: { category: activeCategory, tag: slug },
+		});
 	}
 </script>
 

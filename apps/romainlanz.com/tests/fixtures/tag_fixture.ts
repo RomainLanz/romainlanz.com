@@ -8,6 +8,7 @@ import type { TagColor } from '@rlanz/design-system/tag-color';
 interface TagAttributes {
 	name: string;
 	color: string;
+	slug?: string;
 }
 
 export class TagFixture extends DatabaseFixture {
@@ -34,16 +35,29 @@ export class TagFixture extends DatabaseFixture {
 	}
 
 	async whenIRenameTag(tag: Tag, attributes: TagAttributes) {
-		const updatedTag = await this.#repository.update({
+		const result = await this.#repository.update({
 			id: tag.getIdentifier().toString(),
 			...attributes,
 		});
 
-		if (!updatedTag) {
-			throw new Error('Could not update Tag: Tag not found');
+		if (!result.ok) {
+			throw new Error(`Could not update Tag: ${result.error.type}`);
 		}
 
-		return updatedTag;
+		return result.value;
+	}
+
+	async whenIUpdateTag(tag: Tag, attributes: Required<TagAttributes>) {
+		const result = await this.#repository.update({
+			id: tag.getIdentifier().toString(),
+			...attributes,
+		});
+
+		if (!result.ok) {
+			throw new Error(`Could not update Tag: ${result.error.type}`);
+		}
+
+		return result.value;
 	}
 
 	async whenIListTags() {

@@ -319,6 +319,30 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_tag_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
+  'admin.taxonomies.tags.edit': {
+    methods: ["GET","HEAD"]
+    pattern: '/admin/taxonomies/tags/:id/edit'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/update_tag_controller').default['render']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/update_tag_controller').default['render']>>>
+    }
+  }
+  'admin.taxonomies.tags.update': {
+    methods: ["PUT"]
+    pattern: '/admin/taxonomies/tags/:id'
+    types: {
+      body: ExtractBody<InferInput<(typeof import('#app/admin/taxonomies/controllers/update_tag_controller').default)['validator']>>
+      paramsTuple: [ParamValue]
+      params: { id: ParamValue }
+      query: ExtractQuery<InferInput<(typeof import('#app/admin/taxonomies/controllers/update_tag_controller').default)['validator']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/update_tag_controller').default['execute']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/update_tag_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
   'auth.login': {
     methods: ["POST"]
     pattern: '/login'

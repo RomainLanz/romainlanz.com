@@ -30,6 +30,8 @@ export type ScannedRoutes = {
     'admin.taxonomies.categories.store': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.tags.create': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.tags.store': { paramsTuple?: []; params?: {} }
+    'admin.taxonomies.tags.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'admin.taxonomies.tags.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'auth.login': { paramsTuple?: []; params?: {} }
     'auth.logout': { paramsTuple?: []; params?: {} }
     'api.assets.store': { paramsTuple?: []; params?: {} }
@@ -58,6 +60,7 @@ export type ScannedRoutes = {
     'admin.taxonomies.index': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.categories.create': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.tags.create': { paramsTuple?: []; params?: {} }
+    'admin.taxonomies.tags.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'pastes.create': { paramsTuple?: []; params?: {} }
     'pastes.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'process_redirect.execute': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
@@ -82,6 +85,7 @@ export type ScannedRoutes = {
     'admin.taxonomies.index': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.categories.create': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.tags.create': { paramsTuple?: []; params?: {} }
+    'admin.taxonomies.tags.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'pastes.create': { paramsTuple?: []; params?: {} }
     'pastes.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'process_redirect.execute': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
@@ -98,6 +102,7 @@ export type ScannedRoutes = {
   }
   PUT: {
     'admin.articles.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'admin.taxonomies.tags.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
   }
   DELETE: {
     'admin.redirects.delete': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }

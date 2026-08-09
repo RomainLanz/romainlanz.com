@@ -1,10 +1,12 @@
 import { test } from '@japa/runner';
 import { err, ok } from '#core/result';
 import { CreateTag } from '#taxonomies/actions/create_tag';
+import { UpdateTag } from '#taxonomies/actions/update_tag';
 import { Tag } from '#taxonomies/domain/tag';
 import type { TagRepository } from '#taxonomies/repositories/tag_repository';
 
 type CreatePayload = Parameters<TagRepository['create']>[0];
+type UpdatePayload = Parameters<TagRepository['update']>[0];
 
 test.group('Taxonomy actions', () => {
 	test('creates a tag through the taxonomy repository', async ({ assert }) => {
@@ -53,5 +55,31 @@ test.group('Taxonomy actions', () => {
 		const result = await new CreateTag(repository).execute({ name: 'Vue JS', slug: 'vue', color: 'cyan' });
 
 		assert.deepEqual(result, { ok: false, error: { type: 'tag_slug_already_exists' } });
+	});
+
+	test('updates a tag through the taxonomy repository', async ({ assert }) => {
+		let payload: UpdatePayload | undefined;
+		const updatedTag = { props: { name: 'Vue Framework' } };
+		const repository = {
+			async update(value: UpdatePayload) {
+				payload = value;
+				return ok(updatedTag as Tag);
+			},
+		} as unknown as TagRepository;
+
+		const result = await new UpdateTag(repository).execute({
+			id: 'tag-id',
+			name: 'Vue Framework',
+			slug: 'vue-framework',
+			color: 'lime',
+		});
+
+		assert.deepEqual(payload, {
+			id: 'tag-id',
+			name: 'Vue Framework',
+			slug: 'vue-framework',
+			color: 'lime',
+		});
+		assert.deepEqual(result, { ok: true, value: updatedTag });
 	});
 });

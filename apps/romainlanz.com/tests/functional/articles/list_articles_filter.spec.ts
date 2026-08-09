@@ -187,5 +187,6 @@ test.group('List articles filters', (group) => {
 		response.assertStatus(200);
 		assert.include(response.text(), 'href="/articles?category=backend"');
 		assert.include(response.text(), 'href="/articles?category=backend&amp;tag=adonis"');
+		assert.lengthOf(response.text().match(/href="\/articles\?category=backend&amp;tag=adonis"/g) ?? [], 2);
 	});
 });

@@ -15,6 +15,10 @@ router
 			.get('taxonomies/tags/create', [controllers.admin.taxonomies.StoreTag, 'render'])
 			.as('taxonomies.tags.create');
 		router.post('taxonomies/tags', [controllers.admin.taxonomies.StoreTag, 'execute']).as('taxonomies.tags.store');
+		router
+			.get('taxonomies/tags/:id/edit', [controllers.admin.taxonomies.UpdateTag, 'render'])
+			.as('taxonomies.tags.edit');
+		router.put('taxonomies/tags/:id', [controllers.admin.taxonomies.UpdateTag, 'execute']).as('taxonomies.tags.update');
 	})
 	.prefix('admin')
 	.as('admin')

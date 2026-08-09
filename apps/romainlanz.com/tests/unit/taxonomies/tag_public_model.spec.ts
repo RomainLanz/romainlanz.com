@@ -73,7 +73,7 @@ test.group('Tag public model', (group) => {
 			color: 'cyan',
 		});
 
-		assert.isNull(result);
+		assert.deepEqual(result, { ok: false, error: { type: 'tag_not_found' } });
 	});
 
 	test('returns an explicit error when a Tag slug does not exist', async ({ assert }) => {
@@ -86,6 +86,24 @@ test.group('Tag public model', (group) => {
 		const result = await new FindCategoryBySlugQuery().execute('missing-category');
 
 		assert.deepEqual(result, { ok: false, error: { type: 'category_not_found' } });
+	});
+
+	test('allows explicitly updating the public slug', async () => {
+		const tag = await fixture.givenATagExists({
+			name: 'Adonis JS',
+			color: 'red',
+		});
+		const updatedTag = await fixture.whenIUpdateTag(tag, {
+			name: 'Adonis JS Framework',
+			slug: 'adonis-framework',
+			color: 'violet',
+		});
+
+		await fixture.thenTagShouldExposePublicData(updatedTag.props.slug, {
+			name: 'Adonis JS Framework',
+			slug: 'adonis-framework',
+			color: 'violet',
+		});
 	});
 
 	test('lists tags with their public fields', async () => {
