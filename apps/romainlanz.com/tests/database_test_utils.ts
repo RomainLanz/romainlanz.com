@@ -7,7 +7,7 @@ import { db } from '#shared/services/db';
 
 const migrationFolder = fileURLToPath(new URL('../database/migrations', import.meta.url));
 
-export async function migrateDatabase() {
+export async function migrateDatabase(target?: string) {
 	const migrator = new Migrator({
 		db,
 		provider: new FileMigrationProvider({
@@ -16,7 +16,7 @@ export async function migrateDatabase() {
 			migrationFolder,
 		}),
 	});
-	const { error } = await migrator.migrateToLatest();
+	const { error } = target ? await migrator.migrateTo(target) : await migrator.migrateToLatest();
 
 	if (error) {
 		throw error;

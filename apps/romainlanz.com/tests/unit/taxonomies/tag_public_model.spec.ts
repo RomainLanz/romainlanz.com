@@ -1,7 +1,9 @@
 import { test } from '@japa/runner';
+import { db } from '#shared/services/db';
 import { FindCategoryBySlugQuery } from '#taxonomies/queries/find_category_by_slug_query';
 import { FindTagBySlugQuery } from '#taxonomies/queries/find_tag_by_slug_query';
 import { TagRepository } from '#taxonomies/repositories/tag_repository';
+import { migrateDatabase } from '#tests/database_test_utils';
 import { TagFixture } from '#tests/fixtures/tag_fixture';
 
 test.group('Tag public model', (group) => {
@@ -64,7 +66,7 @@ test.group('Tag public model', (group) => {
 		});
 	});
 
-	test('rejects updating a Tag that does not exist', async ({ assert }) => {
+	test('observes a missing Tag when an update affects no row', async ({ assert }) => {
 		const repository = new TagRepository();
 
 		const result = await repository.update({
@@ -73,7 +75,7 @@ test.group('Tag public model', (group) => {
 			color: 'cyan',
 		});
 
-		assert.deepEqual(result, { ok: false, error: { type: 'tag_not_found' } });
+		assert.deepEqual(result, { ok: true, value: null });
 	});
 
 	test('returns an explicit error when a Tag slug does not exist', async ({ assert }) => {
@@ -137,5 +139,35 @@ test.group('Tag public model', (group) => {
 				color: 'orange',
 			});
 		}, /Unsupported tag color "orange"/);
+	});
+
+	test('normalizes legacy colors and enforces supported colors during migration', async ({ assert }) => {
+		await migrateDatabase('1749688200000_add_slug_to_tags_table');
+		await db
+			.insertInto('tags')
+			.values([
+				{ id: '48c7e14c-6b31-467a-af4d-870ba01da925', name: 'Legacy', slug: 'legacy', color: 'orange' },
+				{ id: '2848de49-6ff4-47af-bc5d-2a30def1aef8', name: 'Supported', slug: 'supported', color: 'lime' },
+			])
+			.execute();
+
+		await migrateDatabase();
+
+		const tags = await db.selectFrom('tags').select(['slug', 'color']).orderBy('slug').execute();
+		assert.deepEqual(tags, [
+			{ slug: 'legacy', color: 'cyan' },
+			{ slug: 'supported', color: 'lime' },
+		]);
+
+		let constraintError: unknown;
+		try {
+			await db.updateTable('tags').set({ color: 'orange' }).where('slug', '=', 'legacy').execute();
+		} catch (error) {
+			constraintError = error;
+		}
+
+		assert.instanceOf(constraintError, Error);
+		assert.propertyVal(constraintError, 'code', '23514');
+		assert.propertyVal(constraintError, 'constraint', 'tags_color_check');
 	});
 });

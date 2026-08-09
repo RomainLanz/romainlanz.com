@@ -43,6 +43,9 @@ export class TagFixture extends DatabaseFixture {
 		if (!result.ok) {
 			throw new Error(`Could not update Tag: ${result.error.type}`);
 		}
+		if (!result.value) {
+			throw new Error('Could not update Tag: Tag not found');
+		}
 
 		return result.value;
 	}
@@ -55,6 +58,9 @@ export class TagFixture extends DatabaseFixture {
 
 		if (!result.ok) {
 			throw new Error(`Could not update Tag: ${result.error.type}`);
+		}
+		if (!result.value) {
+			throw new Error('Could not update Tag: Tag not found');
 		}
 
 		return result.value;

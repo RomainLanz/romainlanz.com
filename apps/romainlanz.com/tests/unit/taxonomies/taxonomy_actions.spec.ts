@@ -82,4 +82,21 @@ test.group('Taxonomy actions', () => {
 		});
 		assert.deepEqual(result, { ok: true, value: updatedTag });
 	});
+
+	test('gives application meaning to an update that affects no Tag', async ({ assert }) => {
+		const repository = {
+			async update() {
+				return ok(null);
+			},
+		} as unknown as TagRepository;
+
+		const result = await new UpdateTag(repository).execute({
+			id: 'missing-tag-id',
+			name: 'Missing Tag',
+			slug: 'missing-tag',
+			color: 'cyan',
+		});
+
+		assert.deepEqual(result, { ok: false, error: { type: 'tag_not_found' } });
+	});
 });

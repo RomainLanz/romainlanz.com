@@ -1,6 +1,7 @@
 import { inject } from '@adonisjs/core';
 import { tagColors } from '@rlanz/design-system/tag-color';
 import vine from '@vinejs/vine';
+import { validate as isUuid } from 'uuid';
 import { TaxonomyPolicy } from '#admin/taxonomies/policies/taxonomy_policy';
 import { RecordNotFoundException } from '#app/core/exceptions/record_not_found_exception';
 import { UpdateTag } from '#taxonomies/actions/update_tag';
@@ -11,8 +12,8 @@ import type { HttpContext } from '@adonisjs/core/http';
 export default class UpdateTagController {
 	static validator = vine.compile(
 		vine.object({
-			name: vine.string().trim(),
-			slug: vine.string().trim(),
+			name: vine.string().trim().minLength(1),
+			slug: vine.string().trim().minLength(1),
 			color: vine
 				.string()
 				.trim()
@@ -27,6 +28,7 @@ export default class UpdateTagController {
 
 	async render({ bouncer, inertia, params }: HttpContext) {
 		await bouncer.with(TaxonomyPolicy).authorize('manage');
+		this.ensureValidIdentifier(params.id);
 
 		const result = await this.findTagById.execute(params.id);
 
@@ -48,6 +50,7 @@ export default class UpdateTagController {
 
 	async execute({ bouncer, params, request, response, session }: HttpContext) {
 		await bouncer.with(TaxonomyPolicy).authorize('manage');
+		this.ensureValidIdentifier(params.id);
 
 		const payload = await request.validateUsing(UpdateTagController.validator);
 
@@ -77,5 +80,11 @@ export default class UpdateTagController {
 		}
 
 		return response.redirect().toRoute('admin.taxonomies.index');
+	}
+
+	private ensureValidIdentifier(id: string) {
+		if (!isUuid(id)) {
+			throw new RecordNotFoundException();
+		}
 	}
 }

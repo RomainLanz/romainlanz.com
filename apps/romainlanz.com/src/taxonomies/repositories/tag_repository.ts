@@ -19,7 +19,7 @@ interface UpdateTagDTO {
 }
 
 export type CreateTagRepositoryError = { type: 'tag_name_already_exists' } | { type: 'tag_slug_already_exists' };
-export type UpdateTagRepositoryError = CreateTagRepositoryError | { type: 'tag_not_found' };
+export type UpdateTagRepositoryError = CreateTagRepositoryError;
 
 export class TagRepository {
 	async create(payload: CreateTagDTO): Promise<Result<Tag, CreateTagRepositoryError>> {
@@ -70,30 +70,22 @@ export class TagRepository {
 		}
 	}
 
-	async update(payload: UpdateTagDTO): Promise<Result<Tag, UpdateTagRepositoryError>> {
+	async update(payload: UpdateTagDTO): Promise<Result<Tag | null, UpdateTagRepositoryError>> {
 		const color = parseTagColor(payload.color);
-		const existingTag = await db
-			.selectFrom('tags')
-			.select(['id', 'slug'])
-			.where('id', '=', payload.id)
-			.executeTakeFirst();
-
-		if (!existingTag) {
-			return err({ type: 'tag_not_found' });
-		}
-
-		const slug = payload.slug?.trim() || existingTag.slug;
+		const slug = payload.slug?.trim();
+		let updatedTag: { id: string; slug: string } | undefined;
 
 		try {
-			await db
+			updatedTag = await db
 				.updateTable('tags')
 				.set({
 					name: payload.name,
-					slug,
 					color,
+					...(slug ? { slug } : {}),
 				})
 				.where('id', '=', payload.id)
-				.execute();
+				.returning(['id', 'slug'])
+				.executeTakeFirst();
 		} catch (error) {
 			if (isUniqueConstraintViolation(error, 'tags_name_key')) {
 				return err({ type: 'tag_name_already_exists' });
@@ -106,11 +98,15 @@ export class TagRepository {
 			throw error;
 		}
 
+		if (!updatedTag) {
+			return ok(null);
+		}
+
 		return ok(
 			Tag.create({
-				id: TagIdentifier.fromString(existingTag.id),
+				id: TagIdentifier.fromString(updatedTag.id),
 				name: payload.name,
-				slug,
+				slug: updatedTag.slug,
 				color,
 			}),
 		);

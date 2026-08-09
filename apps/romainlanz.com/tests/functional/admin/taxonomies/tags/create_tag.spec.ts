@@ -125,4 +125,16 @@ test.group('Admin tag creation', (group) => {
 			color: ['Cette couleur n’est pas disponible.'],
 		});
 	});
+
+	test('rejects a blank Tag name', async ({ client }) => {
+		const response = await fixture.createTagAsAdmin(
+			client,
+			{ name: ' ', slug: 'blank-name', color: 'cyan' },
+			{ followRedirects: false },
+		);
+
+		response.assertStatus(302);
+		response.assertHeader('location', '/admin/taxonomies/tags/create');
+		await fixture.thenTagShouldNotExist('blank-name');
+	});
 });

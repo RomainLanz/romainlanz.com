@@ -42,7 +42,7 @@ export class AdminTagFixture extends DatabaseFixture {
 	}
 
 	async visitTaxonomiesAsAdmin(client: ApiClient) {
-		const admin = await this.createAdmin();
+		const admin = await this.givenAdmin();
 		const response = await client.get('/admin/taxonomies').loginAs(admin).withInertia();
 
 		response.assertStatus(200);
@@ -52,7 +52,7 @@ export class AdminTagFixture extends DatabaseFixture {
 	}
 
 	async createTagAsAdmin(client: ApiClient, input: TagInput, options: { followRedirects?: boolean } = {}) {
-		const admin = await this.createAdmin();
+		const admin = await this.givenAdmin();
 		const request = client
 			.post('/admin/taxonomies/tags')
 			.loginAs(admin)
@@ -67,7 +67,7 @@ export class AdminTagFixture extends DatabaseFixture {
 	}
 
 	async visitTagUpdateAsAdmin(client: ApiClient, id: string) {
-		const admin = await this.createAdmin();
+		const admin = await this.givenAdmin();
 		const response = await client.get(`/admin/taxonomies/tags/${id}/edit`).loginAs(admin).withInertia();
 
 		response.assertStatus(200);
@@ -82,7 +82,7 @@ export class AdminTagFixture extends DatabaseFixture {
 		input: Required<TagInput>,
 		options: { followRedirects?: boolean } = {},
 	) {
-		const admin = await this.createAdmin();
+		const admin = await this.givenAdmin();
 		const request = client
 			.put(`/admin/taxonomies/tags/${id}`)
 			.loginAs(admin)
@@ -119,7 +119,7 @@ export class AdminTagFixture extends DatabaseFixture {
 		this.assert.isUndefined(tag);
 	}
 
-	private async createAdmin() {
+	async givenAdmin() {
 		const adminRecord = await AdminFactory.create();
 		const admin = await this.#userRepository.findUserByEmail(adminRecord.email);
 

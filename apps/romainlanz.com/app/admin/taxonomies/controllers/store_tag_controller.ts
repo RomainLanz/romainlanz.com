@@ -9,7 +9,7 @@ import type { HttpContext } from '@adonisjs/core/http';
 export default class StoreTagController {
 	static validator = vine.compile(
 		vine.object({
-			name: vine.string().trim(),
+			name: vine.string().trim().minLength(1),
 			slug: vine.string().trim().optional(),
 			color: vine
 				.string()
