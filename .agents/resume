@@ -2,7 +2,7 @@
 set -euo pipefail
 
 echo "==> Checking PostgreSQL"
-if ! pg_isready -q; then
+if ! sudo pg_ctlcluster 18 main status >/dev/null 2>&1; then
 	sudo pg_ctlcluster 18 main start
 fi
 

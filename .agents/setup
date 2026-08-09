@@ -5,6 +5,20 @@ repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 app_root="$repo_root/apps/romainlanz.com"
 mise_bin="$HOME/.local/bin/mise"
 
+echo "==> Installing required system packages"
+system_packages=(ca-certificates curl gnupg)
+missing_system_packages=()
+for package in "${system_packages[@]}"; do
+	if ! dpkg-query -W -f='${Status}' "$package" 2>/dev/null | grep -Fq 'install ok installed'; then
+		missing_system_packages+=("$package")
+	fi
+done
+
+if (( ${#missing_system_packages[@]} > 0 )); then
+	sudo apt-get update
+	sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y "${missing_system_packages[@]}"
+fi
+
 echo "==> Installing the repository toolchain"
 if [[ ! -x "$mise_bin" ]]; then
 	curl --proto '=https' --tlsv1.2 -sSf https://mise.run | sh
@@ -46,9 +60,57 @@ if ! command -v mailpit >/dev/null 2>&1; then
 fi
 
 echo "==> Configuring PostgreSQL"
-if ! dpkg-query -W -f='${Status}' postgresql-18 2>/dev/null | grep -Fq 'install ok installed'; then
+pgdg_keyring=/usr/share/keyrings/postgresql-pgdg.asc
+pgdg_source=/etc/apt/sources.list.d/postgresql-pgdg.sources
+pgdg_key_fingerprint=B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
+pgdg_changed=false
+pgdg_tmp_dir="$(mktemp -d)"
+trap 'rm -rf "$pgdg_tmp_dir"' EXIT
+install -d -m 0700 "$pgdg_tmp_dir/gnupg"
+
+key_fingerprint() {
+	gpg --batch --quiet --homedir "$pgdg_tmp_dir/gnupg" --show-keys --with-colons "$1" 2>/dev/null \
+		| awk -F: '$1 == "fpr" { print $10; exit }'
+}
+
+installed_key_fingerprint=
+if [[ -f "$pgdg_keyring" ]]; then
+	installed_key_fingerprint="$(key_fingerprint "$pgdg_keyring" || true)"
+fi
+
+if [[ "$installed_key_fingerprint" != "$pgdg_key_fingerprint" ]]; then
+	pgdg_downloaded_key="$pgdg_tmp_dir/postgresql-pgdg.asc"
+	curl --proto '=https' --tlsv1.2 -sSfL \
+		https://www.postgresql.org/media/keys/ACCC4CF8.asc \
+		-o "$pgdg_downloaded_key"
+
+	if [[ "$(key_fingerprint "$pgdg_downloaded_key")" != "$pgdg_key_fingerprint" ]]; then
+		echo "PostgreSQL repository key fingerprint does not match" >&2
+		exit 1
+	fi
+
+	sudo install -m 0644 "$pgdg_downloaded_key" "$pgdg_keyring"
+	pgdg_changed=true
+fi
+
+cat > "$pgdg_tmp_dir/postgresql-pgdg.sources" <<EOF
+Types: deb
+URIs: https://apt.postgresql.org/pub/repos/apt
+Suites: bookworm-pgdg
+Architectures: $(dpkg --print-architecture)
+Components: main
+Signed-By: $pgdg_keyring
+EOF
+
+if ! sudo test -f "$pgdg_source" || ! sudo cmp -s "$pgdg_tmp_dir/postgresql-pgdg.sources" "$pgdg_source"; then
+	sudo install -m 0644 "$pgdg_tmp_dir/postgresql-pgdg.sources" "$pgdg_source"
+	pgdg_changed=true
+fi
+
+if [[ "$pgdg_changed" == true ]] \
+	|| ! dpkg-query -W -f='${Status}' postgresql-18 2>/dev/null | grep -Fq 'install ok installed'; then
 	sudo apt-get update
-	DEBIAN_FRONTEND=noninteractive sudo apt-get install -y postgresql-18
+	sudo env DEBIAN_FRONTEND=noninteractive apt-get install -y postgresql-18
 fi
 
 postgres_config=/etc/postgresql/18/main/conf.d/amp-orb.conf
@@ -61,7 +123,9 @@ synchronous_commit = off
 EOF
 fi
 
-sudo pg_ctlcluster 18 main start || true
+if ! sudo pg_ctlcluster 18 main status >/dev/null 2>&1; then
+	sudo pg_ctlcluster 18 main start
+fi
 if ! pg_isready -q; then
 	echo "PostgreSQL failed to become ready" >&2
 	exit 1
