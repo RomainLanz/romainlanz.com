@@ -93,7 +93,7 @@
 		"@japa/api-client": "^3.2.1",
 		"@japa/assert": "^4.0.1",
 		"@japa/plugin-adonisjs": "^5.2.0",
-		"@japa/runner": "^4.2.0",
+		"@japa/runner": "^5.3.0",
 		"@poppinss/ts-exec": "^1.4.4",
 		"@tailwindcss/vite": "catalog:",
 		"@types/dlv": "^1.1.5",
