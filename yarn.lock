@@ -305,13 +305,15 @@ __metadata:
   linkType: hard
 
 "@adonisjs/http-server@npm:^9.0.0, @adonisjs/http-server@npm:^9.0.2":
-  version: 9.0.2
-  resolution: "@adonisjs/http-server@npm:9.0.2"
+  version: 9.3.1
+  resolution: "@adonisjs/http-server@npm:9.3.1"
   dependencies:
+    "@boringnode/route-matcher": "npm:^0.1.1"
     "@poppinss/macroable": "npm:^1.1.2"
     "@poppinss/matchit": "npm:^3.2.0"
     "@poppinss/middleware": "npm:^3.2.7"
     "@poppinss/qs": "npm:^6.15.0"
+    "@poppinss/types": "npm:^1.2.1"
     "@poppinss/utils": "npm:^7.0.1"
     "@sindresorhus/is": "npm:^8.1.0"
     content-disposition: "npm:^1.1.0"
@@ -336,7 +338,7 @@ __metadata:
   peerDependenciesMeta:
     youch:
       optional: true
-  checksum: 10c0/7b4c4f11715487a5349654d216388a5111e71dff0155f6ef623338b92dbedaddee9e194f26f9a83ea9414b357cf2dacf3d391bf848843c572358162743aaa5f6
+  checksum: 10c0/4b34a806cf2d423611803c21b241a24371620980b601c6a959b3bb25c03ce2d15476c758bda05aa0323f13a69057a0c97b69c08febed0a42755b3859eaee7035
   languageName: node
   linkType: hard
 
@@ -1300,6 +1302,13 @@ __metadata:
   dependencies:
     "@poppinss/utils": "npm:^7.0.0-next.7"
   checksum: 10c0/d1886c4811c54f9e950358781af44c4a5597b41d58779bc40aea1c5dd4f58d8dad6e1123dc553920bd1e426634ec5af8a279d0d184ea77b78eef4ee59d595f95
+  languageName: node
+  linkType: hard
+
+"@boringnode/route-matcher@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@boringnode/route-matcher@npm:0.1.1"
+  checksum: 10c0/a297144ff92c70186e0986960626f3249d3d291b1441f6a06c19b7bbee36bff78030e99c4d06b03c44636a03d947dcdf5b130fa2e119e0cb4ca819162875912a
   languageName: node
   linkType: hard
 
