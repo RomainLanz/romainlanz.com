@@ -1,4 +1,4 @@
-FROM node:lts-bookworm-slim AS base
+FROM node:26-bookworm-slim AS base
 WORKDIR /app
 RUN apt update
 RUN apt install -y curl wget fontconfig
