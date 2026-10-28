@@ -1,7 +1,8 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { Migrator, sql } from 'kysely';
+import { sql } from 'kysely';
+import { Migrator } from 'kysely/migration';
 import { FileMigrationProvider } from '#app/core/file_migration_provider';
 import { db } from '#shared/services/db';
 

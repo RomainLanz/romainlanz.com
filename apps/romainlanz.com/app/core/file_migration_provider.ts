@@ -1,5 +1,5 @@
 import { pathToFileURL } from 'node:url';
-import type { FileMigrationProviderProps, Migration, MigrationProvider } from 'kysely';
+import type { FileMigrationProviderProps, Migration, MigrationProvider } from 'kysely/migration';
 
 /**
  * Custom FileMigrationProvider to make it work on Windows too.

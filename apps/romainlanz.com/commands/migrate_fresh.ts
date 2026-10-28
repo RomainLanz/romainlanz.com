@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { BaseCommand } from '@adonisjs/core/ace';
 import ace from '@adonisjs/core/services/ace';
-import { Migrator } from 'kysely';
+import { Migrator } from 'kysely/migration';
 import { FileMigrationProvider } from '#app/core/file_migration_provider';
 import { db } from '#shared/services/db';
 import type { CommandOptions } from '@adonisjs/core/types/ace';
