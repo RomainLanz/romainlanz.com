@@ -6,7 +6,7 @@ RUN rm -rf /var/lib/apt/lists/*
 
 # Base installer
 FROM base AS installer
-RUN corepack enable
+RUN npm install -g corepack && corepack enable
 COPY . .
 
 # All deps stage
