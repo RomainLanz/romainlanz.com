@@ -12,8 +12,6 @@ import { initiateApplication, setLayout } from '~/app/helpers';
 import { client } from '~/client';
 import type { DefineComponent } from 'vue';
 
-import.meta.glob(['../resources/favicon/**']);
-
 const appName = import.meta.env.VITE_APP_NAME || 'RomainLanz';
 
 void createInertiaApp({

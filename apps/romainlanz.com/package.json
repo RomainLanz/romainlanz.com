@@ -49,12 +49,12 @@
 		"@adonisjs/core": "^7.6.0",
 		"@adonisjs/http-server": "^9.3.1",
 		"@adonisjs/i18n": "^3.0.1",
-		"@adonisjs/inertia": "^4.2.0",
+		"@adonisjs/inertia": "^5.0.5",
 		"@adonisjs/mail": "^10.4.0",
 		"@adonisjs/session": "^8.3.0",
 		"@adonisjs/shield": "^9.0.0",
 		"@adonisjs/static": "^2.0.1",
-		"@adonisjs/vite": "^5.1.1",
+		"@adonisjs/vite": "^6.0.4",
 		"@formkit/auto-animate": "^0.10.0",
 		"@inertiajs/vue3": "catalog:",
 		"@monocle.sh/adonisjs-agent": "^2.5.0",
@@ -87,7 +87,7 @@
 		"vue": "catalog:"
 	},
 	"devDependencies": {
-		"@adonisjs/assembler": "~8.4.0",
+		"@adonisjs/assembler": "^8.6.0",
 		"@adonisjs/tsconfig": "^2.0.0",
 		"@faker-js/faker": "^10.6.0",
 		"@japa/api-client": "^3.2.1",

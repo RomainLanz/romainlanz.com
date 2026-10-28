@@ -1,132 +1,12 @@
 /* eslint-disable prettier/prettier */
 /// <reference path="../manifest.d.ts" />
 
-import type { ExtractBody, ExtractErrorResponse, ExtractQuery, ExtractQueryForGet, ExtractResponse } from '@tuyau/core/types'
+import type { ExtractBody, ExtractErrorResponse, ExtractQuery, ExtractQueryForGet, ExtractRawResponse, ExtractResponse } from '@tuyau/core/types'
 import type { InferInput, SimpleError } from '@vinejs/vine/types'
 
 export type ParamValue = string | number | bigint | boolean
 
 export interface Registry {
-  'articles.index': {
-    methods: ["GET","HEAD"]
-    pattern: '/articles'
-    types: {
-      body: {}
-      paramsTuple: []
-      params: {}
-      query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#app/articles/controllers/list_articles_controller').default['render']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/articles/controllers/list_articles_controller').default['render']>>>
-    }
-  }
-  'articles.og': {
-    methods: ["GET","HEAD"]
-    pattern: '/articles/:slug/og.png'
-    types: {
-      body: {}
-      paramsTuple: [ParamValue]
-      params: { slug: ParamValue }
-      query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#app/articles/controllers/show_article_og_image_controller').default['render']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/articles/controllers/show_article_og_image_controller').default['render']>>>
-    }
-  }
-  'articles.show': {
-    methods: ["GET","HEAD"]
-    pattern: '/articles/:slug'
-    types: {
-      body: {}
-      paramsTuple: [ParamValue]
-      params: { slug: ParamValue }
-      query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#app/articles/controllers/show_article_controller').default['render']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/articles/controllers/show_article_controller').default['render']>>>
-    }
-  }
-  'healthz': {
-    methods: ["GET","HEAD"]
-    pattern: '/healthz'
-    types: {
-      body: {}
-      paramsTuple: []
-      params: {}
-      query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#app/core/controllers/health_checks_controller').default['handle']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/core/controllers/health_checks_controller').default['handle']>>>
-    }
-  }
-  'pages.landing': {
-    methods: ["GET","HEAD"]
-    pattern: '/'
-    types: {
-      body: {}
-      paramsTuple: []
-      params: {}
-      query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#app/pages/controllers/landing_controller').default['render']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/pages/controllers/landing_controller').default['render']>>>
-    }
-  }
-  'pages.contact': {
-    methods: ["GET","HEAD"]
-    pattern: '/contact'
-    types: {
-      body: {}
-      paramsTuple: []
-      params: {}
-      query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#app/pages/controllers/contact_controller').default['render']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/pages/controllers/contact_controller').default['render']>>>
-    }
-  }
-  'pages.contact.store': {
-    methods: ["POST"]
-    pattern: '/contact'
-    types: {
-      body: ExtractBody<InferInput<(typeof import('#app/pages/controllers/contact_controller').default)['validator']>>
-      paramsTuple: []
-      params: {}
-      query: ExtractQuery<InferInput<(typeof import('#app/pages/controllers/contact_controller').default)['validator']>>
-      response: ExtractResponse<Awaited<ReturnType<import('#app/pages/controllers/contact_controller').default['execute']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/pages/controllers/contact_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
-    }
-  }
-  'pages.about': {
-    methods: ["GET","HEAD"]
-    pattern: '/a-propos'
-    types: {
-      body: {}
-      paramsTuple: []
-      params: {}
-      query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#app/pages/controllers/about_controller').default['render']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/pages/controllers/about_controller').default['render']>>>
-    }
-  }
-  'pages.partners': {
-    methods: ["GET","HEAD"]
-    pattern: '/partenaires'
-    types: {
-      body: {}
-      paramsTuple: []
-      params: {}
-      query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#app/pages/controllers/partners_controller').default['render']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/pages/controllers/partners_controller').default['render']>>>
-    }
-  }
-  'live.status': {
-    methods: ["GET","HEAD"]
-    pattern: '/live/status'
-    types: {
-      body: {}
-      paramsTuple: []
-      params: {}
-      query: {}
-      response: ExtractResponse<Awaited<ReturnType<import('#app/twitch/controllers/get_live_status_controller').default['render']>>>
-      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/twitch/controllers/get_live_status_controller').default['render']>>>
-    }
-  }
   'admin.og.preview': {
     methods: ["GET","HEAD"]
     pattern: '/admin/og/preview'
@@ -137,6 +17,7 @@ export interface Registry {
       query: ExtractQueryForGet<InferInput<(typeof import('#app/admin/articles/controllers/preview_og_image_controller').default)['validator']>>
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/preview_og_image_controller').default['execute']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/preview_og_image_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/preview_og_image_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
   'admin.articles.index': {
@@ -149,6 +30,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/list_articles_controller').default['render']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/list_articles_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/list_articles_controller').default['render']>>>
     }
   }
   'admin.articles.create': {
@@ -161,6 +43,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/store_article_controller').default['render']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/store_article_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/store_article_controller').default['render']>>>
     }
   }
   'admin.articles.store': {
@@ -173,6 +56,7 @@ export interface Registry {
       query: ExtractQuery<InferInput<(typeof import('#app/admin/articles/controllers/store_article_controller').default)['validator']>>
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/store_article_controller').default['execute']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/store_article_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/store_article_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
   'admin.articles.edit': {
@@ -185,6 +69,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/update_article_controller').default['render']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/update_article_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/update_article_controller').default['render']>>>
     }
   }
   'admin.articles.update': {
@@ -197,6 +82,7 @@ export interface Registry {
       query: ExtractQuery<InferInput<(typeof import('#app/admin/articles/controllers/update_article_controller').default)['validator']>>
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/update_article_controller').default['execute']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/update_article_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/articles/controllers/update_article_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
   'admin.pages.dashboard': {
@@ -209,6 +95,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/pages/controllers/pages_controller').default['dashboard']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/pages/controllers/pages_controller').default['dashboard']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/pages/controllers/pages_controller').default['dashboard']>>>
     }
   }
   'admin.redirects.index': {
@@ -221,6 +108,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/redirects/controllers/list_redirects_controller').default['render']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/redirects/controllers/list_redirects_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/redirects/controllers/list_redirects_controller').default['render']>>>
     }
   }
   'admin.redirects.create': {
@@ -233,6 +121,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/redirects/controllers/store_redirect_controller').default['render']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/redirects/controllers/store_redirect_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/redirects/controllers/store_redirect_controller').default['render']>>>
     }
   }
   'admin.redirects.store': {
@@ -245,6 +134,7 @@ export interface Registry {
       query: ExtractQuery<InferInput<(typeof import('#app/admin/redirects/controllers/store_redirect_controller').default)['validator']>>
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/redirects/controllers/store_redirect_controller').default['execute']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/redirects/controllers/store_redirect_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/redirects/controllers/store_redirect_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
   'admin.redirects.delete': {
@@ -257,6 +147,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/redirects/controllers/delete_redirect_controller').default['execute']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/redirects/controllers/delete_redirect_controller').default['execute']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/redirects/controllers/delete_redirect_controller').default['execute']>>>
     }
   }
   'admin.taxonomies.index': {
@@ -269,6 +160,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/list_taxonomies_controller').default['render']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/list_taxonomies_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/list_taxonomies_controller').default['render']>>>
     }
   }
   'admin.taxonomies.categories.create': {
@@ -281,6 +173,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_category_controller').default['render']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_category_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_category_controller').default['render']>>>
     }
   }
   'admin.taxonomies.categories.store': {
@@ -293,6 +186,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_category_controller').default['execute']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_category_controller').default['execute']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_category_controller').default['execute']>>>
     }
   }
   'admin.taxonomies.tags.create': {
@@ -305,6 +199,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_tag_controller').default['render']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_tag_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_tag_controller').default['render']>>>
     }
   }
   'admin.taxonomies.tags.store': {
@@ -317,6 +212,7 @@ export interface Registry {
       query: ExtractQuery<InferInput<(typeof import('#app/admin/taxonomies/controllers/store_tag_controller').default)['validator']>>
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_tag_controller').default['execute']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_tag_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/store_tag_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
   'admin.taxonomies.tags.edit': {
@@ -329,6 +225,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/update_tag_controller').default['render']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/update_tag_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/update_tag_controller').default['render']>>>
     }
   }
   'admin.taxonomies.tags.update': {
@@ -341,6 +238,46 @@ export interface Registry {
       query: ExtractQuery<InferInput<(typeof import('#app/admin/taxonomies/controllers/update_tag_controller').default)['validator']>>
       response: ExtractResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/update_tag_controller').default['execute']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/update_tag_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/admin/taxonomies/controllers/update_tag_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
+  'articles.index': {
+    methods: ["GET","HEAD"]
+    pattern: '/articles'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#app/articles/controllers/list_articles_controller').default['render']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/articles/controllers/list_articles_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/articles/controllers/list_articles_controller').default['render']>>>
+    }
+  }
+  'articles.og': {
+    methods: ["GET","HEAD"]
+    pattern: '/articles/:slug/og.png'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { slug: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#app/articles/controllers/show_article_og_image_controller').default['render']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/articles/controllers/show_article_og_image_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/articles/controllers/show_article_og_image_controller').default['render']>>>
+    }
+  }
+  'articles.show': {
+    methods: ["GET","HEAD"]
+    pattern: '/articles/:slug'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { slug: ParamValue }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#app/articles/controllers/show_article_controller').default['render']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/articles/controllers/show_article_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/articles/controllers/show_article_controller').default['render']>>>
     }
   }
   'auth.login': {
@@ -353,6 +290,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/auth/controllers/login_controller').default['execute']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/auth/controllers/login_controller').default['execute']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/auth/controllers/login_controller').default['execute']>>>
     }
   }
   'auth.logout': {
@@ -365,6 +303,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/auth/controllers/logout_controller').default['handle']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/auth/controllers/logout_controller').default['handle']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/auth/controllers/logout_controller').default['handle']>>>
     }
   }
   'api.assets.store': {
@@ -377,6 +316,98 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/media/controllers/upload_image_controller').default['handle']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/media/controllers/upload_image_controller').default['handle']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/media/controllers/upload_image_controller').default['handle']>>>
+    }
+  }
+  'healthz': {
+    methods: ["GET","HEAD"]
+    pattern: '/healthz'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#app/core/controllers/health_checks_controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/core/controllers/health_checks_controller').default['handle']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/core/controllers/health_checks_controller').default['handle']>>>
+    }
+  }
+  'pages.landing': {
+    methods: ["GET","HEAD"]
+    pattern: '/'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#app/pages/controllers/landing_controller').default['render']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/pages/controllers/landing_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/pages/controllers/landing_controller').default['render']>>>
+    }
+  }
+  'pages.contact': {
+    methods: ["GET","HEAD"]
+    pattern: '/contact'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#app/pages/controllers/contact_controller').default['render']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/pages/controllers/contact_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/pages/controllers/contact_controller').default['render']>>>
+    }
+  }
+  'pages.contact.store': {
+    methods: ["POST"]
+    pattern: '/contact'
+    types: {
+      body: ExtractBody<InferInput<(typeof import('#app/pages/controllers/contact_controller').default)['validator']>>
+      paramsTuple: []
+      params: {}
+      query: ExtractQuery<InferInput<(typeof import('#app/pages/controllers/contact_controller').default)['validator']>>
+      response: ExtractResponse<Awaited<ReturnType<import('#app/pages/controllers/contact_controller').default['execute']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/pages/controllers/contact_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/pages/controllers/contact_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
+    }
+  }
+  'pages.about': {
+    methods: ["GET","HEAD"]
+    pattern: '/a-propos'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#app/pages/controllers/about_controller').default['render']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/pages/controllers/about_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/pages/controllers/about_controller').default['render']>>>
+    }
+  }
+  'pages.partners': {
+    methods: ["GET","HEAD"]
+    pattern: '/partenaires'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#app/pages/controllers/partners_controller').default['render']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/pages/controllers/partners_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/pages/controllers/partners_controller').default['render']>>>
+    }
+  }
+  'live.status': {
+    methods: ["GET","HEAD"]
+    pattern: '/live/status'
+    types: {
+      body: {}
+      paramsTuple: []
+      params: {}
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#app/twitch/controllers/get_live_status_controller').default['render']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/twitch/controllers/get_live_status_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/twitch/controllers/get_live_status_controller').default['render']>>>
     }
   }
   'pastes.create': {
@@ -389,6 +420,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/paste/controllers/store_paste_controller').default['render']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/paste/controllers/store_paste_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/paste/controllers/store_paste_controller').default['render']>>>
     }
   }
   'pastes.store': {
@@ -401,6 +433,7 @@ export interface Registry {
       query: ExtractQuery<InferInput<(typeof import('#app/paste/controllers/store_paste_controller').default)['validator']>>
       response: ExtractResponse<Awaited<ReturnType<import('#app/paste/controllers/store_paste_controller').default['execute']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/paste/controllers/store_paste_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/paste/controllers/store_paste_controller').default['execute']>>> | { status: 422; response: { errors: SimpleError[] } }
     }
   }
   'pastes.show': {
@@ -413,6 +446,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/paste/controllers/show_paste_controller').default['render']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/paste/controllers/show_paste_controller').default['render']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/paste/controllers/show_paste_controller').default['render']>>>
     }
   }
   'process_redirect.execute': {
@@ -425,6 +459,7 @@ export interface Registry {
       query: {}
       response: ExtractResponse<Awaited<ReturnType<import('#app/redirects/controllers/process_redirect_controller').default['execute']>>>
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#app/redirects/controllers/process_redirect_controller').default['execute']>>>
+      rawResponse: ExtractRawResponse<Awaited<ReturnType<import('#app/redirects/controllers/process_redirect_controller').default['execute']>>>
     }
   }
 }

@@ -4,16 +4,6 @@ type ParamValue = string | number | bigint | boolean
 
 export type ScannedRoutes = {
   ALL: {
-    'articles.index': { paramsTuple?: []; params?: {} }
-    'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
-    'articles.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
-    'healthz': { paramsTuple?: []; params?: {} }
-    'pages.landing': { paramsTuple?: []; params?: {} }
-    'pages.contact': { paramsTuple?: []; params?: {} }
-    'pages.contact.store': { paramsTuple?: []; params?: {} }
-    'pages.about': { paramsTuple?: []; params?: {} }
-    'pages.partners': { paramsTuple?: []; params?: {} }
-    'live.status': { paramsTuple?: []; params?: {} }
     'admin.og.preview': { paramsTuple?: []; params?: {} }
     'admin.articles.index': { paramsTuple?: []; params?: {} }
     'admin.articles.create': { paramsTuple?: []; params?: {} }
@@ -32,24 +22,25 @@ export type ScannedRoutes = {
     'admin.taxonomies.tags.store': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.tags.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'admin.taxonomies.tags.update': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'articles.index': { paramsTuple?: []; params?: {} }
+    'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
+    'articles.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
     'auth.login': { paramsTuple?: []; params?: {} }
     'auth.logout': { paramsTuple?: []; params?: {} }
     'api.assets.store': { paramsTuple?: []; params?: {} }
+    'healthz': { paramsTuple?: []; params?: {} }
+    'pages.landing': { paramsTuple?: []; params?: {} }
+    'pages.contact': { paramsTuple?: []; params?: {} }
+    'pages.contact.store': { paramsTuple?: []; params?: {} }
+    'pages.about': { paramsTuple?: []; params?: {} }
+    'pages.partners': { paramsTuple?: []; params?: {} }
+    'live.status': { paramsTuple?: []; params?: {} }
     'pastes.create': { paramsTuple?: []; params?: {} }
     'pastes.store': { paramsTuple?: []; params?: {} }
     'pastes.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'process_redirect.execute': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
   }
   GET: {
-    'articles.index': { paramsTuple?: []; params?: {} }
-    'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
-    'articles.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
-    'healthz': { paramsTuple?: []; params?: {} }
-    'pages.landing': { paramsTuple?: []; params?: {} }
-    'pages.contact': { paramsTuple?: []; params?: {} }
-    'pages.about': { paramsTuple?: []; params?: {} }
-    'pages.partners': { paramsTuple?: []; params?: {} }
-    'live.status': { paramsTuple?: []; params?: {} }
     'admin.og.preview': { paramsTuple?: []; params?: {} }
     'admin.articles.index': { paramsTuple?: []; params?: {} }
     'admin.articles.create': { paramsTuple?: []; params?: {} }
@@ -61,20 +52,20 @@ export type ScannedRoutes = {
     'admin.taxonomies.categories.create': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.tags.create': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.tags.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'articles.index': { paramsTuple?: []; params?: {} }
+    'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
+    'articles.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
+    'healthz': { paramsTuple?: []; params?: {} }
+    'pages.landing': { paramsTuple?: []; params?: {} }
+    'pages.contact': { paramsTuple?: []; params?: {} }
+    'pages.about': { paramsTuple?: []; params?: {} }
+    'pages.partners': { paramsTuple?: []; params?: {} }
+    'live.status': { paramsTuple?: []; params?: {} }
     'pastes.create': { paramsTuple?: []; params?: {} }
     'pastes.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'process_redirect.execute': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
   }
   HEAD: {
-    'articles.index': { paramsTuple?: []; params?: {} }
-    'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
-    'articles.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
-    'healthz': { paramsTuple?: []; params?: {} }
-    'pages.landing': { paramsTuple?: []; params?: {} }
-    'pages.contact': { paramsTuple?: []; params?: {} }
-    'pages.about': { paramsTuple?: []; params?: {} }
-    'pages.partners': { paramsTuple?: []; params?: {} }
-    'live.status': { paramsTuple?: []; params?: {} }
     'admin.og.preview': { paramsTuple?: []; params?: {} }
     'admin.articles.index': { paramsTuple?: []; params?: {} }
     'admin.articles.create': { paramsTuple?: []; params?: {} }
@@ -86,18 +77,27 @@ export type ScannedRoutes = {
     'admin.taxonomies.categories.create': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.tags.create': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.tags.edit': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
+    'articles.index': { paramsTuple?: []; params?: {} }
+    'articles.og': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
+    'articles.show': { paramsTuple: [ParamValue]; params: {'slug': ParamValue} }
+    'healthz': { paramsTuple?: []; params?: {} }
+    'pages.landing': { paramsTuple?: []; params?: {} }
+    'pages.contact': { paramsTuple?: []; params?: {} }
+    'pages.about': { paramsTuple?: []; params?: {} }
+    'pages.partners': { paramsTuple?: []; params?: {} }
+    'live.status': { paramsTuple?: []; params?: {} }
     'pastes.create': { paramsTuple?: []; params?: {} }
     'pastes.show': { paramsTuple: [ParamValue]; params: {'id': ParamValue} }
     'process_redirect.execute': { paramsTuple: [...ParamValue[]]; params: {'*': ParamValue[]} }
   }
   POST: {
-    'pages.contact.store': { paramsTuple?: []; params?: {} }
     'admin.articles.store': { paramsTuple?: []; params?: {} }
     'admin.redirects.store': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.categories.store': { paramsTuple?: []; params?: {} }
     'admin.taxonomies.tags.store': { paramsTuple?: []; params?: {} }
     'auth.login': { paramsTuple?: []; params?: {} }
     'api.assets.store': { paramsTuple?: []; params?: {} }
+    'pages.contact.store': { paramsTuple?: []; params?: {} }
     'pastes.store': { paramsTuple?: []; params?: {} }
   }
   PUT: {

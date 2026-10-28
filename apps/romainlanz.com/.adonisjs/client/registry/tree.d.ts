@@ -2,23 +2,6 @@
 import type { routes } from './index.ts'
 
 export interface ApiDefinition {
-  articles: {
-    index: typeof routes['articles.index']
-    og: typeof routes['articles.og']
-    show: typeof routes['articles.show']
-  }
-  healthz: typeof routes['healthz']
-  pages: {
-    landing: typeof routes['pages.landing']
-    contact: typeof routes['pages.contact'] & {
-      store: typeof routes['pages.contact.store']
-    }
-    about: typeof routes['pages.about']
-    partners: typeof routes['pages.partners']
-  }
-  live: {
-    status: typeof routes['live.status']
-  }
   admin: {
     og: {
       preview: typeof routes['admin.og.preview']
@@ -53,6 +36,11 @@ export interface ApiDefinition {
       }
     }
   }
+  articles: {
+    index: typeof routes['articles.index']
+    og: typeof routes['articles.og']
+    show: typeof routes['articles.show']
+  }
   auth: {
     login: typeof routes['auth.login']
     logout: typeof routes['auth.logout']
@@ -61,6 +49,18 @@ export interface ApiDefinition {
     assets: {
       store: typeof routes['api.assets.store']
     }
+  }
+  healthz: typeof routes['healthz']
+  pages: {
+    landing: typeof routes['pages.landing']
+    contact: typeof routes['pages.contact'] & {
+      store: typeof routes['pages.contact.store']
+    }
+    about: typeof routes['pages.about']
+    partners: typeof routes['pages.partners']
+  }
+  live: {
+    status: typeof routes['live.status']
   }
   pastes: {
     create: typeof routes['pastes.create']
