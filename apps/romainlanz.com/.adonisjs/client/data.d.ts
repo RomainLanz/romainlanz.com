@@ -5,7 +5,7 @@
 
 /// <reference path="./manifest.d.ts" />
 import type { InferData, InferVariants } from '@adonisjs/core/types/transformers'
-import type { InferSharedProps } from '@adonisjs/inertia/types'
+import type { InferSharedProps, InferFlashData } from '@adonisjs/inertia/types'
 import type AdminArticlesAdminArticleIndexTransformer from '#app/admin/articles/transformers/admin_article_index_transformer'
 import type AdminRedirectsAdminRedirectIndexTransformer from '#app/admin/redirects/transformers/admin_redirect_index_transformer'
 import type AdminTaxonomiesAdminTaxonomyIndexTransformer from '#app/admin/taxonomies/transformers/admin_taxonomy_index_transformer'
@@ -78,4 +78,5 @@ export namespace Data {
     }
   }
   export type SharedProps = InferSharedProps<InertiaMiddleware>
+  export type FlashMessages = InferFlashData<InertiaMiddleware>
 }
