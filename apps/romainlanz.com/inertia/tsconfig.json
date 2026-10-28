@@ -2,7 +2,6 @@
 	"extends": "@adonisjs/tsconfig/tsconfig.client.json",
 	"compilerOptions": {
 		"jsxImportSource": "vue",
-		"baseUrl": ".",
 		"module": "ESNext",
 		"paths": {
 			"~/*": ["./*"],

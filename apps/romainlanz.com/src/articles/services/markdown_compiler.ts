@@ -11,7 +11,6 @@ import { createMarkdownProcessor } from '../../../shared/markdown/processor.js';
 export class MarkdownCompiler {
 	static #processor = createMarkdownProcessor({
 		configureRehype(processor) {
-			// @ts-expect-error - Shiki's highlighter type is narrower than rehype's generic plugin contract.
 			processor.use(rehypeShikiFromHighlighter, shikiHighlighter, {
 				themes: { light: 'rose-pine-dawn', dark: 'rose-pine-dawn' },
 				transformers: [

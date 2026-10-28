@@ -6,6 +6,7 @@
 		"jsx": "preserve",
 		"jsxImportSource": "vue",
 		"lib": ["ES2021", "DOM", "DOM.Iterable"],
+		"types": ["vite/client"],
 		"moduleDetection": "force",
 		"useDefineForClassFields": true,
 		"module": "ESNext",
