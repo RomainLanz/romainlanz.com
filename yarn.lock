@@ -4557,7 +4557,7 @@ __metadata:
     "@vitejs/plugin-vue-jsx": "npm:^5.1.6"
     storybook: "npm:^10.6.3"
     tailwind-merge: "npm:^3.7.0"
-    tailwind-variants: "npm:^3.3.1"
+    tailwind-variants: "npm:^4.0.1"
     tailwindcss: "catalog:"
     typescript: "catalog:"
     vite: "catalog:"
@@ -14792,18 +14792,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwind-variants@npm:^3.3.1":
-  version: 3.3.1
-  resolution: "tailwind-variants@npm:3.3.1"
-  peerDependencies:
-    tailwind-merge: ">=3.0.0"
-    tailwindcss: "*"
-  peerDependenciesMeta:
-    tailwind-merge:
-      optional: true
-    tailwindcss:
-      optional: true
-  checksum: 10c0/dd0255f545b1f395540ec694de27df4c195bd06a2d38616a27d6fbe10273fa7f1f59a50bd3276b10db7275d18fcf386975d31e16046e1aa831223cbd361aa1b2
+"tailwind-variants@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "tailwind-variants@npm:4.0.1"
+  checksum: 10c0/06f27dca9cacdb6a4db4927df0ceec2bde605cad743cc2f7627823142363c11b23da7030d61545acb1c1477e612ef22bf6f76e93354467dbcae199d6cd4085c5
   languageName: node
   linkType: hard
 
