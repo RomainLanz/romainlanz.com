@@ -25,17 +25,21 @@ if [[ ! -x "$mise_bin" ]]; then
 fi
 
 profile_marker="# romainlanz.com mise environment"
-if ! grep -Fqx "$profile_marker" "$HOME/.bash_profile" 2>/dev/null; then
-	cat >> "$HOME/.bash_profile" <<EOF
-
+# Keep the repository hook after the orb's own environment initialization.
+if [[ -f "$HOME/.bash_profile" ]]; then
+	sed -i "/^$profile_marker$/,/^fi$/d" "$HOME/.bash_profile"
+fi
+cat >> "$HOME/.bash_profile" <<EOF
 $profile_marker
 if [[ "\${PWD:-}" == "$repo_root" && -x "$mise_bin" ]]; then
-	eval "\$("$mise_bin" activate bash)"
+	eval "\$("$mise_bin" env --shell bash)"
 fi
 EOF
-fi
 
 "$mise_bin" install
+if ! "$mise_bin" exec -- corepack --version >/dev/null 2>&1; then
+	"$mise_bin" exec -- npm install -g corepack
+fi
 "$mise_bin" exec -- corepack enable
 "$mise_bin" exec -- yarn install --immutable
 
@@ -60,6 +64,7 @@ if ! command -v mailpit >/dev/null 2>&1; then
 fi
 
 echo "==> Configuring PostgreSQL"
+. /etc/os-release
 pgdg_keyring=/usr/share/keyrings/postgresql-pgdg.asc
 pgdg_source=/etc/apt/sources.list.d/postgresql-pgdg.sources
 pgdg_key_fingerprint=B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
@@ -96,7 +101,7 @@ fi
 cat > "$pgdg_tmp_dir/postgresql-pgdg.sources" <<EOF
 Types: deb
 URIs: https://apt.postgresql.org/pub/repos/apt
-Suites: bookworm-pgdg
+Suites: ${VERSION_CODENAME}-pgdg
 Architectures: $(dpkg --print-architecture)
 Components: main
 Signed-By: $pgdg_keyring
