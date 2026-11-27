@@ -50,24 +50,24 @@
 		"typecheck": "vue-tsc -b"
 	},
 	"dependencies": {
-		"@ark-ui/vue": "5.37.2",
+		"@ark-ui/vue": "5.40.1",
 		"@inertiajs/vue3": "catalog:",
-		"tailwind-merge": "^3.7.0",
+		"tailwind-merge": "^3.7.1",
 		"tailwind-variants": "^3.3.1",
 		"vue": "catalog:"
 	},
 	"devDependencies": {
 		"@chromatic-com/storybook": "^5.6.0",
-		"@storybook/vue3": "^10.6.3",
-		"@storybook/vue3-vite": "^10.6.3",
+		"@storybook/vue3": "^10.6.9",
+		"@storybook/vue3-vite": "^10.6.9",
 		"@tailwindcss/vite": "catalog:",
 		"@vitejs/plugin-vue": "catalog:",
 		"@vitejs/plugin-vue-jsx": "^5.1.6",
-		"storybook": "^10.6.3",
+		"storybook": "^10.6.9",
 		"tailwindcss": "catalog:",
 		"typescript": "catalog:",
 		"vite": "catalog:",
-		"vue-tsc": "^3.3.13"
+		"vue-tsc": "^3.3.14"
 	},
 	"volta": {
 		"extends": "../../package.json"
